@@ -2,7 +2,7 @@
 <opml version="2.0">
 	<head>
 		<title>index.md</title>
-		<dateModified>Sat, 08 Mar 2025 20:42:18 GMT</dateModified>
+		<dateModified>Sat, 08 Mar 2025 20:44:42 GMT</dateModified>
 		<expansionState></expansionState>
 		<vertScrollState>1</vertScrollState>
 		<windowTop>300</windowTop>
@@ -12,6 +12,7 @@
 		</head>
 	<body created="Sat, 08 Mar 2025 20:01:28 GMT" text="index.md">
 		<outline created="Sat, 08 Mar 2025 20:01:36 GMT" text="# discuss.userland.com">
+			<outline created="Sat, 08 Mar 2025 20:43:50 GMT" text="This is a restoration of discuss.userland.com, the first discussion group in the blogosphere. "></outline>
 			<outline text="This discussion group was live from &lt;a href=&quot;msg000001.html&quot;&gt;October 5, 1998 &lt;/a&gt;to &lt;a href=&quot;msg021856.html&quot;&gt;September 29, 2000&lt;/a&gt;. "></outline>
 			<outline text="The first message is &lt;a href=&quot;msg000001.html&quot;&gt;msg000001.html&lt;/a&gt;, and from there you can get to all the other messages by clicking on links."></outline>
 			<outline text="You'll see a lot of the early bloggers writing here, before their blogs started. "></outline>
