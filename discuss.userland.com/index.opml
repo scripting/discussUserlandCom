@@ -2,7 +2,7 @@
 <opml version="2.0">
 	<head>
 		<title>index.md</title>
-		<dateModified>Sat, 08 Mar 2025 20:40:26 GMT</dateModified>
+		<dateModified>Sat, 08 Mar 2025 20:42:18 GMT</dateModified>
 		<expansionState></expansionState>
 		<vertScrollState>1</vertScrollState>
 		<windowTop>300</windowTop>
@@ -12,18 +12,6 @@
 		</head>
 	<body created="Sat, 08 Mar 2025 20:01:28 GMT" text="index.md">
 		<outline created="Sat, 08 Mar 2025 20:01:36 GMT" text="# discuss.userland.com">
-			<outline created="Sat, 08 Mar 2025 20:25:39 GMT" text="This discussion group was live from &lt;a href=&quot;msg000001.html&quot;&gt;October 5, 1998 &lt;/a&gt;to &lt;a href=&quot;msg021856.html&quot;&gt;September 29, 2000&lt;/a&gt;. "></outline>
-			<outline created="Sat, 08 Mar 2025 20:01:47 GMT" text="A restoration of &lt;a href=&quot;https://discuss.userland.com/&quot;&gt;discuss.userland.com&lt;/a&gt;, from 27 years in the future."></outline>
-			<outline created="Sat, 08 Mar 2025 20:02:07 GMT" text="The first message in discuss.userland.com is &lt;a href=&quot;msg000001.html&quot;&gt;msg000001.html&lt;/a&gt;, and from there you can get to all the other messages."></outline>
-			<outline created="Sat, 08 Mar 2025 20:02:35 GMT" text="You'll see a lot of the early bloggers writing here, before their blogs started. "></outline>
-			<outline created="Sat, 08 Mar 2025 20:03:02 GMT" text="Lots of possibilities for little projects, like looking for historic posts, where ideas that became something were first discussed. Or all the posts from someone who became an influencer or super rich. Maybe that'll come later. For now I wanted to get this on the open web so it can be indexed by search engines and preserved by archive.org. "></outline>
-			<outline created="Sat, 08 Mar 2025 20:03:55 GMT" text="The content for this site is hosted on GitHub, so that's another backup. :-)"></outline>
-			<outline created="Sat, 08 Mar 2025 20:04:13 GMT" text="Dave Winer, March 8, 2025"></outline>
-			</outline>
-		<outline text="What is this?">
-			<outline text="A restoration of &lt;a href=&quot;https://discuss.userland.com/&quot;&gt;discuss.userland.com&lt;/a&gt;, from 27 years in the future."></outline>
-			</outline>
-		<outline text="About discuss.userland.com">
 			<outline text="This discussion group was live from &lt;a href=&quot;msg000001.html&quot;&gt;October 5, 1998 &lt;/a&gt;to &lt;a href=&quot;msg021856.html&quot;&gt;September 29, 2000&lt;/a&gt;. "></outline>
 			<outline text="The first message is &lt;a href=&quot;msg000001.html&quot;&gt;msg000001.html&lt;/a&gt;, and from there you can get to all the other messages by clicking on links."></outline>
 			<outline text="You'll see a lot of the early bloggers writing here, before their blogs started. "></outline>
