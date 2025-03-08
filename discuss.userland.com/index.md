@@ -2,7 +2,7 @@
 
 This is a restoration of discuss.userland.com, the first discussion group in the blogosphere. 
 
-This discussion group was live from <a href="msg000001.html">October 5, 1998 </a>to <a href="msg021856.html">September 29, 2000</a>. 
+It was live from <a href="msg000001.html">October 5, 1998 </a>to <a href="msg021856.html">September 29, 2000</a>. 
 
 The first message is <a href="msg000001.html">msg000001.html</a>, and from there you can get to all the other messages by clicking on links.
 
