@@ -1,0 +1,56 @@
+<html>	<head>		<title>Join and Split outliner commands</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Join and Split outliner commands</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>4/10/1999; 2:19:29 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004939.html">Join and Split outliner commands</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4939</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004938.html">4938</a> / <a href="msg004940.html">4940</a></td></tr>				</table>			<br>If you're using Frontier 6's wrapping headlines outliner much, you've probably wished for Join and Split commands.<p>
+
+If you're not familiar with the terms, Join means to combine outline lines, Split means to separate one line into two lines.<p>
+
+Below are scripts I've added to my custom menu -- at user.menus.customMenu -- that give me these features.<p>
+
+You should be able to copy-and-paste these scripts right into Frontier.<p>
+
+If you have any questions about editing menus in Frontier, see this page: <a href="http://frontier.userland.com/tree$2.5.4.7#menus">http://frontier.userland.com/tree$2.5.4.7#menus</a><p>
+
+<b>Join</b><p>
+
+Join works like this: if you select a line, it will add the line right below it to the selected line. (Note: a better Join command would join several lines together, but this just joins two lines.)<p>
+
+Here's the script:<p>
+
+<pre>
+local (w = window.frontMost ());
+local (okTypes = &#123;scriptType, outlineType});
+if okTypes contains window.getType (w) &#123;
+	local (s1 = op.getLineText ());
+	if not op.go (down, 1) &#123;
+		return (true)};
+	local (s2 = op.getLineText ());
+	if op.go (right, 1) &#123; //are there subheads?
+		op.go (left, 1);
+		op.go (up, 1);
+		return (false)};
+	local (s = s1 + " " + s2);
+	op.deleteLine ();
+	op.setLineText (s)}
+</pre><p>
+
+<b>Split</b><p>
+
+If you place your cursor somewhere inside a headline, then choose Split, then the single line will become two lines, split where your cursor was.<p>
+
+Here's the script:<p>
+
+<pre>
+local (w = window.frontMost ());
+local (okTypes = &#123;scriptType, outlineType});
+if okTypes contains window.getType (w) &#123;
+	local (s = op.getLineText ());
+	wp.setTextMode (true);
+	local (start, end);
+	wp.getselect (@start, @end);
+	local (s1 = string.mid (s, 1, start));
+	local (s2 = string.mid (s, start + 1, infinity));
+	if s2 beginsWith " " &#123;
+		s2 = string.delete (s2, 1, 1)};
+	op.setLineText (s1);
+	op.insert (s2, down);
+	op.go (up, 1)}
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004952.html">Re: Join and Split outliner commands</a>, Oliver Wrede, 4/12/1999; 1:42:42 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

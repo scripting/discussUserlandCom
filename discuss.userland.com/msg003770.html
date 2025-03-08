@@ -1,0 +1,19 @@
+<html>	<head>		<title>Asynchronous XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Asynchronous XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>3/7/1999; 2:49:08 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003770.html">Asynchronous XML-RPC</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3770</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003769.html">3769</a> / <a href="msg003771.html">3771</a></td></tr>				</table>			<br>Here's a new version of betty.rpc.client that supports asynchronous calling.<p>
+
+This is the solution to the problem of how to send bits of information between various UserLand servers, so indexing will work cross-servers, and membership info will follow the user from server to server, whether it's in California or Seattle. It's also going to help us set up mirrors.<p>
+
+We use betty.rpc.client, but call it with three new optional parameters. We do it in such a way that the client keeps calling until it gets thru to the server. The calls accumulate in a queue that's watch by an agent. Every second it checks the queue and tries one call. If it fails it logically moves to the end of the queue. The next second it tries the next one.<p>
+
+Here are the three new params for betty.rpc.client:<ol><p>
+
+<li>flAsynch, defaults to false, if true it's an asynchronous call.<p>
+
+<li>adrCallback, defaults to nil, if non-nil, it's the routine we call when we connect. It takes a single parameter, the address of a table describing the RPC request, including the value returned by the server. The routine pointed to by this address must not be local to the script calling betty.rpc.client because it won't be around when the actual RPC call is made. It must be in Frontier.root or in a guest database.<p>
+
+<li>extraInfo, defaults to nil, it's any kind of object, it's available to the callback to help it interpret the response. 
+</ol>
+</li></li></li><p>
+
+Note the enclosure is system.verbs.builtins.betty.rpc, because there's a new script betty.rpc.agent that does the background monitoring. A call to it is installed in system.agents by the betty.rpc.client, if it's not present, so it's self-initializing.<p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003771.html">Re: Asynchronous XML-RPC</a>, Heath Tanner, 3/7/1999; 3:09:08 PM<p><li>&nbsp;<a href="msg003774.html">Re: Asynchronous XML-RPC</a>, Matt Daw, 3/7/1999; 4:20:23 PM<p><li>&nbsp;<a href="msg003777.html">Re: Asynchronous XML-RPC</a>, Andrew Duncan, 3/7/1999; 6:36:26 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

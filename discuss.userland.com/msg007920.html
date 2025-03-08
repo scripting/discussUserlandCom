@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Magic 8032 bytes?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Magic 8032 bytes?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/29/1999; 9:34:43 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007837.html">Magic 8032 bytes?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7920 (In response to <a href="msg007913.html">7913</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007919.html">7919</a> / <a href="msg007921.html">7921</a></td></tr>				</table>			<br><i>I _think_ I've only seen this from windows servers but I may be wrong.</i><p>
+
+That's also what I have seen so far. However, there seem to be other problems on Mac OS.<p>
+
+<i>At one point I think I had this tracked down to windows reporting that the tcp connection had a -10000 series error.</i><p>
+
+It's a -10035 error. It seems to occur when tcp.writestream tries to write to the socket before the data that was written on the last iteration of the write loop hasn't yet been fully delivered to the network.<p>
+
+<i>It would be interesting to see if adjusting the chunksize changed this.</i><p>
+
+According to the tests I ran, reducing the chunksize improves the situation only slightly. Still digging...
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:06 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

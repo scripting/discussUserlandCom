@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Help please: XML RPC, CGI, CORBA/IIOP</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Help please: XML RPC, CGI, CORBA/IIOP</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>joubin</td></tr>				<tr><td><b>Posted:</b></td><td>2/6/1999; 7:30:01 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002718.html">Help please: XML RPC, CGI, CORBA/IIOP</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2732 (In response to <a href="msg002718.html">2718</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002731.html">2731</a> / <a href="msg002733.html">2733</a></td></tr>				</table>			<br><I>I have a XML message which contains remote procedure name and parameters [...]. Suppose the procedure is implemented by C++ or Java on server side, how can I call this procedure from the point after the XML parser [... ?]</I><p>
+
+If you simply want to provide server-side support for a given qualified procedure name (e.g. examples.getStateName), then if I may suggest (for Java, and analogously in C++):<p>
+
+Have your server expose a <I>foo.xmlrpc.Registry</I> interface which minimally provides a <pre>void registerProcedureHandler (String procedureName, ProcedureHandler handler) throws ...</pre> method, where in tandem you have defined <I>foo.xmlrpc.ProcedureHandler</I> which minimally provides <pre>Object callProcedure (String procedureName, Object[] args) throws ...</pre><p>
+
+Your implementation strategy using the above 2 interfaces is fairly  open, anywhere from creating a class/procedureName up to using Reflection in a <I>single generic</I> implemetation of <I>foo.xmlrpc.ProcedureHandler</I> which is passed Object/procedurName tuples as needed.  The latter is flexible, prevents code bloat, but will result in slower response times.  <p>
+
+[Note that in the latter case the same object could also implement both <I>foo.xmlrpc.Registry</I> and <i>foo.xmlrpc.ProcedureHandler</I>.]<p>
+
+However:  <p>
+
+If you want to call a <I>method</I> on a <I>specific instance of an object</I> (e.g. <I>myRemoteObject</I>.getStateName(), you'll need (minimally) one additional layer to establish <I>remote reference bindings.</I><p>
+
+This layer is also a prerequisite to providing the functionality you seek in your q(3) , but keep in mind that you will <I>further</I> need to repartition the protocol (through a transport-protocol-bridge server, i.e. a proxy) to allow for selective routing of the messages through a <I>transport</I> mechanism <I>other than</I> xml-rpc's HTTP POST /RPC2.<p>
+
+The above <i>certainly can</I> be implemented on top of xml-rpc, though, at this point, so much of the interconnectivity (i.e. the "plumbing"), not to mention the <I>Object</I> serializations, is happening above xml-rpc (thus <I>external to the protocol and delegated to the various remote procedures</I>, and the data <base64>'d to <I>obscurity</I> in the intracacies of the implemention) as to pose the question that you have asked:  <I>why use xml-rpc?</I><p>
+
+That's a good question.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:47 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

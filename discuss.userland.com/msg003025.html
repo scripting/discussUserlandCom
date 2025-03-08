@@ -1,0 +1,16 @@
+<html>	<head>		<title>mainResponder.members.getProfilePart</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>mainResponder.members.getProfilePart</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/18/1999; 10:32:34 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002757.html">Membership RPC handlers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3025 (In response to <a href="msg003017.html">3017</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003024.html">3024</a> / <a href="msg003026.html">3026</a></td></tr>				</table>			<br>OK, I added this RPC call, to mainResponder.members, it allows you to get a portion of a user's profile using a dot-delimited path from the top level of the user's profile structure. Here's a bit of sample code that returns the hitcount for the user<p>
+
+<pre>
+local (params = &#123;"mailToTheFutureMembers", "dave@userland.com", user.prefs.mttfPassword, "hitcount"});
+dialog.alert (betty.rpc.client ("www.mailtothefuture.com", 80, "mainResponder.members.getProfilePart", @params))
+</pre><p>
+
+You can get whole structures using this, for example, this gets the entire message queue:<p>
+
+<pre>
+local (params = &#123;"mailToTheFutureMembers", "dave@userland.com", user.prefs.mttfPassword, "mailToTheFuture.queue"});
+scratchpad.result = betty.rpc.client ("www.mailtothefuture.com", 80, "mainResponder.members.getProfilePart", @params)
+</pre><p>
+
+This creates the need for mainResponder.members.setProfilePart which I'll do next.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

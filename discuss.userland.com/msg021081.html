@@ -1,0 +1,20 @@
+<html>	<head>		<title>Secure password storage</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Secure password storage</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>9/9/2000; 1:44:30 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg021044.html">Biggest barrier to building a community in Manila</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21081 (In response to <a href="msg021065.html">21065</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021080.html">21080</a> / <a href="msg021082.html">21082</a></td></tr>				</table>			<br><i>Oh geez. Of course the person with access to the local machine has access to the passwords. Jeremy, they have to be stored somewhere.</i><p>
+
+Well, are you concerned about malicious administrators, or about somebody using Back Orifice to break into your server and steal the entire password database?<p>
+
+If you're concerned about the former, there's no good solution. If you're concerned about the later, there's a really cool trick for frustrating the attackers.<p>
+
+The basic alogrithm is simple:<p>
+
+<ul>
+<li>Encrypt all the passwords in your database using a one-way encryption function.</li>
+<li>When the user types in a password, encrypt it and compare it against the database.</li>
+</ul><p>
+
+Now, if somebody steals your database, they're forced to encrypt the entire dictionary one word at a time and look for matches. You can make their life <i>really</i> difficult in several other ways (do a web search for "password salt" to get an idea).<p>
+
+Of course, if you're not worried about database theft, then these techniques are useless.<p>
+
+Cheers,<br>
+Eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg021087.html">Re: Secure password storage</a>, Eric Soroos, 9/9/2000; 5:30:14 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

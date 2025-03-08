@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: 36 .Com Registrars?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: 36 .Com Registrars?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jacob Levy</td></tr>				<tr><td><b>Posted:</b></td><td>5/2/1999; 9:45:41 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005534.html">36 .Com Registrars?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5545 (In response to <a href="msg005542.html">5542</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005544.html">5544</a> / <a href="msg005546.html">5546</a></td></tr>				</table>			<br>OK, here's a possible scheme:<p>
+
+Everyone can be a DNS registrar. You have to be registered with a govt authority to assure that you're legit and will be in business for the long haul, but that's all.<p>
+
+There's any number of semaphore servers that regulate the reservations for some slice of the name space. For simplicity and without loss of generality, let's pick 36 as the number of semaphore servers. Their job is to:<p>
+
+1) persistently and authoritatively answer whether a domain 'foo.com' is currently reserved, 
+2) to create name records and 
+3) to take name reservations. <p>
+
+The assignment of slices of the name space is (for simplicity's sake) static, that is, it is always possible to figure out given a requested domain name who is its semaphore server.<p>
+
+Whenever TheBestDomainService.com wants to register a domain, it reserves the name with the correct semaphore server for that name. Then, when the domain has been paid for TheBestDomainService tells the semaphore server to inject the record for that domain name into the name space. If the reservation cannot be completed e.g. because the requester didn't pay, TheBestDomainService tells the semaphore server to forget the reservation.<p>
+
+There are thus three stages in which a name can be:<p>
+
+1) available
+2) reserved
+3) taken<p>
+
+Comments?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005548.html">Re: 36 .Com Registrars?</a>, Dave Winer, 5/3/1999; 5:30:52 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:42 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

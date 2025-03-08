@@ -1,0 +1,14 @@
+<html>	<head>		<title>Text handling in topics...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Text handling in topics...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Andreas Hellström</td></tr>				<tr><td><b>Posted:</b></td><td>9/9/1999; 6:44:53 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010811.html">Text handling in topics...</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10811</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010810.html">10810</a> / <a href="msg010812.html">10812</a></td></tr>				</table>			<br>My last post to this discussuin group was rather cryptic since the text was processed in some way. Two points/questions/suggestions:<p>
+
+(1) Carriage returns; when I convert input text to html text, I usually first convert all double returns (that is, cr + cr) to metatag for paragraph (P). Then I convert all single returns to (BR). This way, code examples like this will be shown correctly (and not all on one line):<p>
+
+newList=true
+listIndex=1
+for (i=1 to 200)
+   newList[listIndex] = &#123; someValue1, someValue2 &#125;
+   listIndex++<p>
+
+(2) In the above code fragment, I init newList to an empty list, but the 'brackets' (indicating an empty list) will show up as 'true'. Any macro processing responsible for this, I beleive?!? Should a quote them to get this to work (like this &#123;&#125;; yes, it did work:-).<p>
+
+Andreas Hellstr&ouml;m
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

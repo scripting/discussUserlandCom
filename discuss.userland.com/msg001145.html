@@ -1,0 +1,24 @@
+<html>	<head>		<title>Re: Can MSIE talk COM?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Can MSIE talk COM?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Michael Winser</td></tr>				<tr><td><b>Posted:</b></td><td>12/12/1998; 8:11:36 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001127.html">Can MSIE talk COM?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1145 (In response to <a href="msg001127.html">1127</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001144.html">1144</a> / <a href="msg001147.html">1147</a></td></tr>				</table>			<br>This is a very interesting question.  For those who don't know, I am one of the many developers who work on IE.<p>
+
+If the traditionnal model of web pages (where links cause navigation to new locations) is desired then I don't think HTTP is terribly inefficient and newer versions of the protocol go a long way to addressing the more glaring problems.  None of these problems (high latency slows down multiple connects and requests) affects a local connect at all.<p>
+
+If the web model is not important and using the browser as an application user interface is the goal then there are definitely ways that content can be injected into the browser (actually the current document) via COM.  The DOM provides extensive support for creating and manipulating elements both in and out of the primary document.  You can also paste HTML text directly into the document.<p>
+
+The best place to start is to look at the IHTMLDocument interface.  This interface is not exposed from the appliation window or even the WebBrowserOC (the ActiveX control that wraps the browser) but you could write a small control or binary behavior that would initiate the connection to the server.<p>
+
+Of course this interface is what we call dual so once the connection is established, all document manipulation can be done using a scripting language.  Depending on Frontier's support for IDispatch this may be transparent in userscript or may require some wrapping.<p>
+
+It should be obvious from the above that the IHTMLDocument interface is actually the window.document object from the browser scripting object model.<p>
+
+While you're exploring these ideas, I strongly recommend you take a look at the HTA part of IE 5.  This is a special host for the core browser that is specifically designed for building applications out of HTML.  It doesn't impose nearly as many security constraints on the client script (which is effectively how you would be operating).<p>
+
+Someone else suggested writing a special com: pluggable protocol.  I really doubt this will yield any performance benefits and won't change the model at all.<p>
+
+Now it comes down to what you want to do.  It isn't at all clear to me calling APIs to generate an HTML document is significantly easier than spewing out HTML tags.  <p>
+
+There is little doubt that pasting HTML into an existing document is certainly more efficient than navigating to a new document (regardless of the protocol).  The text will be parsed but we won't have to tear down the old document and rebuild a new one.  However, if each operation effectively replaces all the current content, all you have saved is the time spent sucking bits through a TCP/IP socket.  Hardly worth the effort.<p>
+
+I hope this helps,<p>
+
+Michael
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001152.html">Re: Can MSIE talk COM?</a>, Dave Winer, 12/13/1998; 7:46:23 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

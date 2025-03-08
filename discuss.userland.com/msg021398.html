@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: expansionState</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: expansionState</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>9/16/2000; 12:10:40 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg021361.html">Outline XML files need a name</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21398 (In response to <a href="msg021394.html">21394</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021397.html">21397</a> / <a href="msg021399.html">21399</a></td></tr>				</table>			<br><I>I don't know if it's Frontier-centric or not, or it may be just that we have an outliner, and that it would be simple in any outliner, just not simple in a dynamic application that's generating OPML output.</I><p>
+
+I totally agree, it's easy to serialize and deserialize the expansionState for array-based and object-graph based in-memory outline structures.<p>
+
+I hope you agree that making it simple for a "dynamic application that's generating OPML output" to present outlines smartly is going to be important to the nodeType/worldoutline vision.<p>
+
+IMHO it'd be important for the usability of a dynamic nodeType application to be present outlines with an intelligent initial expansion state.<p>
+
+<I>This approach of course would add overhead to the file, a fair amount.</I><p>
+
+outline elements with attributes for use in a serious nodeType application are going to be pretty fat to begin with -- in that case an "isExpanded" attribute won't add too much overhead.<p>
+
+Hmm, to keep the overhead low you could make the name of the attribute really short, like "exp" or something. :-)<p>
+
+<I>And luckily it can be addressed later, when we have more of an installed base and more experience with how people are using the format.</I><p>
+
+... and how people aren't using the format.  Agreed, time will tell.<p>
+
+Jim
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg021404.html">Re: expansionState</a>, Brad Pettit, 9/16/2000; 4:16:09 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

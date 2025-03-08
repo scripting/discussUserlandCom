@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Re: Re: Glossaries on Nirvana</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Re: Re: Glossaries on Nirvana</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>10/18/1998; 8:25:35 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000003.html">Suggestion: Explore the Calendar</a></td></tr>				<tr><td><b>Msg #:</b></td><td>252 (In response to <a href="msg000251.html">251</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000251.html">251</a> / <a href="msg000253.html">253</a></td></tr>				</table>			<br>Dave,<p>
+
+Check out <a href="http://www.ceiss.org/">http://www.ceiss.org/</a> -- specifically, the 'related information' box in the side-bar.  When you click on one of the keywords, it brings you to a page that shows all of the pages (titles, descriptions and urls) associated with that keyword.  You can click on a title to go to that page.  Note that a traditional indexing/crawling search engine is *not* involved.  It's pure database lookups and associations.<p>
+
+In the finalFilter, I associate the URL of the page with all of the words in #metaKeywords.  When you want to know what's related to a keyword, it finds all the URLs that have that word in the #metaKeywords (it's stored in a database).<p>
+
+I haven't tried implementing your search engine for my site yet, but if it isn't looking at metaKeywords and metaDescription when it indexes, it should be.  And all stories/articles/etc. should have appropriate metaKeywords and metaDescriptions.<p>
+
+Without that kind of support info to go by, search engines aren't going to be as accurate.<p>
+
+Jim<p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:45:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

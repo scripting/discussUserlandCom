@@ -1,0 +1,6 @@
+<html>	<head>		<title>IIS / ISAPI and Basic Authentication</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>IIS / ISAPI and Basic Authentication</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Carter-Tod</td></tr>				<tr><td><b>Posted:</b></td><td>3/17/1999; 8:11:09 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004206.html">IIS / ISAPI and Basic Authentication</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4206</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004205.html">4205</a> / <a href="msg004207.html">4207</a></td></tr>				</table>			<br>Came across a problem with running Frontier 5.1.6 behind IIS using the ISAPI filters:  If you have checked the Basic Authentication option in the Properties -> Security tab for your default website in MMC, authentication headers don't get through to Frontier (as far as I can tell).<p>
+
+The solution is to uncheck it for the whole website (in MMC) and use it only on  those sub-sections that require it.<p>
+
+David
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:50 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

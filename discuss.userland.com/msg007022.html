@@ -1,0 +1,49 @@
+<html>	<head>		<title>Re: Web based editing tools</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Web based editing tools</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/4/1999; 4:21:04 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007004.html">Web based editing tools</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7022 (In response to <a href="msg007019.html">7019</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007021.html">7021</a> / <a href="msg007023.html">7023</a></td></tr>				</table>			<br><i>I guess I think the contents of the table should be invisible, if it is in a table designated for #renderTableWith.</i><p>
+
+Okay, but how does mainResponder know whether a table is designated for #renderTableWith?<p>
+
+I believe what you are saying is this: If you have a table structure like the following, you only want table1 and table2 to be accessible as pages to the outside world, while the subitem objects are private.<p>
+
+<pre>mySite
+    #renderTableWith  "someTableRenderer"
+    table1
+        subitem1
+        subitem2
+    table2
+        subitem1
+        subitem2
+</pre><p>
+
+The rule would be that if a table is on the same level as a #renderTableWith directive, then it is rendered thru a table renderer.  Anything contained in such a table is private.<p>
+
+Unfortunately, it's not so simple. Here's how a basic news site structure looks:<p>
+
+<pre>scriptingNews
+    #prefs
+        renderTableWith "scriptingNewsRenderer"
+    default
+    1999
+        06
+            04
+                discussionRoot "discuss"
+                msgnum         7777
+</pre><p>
+
+There's no #renderTableWith directive in the 1999 table, nor in any of its sub-tables. Still, if you request <a href="http://news.userland.com/1999/06/04">http://news.userland.com/1999/06/04</a>, the scriptingNews.1999.06.04 table is rendered by the scriptingNewsRenderer.<p>
+
+What do you think should the rule be for mainResponder to decide whether an object is private or should be rendered thru the specified table renderer? Consider the following URLs:<p>
+
+<a href="http://news.userland.com/1999/06/04/msgnum">http://news.userland.com/1999/06/04/msgnum</a><p>
+
+<a href="http://news.userland.com/1999/06/04">http://news.userland.com/1999/06/04</a><p>
+
+<a href="http://news.userland.com/1999/06">http://news.userland.com/1999/06</a><p>
+
+<a href="http://news.userland.com/1999">http://news.userland.com/1999</a><p>
+
+<a href="http://news.userland.com/">http://news.userland.com/</a><p>
+
+<i>Can someone think of a time you would want sub-table items to be renderable?</i><p>
+
+The problem is to reliably identify those sub-table items!
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007026.html">Re: Web based editing tools</a>, Dave Winer, 6/4/1999; 5:54:28 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

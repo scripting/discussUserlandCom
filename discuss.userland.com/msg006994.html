@@ -1,0 +1,96 @@
+<html>	<head>		<title>Re: Calendar and Glossary-Errors</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Calendar and Glossary-Errors</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/3/1999; 2:38:25 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006986.html">Calendar and Glossary-Errors</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6994 (In response to <a href="msg006986.html">6986</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006993.html">6993</a> / <a href="msg006995.html">6995</a></td></tr>				</table>			<br><i>having installed the most recent version of the mainresponder.root i have to face now wrong rendered glossary-links.</i><p>
+
+It's not the rendering here that is the problem. If you check the HTML source code, you will see that the links do make sense.<p>
+
+The problem actually has to do with how mainResponder.respond resolves paths to tables that are rendered via a table render. The daily entries in a news site are just a particular example for this.<p>
+
+Here's a message I posted to our mailing list about this, describing an experimental fix for this problem:<p>
+
+<p>
+
+<pre>Date: Wed, 14 Apr 1999 03:43:51 +0200
+From: Andre Radke <<a href="mailto:andre@userland.com">andre@userland.com</a>>
+Subject: mainResponder redirection bug
+ 
+There is a bug in mainResponder.respond that leads to the browser being
+erroneously redirected in certain circumstances. This bug was first
+mentioned in the current "curious behavior of newsy story links" thread on
+this list.
+ 
+Here's a description of the problem:
+ 
+Suppose you point your browser to the following URL:
+ 
+    <a href="http://news.userland.com/1999/04/01">http://news.userland.com/1999/04/01</a>
+ 
+On the server side, this URL corresponds to an object at 
+scriptingNews.["1999"].["04"].["01"] in news.root. This object is a table.
+It is rendered into a page by a special table renderer. So, the above URL
+points to a page - not a directory.
+ 
+Still, when going to that URL, mainResponder.respond will redirect you to
+ 
+    <a href="http://news.userland.com/1999/04/01/">http://news.userland.com/1999/04/01/</a>
+ 
+Note the trailing slash. This is the URL for a directory. But the object
+requested originally is not a directory - it's a page. As a consequence of
+the additional slash, relative links created thru the glossary mechanism to
+other pages in the site will not work. (This is why at first this bug was
+erroneously attributed to the glossPatcher.)
+ 
+Now, point your browser to the following URL:
+ 
+    <a href="http://news.userland.com/1999/01/01">http://news.userland.com/1999/01/01</a>
+ 
+On the server side, this URL corresponds to an object at
+scriptingNews.["1999"].["01"].["01"] which is an outline. No redirection
+occurs in this case - nor should it.
+ 
+Logically, these two objects live at the same level of the object
+hierarchy. The way mainResponder.respond treated them so far, they appear
+to the browser as living on different levels - which is why relative links
+break...
+ 
+We have come up with a fix that will keep mainResponder.respond from
+erroneously redirecting requests for table objects that are rendered via a
+table renderer. If you want to help test this fix, follow these steps:
+ 
+1) Open mainResponder.respond in mainResponder.root
+ 
+2) Choose Collapse Everything from the Outliner menu
+ 
+3) Expand the "on respond (adrparamtable, fldebug=false)" handler
+ 
+4) Expand the "on core ()" handler
+ 
+5) Expand the "on serveTable ()" handler
+ 
+6) Comment out the first line that reads:
+ 
+    pathMustEndWithSlash () //possibly redirect
+ 
+7) Expand the "for item in defaults" block
+ 
+8) Expand the "if defined (adritem^)" block
+ 
+9) Inside that block, before the first line which reads "gatherattributes
+(adrtable)", insert the following statement :
+ 
+    pathMustEndWithSlash () //possibly redirect
+ 
+10) Expand the "if flnotfound" block
+ 
+11) Inside the "if flnotfound" block, expand the "else" block
+ 
+12) Right above the line
+ 
+    adrparamtable^.responseBody = tableToHTML (nomad)
+     
+add a line with the contents
+ 
+    pathMustEndWithSlash () //possibly redirect
+ 
+If you decide to test this bug fix on your machine, please let us know how
+it goes.
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007006.html">Re: Calendar and Glossary-Errors</a>, Tom Fuerstner, 6/4/1999; 5:40:00 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

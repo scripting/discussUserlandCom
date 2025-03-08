@@ -1,0 +1,14 @@
+<html>	<head>		<title>Security of MTTF and BBS passwords</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Security of MTTF and BBS passwords</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jon Stevens</td></tr>				<tr><td><b>Posted:</b></td><td>2/10/1999; 7:35:48 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002691.html">A new toy!</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2819 (In response to <a href="msg002691.html">2691</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002817.html">2817</a> / <a href="msg002820.html">2820</a></td></tr>				</table>			<br>Dave,<p>
+
+Is there some reason why you are not encrypting the password that is set in the cookie for your various services like MTTF and the BBS (I'm assuming that you are re-using the same code here)?<p>
+
+An easy way to do this and provide at least a minimal amount of security would be to create an MD5 hash of the password and send that back in the cookie. When you need to validate the password, simply re-hash the value in the cookie with the value in your database. You can make that almost impossible to spoof by adding a "secretkeyword" string to the original string before you hash it that nobody knows.<p>
+
+Or even better, only put a random portion of the hash into the cookie. Keep the other half of it and the password yourself. Then, just simply recombine the pieces of the hash, create a hash of the password and compare the two.<p>
+
+This little step would make things much much much more secure for your users and would not take much time at all to implement.<p>
+
+thanks,<p>
+
+-jon
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002820.html">Re: Security of MTTF and BBS passwords</a>, Dave Winer, 2/11/1999; 4:44:07 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:50 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,24 @@
+<html>	<head>		<title>A by-product of archiving in XML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>A by-product of archiving in XML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>8/15/1999; 8:03:42 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009540.html">A by-product of archiving in XML</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9540</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009539.html">9539</a> / <a href="msg009541.html">9541</a></td></tr>				</table>			<br>I've been working on a more efficient archiving system for our discussion groups, it logs every change to every message by writing an XML file to calendar-structured folder hierarchy. <p>
+
+I wanted this for two reasons -- first, every night we're copying the whole discss.root database to back it up. This is quite wasteful, esp as we approach 10,000 messages, on any given day, most of them don't change, but we copy them anyway.<p>
+
+The second reason, with every new message we're pushing Frontier's object database into uncharted territory. I must say I am very pleased with the reliability of the odb, on the path to 10K messages there <i>hasn't been a single database glitch.</i><p>
+
+<b>Dear Murphy</b><p>
+
+If you're listening, I know you're crashing the bits right now, as I write this.<p>
+
+<b>Anyway</b><p>
+
+Because the track record has been so perfect, I am bothered because I don't want to fall into complacency. At some time there will be a problem with the database, and to be sure the message base survives such a problem, I wanted a second-source for recovery in case the first one (rebuilding discuss.root) doesn't work. After revisiting MORE with its binary file format, I want a text-based format to work with for the future.<p>
+
+It was easy to hook into the archive flow and produce a folder of static XMLizations of all the messages in the odb. This is not our archive, it's a bit fancier than this, but it is a by-product of the archiving.<p>
+
+<a href="http://linux2.userland.com/users/admin/static/mainDiscussMessages/">http://linux2.userland.com/users/admin/static/mainDiscussMessages/</a><p>
+
+Every time we do an XMLization it stimulates some ideas, if you are interested in this stuff, have a look, and post ideas here, if they're bugging you.<p>
+
+<b>Caveat</b><p>
+
+I can already see that the system wheezes with a folder with so many files in it, so we possibly will add a hiearchy here.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009541.html">pushing Frontier's object database into uncharted territory</a>, Thomas A. Creedon, 8/15/1999; 9:29:57 AM<p><li>&nbsp;<a href="msg009542.html">Re: A by-product of archiving in XML</a>, Jacob Levy, 8/15/1999; 9:36:45 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:55 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

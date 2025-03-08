@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: Using Nirvana behind a web server</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Using Nirvana behind a web server</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/15/1998; 2:16:48 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001205.html">New Search Engine Machine in Testing</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1272 (In response to <a href="msg001259.html">1259</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001271.html">1271</a> / <a href="msg001273.html">1273</a></td></tr>				</table>			<br>To run Nirvana behind WebSTAR, you want Frontier to get every request. It's tricky, and you'll have to do some digging, but it should be do-able.<p>
+
+You can run Frontier as a pre-processor. (See your WebSTAR documentation if you're unfamiliar with pre-processors.) If Frontier is a pre-processor, it gets called for every single request. If Frontier returns a page (with headers), then WebSTAR returns that to the client, rather than processing the request as it normally would.<p>
+
+If Frontier returns "", then WebSTAR processes the request normally. If you're running Nirvana, then Frontier will handle every request, and won't ever return "".<p>
+
+I realize that a HowTo would be helpful, and it's on my list, but I probably won't get to it until later this week at the earliest.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: How is <value></value> to be interpreted?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: How is <value></value> to be interpreted?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/12/1999; 3:25:05 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002862.html">How is &lt;value>&lt;/value> to be interpreted?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2864 (In response to <a href="msg002862.html">2862</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002863.html">2863</a> / <a href="msg002865.html">2865</a></td></tr>				</table>			<br>I just looked at the code, and it's returning the empty string:<p>
+
+<pre>
+on nthState (n) &#123;
+	if (n < 1) or (n > 50) &#123;
+		return ("")}
+	else &#123;
+		return (states.table [n])}}
+</pre><p>
+
+So the result it's returning makes sense unless anyone objects. ;-><p>
+
+Dave
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002868.html">Re: How is <value></value> to be interpreted?</a>, Bruce Hoult, 2/12/1999; 7:11:22 PM<p><li>&nbsp;<a href="msg002874.html">Re: How is &lt;value>&lt;/value> to be interpreted?</a>, Skip Montanaro, 2/13/1999; 4:27:03 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

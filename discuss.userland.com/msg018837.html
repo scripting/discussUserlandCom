@@ -1,0 +1,12 @@
+<html>	<head>		<title>Another crude benchmark</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Another crude benchmark</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/20/2000; 8:47:43 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018825.html">Crude benchmark</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18837 (In response to <a href="msg018835.html">18835</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018836.html">18836</a> / <a href="msg018838.html">18838</a></td></tr>				</table>			<br>OK, try this test:<p>
+
+<pre>
+local (adrtable = @scratchpad.testtable);
+new (tabletype, adrtable);
+for i = 1 to 10000 &#123;
+	new (tabletype, @adrtable^.[clock.ticks ()])&#125;;
+dialog.alert (sizeof (adrtable^))
+</pre><p>
+
+On the 933 Mhz machine the dialog says 95.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg018841.html">Re: Another crude benchmark</a>, Simon Swain, 7/20/2000; 9:03:33 PM<p><li>&nbsp;<a href="msg018844.html">Re: Another crude benchmark</a>, Sam DeVore, 7/20/2000; 9:13:45 PM<p><li>&nbsp;<a href="msg018849.html">Re: Another crude benchmark</a>, Ken Hagler, 7/20/2000; 9:35:40 PM<p><li>&nbsp;<a href="msg018873.html">Apple Performa 6400 with G3 Card</a>, Donald W. Larson, 7/21/2000; 10:17:22 AM<p><li>&nbsp;<a href="msg018944.html">Re: Another crude benchmark</a>, Joe, 7/23/2000; 3:49:55 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:45 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

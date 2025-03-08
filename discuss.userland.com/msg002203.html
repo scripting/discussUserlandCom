@@ -1,0 +1,18 @@
+<html>	<head>		<title>How can I stop a script, immediately?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>How can I stop a script, immediately?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Seth Dillingham</td></tr>				<tr><td><b>Posted:</b></td><td>1/18/1999; 8:24:29 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002203.html">How can I stop a script, immediately?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2203</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002202.html">2202</a> / <a href="msg002204.html">2204</a></td></tr>				</table>			<br>In response to the question "How can I stop a script immediately?"...<p>
+
+To stop a script DEAD IN ITS TRACKS, use the following:<p>
+
+thread.kill( thread.getCurrentID( ) )<p>
+
+This is the only way to absolutely guarantee that a script is completely stopped. Your alternatives, including "return" and "ScriptError( )", can both be trapped by the calling script and therefore do not guarantee that the script has been stopped completely.<p>
+
+<b>Related links:</b><p>
+
+<a href="http://docserver.userland.com/thread/kill">http://docserver.userland.com/thread/kill</a><p>
+
+<a href="http://docserver.userland.com/thread/getCurrentID">http://docserver.userland.com/thread/getCurrentID</a><p>
+
+<a href="http://docserver.userland.com/keywords/return">http://docserver.userland.com/keywords/return</a><p>
+
+<a href="http://docserver.userland.com/basic/scriptError">http://docserver.userland.com/basic/scriptError</a>
+			<br><br><hr><b>There are responses to this message:</b><ul></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:20 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

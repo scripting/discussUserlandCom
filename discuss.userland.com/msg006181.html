@@ -1,0 +1,30 @@
+<html>	<head>		<title>Re: Zope and Frontier compared</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Zope and Frontier compared</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Michel Pelletier</td></tr>				<tr><td><b>Posted:</b></td><td>5/13/1999; 2:08:45 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000827.html">Zope vs. Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6181 (In response to <a href="msg004124.html">4124</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006180.html">6180</a> / <a href="msg006182.html">6182</a></td></tr>				</table>			<br>I'd like to post a minor correction and a some additional information to your excellent article.<p>
+
+>Digital Creations has even more database tools for use with Zope, >but some of them cost money or require a consulting contract. Their 
+>Their Aqueduct product allows Zope to join results from different >databases and fetch results from other Zope servers<p>
+
+The ability to proxy for other Zope servers is called Z Network Client, and is commercial software.<p>
+
+Aquaduct is now know as ZSQL Methods, and is included with Zope under the Open Source license.  Technically, Zope has two components to it's SQL solution:  Database Adapters and ZSQL Methods.  Database Adapters are an abstraction away from various database flavors.  ZSQL Methods are just like Python "methods" that run against configured Adapters.  This makes it easy to switch all of your code from one SQL server to another, or to have various ZSQL methods use different adapters (and thus merge the presentation of data between differnet and possible remote databases).  There are Database Adapters for almost all known flavors of databases, including a few we write ourselves (like DCOracle).  Most others are contributed by our community.<p>
+
+>Their Tabula product (a.k.a. "Z Tables") adds a built-in SQL (?) >database to Zope, and allows users to upload database files from >their workstations. A number of popular database formats are >supported.<p>
+
+ZTables (called Tabula before Zope went Open Source) is not an SQL database (although this is a common misconception).  ZTables is a tool which manages tabular data and various indexes to search that data.  Data can be edited through the web or uploaded from a DBase IV/V format, Rand format, or Comma Seperated Values (CSV).  ZTables manages the data columns, the indexes for those columns, contains the layout (DTML) of how to present the data in the ZTable, and does various other cool things, like supporting drop in indexes (like Hierarchies and Keyword Hierarchies) and computes and indexes artificially introduced columns from Python expressions on the fly (which can be used to make it pseudo-relational).<p>
+
+Much of the functionality of ZTables will be Open Sourced soon, this is called (internally) ZTablesCore.  It is the basis behind the soon to be Open Sourced Catalog, which indexes objects and offers lightning quick searching of various extensable indexes of Zope objects.<p>
+
+Your article was very good, I especially like how you pointed out the orthoganality of Zope and Frontier (I've not used Frontier, BTW).  There are several other newer features of Zope that are currently experimental, like the ability to create new object classes through the web, called ZClasses.<p>
+
+ZClasses are very exciting, and we are using them quite extensively internally to design our new site.  ZClasses let you define new object types through the web, defining their properties and methods.  Once your classes are constructued (a minimal framework class can be instanciatable by filling out one form) they can be instanciated in Zope just like built in objects (Files, Documents, Folders etc.)  It is possible also to write classes in Python, and register than as subclassble in Zope.  This technique is used, for example, with the Catalog.  The ZTablesCore Product is written in Python *and contains no Zope specific code*.  It could just as easily be used as the searching and indexing machienery for an IMAPd server written in Python, for example.  The ZTablesCore product does, however, register itself as subclassable, and the ZClass Catalog defines the Catalog object, which subclasses ZTablesCore.  Therefore, all of ZTableCore's methods and attributes are available to the Catalog ZClass.<p>
+
+This brings us back to the original philosophy of Bobo (the predecesor of ZPublisher, Zope's protocol to object ORB) of being able to publish existing non-Zope python code on the web with no changes.  This would allow someone, as an example, to port mailman (a very popular mail list manager written in Python) to have a Zope inteface simply by registering mailman's classes as subclassable by a ZClass and writting a ZClass to define the web interface.<p>
+
+All through the web.<p>
+
+Thanks again for the great thread,<p>
+
+-Michel Pelletier
+Softwear Developer
+Digital Creations Inc.
+<a href="mailto:michel@digicool.com">michel@digicool.com</a>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:07 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

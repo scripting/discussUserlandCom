@@ -1,0 +1,22 @@
+<html>	<head>		<title>New Search Engine Machine in Testing</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>New Search Engine Machine in Testing</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/15/1998; 1:53:34 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001205.html">New Search Engine Machine in Testing</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1205</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001204.html">1204</a> / <a href="msg001206.html">1206</a></td></tr>				</table>			<br>We just got a new machine to run the search engine on. (And a few other apps.) Once it's tested, I'll switch the IP address of this machine so that requests for search.userland.com go to this machine.<p>
+
+But for now it's at:<p>
+
+<a href="http://207.76.185.151/search/">http://207.76.185.151/search/</a><p>
+
+Please help test it! If you find any searches that still take a long time, please note what the search was for and let me know. It's time to nail all the performance issues.<p>
+
+If you like specs: the old search engine is on a Pentium I, 166 Mhz, 96 MB RAM, IDE hard drive.<p>
+
+The new search engine is on a dual-processor machine, two Pentium II processors running at 450 Mhz each. 256 MB RAM, 9 GB SCSI hard drive.<p>
+
+The old search engine runs with Frontier as the webserver, so Frontier is doing both tcp and searching.<p>
+
+The new search engine runs behind IIS 4.0 (NT Server), so the networking is handled by IIS rather than Frontier. (A nice combo, I think.) An ISAPI filter DLL routes all incoming requests to Frontier, making it easy to run Nirvana behind IIS.<p>
+
+Furthermore: Frontier, even though it's running behind IIS, is now visible rather than running in IIS's invisible desktop. For more about that:<p>
+
+<a href="http://discuss.userland.com/msgReader$1153">http://discuss.userland.com/msgReader$1153</a><p>
+
+<a href="http://discuss.userland.com/msgReader$1166">http://discuss.userland.com/msgReader$1166</a>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001207.html">Have a Honker?</a>, Dave Winer, 12/15/1998; 6:15:11 AM<p><li>&nbsp;<a href="msg001210.html">Re: New Search Engine Machine in Testing</a>, Josh Lucas, 12/15/1998; 7:12:23 AM<p><li>&nbsp;<a href="msg001219.html">Re: New Search Engine Machine in Testing</a>, Dave Winer, 12/15/1998; 9:37:29 AM<p><li>&nbsp;<a href="msg001259.html">Using Nirvana behind a web server</a>, Brian V. Hughes, 12/15/1998; 12:48:32 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:32 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

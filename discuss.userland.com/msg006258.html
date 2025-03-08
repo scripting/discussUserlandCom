@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: DG security Check - SOLUTION</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: DG security Check - SOLUTION</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Stan Purington</td></tr>				<tr><td><b>Posted:</b></td><td>5/14/1999; 4:02:17 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006186.html">DG security Check</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6258 (In response to <a href="msg006246.html">6246</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006257.html">6257</a> / <a href="msg006259.html">6259</a></td></tr>				</table>			<br>Thanks Andre<p>
+
+That works great. We moved everything to a #security script in the LOGON website so that we don't need to alter any mainresponder scripts.<p>
+
+<pre>
+local(email);
+if pathArgs == "signupForm" &#123;
+	email = string.nthField(requestBody,"=",2);
+	if !workspace.checkSSAUser(<a href="mailto:email,@scratchpad.userdata">email,@scratchpad.userdata</a>) &#123;
+		scriptError ("!redirect someurl")}}
+</pre><p>
+
+Knowing how to cause an instantaneous redirect was the key.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:10 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

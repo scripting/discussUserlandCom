@@ -1,0 +1,20 @@
+<html>	<head>		<title>Easy Content Syndication</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Easy Content Syndication</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>6/12/1999; 12:19:30 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007265.html">Easy Content Syndication</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7265</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007264.html">7264</a> / <a href="msg007266.html">7266</a></td></tr>				</table>			<br>If you want to include a favorite channel on your home page, here's a Frontier macro that does it for you:<p>
+
+<pre>
+on myUserLandChannel (id) 
+	local (server = "nirvana.userland.com", port = 80)
+	local (path = "/myUserLand/staticRendering/service" + string.padwithzeros (id, 5) + ".html")
+	return (string.httpResultSplit (tcp.httpClient (server:server, port:port, path:path)))
+</pre><p>
+
+Put this macro in user.html.macros and call it from your web pages as follows:<p>
+
+<pre>&#123;myUserLandChannel (8)}</pre><p>
+
+This will place channel 8 in your page.<p>
+
+Now you can do content syndication just like Alta Vista and ZDNet!<p>
+
+PS: No reason you couldn't do this in Perl, Java, Python or Tcl.<p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007290.html">Re: Easy Content Syndication</a>, David Detlefsen, 6/13/1999; 4:21:07 AM<p><li>&nbsp;<a href="msg007303.html">Re: Easy Content Syndication</a>, Kurt Granroth, 6/13/1999; 12:53:40 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

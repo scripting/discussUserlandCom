@@ -1,0 +1,56 @@
+<html>	<head>		<title>Re: MSIE and XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: MSIE and XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Shinpaugh</td></tr>				<tr><td><b>Posted:</b></td><td>2/5/1999; 2:49:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000947.html">www.xml-rpc.com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2715 (In response to <a href="msg002633.html">2633</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002714.html">2714</a> / <a href="msg002718.html">2718</a></td></tr>				</table>			<br>We are having a problem using Microsoft's new IXML-HTTP Request 
+object in IE Beta 5 build 1309 and Frontier XML-RPC handlers.<p>
+
+What's happening is we are getting Permission Denied errors when 
+using the open method in many scenarios.<p>
+
+The funny thing is on some scenarios it works perfectly.<p>
+
+I say scenarios because there's not much ryhme or reason 
+to why it works, but we suspect it's IE's security settings
+differing from machine to machine.<p>
+
+On my Win98 machine:
+   Works perfect from a folder, but not from my local web server,
+   intranet web server, or server on the internet.
+  
+On another intranet machine with Win98:
+   Fails from a folder, but works from local web server, intranet
+   web server, or server on the internet.<p>
+
+NT4 yields similar results, some scenarios work, some 
+(maybe I should say most) don't work.<p>
+
+Playing with security settings yields moderate results 
+like all of sudden it'll run OK ONCE, then fails ever after.<p>
+
+Of course even if it worked perfectly, tweaking security isn't
+the answer, as it should work with default security settings.<p>
+
+Does anyone know what we're doing wrong with the control 
+to make it act like this?  Microsoft???  <p>
+
+Here's how you can check it out for yourself:<p>
+
+  You must be running IE5 Beta 2<p>
+
+  Surf to <a href="http://www.venuemedia.com/xmltest">http://www.venuemedia.com/xmltest</a> <p>
+
+  Click Get Number of Messages <p>
+
+  Should respond with a number > 0 or null that's OK.<p>
+
+  Otherwise you'll get error on line 50 Permission Denied.<p>
+
+  Try copying it to your desktop and running it local.<p>
+
+You can also check out the messages, and add your own
+by going to <a href="http://www.mailtothefuture.com">http://www.mailtothefuture.com</a> and logging in
+as <a href="mailto:xmltest@yahoo.com">xmltest@yahoo.com</a>  the password is DUPIFDSCYJKV
+and if you want to see the mail the Yahoo Mail password 
+is xmltester.<p>
+
+Thank you for in advance for any light you can shed! <p>
+
+David
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002725.html">Alex Hopmann explains..</a>, Dave Winer, 2/6/1999; 6:19:47 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

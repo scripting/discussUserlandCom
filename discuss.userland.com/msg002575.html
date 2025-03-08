@@ -1,0 +1,25 @@
+<html>	<head>		<title>Use of XML Name Spaces in XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Use of XML Name Spaces in XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Bob Atkinson</td></tr>				<tr><td><b>Posted:</b></td><td>1/29/1999; 2:12:17 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000947.html">www.xml-rpc.com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2575 (In response to <a href="msg000947.html">947</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002574.html">2574</a> / <a href="msg002576.html">2576</a></td></tr>				</table>			<br>As XML-RPC becomes more broadly adopted, I think it would be a good idea to become a little more formal on how it manages the XML element and attribute tags that it uses.<p>
+
+Undoubtedly, at some point, by some means or another, we're going to have to deal with XML-RPC request or response packets that contain XML fragments whose designs are contributed by different organizations. To give just one thought, in some extended XML-RPC we might find the need to integrate a pass-by-value object reference that uses a serializtion format whose tags and structure are defined by some outside standard.<p>
+
+I think that using XML Name Spaces is the right way to avoid this. Check out: <a href="http://www.w3.org/TR/REC-xml-names/">http://www.w3.org/TR/REC-xml-names/</a><p>
+
+What one would do is declare that all of the element tags whose semantics are defined as part of the XML-RPC specifcation are actually in some particular name space, say (I just made it up):
+<pre><a href="http://w3.org/Schemas/xmlrpc/kw">http://w3.org/Schemas/xmlrpc/kw</a></pre><p>
+
+An example invocation might then look like:<p>
+
+<pre>
+<?xml version="1.0"?>
+<methodCall xmlns="http://w3.org/Schemas/xmlrpc/kw">
+   <methodName>examples.getStateName</methodName>
+   <params>
+      <param>
+         <value><i4>41</i4></value>
+         </param>
+      </params>
+   </methodCall>
+</pre><p>
+
+Not a big text change, but a significant conceptual one, since now all the tags in use are globally unambiguous.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002586.html">Re: Use of XML Name Spaces in XML-RPC</a>, Dave Winer, 1/30/1999; 9:09:35 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

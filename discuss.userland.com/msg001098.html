@@ -1,0 +1,40 @@
+<html>	<head>		<title>What is html.writeFile?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>What is html.writeFile?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/10/1998; 1:37:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001098.html">What is html.writeFile?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1098</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001097.html">1097</a> / <a href="msg001099.html">1099</a></td></tr>				</table>			<br>Html.writeFile is an important verb that hasn't been documented until now. New DocServer page:<p>
+
+<a href="http://docserver.userland.com/html/writeFile">http://docserver.userland.com/html/writeFile</a><p>
+
+This is the verb to use when, in your website macros and filters, you want to write a file.<p>
+
+It's important because this verb allows you to not have to know where the file is eventually going. You don't have to know how the file will get there. No matter how or where it's going, you always call html.writeFile.<p>
+
+A file may be going to disk, to an FTP server, to an object database, or somewhere else. Html.writeFile lets you pretend that it's going to disk, no matter where it's really going.<p>
+
+This verb was introduced with 5.1, it's part of the new fileWriters abstraction layer. (A page about that will appear soon, and I'll edit in a link here.)<p>
+
+Say you want to write a file that should go in the same folder as the page being rendered. (No matter where that folder is, on whatever machine. Maybe it's not a folder but a table. It doesn't matter.)<p>
+
+Your macro would contain code like this:<p>
+
+local (adrPageTable = html.getPageTableAddress ())<p>
+
+local (folder = file.folderFromPath (adrPageTable^.f))<p>
+
+local (myFileName = "My File.txt")<p>
+
+local (myFilePath = folder   myFileName)<p>
+
+local (myFileContents = "This will be the contents of my file.")<p>
+
+html.writeFile (f, @s, 'TEXT', 'R*ch', clock.now (), adrPageTable)<p>
+
+Html.writeFile may or may not cause the file to be written to disk -- it will cause the file to get sent to the right place via the right transport method, whether it's FTP or whatever.<p>
+
+Note that a file doesn't have to be a text file: it can be any kind of binary file, too.<p>
+
+Under the hood, html.writeFile works by telling the current fileWriter to write a file. The fileWriter then handles all the details of getting the file to the right place.<p>
+
+You specify the fileWriter to use in the method field of your #ftpSite table. More about #ftpSite:<p>
+
+<a href="http://developers.userland.com/stories/directives#ftpSite">http://developers.userland.com/stories/directives#ftpSite</a><p>
+
+When a page is being rendered behind a webserver -- when it's a dynamic page -- html.writeFile returns right away. No file gets written. This is because dynamic pages and files are returned to a browser as a result of an HTTP request; they're not "pushed" to a location on a server.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:27 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

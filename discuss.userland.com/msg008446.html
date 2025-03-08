@@ -1,0 +1,11 @@
+<html>	<head>		<title>Which happens first: preFilter or domain redirection?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Which happens first: preFilter or domain redirection?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>erik</td></tr>				<tr><td><b>Posted:</b></td><td>7/13/1999; 9:54:12 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008446.html">Which happens first: preFilter or domain redirection?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8446</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008445.html">8445</a> / <a href="msg008447.html">8447</a></td></tr>				</table>			<br>The combination of both seems not to be working. I have a prefilter which I copied from Dave's example from last Oct/Nov (a fat page). It does a redirect of "/" to "/custom/"<p>
+
+I also have a site table with addresses to redirect short URLs like "custom" to the actual location. In this case "custom" is redirected to  @["D:\\Scripting\\Frontier 6.0\\Guest Databases\\www\\myInline.root"].myinline.custom<p>
+
+and now when I enter the "/" URL, it changes the URL in the browser URL field to "/myInline/myinline/custom/" and that gives an error message saying Sorry! There was an error: Can't process the request because there is no object named "myinline"<p>
+
+It seems like the "/" is getting redirected before entering the redirector preFilter. <p>
+
+What could redirect a URL before the preFilter? Yes, I have a default.html in the www folder but I changed it to meta refresh  redirect to "/custom", and I thought since I changed config.mainResponder.domains.default to point to a table, it would no longer look in www for files. I can see one problem is that I was trying so hard to get this working and move on that I tried many different things in many places around Frontier, and now some of those things are still present. <p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:23 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

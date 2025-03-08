@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: No Semaphores Rendering and Nirvana</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: No Semaphores Rendering and Nirvana</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>1/21/1999; 4:32:49 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001729.html">Troubleshooting a Nirvana Server installation</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2340 (In response to <a href="msg002338.html">2338</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002339.html">2339</a> / <a href="msg002341.html">2341</a></td></tr>				</table>			<br>Does this flag generally disable the use of semaphores, or just in the page rendering context?<p>
+
+I use semaphores w/ dynamic Nirvana sites when using counters, etc.<p>
+
+<pre>
+[snippet]
+semaphore.lock (this, 10)
+local (docId = prefs.docIdCount)
+prefs.docIdCount ++
+semaphore.unlock (this)
+return (docId)
+</pre><p>
+
+BTW: Is this needed anyway? <p>
+
+RFC,<p>
+
+Kurt
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002347.html">Re: No Semaphores Rendering and Nirvana</a>, Dave Winer, 1/21/1999; 7:14:53 AM<p><li>&nbsp;<a href="msg002365.html">Re: No Semaphores Rendering and Nirvana</a>, Brent Simmons, 1/21/1999; 12:50:46 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:29 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

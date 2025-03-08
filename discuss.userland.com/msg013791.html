@@ -1,0 +1,51 @@
+<html>	<head>		<title>Re: Should-I-Use-XML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Should-I-Use-XML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>12/21/1999; 9:22:18 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013785.html">Today's scriptingNews Outline</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13791 (In response to <a href="msg013785.html">13785</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013790.html">13790</a> / <a href="msg013792.html">13792</a></td></tr>				</table>			<br>I think XML is about as useful as the tools are, and how useful that is depends to a huge degree upon what you wish to do.<p>
+
+Recently I've had to do a lot of third-party site wrapping in Java, i.e. be an HTTP client and extract some information from a site for further use.<p>
+
+Thanks to some pretty spiffy tools, here's a Java function to compute the shipping cost for UPS service to a residential address in the United States, assuming that you provide your own packaging:<p>
+
+public static double getShippingCost(String method, int srcZip, String destCity, int destZip, int weight) throws WeaselAppException<br>
+&#123;<br>
+&nbsp;&nbsp;StringBuffer query = new StringBuffer ("http://www.ups.com/using/services/rave/qcosthtm.cgi?accept_UPS_license_agreement=yes&10_action=3&14_origCountry=US&22_destCountry=US&47_rate_chart=One+Time+Pickup&48_container=00&49_residential=Yes&");<br>
+&nbsp;&nbsp;double  result = 0.0;<p>
+
+&nbsp;&nbsp;query.append("13_product=" + method + "&");<br>
+&nbsp;&nbsp;query.append("15_origPostal=" + new Integer(srcZip).toString() + "&");<br>
+&nbsp;&nbsp;query.append("20_destCity=" + URLEncoder.encode(destCity) + "&");<br>
+&nbsp;&nbsp;query.append("19_destPostal=" + new Integer(destZip).toString() + "&");<br>
+&nbsp;&nbsp;query.append("23_weight=" + new Integer(weight).toString());<p>
+
+&nbsp;&nbsp;Path path = Pwd.lookup(query.toString());<br>
+&nbsp;&nbsp;Document doc;<br>
+&nbsp;&nbsp;Node node;<br>
+&nbsp;&nbsp;try<br>
+&nbsp;&nbsp;&#123;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;doc = LooseHtml.parseFile(path);<br>
+&nbsp;&nbsp;&#125;<br>
+&nbsp;&nbsp;catch (IOException ex)<br>
+&nbsp;&nbsp;&#123;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new WeaselAppException(ex.getMessage());<br>
+&nbsp;&nbsp;&#125;<br>
+&nbsp;&nbsp;try<br>
+&nbsp;&nbsp;&#123;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node = XPath.find("//text()[contains(., \"TOTAL RATE:")]/ancestor::td/following-sibling::td/text()", doc);<br>
+&nbsp;&nbsp;&#125;<br>
+&nbsp;&nbsp;catch (XPathParseException ex)<br>
+&nbsp;&nbsp;&#123;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new WeaselAppException(ex.getMessage());<br>
+&nbsp;&nbsp;&#125;<p>
+
+&nbsp;&nbsp;String resultString = node.getNodeValue().substring(1, node.getNodeValue().length());   <a href="//">//</a> Drop leading $<br>
+&nbsp;&nbsp;result = Double.valueOf(resultString).doubleValue();<p>
+
+&nbsp;&nbsp;return result;<br>
+&#125;<p>
+
+It's just a few lines, and the only interesting ones are the Pwd.lookup, LooseHtml.parseFile, and XPath.find ones, because they implement opening an HTTP stream, parsing HTML into a DOM-compliant structure, and doing an XPath query, respectively. The rest is just parameterization and exception handling.<p>
+
+The assumption about the page that comes back is that there's a text element somewhere that contains "TOTAL RATE:", that there's a <TD> above it, that the <TD> has a following <TD> at the same level, and that the text element in within that <TD> contains a $ followed by a string that can be converted to a double.<p>
+
+It took me a lot longer to write this message than it took to write the above code. I can't think of any better explanation as to why "XML" is cool, but I put "XML" in quotes because XML per se didn't make the above code that easy to write; the ready availability of XML/HTML parsers, DOM implementations, and XPath implementations did. Incidentally, the above code was written using Resin, from <<a href="http://www.caucho.com">http://www.caucho.com</a>>, as the XML/HTML/DOM/XPath implementation. As I've posted here before, you could do something extremely similar using Frontier by "importing" the HTML into a table and using UserTalk's ODB navigation commands to search for/extract the desired information.<p>
+
+XML is cool because there are so many big brains who think it's cool enough to write cool tools for. No better reason, no worse reason.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013794.html">Re: Should-I-Use-XML</a>, Andrew Wooldridge, 12/21/1999; 11:21:10 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

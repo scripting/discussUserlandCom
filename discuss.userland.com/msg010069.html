@@ -1,0 +1,93 @@
+<html>	<head>		<title>New Machine NT Install, Chicken and Egg SP problems.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>New Machine NT Install, Chicken and Egg SP problems.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>8/26/1999; 9:41:19 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010069.html">New Machine NT Install, Chicken and Egg SP problems.</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10069</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010068.html">10068</a> / <a href="msg010070.html">10070</a></td></tr>				</table>			<br>Ok. Got a new machine yesterday, and with your indulgence...
+Start with a blank drive, since I'd have to do that anyway to dual boot NT/linux.<p>
+
+1) Stick in redhat 5.2, format drive into 4 partitions.<p>
+
+2) Redhat installs, but doesn't recognize the netcard, nor does it like the video card. I check with the websites, and the net card is supported by the kernel, and the video is on a later update of the xfree86. The net card irks me, since it means that I have to recompile the kernel with a virtually identical version. At least I have other linux boxen around.<p>
+
+3) Install boot loader, won't install to master boot record, will install to boot partition.<p>
+
+4) reboot. The X server doesn't work, and the back out sequence is the powerdown key in the bios. Not good.<p>
+
+5) Manage to disable powersaving in the bios, still need to update x. Download rh6.0 today at work to burn a cd tomorrow. (600 megs)<p>
+
+6) Try installing NT from a workstation CD that has service pack 1 on it.<p>
+
+7) Installs it's first go through, says reboot.  Unfortunately the linux boot loader isn't working right with NT yet. That's probably my fault.<p>
+
+8) I try to fix lilo, and can't get it to work. That's probably my fault.<p>
+
+9) I give up and try wiping the drive, and installing NT first. I didn't have much invested in the redhat install, and I want 6.0 anyway.<p>
+
+10) Got to find a dos boot disk to fdisk /mbr<p>
+
+11) call the clone vendor and argue that they didn't install all of the memory that I had ordered. Surprisingly, they agree.<p>
+
+12) NT installs and boots. Good, that was less painful than I thought.  Apart from not having a browse button when I have to figure out the path to the netcard driver file on a floppy. Hello?  I stick the disk in a waiting mac, check out where the driver should be, and type that in.<p>
+
+13) It's up and running, but I need to install video drivers.  Install. Restart.<p>
+
+14) Attempt to get service pack 5. I have IE2.0 and a net connection.<p>
+
+15) I'm not kidding. www.microsoft.com returns "Unable to list the directory" with a permission denied message. If I can figure out how to get a screen shot, I will.<p>
+
+16) I pop on the mac and try ie3.0 to download something that will work.<p>
+
+17) Their home page appears to not work with old versions of their browsers.  Search fails. The download link fails. The download IE link fails.<p>
+
+18) I try ftp.microsoft.com. No dice, I can't find a service pack anywhere.<p>
+
+19) I try www.microsoft.com/windows in ie2.0/nt. Same types of errors.<p>
+
+20) The link to msn looks promising.  I try that. Boom, I need a later version with a deep link to ie5.0.  Ok, but the deep link doesn't work since I've got a crappy browser to bootstrap from.<p>
+
+21) I search the house for an aol coaster. No dice.<p>
+
+22) I try msn from the mac, and I get to download ie50setup.exe, ftp it to the linux box, ftp it down to the nt box. <p>
+
+23) It requires SP3 to install ie5. (so that I can get sp5) Go figure.<p>
+
+24) I decide to give up, open a good root beer, eat a late dinner, and snag a CD of the service pack from work tomorrow.<p>
+
+I'm starting to think of Kafka.<p>
+
+<rant>
+What the hell!  I mean, I understand wanting to make your home page all spiffy and everything by requiring the latest browser. But if you are the maker of said Awesome and neat browser, the great unwashed masses NEED A WAY TO GET IT! How hard is a single link that works in html 1.0?<p>
+
+Their home page works fine in 4.0. A couple of the links work in 3.0 Unfortunately the one machine that I have that has the minimum requirements to do ie4 is the one that I'm bootstrapping. 
+<rant><p>
+
+Hmmm. <p>
+
+25) Maybe lynx will work...  Oddly, lynx gets farther than anything else I have.  It manages to get to the download page. Then it gets into a loop.<p>
+
+
+I give up. Never again will I underestimate the bandwidth of a backpack of cdroms.<p>
+
+eric<p>
+
+<i>additions</i><p>
+
+26) I think Netscape. I hit their front page. Looks normal Hmm. A download link. It Works!   It gives me options! 56 bit, 128 bit, win/mac/unix!  It's downloading! It's 15 megs, but I've got DSL.<p>
+
+27) Install Netscape, let it do it's thing, log out, login, and Boom, it works. I'm editing this w/ my new computer.  Now on to sp5.<p>
+
+28) Netscape downloads sp5 with very little difficulty. Installs fine. Reboot! I'm now up to ~50 megs downloaded in an hour. The net is quiet; my link is the bottleneck.<p>
+
+29) Try getting ie5 with the IE5 setup that failed needing SP3 earlier. It's downloading, with little fuss. Up to 75mb now.  DSL is a good thing.<p>
+
+30) Downloading to a directory, then running doesn't seem to work, since it runs what you just ran to download it. What it doesn't tell you is that the files are cached and it will install hard disk to hard disk.  This is an interface bug.  I the choices look the same, I have an expectation that they will behave the same.<p>
+
+31) Reboot!  I'm in my happy place! Reboot! Reboot! (see userfriendly.org archives, <a href="http://www.userfriendly.org/cartoons/archives/98sep/19980914.html">http://www.userfriendly.org/cartoons/archives/98sep/19980914.html</a> Thanks Steve Bogart! )<p>
+
+32) Looks like nt works. Now on to RedHat.<p>
+
+33) Swap out memory, now I'm up to spec. It's really nice dealing with a place that doesn't have voice mail.<p>
+
+34) Download/Install frontier. Download latest beta, since I like the bleeding edge. Run it, Update with the update menu command, install main responder, update it. Install mailserver, update that. Download webedit 2.0, install that.  This is a bunch easier than getting that damn service pack.<p>
+
+
+ <p>
+
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg010072.html">Re: New Machine NT Install, Chicken and Egg SP problems.</a>, Jason Levine, 8/26/1999; 10:42:00 PM<p><li>&nbsp;<a href="msg010074.html">Re: New Machine NT Install, Chicken and Egg SP problems.</a>, Steve Bogart, 8/27/1999; 12:42:32 AM<p><li>&nbsp;<a href="msg010092.html">Re: New Machine NT Install, Chicken and Egg SP problems.</a>, David Carter-Tod, 8/27/1999; 6:52:56 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:11 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

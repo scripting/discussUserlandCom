@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: For review: tcp.getMail</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: For review: tcp.getMail</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Alan German</td></tr>				<tr><td><b>Posted:</b></td><td>4/21/2000; 12:59:03 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016447.html">For review: tcp.getMail</a></td></tr>				<tr><td><b>Msg #:</b></td><td>16519 (In response to <a href="msg016447.html">16447</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg016518.html">16518</a> / <a href="msg016520.html">16520</a></td></tr>				</table>			<br>The fatPage at <a href="http://users.erols.com/asg/tcp/getMail.html">http://users.erols.com/asg/tcp/getMail.html</a> has a very minimally revised script.<p>
+
+Brian Hughes pointed out that the first line of the message I was returning contained a line of "protocol" data -- not really part of the message. So I have added code to remove it [if it exists] prior to sending to Eric's routine.<p>
+
+This probably isn't worthy of an official update yet; I just wanted to give you a chance to review this as a proposed change.<p>
+
+I also thought of a possible change to the main loop logic. Currently, the main loop gets a mail item, parses it, then deletes it. If the messages are large, or there are many parts, or the net connection is slow, there might be some potential cost savings for people paying for dial-up-by-the-minute [at least] if I ran two loops.<p>
+
+The first loop would retrieve the mail, the second loop would process. This would be a little more "economical" in terms of network resources.<p>
+
+I don't want to change it just for the sake of change. It was just something that occurred to me while reviewing the code. I'd like to know if anyone has any opinions on this one way or the other.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg016526.html">Re: For review: tcp.getMail</a>, Eric Soroos, 4/21/2000; 3:44:53 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:54 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

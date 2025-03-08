@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: Radio Userland xplatform?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Radio Userland xplatform?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/26/2000; 7:29:33 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg019092.html">Radio Userland xplatform?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>19093 (In response to <a href="msg019092.html">19092</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg019092.html">19092</a> / <a href="msg019094.html">19094</a></td></tr>				</table>			<br><i>Is Userland's new product cross-platform? </i><p>
+
+Yes, it is, but we're shipping for Windows first. <p>
+
+There are lots of reasons for this, and to try to explain them all before the software is released is impossible, but I'll try anyway.<p>
+
+To get MP3s playing from the Radio app we had to go through MSIE and do something fairly convoluted that depends on Radio being an HTTP server. It is quite a hack, but it works, very reliably. <p>
+
+We also did an investigation of players on the Mac, and decided to use Real Player, but the architecture is totally different, it's done through Apple Events. (That's cleaner than the HTTP hack.)<p>
+
+At the same time we have a separate project to do an embedded player in the Windows product, using the Microsoft media SDK (not sure exactly what its called). That project is starting to reach some level of completion, but it requires extensive testing, and rather than wait for that, we're going to ship.<p>
+
+This new approach uses the same architecture as the Real/Mac approach, and at that time we will rewrite the core Radio UserLand code (suites.playlist) to use the new architecture, throw out the MSIE hack, and then Radio will be cross-platform.<p>
+
+(And there will also be a driver architecture inside, that makes it easy for people to adapt it to work with any MP3 player, and hopefully somehow we'll figure out how to get MP3 playing inside our Mac codebase too. Some advice from Apple here would be welcome, as well as some idea of how we're going to do HTML rendering there too. Radio UserLand/Win also depends on that feature of Windows, but to a lesser extent than the MP3 playing which its purpose for being.)<p>
+
+We will also release suites.playlist separately, so an adventurous Mac programmer such as yourself, can probably get into the loop, but with the caveat that you'll have to bear a possibly difficult upgrade. Of course we've been to this place before. ;-><p>
+
+You can be sure that a Mac version will come because both Jake and Brent who are key on this project both use Macs as their primary machines.<p>
+
+Now, I can't get into a deep conversation about this, I have a lot of work to do to get this thing out, and my DSL line is very slow today so I can't even do a lot of reading, which is conducive to my other goal. Hope this helps.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg019094.html">Re: Radio Userland xplatform?</a>, Steve Ivy, 7/26/2000; 7:44:48 AM<p><li>&nbsp;<a href="msg019099.html">Re: Radio Userland xplatform?</a>, Jamie Scheinblum, 7/26/2000; 8:16:01 AM<p><li>&nbsp;<a href="msg019103.html">Re: Radio Userland xplatform?</a>, Aaron Straup Cope, 7/26/2000; 8:41:43 AM<p><li>&nbsp;<a href="msg019106.html">Have you looked at Xaudio?</a>, Ben Edwards, 7/26/2000; 8:53:31 AM<p><li>&nbsp;<a href="msg019117.html">Re: Radio Userland xplatform?</a>, Michael Please, 7/26/2000; 10:35:47 AM<p><li>&nbsp;<a href="msg019309.html">Re: HTML Rendering/Mac</a>, Dameron Midgette, 7/31/2000; 10:41:27 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

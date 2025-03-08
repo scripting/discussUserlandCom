@@ -1,0 +1,13 @@
+<html>	<head>		<title>Using message queues in QNX</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Using message queues in QNX</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>María Virginia Zeano</td></tr>				<tr><td><b>Posted:</b></td><td>11/9/1999; 12:54:32 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012899.html">Using message queues in QNX</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12899</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012898.html">12898</a> / <a href="msg012901.html">12901</a></td></tr>				</table>			<br>I'm learning how to use queues in QNX and I have a problem.
+I set the queue so that my process is notified when the queue changes from the empty state to the non-empty state (with the function mq_notify()) but I am having problems..<p>
+
+When the queue receives the first message, my process is notified okay via a proxy. But the next time the queue receives a message, my
+process doesn`t receive the proxy anymore (it remains RECV blocked for
+ever) even though the queue is empty no longer...<p>
+
+Someone can give me a hint about what the problem may be??<p>
+
+Thanks<p>
+
+Maria Virginia Zeano
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

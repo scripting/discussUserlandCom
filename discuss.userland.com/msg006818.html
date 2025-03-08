@@ -1,0 +1,23 @@
+<html>	<head>		<title>COM question</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>COM question</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Christopher Short</td></tr>				<tr><td><b>Posted:</b></td><td>5/27/1999; 3:40:10 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006818.html">COM question</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6818</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006817.html">6817</a> / <a href="msg006819.html">6819</a></td></tr>				</table>			<br>I'm asking this here because I'm unsure of where would be a more appropriate place, and i know some people doing COM stuff post here.<p>
+
+Why would a COM program written in Visual C++ 5.0 and compiled on a WinNT4.0 machine, run under Win95 and not WinNT4.0 (Server execution error). <p>
+
+
+The COM program opens Excel, writes data to a worksheet, and plots the data.<p>
+
+The line<p>
+
+WorkbookPtr pBook  = ((WorkbooksPtr) pXL->Workbooks())->Add((long)xlWorksheet);
+gives the error Member not found under WinNT4.0 and Visual C++ 5.0<p>
+
+Where do I find documentation on the syntax of functions available to COM in Visual C++. I currently use the OLE/COM viewer to see what's available, and it says that the Add is available under Workbooks methods for my machine.<p>
+
+
+Even the Visual C++ sample program COMEXCEL doesn't run under WinNT4.0, but runs under Win95. 
+Visual Basic COM programs run on the WinNT4.0 machine (Service Pack 4). There are documented problems with NT4.0 and VB unless Service Pack 3 is applied.<p>
+
+Any suggestion on either setting up NT4.0, or some coding tricks to get COM working? Are there any newsgroups or mailling lists devoted to general COM quesitons?<p>
+
+Cheers,
+Christopher
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:29 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

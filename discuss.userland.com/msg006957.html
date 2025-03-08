@@ -1,0 +1,23 @@
+<html>	<head>		<title>Re: Edit In Applet(Update)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Edit In Applet(Update)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Josh Lucas</td></tr>				<tr><td><b>Posted:</b></td><td>6/2/1999; 12:29:56 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006943.html">Edit In Applet</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6957 (In response to <a href="msg006949.html">6949</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006954.html">6954</a> / <a href="msg006958.html">6958</a></td></tr>				</table>			<br>So, I've been playing around a little this afternoon and have done a few things.  The applet now has a simple 'Style' menu which can be seen here...<p>
+
+<a href="http://208.204.52.53:10000/menu.gif">http://208.204.52.53:10000/menu.gif</a><p>
+
+The menu can insert bold, italic, or both...  You select text, choose the appropiate style, and the HTML code is inserted into the text...  Not rocket-science but it is a start...  I'm planning on adding more menus eventually...<p>
+
+The second focus was to set the message text in a DG via xml-rpc.  I wrote the following handler which does the job for me.<p>
+
+<pre>
+on setMessageText(struct) &#123;
+	local (adr = @system.temp.msgTable);
+	adr^ = struct;
+	local (adrmsgs = @[mainresponder.discuss.openfile()].discuss.messages);
+	local (msgAdr = @adrmsgs^.[string.padwithzeros (adr^.msgnum, 7)]);
+	msgAdr^.body = adr^.body;
+	return (true)}
+</pre><p>
+
+Now the applet can save its changes to the DG.  There are still some security issues that I'm sure have to be worked out but again it is a start.<p>
+
+
+josh
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006959.html">Re: Edit In Applet(Update)</a>, André Radke, 6/2/1999; 2:03:42 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:34 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

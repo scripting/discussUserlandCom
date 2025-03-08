@@ -1,0 +1,60 @@
+<html>	<head>		<title>What is Mail to the Future?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>What is Mail to the Future?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/5/1999; 5:54:31 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002691.html">A new toy!</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2694 (In response to <a href="msg002691.html">2691</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002693.html">2693</a> / <a href="msg002695.html">2695</a></td></tr>				</table>			<br>Mail to the Future is a demo app for Frontier 6 that's accessible thru HTML, XML and XML-RPC. <p>
+
+<b>HTML interface</b><p>
+
+First, here's the HTML interface. <p>
+
+<a href="http://www.mailtothefuture.com/">http://www.mailtothefuture.com/</a><p>
+
+Please log on, get a password, create a message or two, became familiar with how it works from a user's point of view. You'll definitely want to have a couple of messages in your queue to try out the other examples.<p>
+
+<b>XML interface</b><p>
+
+Now, thru your web browser, visit these two pages:<p>
+
+<a href="http://www.mailtothefuture.com/msgcounter.xml">http://www.mailtothefuture.com/msgcounter.xml</a><p>
+
+<a href="http://www.mailtothefuture.com/msgreader.xml$1">http://www.mailtothefuture.com/msgreader.xml$1</a><p>
+
+There you go, dynamic XML. Now, what's it good for? Not much, because you also want to be able to add a message or delete a message, and for that you need to make a procedure call. <p>
+
+<b>XML-RPC interface</b><p>
+
+The XML-RPC interface is documented on this page:<p>
+
+<a href="http://www.mailtothefuture.com/public/techInfo">http://www.mailtothefuture.com/public/techInfo</a><p>
+
+There are five procedures:<p>
+
+mailToTheFuture.addMessage (username, password, msgstruct)<p>
+
+mailToTheFuture.deleteMessage (username, password, n)<p>
+
+mailToTheFuture.getAllMessages (username, password)<p>
+
+mailToTheFuture.getMessage (username, password, msgnum)<p>
+
+mailToTheFuture.getMessageCount (username, password)<p>
+
+With these five procedures you can access all the functionality of the server without coming in thru the HTML interface. <p>
+
+<b>Next steps</b><p>
+
+We've already got XML-RPC clients running in the following environments: Python, Perl, Java, Frontier, and are close to having a smoothe interface to JavaScript running in the popular web browsers. Thru this interface, applications can use the W3C DOM or other XML APIs to walk structures on the MTTF server. We're working with a talented UI development team lead by Marc Canter, the lead developer of Macromedia Director. To us it's a black-box, we've provided wires into our server, and the designers have already figured out how to hook in. We'll go back over their work when they're ready and create a simple browser-based API for calling into our server, and optimize their interface in the CMS running on the server. <p>
+
+<b>Beyond Hello World</b><p>
+
+I know that many of you weren't involved in the evolution of system scripting on the Mac, but this is feeling a lot like that, this is a simple demo app that's functional and interesting enough to motivate applications, but simple enough so that it isn't a huge chore. We're beyond the Hello World stage in the XML-RPC world.<p>
+
+<b>Crossing boundaries</b><p>
+
+And it's now meeting one of its other objectives, it crosses platform boundaries. We have XML-RPC servers running in Java, Python, Apache, Perl and Frontier. We want XML-RPC to go everywhere, crossing not just technical boundaries, but connecting the open source communities with commercial developers and system integrators. The MTTF server can be cloned in all those environments, and as long as it supports the same XML-RPC interfaces, you can swap a Windows NT server for a Linux server, or vice versa. That may be the most revolutionary feature of XML-RPC.<p>
+
+<b>New motto</b><p>
+
+I used to have a motto (still do): <i>Let's Have Fun!</i><p>
+
+So now let's add a new motto, which is really the same thing...<p>
+
+<i>Let's Make Clones!</i>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002704.html">What is MTTF?</a>, Anita Rowland, 2/5/1999; 12:09:37 PM<p><li>&nbsp;<a href="msg002706.html">Re: What is Mail to the Future?</a>, cameron@camworld.com, 2/5/1999; 12:18:56 PM<p><li>&nbsp;<a href="msg002708.html">Re: What is Mail to the Future?</a>, David Bakin, 2/5/1999; 2:03:04 PM<p><li>&nbsp;<a href="msg002710.html">Working hard, finding bugs, building  a new front end</a>, Marc Canter, 2/5/1999; 2:13:29 PM<p><li>&nbsp;<a href="msg002714.html">Building Tools versus Applications</a>, Marc Canter, 2/5/1999; 2:33:58 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:45 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

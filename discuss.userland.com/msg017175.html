@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Tough problem to solve...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Tough problem to solve...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Wesley Felter</td></tr>				<tr><td><b>Posted:</b></td><td>5/10/2000; 1:00:15 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg017142.html">Piking behind firewalls</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17175 (In response to <a href="msg017167.html">17167</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017174.html">17174</a> / <a href="msg017176.html">17176</a></td></tr>				</table>			<br><i>If I can somehow get the MD5 hash of your username and password, e.g. by sniffing your network connection, I can pass that string back to Manila and still do nasty things.</i><p>
+
+Yes, this is technically known as password-equivalence.<p>
+
+<i>One approach is to use a challenge and response during the same connection, and repeat that every time someone connects, but HTTP is usually connectionless.</i><p>
+
+HTTP/1.1 already has a standard challenge-response authentication scheme called digest authentication. However, even digest auth is vulnerable to <a href="http://srp.stanford.edu/srp/issues.html#dictionary">offline guessing attacks</a>.<p>
+
+<i>Perhaps it all needs to happen over SSL.</i><p>
+
+Even though SSL can be leak passwords during man-in-the-middle attacks, I think this is the most practical solution.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:09 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: Howto can I make a subscriptable GDB?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Howto can I make a subscriptable GDB?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>3/31/1999; 8:51:26 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004707.html">Howto can I make a subscriptable GDB?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4708 (In response to <a href="msg004707.html">4707</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004707.html">4707</a> / <a href="msg004709.html">4709</a></td></tr>				</table>			<br>Creating subscribable GDBs is certainly going to be documented.<p>
+
+The server side is implemented in mainResponder.subscriptions. On the server, you need to create a table named "#changes" at the top level of the GDB in question. You also need to add a sub-table for the GDB to user.databases and in that table set supportsSubscribe to true.<p>
+
+To edit items in the GDB, it's best to stick with WebEdit which will automatically maintain the #changes table for you via mainResponder.subscriptions.checkInCallback.<p>
+
+On the client side, you need to create a new sub-table in user.rootUpdates.server. In the end, the client should be able to bring any window contained in the GDB to the front and choose Update XYZ.root from the Main menu to get updates from the server.<p>
+
+These are the basics, I think. Brent is the expert on this stuff, and he is probably going to correct any mistakes or ommissions I have made. If you have further questions, please ask.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004718.html">Re: Howto can I make a subscriptable GDB?</a>, Sam DeVore, 3/31/1999; 7:40:52 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:10 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

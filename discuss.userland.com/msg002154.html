@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: mainresponder.respond: Proposal or Callback?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: mainresponder.respond: Proposal or Callback?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>1/15/1999; 9:26:11 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002144.html">mainresponder.respond: Proposal or Callback?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2154 (In response to <a href="msg002152.html">2152</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002153.html">2153</a> / <a href="msg002155.html">2155</a></td></tr>				</table>			<br>Good. Thanks for working with me on this.<p>
+
+Let's see if I understand. You want me to put this code:<p>
+
+<pre>
+if string.lower (adrparamtable^.requestHeaders.["Content-type"]) beginsWith "multipart/form-data"
+user.webserver.utilities.parseMultiPart2 (adrparamtable)} 
+else 
+webserver.parseArgs (adrparamtable^.requestBody, adrtable)
+for i = 1 to sizeof (adrtable^) 
+adrtable^ [i] = string.urldecode (adrtable^ [i])
+</pre><p>
+
+into mainResponder.respond. Where?<p>
+
+And I don't have user.webserver.utilities.parseMultiPart2 in my root. What does it do?<p>
+
+Dave
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002156.html">Re: mainresponder.respond: Proposal or Callback?</a>, Kurt J. Egger, 1/15/1999; 9:56:02 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

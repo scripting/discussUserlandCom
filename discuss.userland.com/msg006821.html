@@ -1,0 +1,46 @@
+<html>	<head>		<title>Re: XML-RPC from a script in an HTML page?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC from a script in an HTML page?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Shinpaugh</td></tr>				<tr><td><b>Posted:</b></td><td>5/27/1999; 5:22:37 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006745.html">XML-RPC from a script in an HTML page?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6821 (In response to <a href="msg006745.html">6745</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006820.html">6820</a> / <a href="msg006822.html">6822</a></td></tr>				</table>			<br>Yes MSIE5 has a builtin active-X control that works well with Frontier XML-RPC.<p>
+
+It's called the IXML-HTTP Request Object <p>
+
+Here's where the documentation is:<p>
+
+XML RPC Request Object<p>
+
+<a href="http://msdn.microsoft.com/xml/reference/scriptref/XMLHttpRequest_object.asp">http://msdn.microsoft.com/xml/reference/scriptref/XMLHttpRequest_object.asp</a><p>
+
+XMLDOM Document Object (This is what you get back)
+<a href="http://msdn.microsoft.com/xml/reference/scriptref/XMLDOMDocument_object.asp">http://msdn.microsoft.com/xml/reference/scriptref/XMLDOMDocument_object.asp</a><p>
+
+XMLDOC Node Object (Elements inside the XMLDOM Document object)
+<a href="http://msdn.microsoft.com/xml/reference/scriptref/XMLDOMNode_object.asp">http://msdn.microsoft.com/xml/reference/scriptref/XMLDOMNode_object.asp</a><p>
+
+Basically you instantiate the request Object, call send method with a string containing an XML-RPC request, adhering to the Userland XML-RPC Spec, and read the response object.<p>
+
+
+<a href="//">//</a> Declare Request<p>
+
+var xmlrpcrequest = new ActiveXObject ("microsoft.xmlhttp");<p>
+
+function executeRequest(pStrXMLRequest)<p>
+
+	&#123;
+	xmlrpcrequest.open ("POST", "...url for the XMLRPC server...", false);<p>
+
+	xmlrpcrequest.setRequestHeader ("Content-type", "text/xml");<p>
+
+	xmlrpcrequest.send (pStrXMLRequest);<p>
+
+	return xmlrpcrequest.responseXML;<p>
+
+	}<p>
+
+Then you walk the XML-Document object you get back to get the response data.  You will have to refer to sample app referenced below or use MS docs to figure that out.<p>
+
+You can use this with VBScript too.<p>
+
+Check out <a href="http://broadband.mailtothefuture.com">http://broadband.mailtothefuture.com</a> you'll see how it's done.<p>
+
+This should give you some good ideas,<p>
+
+David
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

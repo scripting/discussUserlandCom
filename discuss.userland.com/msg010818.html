@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Versions, categorization, dmoz.org</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Versions, categorization, dmoz.org</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>A.M. Kuchling</td></tr>				<tr><td><b>Posted:</b></td><td>9/9/1999; 9:17:17 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010698.html">rss channels via email</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10818 (In response to <a href="msg010815.html">10815</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010817.html">10817</a> / <a href="msg010819.html">10819</a></td></tr>				</table>			<br>Note that those data dumps are *not* well-formed XML; there are 
+various glitches in the data.  I hacked together a Python script that churns through the 300Mb of data and outputs a corrected version that
+xmlwf reports as being well-formed XML; look for xmlfix.py at 
+<a href="http://starship.python.net/crew/amk/zope/ODP.html">http://starship.python.net/crew/amk/zope/ODP.html</a><p>
+
+It would be nice if the data was available in smaller chunks.
+I'm working on a ODP viewer for Zope, and have 
+a shell-like tool for editing the data; a slide about it is at
+<a href="http://starship.python.net/crew/amk/zope/odp-slides/sld015.htm">http://starship.python.net/crew/amk/zope/odp-slides/sld015.htm</a> .
+This tool would let you read in the full database, delete chunks, eventually add new material, and then output RDF for your modified version.  Slapping an XML-RPC interface on top of it should be relatively easy; I hadn't thought of that.<p>
+
+All of this stuff is still unfinished and unreleased.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

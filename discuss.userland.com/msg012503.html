@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: Response to Flutterby</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Response to Flutterby</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>10/29/1999; 8:33:11 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012280.html">Response to Flutterby</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12503 (In response to <a href="msg012488.html">12488</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012502.html">12502</a> / <a href="msg012504.html">12504</a></td></tr>				</table>			<br>Dave Polaschek wrote:<p>
+
+<I>FYI, AppleEvents now can go over IP in MacOS 9. The Mac OS 9 Technote mentions this in passing (the first bullet-point). More information is probably available elsewhere, but I haven't had the time to dig into it.<p>
+
+I'm not sure if Apple's made the protocol open or not, but I would expect them to eventually. Heck, if they don't, an afternoon staring at packets with EtherPeek ought to provide the details a guy needs.</I><p>
+
+I was on the AppleEvents team when I was at Apple, from '89 to '91, so let me provide a little background:<p>
+
+First, it was always our intention that AppleEvents be able to use alternative transport to the "PPC Toolbox," which stands for "Program-to-Program Communication Toolbox," predating the PowerPC as it does by several years. In turn, PPC Toolbox was just a layer on top of ADSP and thence down the AppleTalk protocol stack.<p>
+
+However, we had a conflicting goal: we wanted to insulate developers from potential changes to the structure of AppleEvent messages. There was a strong sense in MacDTS, where I worked, that every time we had opened up data structures in the MacOS, e.g. the TextEdit record, we had gotten burned: when System Software wanted to evolve them, they couldn't, because there was too much code out there that relied on them, and in DTS we had to support both the legacy stuff and the new stuff. That aspect of things was horrible.<p>
+
+We approached this in the way we usually did, at least in those days: someone wrote a "Super-Secret Technote" documenting the AppleEvent message format. This would be given to developers who demonstrated a compelling need and accepted the risk of the information being potentially very volatile. I don't know whether that Technote is still available or not, but if so, it could save you a lot of work.<p>
+
+Another possible source of information on the subject is Jens Alfke's AEGizmos library, which provides what amounts to pretty direct access to the bytestream of an AppleEvent. See <<a href="http://www.mooseyard.com/Jens/Software/">http://www.mooseyard.com/Jens/Software/</a>>.<p>
+
+Hope this helps,<br>
+Paul
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012507.html">Re: Response to Flutterby</a>, Dave Winer, 10/29/1999; 8:40:10 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

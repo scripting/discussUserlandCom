@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Getting the URL of the Front IE Window w/ VBScript</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Getting the URL of the Front IE Window w/ VBScript</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>12/21/1998; 11:46:32 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001453.html">Getting the URL of the Front IE Window w/ VBScript</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1583 (In response to <a href="msg001526.html">1526</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001582.html">1582</a> / <a href="msg001584.html">1584</a></td></tr>				</table>			<br><b>Brent wrote:</b><p>
+
+"The context is not a web page but the Microsoft Script Control. (I think this translates to the global VBScript context.)"<p>
+
+<hr size=2 width=100%><p><p><p>
+
+I don't think there is a global VBScript context.  Each instance of the Script Control, and each instance of the ActiveX Scripting Interface running in other apps has it's own global namespace.  That's a good thing, but it also makes things more difficult.<p>
+
+Does each VBScript run in Frontier get it's own Script Control instance, or do they share one?  If they share one instance, you should be able to share objects between threads.<p>
+
+Jim
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001591.html">Multiple Script Control Instances</a>, Jim Roepcke, 12/21/1998; 12:44:36 PM<p><li>&nbsp;<a href="msg001592.html">Re: Getting the URL of the Front IE Window w/ VBScript</a>, Brent Simmons, 12/21/1998; 12:46:17 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

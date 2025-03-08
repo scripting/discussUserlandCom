@@ -1,0 +1,45 @@
+<html>	<head>		<title>Re: NavBar macro - multiple level</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: NavBar macro - multiple level</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Glenn</td></tr>				<tr><td><b>Posted:</b></td><td>5/25/1999; 2:26:16 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006658.html">NavBar macro - multiple level</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6680 (In response to <a href="msg006658.html">6658</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006679.html">6679</a> / <a href="msg006681.html">6681</a></td></tr>				</table>			<br>Ok, I found a simple way to do this. It however does not know how to make the current page not linked.<p>
+
+Use the following script as an outline renderer (#renderOutlineWith "") and make an outline for the navigation. <p>
+
+<pre>
+Outline:
+#renderOutlineWith "metrisSiteOutliner"
+<b>&#123;glossSub("Metris Web Projects","development")}</b>
+	&#123;glossSub("Metris Web Projects: News","news")}
+	&#123;glossSub("Metris Web Projects: Research","research")}
+	<b>&#123;glossSub("Metris Web Projects: Internet","internet")}</b>
+		&#123;glossSub("Metris Web Projects: Internet: MetrisCompanies.com","metriscompanies.com")}
+		&#123;glossSub("Metris Web Projects: Internet: eDirectAlert.com","edirectalert.com")}
+	&#123;glossSub("Metris Web Projects: Intranet","intranet")}<p>
+
+Script:
+on metrisSiteOutliner (adroutline) &#123;
+	&#171;special metris Site Outliner for multi-level navigation bars
+		&#171;indent levels follow outline indent levels
+		&#171;there are no extra lines between links
+	
+	local (level = 0);
+	op.firstsummit ();
+	op.fullexpand ();
+	on visit () &#123;
+		local (levelcount = 0);
+		loop &#123;
+			local (s = op.getlinetext ());
+			s = spacePixels (8 * level, "horizontal") + s;
+			op.setlinetext (s);
+			if op.go (right, 1) &#123; &#171;cursor has subheads
+				level++;
+				visit ();
+				level--;
+				op.go (left, 1)};
+			if not op.go (down, 1) &#123;
+				break}}};
+	visit ();
+	
+	local (s = html.getOutlineHtml (adroutline, "", "", "", "<br>", "true"));
+	return (s)}
+</pre><p>
+
+dave</br>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:25 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

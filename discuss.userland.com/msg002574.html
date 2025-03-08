@@ -1,0 +1,21 @@
+<html>	<head>		<title>Encodings; was Re: XML-RPC Spec Comments</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Encodings; was Re: XML-RPC Spec Comments</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Bob Atkinson</td></tr>				<tr><td><b>Posted:</b></td><td>1/29/1999; 1:42:43 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002563.html">XML-RPC Spec Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2574 (In response to <a href="msg002563.html">2563</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002573.html">2573</a> / <a href="msg002575.html">2575</a></td></tr>				</table>			<br>Small comments:<p>
+
+I really like the simplicity of layout in the existing parameter format; indeed, I'd push to make the 99% case of straightforward invocation even less verbose than at present. So REQUIRING additional tags I think would be an issue.<p>
+
+At the same time, I agree with the need for a hook to allow for multiple encodings over time. Here is my thought on how to do that.<p>
+
+Modify <params> to allow it to alternately contain an <encodedParams> element rather than it's normal <param> sequence. <encodedParams> would contain a <transferSyntax> (a URI) and <data> elements. The following, for example, might be an embedded NDR invocation:<p>
+
+<pre>
+<params>
+  <encodedParams>
+    <transferSyntax>uuid:8a885d04-1ceb-11c9-9fe8-08002b104860</transferSyntax>
+    <data>aG93IG5vdyBicm93biBjb3cNCg==</data>
+  </encodedParams>
+<params>
+</pre><p>
+
+However we do it, I really think we need to be clear about the syntax passed by the caller; having the server guess I don't think is appropriate. Using different URLs causes layering problems in implementations: this is an issue of parameter / result encoding, not object identity. Similarly, forcing the encoding declaration into the transport makes it difficult in implementations to keep track of it reliably at the point in time when you're actually doing the unmarshalling.<p>
+
+I really think the right way of doing it it is some (optional) tag in the <params> block, of which the above is just one possible example.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002583.html">Lightweight Distributed Objects (LDO); was Re: Encodings</a>, Ken MacLeod, 1/30/1999; 7:35:35 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

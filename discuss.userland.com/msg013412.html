@@ -1,0 +1,38 @@
+<html>	<head>		<title>Review of updated SOAP spec</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Review of updated SOAP spec</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>12/3/1999; 9:57:32 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013412.html">Review of updated SOAP spec</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13412</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013411.html">13411</a> / <a href="msg013413.html">13413</a></td></tr>				</table>			<br><b>The Specs</b><p>
+
+Previous version: <a href="http://www.ietf.org/internet-drafts/draft-box-http-soap-00.txt">http://www.ietf.org/internet-drafts/draft-box-http-soap-00.txt</a><p>
+
+New version: <a href="http://www.ietf.org/internet-drafts/draft-box-http-soap-01.txt">http://www.ietf.org/internet-drafts/draft-box-http-soap-01.txt</a><p>
+
+<b>Namespaces</b><p>
+
+The new version places a stronger emphasis on using XML namespaces. All protocol tags should be scoped to the SOAP namespace. See Section 5 for the explanation and section 3.3 for examples.<p>
+
+<b>POST vs. M-POST</b><p>
+
+The previous version mandated the prefered use of the M-POST HTTP verb over the regular POST verb. The new version does not mandate this preference. Actually, all requests should now first be made using the POST verb, and if they fail the M-POST verb should be tried. See section 6.2 for details.<p>
+
+<b>HTTP Request and Response Headers</b><p>
+
+The previous version used "text/xml-SOAP" for the HTTP Content-Type header. The new version uses just "text/xml". See section 6.2 for details.<p>
+
+The previous version used "MethodName" and "InterfaceName" HTTP headers. The new version uses just "SOAPMethodName". See section 6.3 for details.<p>
+
+<b>Structure of Request and Response Bodies</b><p>
+
+The structure of message bodies has been changed slightly by introducing an additional SOAP:Body tag.<p>
+
+The root element has been renamed from SerializedStream to SOAP:Envelope.<p>
+
+The headers element has been renamed from SOAP:headers to SOAP:Header.<p>
+
+The fault element has been renamed from __fault to SOAP:fault.<p>
+
+<b>Parameter encoding</b><p>
+
+A new simple data type has been introduced: enum. See section 8.2.2 for details<p>
+
+<b>Summary</b><p>
+
+The actual encoding of parameters has not changed except for the new data type. Most changes relate to the structure of the whole request and to how it's transmitted. It looks like most of the changes were aimed at making the spec more consistent.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

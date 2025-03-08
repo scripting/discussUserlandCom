@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Confused by new file attachments in DG...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Confused by new file attachments in DG...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>5/28/1999; 8:30:07 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006831.html">Confused by new file attachments in DG...</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6837 (In response to <a href="msg006831.html">6831</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006836.html">6836</a> / <a href="msg006838.html">6838</a></td></tr>				</table>			<br><i>It looks as though any binary files that are attached to messages are stored in the file system.</i><p>
+
+Correct. We chose this approach so that these files could be served from the file system by an industrial-strength web server, e.g. WebSTAR or IIS.<p>
+
+<i>Is msgReader aware of these files out there in the file system?</i><p>
+
+No, at least not yet. But mainResponder.discuss.editMessageForm is if you set its flShowFileList parameter to true. This script also contains some code demonstrating how to get a list of all files attached to a message.<p>
+
+<i>It seems the new attach file feature set is geared towards a place to deposit binaries that an administrator might look at, approve, move into final position kind of scenario.</i><p>
+
+I suppose it could be used that way, though that's not how we currently use it. It's up to you!
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006843.html">Re: Confused by new file attachments in DG...</a>, , 5/28/1999; 9:38:43 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

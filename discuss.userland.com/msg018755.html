@@ -1,0 +1,307 @@
+<html>	<head>		<title>Email Virus - SANS News Flash about it.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Email Virus - SANS News Flash about it.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark Alexander</td></tr>				<tr><td><b>Posted:</b></td><td>7/18/2000; 1:01:40 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018754.html">Outlook Express and the virus</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18755 (In response to <a href="msg018754.html">18754</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018754.html">18754</a> / <a href="msg018756.html">18756</a></td></tr>				</table>			<br>This email virus will impact any email reader that uses IE as its HTML renderer including Outlook, Outlook Express and Eudora.<p>
+
+
+Please see entire SANS posting below for details and fixes.<p>
+
+<p>
+
+<p>
+
+Date: Mon, 17 Jul 2000 14:27:07 -0600 (MDT)<p>
+
+
+From: The SANS Institute <<a href="mailto:sans@sans.org">sans@sans.org</a>><p>
+
+
+Subject: SANS Flash: Most dangerous flaw found in Windows workstations, Fix available.<p>
+
+
+From: Alan Paller for SANS NewsBites and SANS Windows Security Digest
+      Services<p>
+
+
+I am forwarding this note to you as a FLASH because the vulnerability
+it describes is probably the most dangerous programming error in Windows
+workstation (all varieties -- 95, 98, 2000, NT 4.0) that Microsoft has
+made.<p>
+
+
+You are vulnerable to total compromise simply by previewing or reading
+an email (without opening any attachments) if you have one of the
+affected operating systems and have the following installed:<p>
+
+
+* Microsoft Access 97 or 2000<p>
+
+
+* Internet Explorer 4.0 or higher, including 5.5 (Windows 2000 includes
+  IE 5)<p>
+
+
+SANS Prize: It may be possible to fix this vulnerability automatically,
+via an email without asking every user to take action.  The concept is
+similar to using a slightly modified version of a virus to provide
+immunity against infection. SANS is offering a $500 prize (and a few
+minutes of fame) to the first person who sends us a practical automated
+solution that companies can use, quickly, easily, and (relatively)
+painlessly to protect all vulnerable systems.<p>
+
+<p>
+
+                AP<p>
+
+<p>
+
+By: Jesper Johansson, Assistant Professor, Boston University, and
+Editor, SANS Windows Security Digest<p>
+
+
+This is a special issue of the SANS Windows Security Digest. On June 27
+Georgi Guninski posted an exploit using Access 2000 to exploit Windows
+98.  We developed this exploit further and realized that this is one of
+the most serious exploits of Windows workstations in the last several
+years.  Microsoft asked us to not release the details until they had a
+fix. On July 14, 2000, they posted a workaround for this issue, and we
+now bring you this update.<p>
+
+
+MS00-049 - Patch Available for "The Office HTML Script" Vulnerability
+and a Workaround for "The IE Script" Vulnerability<p>
+
+
+The bulletin actually discusses two separate issues. We consider the
+Access issue much more serious than the other issue so we will cover
+that first.<p>
+
+
+Internet Explorer allows the use of an object tag to load an ActiveX
+control. The data property of the object tag is the ActiveX control to
+be loaded. An ActiveX control is normally some executable. However,
+Microsoft Office documents are also ActiveX controls. In a default
+installation, ActiveX controls load silently, without prompting the
+user, thus automatically executing the exploit.<p>
+
+
+Internet Explorer can be configured to prompt the user about whether to
+load ActiveX controls. However, there is a serious bug in the prompting
+that appears to only surface when the requested control is a Microsoft
+Access database file (.MDB file). The order of events with MDB files
+is:<p>
+
+
+1. User opens a web page with an Object tag<p>
+
+
+2. IE downloads database and calls Access to open the database<p>
+
+
+3. IE prompts user whether to open the database<p>
+
+
+4. User clicks No<p>
+
+
+5. IE displays an error message stating that some code on this page is
+   unsafe<p>
+
+
+As can be seen from this sequence of events, the order of execution is
+wrong. IE actually opens the Access database BEFORE it asks the user
+whether to open it. Assume now that the user has disabled execution of
+ActiveX controls entirely. The following sequence of events would occur:<p>
+
+
+1. User opens a web page with Object tag<p>
+
+
+2. IE downloads database and calls Access to open the database<p>
+
+
+3. IE informs user that some code on this page is unsafe<p>
+
+
+Again, the database is opened before IE checks whether to execute
+ActiveX controls.<p>
+
+
+Microsoft calls this issue the "IE Script" vulnerability. That title is
+misleading because it implies that if Active Scripting is disabled, the
+exploit would not work. This is not true. The exploit does not rely on
+scripting, and therefore disabling scripting has no effect on this
+exploit.<p>
+
+
+Furthermore, this is very easy to exploit through HTML e-mail. In fact,
+most popular e-mail programs, such as Outlook, Outlook Express, and
+Eudora have a preview pane. That preview pane will display HTML in an
+HTML formatted e-mail message. The interpreter used for these programs
+is Internet Explorer. Hence, this exploit will also work through HTML
+formatted e-mail.  Thus the user need not open the e-mail, nor download
+anything for this to work. In addition, if this is the only e-mail in
+the user's Inbox, the exploit will execute as soon as the e-mail is
+received.<p>
+
+
+This is a very serious problem given the power of the Visual Basic for
+Applications (VBA) language used in Access. Access can run VBA code when
+the database is opened. We successfully made Access connect to a Windows
+Networking (CIFS) file share on the Internet and ran a program from
+there.  Thus the malicious program that an attacker wants to run does
+not need to reside on the user's machine.<p>
+
+
+VULNERABLE SYSTEMS<p>
+
+
+All Windows Systems (Windows 2000, NT 4.0, 98 and 95) with all of the
+following installed:<p>
+
+
+* Microsoft Access 97 or 2000<p>
+
+
+* Internet Explorer 4.0 or higher, including 5.5 (Windows 2000 includes
+  IE 5)<p>
+
+
+* Systems with Outlook, Outlook Express, Eudora, or another mail reader
+  that uses IE to render HTML are also vulnerable to exploiting this
+  through e-mail<p>
+
+<p>
+
+WORKAROUND
+We recommend several steps to work around this issue:<p>
+
+
+1. Ensure that an exploit such as this cannot run malicious programs on
+the Internet. This is done by blocking outgoing Windows File Sharing at
+the firewall. To do so, block outgoing traffic to ports UDP 138, UDP
+and TCP 139, and UDP and TCP 445.<p>
+
+
+2. Apply the Microsoft workaround to all installations of Microsoft
+Access under your control. The steps to do so are:<p>
+
+
+a. Start Access 2000 but don't open any databases<p>
+
+
+b. From the Tools menu, choose Security<p>
+
+
+c. Select User and Group Accounts<p>
+
+
+d. Select the Admin user, which should be defined by default<p>
+
+
+e. Go to the Change Logon Password tab<p>
+
+
+f. The Admin password should be blank if it has never been changed<p>
+
+
+g. Assign a password to the Admin user<p>
+
+
+h. Click OK to exit the menu<p>
+
+
+3. Apply the Outlook E-Mail security update, available on
+<a href="http://officeupdate.microsoft.com">http://officeupdate.microsoft.com</a> if you use Outlook 98 or 2000.<p>
+
+
+4. Set Outlook Express or Eudora to read e-mail in the Restricted Sites
+zone and then disable everything in that zone.<p>
+
+
+Steps 3 and 4 have no effect on the current issue, but are good security
+practice.<p>
+
+
+Office HTML Script Vulnerability<p>
+
+
+The second issue discussed in this bulletin also involves using Office
+components as ActiveX controls, although it is not as serious as the
+Access issue discussed above. Excel 2000 and PowerPoint 97 and 2000 can
+be scripted from inside IE to save a file to an arbitrary location on
+the user's hard drive as long as the user has access to that location.
+This would enable an attacker to save files to locations such as the
+Startup folder in the user's profile.<p>
+
+
+This vulnerability is not exploitable if Active Scripting and/or Running
+ActiveX controls is disabled. Therefore, it is considerably less
+dangerous than the Access problem. The root cause of this problem is
+that Excel and PowerPoint files are marked as safe for scripting. The
+patch marks them as unsafe for scripting.<p>
+
+
+VULNERABLE SYSTEMS<p>
+
+
+All Windows Systems (Windows 2000, NT 4.0, 98 and 95) with all of the
+following installed:<p>
+
+
+* Microsoft Excel 2000 or PowerPoint 97 or 2000<p>
+
+
+* Internet Explorer 4.0 or higher, including 5.5<p>
+
+
+* Systems with Outlook, Outlook Express, Eudora, or another mail reader
+  that uses IE to render HTML are also vulnerable to exploiting this
+  through e-mail<p>
+
+
+FIX<p>
+
+
+Microsoft has made a fix available. It is available from the following
+locations:<p>
+
+<p>
+
+* Office Update
+<a href="http://officeupdate.microsoft.com">http://officeupdate.microsoft.com</a><p>
+
+
+* Microsoft Excel 2000 and PowerPoint 2000:
+<a href="http://officeupdate.microsoft.com/2000/downloaddetails/Addinsec.htm">http://officeupdate.microsoft.com/2000/downloaddetails/Addinsec.htm</a><p>
+
+
+* Microsoft PowerPoint 97:
+<a href="http://officeupdate.microsoft.com/downloaddetails/PPt97sec.htm">http://officeupdate.microsoft.com/downloaddetails/PPt97sec.htm</a><p>
+
+
+For more information see:<p>
+
+
+* Microsoft Security Bulletin MS00-049
+<a href="http://www.microsoft.com/technet/security/bulletin/MS00-049.asp">http://www.microsoft.com/technet/security/bulletin/MS00-049.asp</a><p>
+
+
+* Frequently Asked Questions: Microsoft Security Bulletin MS00-049
+<a href="http://www.microsoft.com/technet/security/bulletin/fq00-049sp">http://www.microsoft.com/technet/security/bulletin/fq00-049sp</a><p>
+
+
+* Microsoft Knowledge Base (KB) article Q268365 "XL2000: Update
+Available for HTML Script Vulnerability"
+<a href="http://www.microsoft.com/technet/support/kb.asp?ID=268365">http://www.microsoft.com/technet/support/kb.asp?ID=268365</a><p>
+
+
+* Microsoft Knowledge Base (KB) article Q268457 "PPT2000: Update
+Available for HTML Script Vulnerability"
+<a href="http://www.microsoft.com/technet/support/kb.asp?ID=268457">http://www.microsoft.com/technet/support/kb.asp?ID=268457</a><p>
+
+
+* Microsoft Knowledge Base (KB) article Q268477 "PPT97: Update Available
+for HTML Script Vulnerability"
+<a href="http://www.microsoft.com/technet/support/kb.asp?ID=268477">http://www.microsoft.com/technet/support/kb.asp?ID=268477</a><p>
+
+
+There is no Knowledge Base article on the Access issue yet.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg018757.html">Re: Email Virus - SANS News Flash about it.</a>, Dave Winer, 7/18/2000; 3:06:09 PM<p><li>&nbsp;<a href="msg018933.html">Email Virus - New SANS FLASH for Outlook and Outlook Express</a>, Mark Alexander, 7/22/2000; 11:53:18 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

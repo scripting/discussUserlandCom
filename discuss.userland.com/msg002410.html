@@ -1,0 +1,27 @@
+<html>	<head>		<title>Re: Chuck's XML-RPC Comments</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Chuck's XML-RPC Comments</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Skip Montanaro</td></tr>				<tr><td><b>Posted:</b></td><td>1/22/1999; 3:34:20 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002401.html">Chuck's XML-RPC Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2410 (In response to <a href="msg002401.html">2401</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002409.html">2409</a> / <a href="msg002411.html">2411</a></td></tr>				</table>			<br>Here's my take on a few points.<p>
+
+* "text/x-xml-rpc2" as the media type.  In the Zope list Jim Fulton commented that text/xml might be too broad for this specific application.  I think trying to get new media types accepted will be difficult.  It seems better to define a parameter, so the content-type would be something like "text/xml; service=XML-RPC". I don't know if there are predefined parameter names.  This should be investigated.<p>
+
+* Endianness of <i4>. This doesn't matter since nubmers aren't represented using a binary format.<p>
+
+* Discovery of URI and MIME type.  I don't think it's unreasonable to expect the client to know what URI to call for any given application server(s) it might be talking to.  Similarly, XML should be the only MIME type supported (both for requests and responses).  Allowing MIME types other than XML for the request and response will only make it difficult to write servers and clients.  Lots of XML tools are coming online, so support shouldn't be a big issue.<p>
+
+* The elements of identifiers.  I think the regular expression "[_A-Za-z][_A-Za-z0-9]*" is the only "safe" choice for identifiers.  I'm not aware of any languages that won't accept them.  Wherever possible you want the language binding to be as natural as possible.  As an example, remote calls are made in Python by calling an attribute of a server object, e.g.:<p>
+
+    server.latlong("San Francisco", "CA")<p>
+
+Those attributes have to be identifiers in the language.  If it's extended to include unusual characters, you'd have to give up a little of the elegance of Fredrik's implementation with something like:<p>
+
+    server.call("latlong", ("San Francisco", "CA"))<p>
+
+You'd also lose the ability to use nice features of the language like keywordarguments.  <p>
+
+Perl uses a similar definition of an identifer (maybe the same).  "$" is an introducer character that indicates that the object it introduces is supposed to be evaluated in a scalar context.<p>
+
+* fault mechanism.  While perhaps a bit restrictive, I think it's adequate.  I would like to see the faultString replaced (or augmented) by a more general faultInfo item that could be of any type that can be marshalled.  It would also be nice to see some definition of standard fault codes.  For example, I'd like to see codes 1-99 reserved for standard codes or assigned by an authority (much the same way that MIME types are allocated by whoever does that), perhaps similar to the sorts of exceptions that might occur in an application (divide-by-zero, segmentation fault/general protection fault, etc) and codes 100-599 be reserved for the standard HTTP response codes. I'd also reserve codes 600-999 on the assumption that HTTP will continue to get more complex and thus use more of those values. Codes 1000 and above could be free-for-all.<p>
+
+* timezones.  I agree completely that dateTime objects have to reference a time zone.<p>
+
+Skip Montanaro
+(<a href="mailto:skip@calendar.com">skip@calendar.com</a>)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002432.html">Re: Chuck's XML-RPC Comments</a>, Chuck Shotton, 1/24/1999; 5:13:44 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:32 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

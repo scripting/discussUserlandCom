@@ -1,0 +1,28 @@
+<html>	<head>		<title>Javascript form enahancement</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Javascript form enahancement</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Bret Curry</td></tr>				<tr><td><b>Posted:</b></td><td>1/31/2000; 3:12:38 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg014885.html">Javascript form enahancement</a></td></tr>				<tr><td><b>Msg #:</b></td><td>14885</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg014884.html">14884</a> / <a href="msg014886.html">14886</a></td></tr>				</table>			<br>Any ideas on how to set the value of a certain textfield depending on the value sent when a radio button is clicked? This is what I have so far:<p>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+			"http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+	<title>Test</title><p>
+
+<script type="text/javascript">
+function popbox (form,fieldnum)
+&#123;
+    var message = prompt("Please enter your message:","")
+    form.fieldnum.value = message
+&#125;
+</script>
+	
+</head>
+<body>
+<form method="post">
+<input type="radio" name="deny" onClick="popbox(this.form,'message_293')"><br>
+<input type="text" name="message_293"><p>
+
+</form>
+</body>
+</html><p>
+
+I don't want to do each field manually (form.message_293.value) because it will be constantly updated and there will be a lot of fields. Thanks.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:54:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

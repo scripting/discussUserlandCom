@@ -1,0 +1,24 @@
+<html>	<head>		<title>Re: What do people use Java for?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: What do people use Java for?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kent Spaulding</td></tr>				<tr><td><b>Posted:</b></td><td>2/23/1999; 11:33:26 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003140.html">What do people use Java for?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3169 (In response to <a href="msg003142.html">3142</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003168.html">3168</a> / <a href="msg003170.html">3170</a></td></tr>				</table>			<br>Chuck,<p>
+
+It might be worth revisiting this issue of Java performance.  You might find a few surprises - especially with regards to servers.<p>
+
+Have you seen the story regarding the Jigsaw webserver in PCWeek, which Dave pointed to recently?<p>
+
+<a href="http://www.zdnet.com/pcweek/stories/news/0,4153,389496,00.html">http://www.zdnet.com/pcweek/stories/news/0,4153,389496,00.html</a><p>
+
+Their preliminary performance results put it in line with Apache's performance.  Curious - since Jigsaw is implemented in Java and Apache is in C/C++.  This does not however, address reliability concerns.<p>
+
+You'll also find that servlet-based web pages abound, and are quite scalable.  Naturally, the Java Developer's Connection (a Sun site) uses servlets and has a fairly heavly load.  Additionally, it uses a Java-based server, the Java Web Server.<p>
+
+You'll also find Java lurking behind NetObject's Fusion, on the server side.  Fusion servers have never been flagged as poor performers.<p>
+
+Additionally, it is my understanding that the Knight-Ridder newspapers serve up all of their on-line classified adds using server-side Java running against a Java OODB.  They claim to have tried several other implementations with inferior results.<p>
+
+Finally, if you must have as fast as possible performance, check out the Java compiler from Tower Technologies.  You'll get code that runs at 98% the speed of C++.  This is a tiny penalty to pay for increased programmer efficiency.<p>
+
+I wanted to make on other point.  You claim that Java performs just like a scripting language.  This is not true, especially in the presence of a JIT.  That partilcular characterization is not fair.<p>
+
+In the end, I'm a big fan of scripting languages.  I use them to prototype the utilities and web applications that I then implement in Java. The performance card is way over-played.  It is not an issue on the server.<p>
+
+--Kent
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

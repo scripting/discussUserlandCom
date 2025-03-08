@@ -1,0 +1,23 @@
+<html>	<head>		<title>Re: RFC: New attribute for glossary entries</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: RFC: New attribute for glossary entries</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>1/14/1999; 1:14:30 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002101.html">Staging Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2127 (In response to <a href="msg002125.html">2125</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002126.html">2126</a> / <a href="msg002128.html">2128</a></td></tr>				</table>			<br>Dave wrote:<p>
+
+>I am firmly against anything that could break websites. Be very careful here.<p>
+
+Me too. I think the answer, then, is this:<p>
+
+No changes to Frontier. If you have a situation like Alan, then in your pageFilter, you don't call html.addPageToGlossary automatically.<p>
+
+You only call it if you're not running in the context of the website framework responder.<p>
+
+So Alan's pageFilter should look like this:<p>
+
+<pre>
+if not html.inResponder (adrPageTable)
+   html.addPageToGlossary (adrPageTable)
+</pre><p>
+
+I would recommend making that the default for new websites. This way no existing websites are changed or broken, unless the sysop makes the change to the site's pageFilter. There are no new directives to learn.<p>
+
+But new websites will behave as Alan prefers -- and as I prefer, as I think is the right way.<p>
+
+No breakage.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002128.html">Re: RFC: New attribute for glossary entries</a>, Dave Winer, 1/14/1999; 1:15:33 PM<p><li>&nbsp;<a href="msg002129.html">Re: RFC: New attribute for glossary entries</a>, Alan German, 1/14/1999; 1:29:16 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:17 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

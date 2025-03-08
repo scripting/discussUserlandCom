@@ -1,0 +1,39 @@
+<html>	<head>		<title>Re: MTTF messages and HTML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: MTTF messages and HTML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Shinpaugh</td></tr>				<tr><td><b>Posted:</b></td><td>2/23/1999; 2:47:28 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003019.html">Mail to the Future Server Functionality</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3182 (In response to <a href="msg003031.html">3031</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003181.html">3181</a> / <a href="msg003183.html">3183</a></td></tr>				</table>			<br>There is another problem... <p>
+
+The XML-RPC interface docs on userland.com state I can't include the character < in a string type member!  = should be on the list too BTW!<p>
+
+So how can I put HTML in an XML Request member??<p>
+
+Here's what happened when I experimented anyway: <p>
+
+As a baseline here's what the HTML version of MTTF can do when putting HTML tags in the body of a message:<p>
+
+1) You can type in <b>tags</b> like this and they store fine.  You can view your message and it will appear with the tags in the body.<p>
+
+2) You can type in <img src="http://static.userland.com/userLandDiscussArchive/yadayada"> tags and they store/view fine too.<p>
+
+Of course the mail client doesn't interpret cause the HTML version of MTTF isn't setting mimeType to text/html<p>
+
+
+Now this is what happens when putting HTML in the message body of a msgStruct using MTTF XML-RPC calls:<p>
+
+--- Without <string></string> data type qualifiers in the msgStruct<p>
+
+1) <b>tags</b> like this make it through the XML-RPC routine, but when viewed with the HTML version of MTTF the tags are STRIPPED!<p>
+
+2) <img src="http://static.userland.com/userLandDiscussArchive/anything"> tags blow up the XML-RPC routine with a fault code of 6 and fault string of "poorly formed xml text, string constant is improperly formatted (at character #357)<p>
+
+This character refers to random places in the XML request after the body member.  Probably because it goes to lunch somewhere around the "=" sign.<p>
+
+
+--- With <string></string> data type qualifiers in the msgStruct
+1) <b>tags</b> like this make it through the XML-RPC routine, but when viewed with the HTML version of MTTF the message body says "table - 1 item"!<p>
+
+2) <img src="http://static.userland.com/userLandDiscussArchive/anything" - Same result as without <string> declartion... blows up the XML-RPC routine with a fault code of 6 and fault string of "poorly formed xml text, string constant is improperly formatted (at character #357)<p>
+
+The results are strange, and shouldn't really yield these different results.  <p>
+
+But the real question is still How do we upload HTML via XML-RPC?  Maybe a <html> data type is needed?<p>
+
+David
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

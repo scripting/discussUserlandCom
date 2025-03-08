@@ -1,0 +1,43 @@
+<html>	<head>		<title>Re: Data Captivity in WebApps</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Data Captivity in WebApps</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David McCusker</td></tr>				<tr><td><b>Posted:</b></td><td>9/8/2000; 4:26:46 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg021004.html">Data Captivity in WebApps</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21033 (In response to <a href="msg021030.html">21030</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021032.html">21032</a> / <a href="msg021034.html">21034</a></td></tr>				</table>			<br>Dave Winer: <i>Start with Manila and define an XMLization for all the data it keeps.</i><p>
+
+That would be neat if you did that.  I probably don't have time to learn enough about Manila myself, though it would be fun to discuss any structural patterns.  An XMLization is probably best as an interchange format that can capture everything in a form most folks can parse.<p>
+
+To cope with scaling issues, I might aim for a simple hybrid instead of pure XML.  If a site had a few or many huge objects that required very big blobs, it might be awkward to store the all inline within XML.  So it would be good for a standard to include references to (large or small) external objects which might be bound in different ways.<p>
+
+I imagine a user with a few very big files, which the user wishes could be incorporated into a system otherwise described by XML, but without being forced to convert these files into canonical XML first.  Coping with this would take the edge off some annoying situations.  Also, once one could cope with this, it might also help one syndicate various kinds of out-of-line content like music files.<p>
+
+Dave Winer: <i>Ask other developers who do site management web apps to participate.</i><p>
+
+A very good idea.  Of course, sites will tend to have content that diverges from what can be understood by other systems.  This just happens, and can't really be controlled.  (The dream that some folks have that a perfectly standardized content world can exist will never be realized.  The world is too complex for that.)  So one might want to focus on the structural elements that sites would tend to have in common.  These elements could be described by short stories that some folks might be tempted to call design patterns (but doing so might kill the effort by making the whole business too high falutin).<p>
+
+As an example of what I mean, one form of modeling might address
+the set of files that might be present in a static web site.
+This would be only one possible snapshot of a site management
+system, and would not include all the things a system knows about.
+But we should aim to describe a static network of files the
+same way, even if the files are virtual ones in a dynamic server.<p>
+
+Also, it would be cool if all the specs were small, terse, and
+easy to understand. :-)  I'd love to have folks read specs and
+say "hey, I get it!" without fear of mysterious latent gotchas.
+So folks writing specs must take pride in simplicity, even if
+complexity would make them look more clever.<p>
+
+Dave Winer: <i>Let's educate the users on this, explain the issue, and get them to help us.</i><p>
+
+That's a great idea.  I should start trying to explain data issues as little stories, in simple sentences collected in a few paragraphs.  The goal would be to explain to users (and developers too, in terms they would share with users) what is happening to their data.  Then the kinds of possible choices could be compared.  And then users could see the pros and cons of certain choices.  This would let them value the presence of related features in software they compare.<p>
+
+The main focus might concern small set of issues.  How safe is your data (from accidental disorganization)?  Can you use your data for something else?  Can you use tools to autogenerate or otherwise transform old or new data?  Stuff like that.  At one end of the spectrum, the issues are merely about control and effects of gatekeeping.  At the other end of the spectrum, the issues are about valuable emergent network effects from being able to move content between cooperating tools that are not closely tied.<p>
+
+Dave Winer: <i>This is one of the biggest to-do-list items for our industry.</i><p>
+
+Yep, we should really do that.  Actually describing the data issues
+to users could be tricky.  It might require introducing some new
+clarifying metaphors.  Otherwise one might be stuck describing
+everything in terms of files.   File terminology might not be
+enough.  And naive faith in OS vendor file system browsers
+might make users susceptible to propaganda intending to confuse
+the users.  (Since you use our browser, you must trust us, so use
+our data technology and don't worry about control,
+you happy sheep, you.)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg021041.html">Re: Data Captivity in WebApps</a>, Dave Winer, 9/8/2000; 9:32:23 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

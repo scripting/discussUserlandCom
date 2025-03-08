@@ -1,0 +1,40 @@
+<html>	<head>		<title>Technography Scenario & Implementation Thoughs</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Technography Scenario & Implementation Thoughs</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ian Beatty</td></tr>				<tr><td><b>Posted:</b></td><td>3/26/1999; 8:38:39 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004469.html">[ANN] outline renderer for F6 HTML authoring</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4548 (In response to <a href="msg004519.html">4519</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004547.html">4547</a> / <a href="msg004549.html">4549</a></td></tr>				</table>			<br>Following <a href="http://discuss.userland.com/msgReader$4515">Bernie's post</a>, I was thinking some more about using an outline renderer like <a href="http://www-perg.phast.umass.edu/IDB/frontier/docRenderer/">docRenderer()</a> for technography. Here's the scenario I'm picturing, and I think it's what Bernie is picturing too.<p>
+
+<b>The Scenario</b><p>
+
+The technographer ("T") has Frontier running in front of him, and manipulates the meeting's document in an outline. That outline is continually/repeatedly being rendered, via something like docRenderer(), to HTML. The other meeting participants ("Ps") don't see the Frontier outline, they see the resulting HTML page, which is easier to read, can have things like tables and graphics which don't show up in outlines, can have "constant" information supplied by a template, etc.<p>
+
+It seems to me that this scenario can be implemented with current Frontier 6 technology, with not terribly much custom scripting.<p>
+
+<b>The Implementation</b><p>
+
+The T's computer runs Frontier as a server, which is set up to serve the outline being edited dynamically through the website framework (probably mainResponder). The outline passes through an outline renderer in the process: something like docRenderer(), but optimized for this particular use. The renderer frees the T from most worries about the formatting of the document, so he/she only has to think about the structure.<p>
+
+The rest of the Ps see the meeting outline in rendered HTML form, displayed in a web browser. The trick is to get the browser to refresh the page sufficiently frequently that the time lag between when the T makes a change and when the Ps see it is sufficiently small. The simple, crude way to do this is to put a "meta refresh" tag into the page, so that every n seconds it automatically refreshes. A better way might be to use some kind of server "push" to make the browser reload the page whenever a change has been made to the source outline. This requires a monitoring agent or thread in Frontier which keeps an eye on the outline, notes when a change has been completed, and triggers a push. I don't know enough about server push or Frontier dynamic serving to suggest a way to accomplish this.<p>
+
+Even if a simple meta refresh tag is used, Frontier must have some kind of script to prevent serving while the outline is in an illegal, mid-edit state (for example, while the T is typing, or has started constructing a table element). The server must delay its response to the request until the outline is again in a "legal" state, or serve a cached version from the last legal state. A script for this would need some logic to examine the outline and "validate" it. Or perhaps to look at the rendered HTML and "validate" that (on more than just legal-HTML grounds).<p>
+
+Or, perhaps the renderer could be sufficiently smart to always generate acceptable HTML, whatever the state of the outline. If the renderer recognized something "bad" in the outline it would decide on a fix, perhaps just omitting the problematic part.<p>
+
+One important fact about the renderer: it must only render the currently-expanded, visible part of the outline, and suppress the collapsed, hidden parts. This way the T can expand and collapse outline items, and the Ps will see the effect. I expect this would be trivial to code.<p>
+
+<b>Localized or Distributed Meeting?</b><p>
+
+If all Ps are in the same room as the T, the browser could in fact run on the same machine as Frontier, in a window on a second monitor that gets projected onto a screen for viewing by all the Ps. In this case, handling the browser "push" should be simpler, because Frontier could simply issue a command to the browser to refresh (via AppleEvents or a Windows equivalent).<p>
+
+If the Ps are in distributed locations, conferring via a videoconferencing system, conference call, or realtime "talk" program on computers (AOL instant messenger?) of sufficiently low latency, they all must point their browsers to the right URL.<p>
+
+<b>Latency</b><p>
+
+Bernie was concerned about latency. I don't have enough experience to predict what kind of latency this system would have, or what kind of hardware would be needed acceptable performance. For virtual meetings, Ps had better all be on a broadband connection to the T's server!<p>
+
+<b>Where from here?</b><p>
+
+Bernie, does this kind of system fit your vision? Anyone, can you think of potential flaws in the scheme, performance bottlenecks, or desirable scenarios which aren't covered? I haven't dug much into mainResponder... can anyone who groks that offer advice, especially about the "push" part?<p>
+
+I'm most worried about the latency issue, specifically the reloading time for the browser. For distributed meetings, requiring all Ps to have SuperHonkers for instant loading/rendering is probably not realistic. Requiring the T to have a SuperHonker may be more realistic, although it should be a level of honkerness attainable by a laptop.<p>
+
+And, does anyone want to run with it? I'm supposed to be doing a dissertation (on a completely different topic), and anything I do with Frontier is time stolen from that, so I can't commit to developing (as much fun as it sounds). But I'd love to help out.<p>
+
+--Ian
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004552.html">Re: Technography Scenario & Implementation Thoughs</a>, Dave Winer, 3/26/1999; 9:01:44 AM<p><li>&nbsp;<a href="msg004566.html">Re: Technography Scenario & Implementation Thoughs</a>, Bernie DeKoven, 3/26/1999; 11:07:53 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:04 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,22 @@
+<html>	<head>		<title>prompting an animation with a mouseclick</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>prompting an animation with a mouseclick</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>stewart</td></tr>				<tr><td><b>Posted:</b></td><td>12/3/1999; 6:37:50 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013428.html">prompting an animation with a mouseclick</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13428</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013427.html">13427</a> / <a href="msg013429.html">13429</a></td></tr>				</table>			<br>i'm looking for a script that will activate an animation with a mouseclick, i.e. i want the image to remain still until someone clicks their mouse on it and then i want the animation to run just once. i think the best way to do this is to have two gifs, 
+one animated & set to run just once, and the other identical to the first frame of the animation but not animated, and then to have a script that exchanges one gif for another.<p>
+
+i have the following script:<p>
+
+this in the head:
+<SCRIPT language="JavaScript">
+<!--
+if (document.images) &#123;
+  var myImg=new Image()
+  myImg.src="anim.gif"
+&#125;
+<a href="//">//</a> -->
+</SCRIPT><p>
+
+and this in the body at the relevant place:
+<img src="http://static.userland.com/userLandDiscussArchive/non-anim.gif" onClick="this.src=myImg.src"><p>
+
+but when i try it out i find that clicking on the non-animated gif makes it jump to the final frame of the animated gif - unless i hit refresh & then click on the gif really quickly in which case i see the tail end of the animation running. it's as if my browser is loading both the animated & the non-animated gifs at the same time & running the animated gif in the background immediately. i need to find a way of making the animation wait for a mouseclick before it runs.<p>
+
+any suggestions anyone has would be most appreciated.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013429.html">Re: prompting an animation with a mouseclick</a>, Jeremy Bowers, 12/3/1999; 8:32:38 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

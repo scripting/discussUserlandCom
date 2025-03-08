@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: A scriptable streaming MP3 server</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: A scriptable streaming MP3 server</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tom Clifton</td></tr>				<tr><td><b>Posted:</b></td><td>7/8/2000; 1:15:40 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018390.html">scriptingNews outline for 7/8/2000</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18395 (In response to <a href="msg018393.html">18393</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018394.html">18394</a> / <a href="msg018396.html">18396</a></td></tr>				</table>			<br>There is nothing really to show, since there isn't an interface to it yet.<p>
+
+The responder is pretty simple. Inside a loop, it reads the top file from the playlist into a string, then sends chunks of the string out using webserver.sendPartial until the string is empty. It then deletes the top line of  outline and then repeats the loop. <p>
+
+Oh, and the responder can also work with tables, so XML should also be easy to support.<p>
+
+As far as how this works, it is important to remember that this is a server, not a player. Your player, WinAmp?, would be listening to the stream. All your script would have to do is to replace the current playlist with your list of 5 songs. Seems to me that you could do this with XML-RPC or a web interface.<p>
+
+I will try to work on the interface a little so it isn't faceless.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg018397.html">Re: A scriptable streaming MP3 server</a>, Dave Winer, 7/8/2000; 3:20:17 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,34 @@
+<html>	<head>		<title>Tip: Calling a UserLand server via HTTP</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Tip: Calling a UserLand server via HTTP</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/15/1999; 6:15:56 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002897.html">Tip: Calling a UserLand server via HTTP</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2897</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002896.html">2896</a> / <a href="msg002898.html">2898</a></td></tr>				</table>			<br>Over the weekend Chuck Shotton tripped over a little potential glitch that people working in environments other than Frontier might trip over, so I thought it was a good idea to post a little tip and an explanation. <p>
+
+This tip is important for people making XML requests of a Frontier server from another scripting environment, such as Perl, Tcl, Python or Java, for example.<p>
+
+<b>The HOST header</b><p>
+
+As a server environment Frontier sometimes depends on the HOST header in the HTTP request. That's how we implement virtual domains, we keep a table that maps hosts onto serving addresses. If you don't specify a host, you'll get a top level directory of the www folder on the server, which isn't what you're looking for, probably.<p>
+
+The only time you don't have to worry about this is for XML-RPC requests. They don't follow the virtual domain scheme, for historic reasons. So you can just send the message to 206.204.24.20 if you're doing XML-RPC, or you can use any of the aliases, like discuss.userland.com or www.xmlrpc.com or www.mailtothefuture.com. <p>
+
+<b>Example</b><p>
+
+<pre>POST /mostRecentScriptingNews.xml HTTP/1.0
+User-Agent: MyScriptingEnvironment/4.2.3 (Solaris)
+Host: news.userland.com
+Content-Type: text/html
+Content-length: 181</pre><p>
+
+<b>Virtual domains</b><p>
+
+Here's a page that <a href="http://nirvana.userland.com/htmlinterfaces/console/domains">shows</a> all the virtual domains on this one machine. You may find it surprising how far we've gone with this idea. It's a very modular way to develop a server and a very easy way to organize your work. And it's nice for the user too.<p>
+
+<b>Chuck's trip</b><p>
+
+How did Chuck trip over this? He sent an HTTP request for /mostRecentScriptingNews.xml. He got back <a href="http://206.204.24.20/mostRecentScriptingNews.xml">HTML</a>, the directory listing. Once he set the HOST to news.userland.com, the problem was fixed, he got the <a href="http://news.userland.com/mostRecentScriptingNews.xml">XML-formatted response</a> he wanted.<p>
+
+<b>A software decision</b><p>
+
+I know some people feel it's not cool to require the HOST header, but we've made a decision. It's like deciding not to support 512K Macs or Windows 3.1. It's how software moves forward, and it's no different with the Internet. It's just software. <p>
+
+<b>Frontier scripts</b><p>
+
+As long as you use the built-in verb <a href="http://docserver.userland.com/tcp/httpclient">tcp.httpClient</a> you have nothing to worry about, it automatically adds the HOST header.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002904.html">Re: Tip: Calling a UserLand server via HTTP</a>, Wesley Felter, 2/15/1999; 9:36:14 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

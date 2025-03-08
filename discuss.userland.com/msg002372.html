@@ -1,0 +1,69 @@
+<html>	<head>		<title>Re: Outliners and XML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Outliners and XML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>joubin</td></tr>				<tr><td><b>Posted:</b></td><td>1/21/1999; 3:27:02 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2372 (In response to <a href="msg002361.html">2361</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002371.html">2371</a> / <a href="msg002373.html">2373</a></td></tr>				</table>			<br>Steve, <p>
+
+This is pretty much what you propse (which I like) but uses 3 tags instead of 4.  [Just a variant, really.]:<p>
+
+1 - Define <outline> as a container of <heading>s (or <subhead>s, if you prefer):<p>
+
+<pre>
+<outline>
+   <heading> ... </heading>
+   <heading> ... </heading>
+   <heading> ... </heading>
+      ...
+   <heading> ... </heading>
+</outline>
+</pre><p>
+
+2 - define <heading> (or <subhead>) to contain a <headline> and an <outline>:
+<pre>
+<heading>
+   <headline> ... </headline>
+   <outline>
+      ...
+   </outline>
+</heading>
+</pre><p>
+
+where <outline> maybe empty (i.e <outline/>)<p>
+
+3 - define <headline> to contain text.<p>
+
+<headline>headline text goes here...</headline><p>
+
+For example:<p>
+
+<pre>
+<outline>
+   <heading>
+      <headline>head 1</headline>
+      <outline>
+         <heading>
+            <headline>head 1.1</headline>
+            <outline>
+            </outline>
+         </heading>
+            ...
+         <heading>
+            <headline>head 1.m</headline>
+            <outline/>
+         </heading>
+      </outline>
+   </heading>
+      ...
+   <heading>
+      <headline>head n</headline>
+      <outline>
+         <heading>
+            <headline>head n.1</headline>
+         </heading>
+            ...
+         <heading>
+            <headline>head n.m</headline>
+         </heading>
+      </outline>
+   </heading>
+</outline>
+</pre><p>
+
+and so on.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

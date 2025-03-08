@@ -1,0 +1,26 @@
+<html>	<head>		<title>Interactive RSS channels</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Interactive RSS channels</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Carlyle</td></tr>				<tr><td><b>Posted:</b></td><td>9/22/1999; 9:26:53 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011344.html">Interactive RSS channels</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11344</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011343.html">11343</a> / <a href="msg011345.html">11345</a></td></tr>				</table>			<br>I've am thinking about the idea of personalised interactive RSS channels, which I am just tidying up.  Has anyone got any good ideas about how they might be used?  I have developed search results for xmlTree as a channel, and was thinking of other uses, such as a forum message poster.<p>
+
+For example only: Network54 could have a channel displaying threads for a particular forum, together with a seconds personalised channel containing the messages for a particular thread.  This second channel would contain a standard RSS form input element which would allow a user to post a reply to the messages.  All within the channel format.<p>
+
+The link below is a just a proof of concept.  Caveats:  It uses CSS and so when viewed with NS4 it looks very odd.  Opera is doing something odd with the URL.  It tries to set a cookie to identify the session.  It looks great with IE4, IE5, and NS3.
+NOTE xmlTree is not competing in the portal space - the display of 'currently subscribed channels' is for demonstration only.<p>
+
+To see it in action, goto <a href="http://www.takepart.com/newsBoy/displayMyChannels.cfm">http://www.takepart.com/newsBoy/displayMyChannels.cfm</a>
+Enter the email address '<a href="mailto:james@takepart.com">james@takepart.com</a>'
+Try the xmlTree search channel using a string like 'xsa' or 'sport'<p>
+
+How does it work?<p>
+
+First time through, it looks up in the DB the URLs of the channels that you're subscribed to with NewsBoy.
+If the channel content (as HTML) exists in the application cache, it uses that to display the channel*.
+If the channel content doesn't appear in the cache, it goes to the channel URL, parses the channel, and then formats it with XSL.  It then places this in the application cache.<p>
+
+So far this is probably normal.<p>
+
+If the user is subscribed to an interactive channel, it looks in the application cache as before.  But if the channel contains a RSS textinput element, the XSL converts the action of the form to the same page (displayMychannels.cfm) and adds a hidden field containing
+the true destination.  So when the user hits the search button, the request goes back to the portal, which calls the true destination, receives RSS content (in this case search results), parses it, transforms it with XSL, and this time places it in session cache.<p>
+
+* I said that the portal is displaying from application cache if it exists, otherwise it gets the contents of the channel.  But actually it is displaying from session cache if that exists, then application cache if that exists, otherwise it goes off and gets the channel.<p>
+
+The important decision is whether to store personalised channel content on the client, on the portal, or on the interactive channel provider.  I chose the portal - but this may not be the most effective choice.  The benefit is that the interactive channel itself can be very simple - it just returns RSS content when accessed using the name/action pair that it specified.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011358.html">Re: Interactive RSS channels</a>, Scott Sweeney, 9/22/1999; 3:23:50 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

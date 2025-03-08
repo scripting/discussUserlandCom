@@ -1,0 +1,31 @@
+<html>	<head>		<title>Script that converts Word to html</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Script that converts Word to html</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>4/20/1999; 9:44:29 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005112.html">Processing Word as Input?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5136 (In response to <a href="msg005114.html">5114</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005135.html">5135</a> / <a href="msg005137.html">5137</a></td></tr>				</table>			<br>Here's an extremely simple script for mac that takes a word file, uses Word 98 to convert it to html, and puts it into a file.<p>
+
+To use it, you need <p>
+
+o Word 98. No windows open (specially not the window of the file you want to convert)<p>
+
+o Word 98 glue (this you can do yourself, there is a script in Frontier to produce it).<p>
+
+o A textfile named test.htm in the right location.<p>
+
+<p>
+
+Naturally, this script can be made more functional. But see it as a proof of concept, and a chance to test conversion quality and speed.<p>
+
+
+<pre>
+on action (f) &#123;
+	<a href="//">//</a> takes the path to a Word-file, converts it to html and replaces the content of test.htm with it.
+	local &#123;
+		gick};
+	with objectModel, Word98 &#123;
+		Word98.launch();
+		try &#123;
+			open(file[f]);
+			return(save (document[1], saveIn: "Player2:test.htm", as:"html"))}
+		else &#123;
+			msg(tryError)};
+		return(false)}};
+msg(action ("Player2:testdok.doc"))
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:25 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

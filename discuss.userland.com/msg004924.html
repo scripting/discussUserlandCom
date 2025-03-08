@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: StaticPage rendering</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: StaticPage rendering</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>4/9/1999; 3:03:00 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004922.html">StaticPage rendering</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4924 (In response to <a href="msg004922.html">4922</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004923.html">4923</a> / <a href="msg004925.html">4925</a></td></tr>				</table>			<br><i>I do not seem to be getting a static rendering of my newssite to a remote site.</i><p>
+
+What are you doing to trigger the rendering?<p>
+
+Are you editing the daily news entry thru the regular discussion group interface? <p>
+
+Please take a look at the message table for today's news entry - does it have an inNewsSite field?<p>
+
+Do you have a system.temp.mainresponder.backgroundPagesToBuild table? What does it contain?<p>
+
+What is the value of config.mainresponder.prefs.flBuildPagesInBackground?<p>
+
+<i>I'm a little fuzzy on CalendarRootURL, have that set to my default news page.</i><p>
+
+Don't worry about this one for now. The calendarRootURL directive is used for the urlprefix parameter in the call to mainResponder.calendar.draw, i.e. it only influences the links in the calendar. If you find that these don't work, we can still figure out the correct setting later.<p>
+
+<i>Also, just out of curiosity, I called the staticPage default, and it took several minutes to build the page. Frontier is running on a dual PentiumPro machine, 300MHz I think), running NT Server. Should it take this long?</i><p>
+
+Although this mostly depends on how complex your staticPage.default is, I'd think it shouldn't take anywhere this long.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004926.html">Re: StaticPage rendering</a>, Keola Donaghy, 4/9/1999; 5:47:13 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

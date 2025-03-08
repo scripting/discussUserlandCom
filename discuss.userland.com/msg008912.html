@@ -1,0 +1,14 @@
+<html>	<head>		<title>html.getPageTableAddress()</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>html.getPageTableAddress()</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Steve Ivy</td></tr>				<tr><td><b>Posted:</b></td><td>7/30/1999; 6:14:03 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008912.html">html.getPageTableAddress()</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8912</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008910.html">8910</a> / <a href="msg008913.html">8913</a></td></tr>				</table>			<br>I think I broke something.<p>
+
+I've been diggin pretty heavily lately, and suddenly I've got a bunch of macros and scripts that call html.getPageTableAdress() throwing a scripterror that "params" isn't defined. I did a search through Frontier.root looking for "params" and couldn't find anything that looked remotely connected. Some things work fine: I have a page with two "imageRef" calls- one works fine, the other blows up.<p>
+
+I'm going to export whatever I can out of Frontier.root and restore from an old copy.<p>
+
+Anyone have any idea what I broke?<p>
+
+--Steve<p>
+
+UPDATE: I think I've found the answer, but I'm not sure what to look for to fix it. I've got a macro which calls an rssChannel-style script, which in turn fetches a url from frontier itself. This was fine, until, I try to then process a macro afterwards. I think the pagetable is getting stomped on by the script which renders and delivers the xml. What should I be doing to keep my pageTables seperate?<p>
+
+--Steve
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008938.html">Re: html.getPageTableAddress()</a>, Brent Simmons, 7/30/1999; 10:12:25 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

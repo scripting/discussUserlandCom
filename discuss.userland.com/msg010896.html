@@ -1,0 +1,27 @@
+<html>	<head>		<title>Re: An RSS categorization proposal</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: An RSS categorization proposal</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel Reynolds</td></tr>				<tr><td><b>Posted:</b></td><td>9/10/1999; 11:48:33 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010698.html">rss channels via email</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10896 (In response to <a href="msg010830.html">10830</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010895.html">10895</a> / <a href="msg010897.html">10897</a></td></tr>				</table>			<br><i>
+Perhaps, but Dave suggests that (unlike Yahoo or DMOZ) the nodes of this network will go away if not reinforced.<p>
+
+Example: I propose Databases/OODB. You notice that the category exists, and request to add your item to it. The node is reinforced, and stays in the directory.<p>
+
+Example: I propose Databases/OODB. Nobody else cares about that category, however I continue to publish items into, so it is reinforced, and stays in the directory.<p>
+
+Example: I propose Databases/OODB. Nobody else cares. Even I lose interest after a while. When I cease publishing items into the category, it goes away.<p>
+
+I'm thinking of this like a nervous system. Signals need to be reinforced in order to propagate, else they die out. The dying-out is a natural process, them absence of which seems to plague many Web-based information systems.</i><p>
+
+This is very much like the system I'm adopting in the soon-to-be-alpha Software Directory web app. Each submitted XML file contains a <keywords> element that lists the categories under which the package should be indexed. This element is a comma-separated list of strings of the form "keyword" or "a:b:c". The Directory can be set up to index a "nested" keyword of the latter form in just the specified nested location, or to "flatten" it so that "a:b:c" becomes "a:b:d,a,b,c", or to permute the nesting to get a number of nested keywords, such as "a:b:c,a:c:b,b:a:c,b:c:a,c:a:b,c:b:a".<p>
+
+Each time the XML file is reloaded (will be automatic or manual), it is de-indexed and re-indexed; any empty keyword/category tables in the index as a result of de-indexing are pruned out.<p>
+
+<plug blatant>This all uses the Indexer Suite, <a href="http://www.spinwardstars.com/frontier/suites/indexer.html">http://www.spinwardstars.com/frontier/suites/indexer.html</a>
+All the above except the permutation is already in it, and I plan to add that in the next release.</plug><p>
+
+<i>What about namespace conflicts?<p>
+
+Suppose I propose XML/Syndication, and you propose Syndication/XML. How will this be handled? Our idea is that there is no central authority, which means that these two nodes could coexist. Various possibilities ensue:
+</i><p>
+
+Permuting the nested keywords/categories as described above would eliminate the XML/Syndication vs Syndication/XML issue. Use either one and it automatically appears in both. And if you also flatten the keywords, it will also appear in the more general Syndication and XML categories.<p>
+
+- Sam
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:33 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

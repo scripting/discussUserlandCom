@@ -1,0 +1,24 @@
+<html>	<head>		<title>How Frontier Handles Requests from Mac Servers</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>How Frontier Handles Requests from Mac Servers</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>6/14/1999; 1:11:09 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007294.html">critic on bad documentation</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7328 (In response to <a href="msg007319.html">7319</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007327.html">7327</a> / <a href="msg007329.html">7329</a></td></tr>				</table>			<br>When Frontier's running behind an external Mac server:<p>
+
+1) The script at system.verbs.traps.WWW[omega].sdoc receives the Apple event from the server. The server has sent to Frontier a bunch of parameters, including the path, POST args, referer, and so on.<p>
+
+The trap script puts all the incoming parameters, after some light massaging, into a local table.<p>
+
+2) The trap script calls webserver.handler with the address of that table. This script decides what to do with the request.<p>
+
+Historical note (skip this if you want): the code in the trap script and in webserver.handler is very close to code that was in Frontier in 1995. These two scripts were the major parts of the CGI Framework. (Though I believe webserver.handler had a different name, or all its code was in the trap script, I forget which.)<p>
+
+3) webserver.handler has several choices of what to do with the incoming request.<p>
+
+a) If it's an action -- you've set up an action named Nirvana or WSF or whatever, and the request has the suffix associated with that Action -- then webserver.handler calls the script in user.webserver.actions that has the same name as the Action name. It sends the address of the CGI params table as a parameter to the Action script.<p>
+
+If an Action script has been called, it handles the request and returns data to webserver.handler. Webserver.handler then handles getting the data back to the server (WebSTAR or whatever), by using either send partial or by simply returning an Apple event reply.<p>
+
+An Action script can call webserver.server, as any Action script that wants to invoke mainResponder or the websiteFramework responder would do.<p>
+
+b) If it's not an Action then webserver.handler looks in the user.webserver.cgis table for the requested object. If the path is, for example, /samples.tellparams.fcgi, then Frontier knocks off the .fcgi, and looks for an object at user.webserver.cgis.samples.tellparams.<p>
+
+(It's a convention that Frontier's standard suffix for these types of requests is .fcgi.)<p>
+
+If it's a script, it calls it with the address of the CGI params table. If it's a wp-text or string or outline or binary, it returns the object, coercing to a string as needed. (For some objects it calls webserver.processMacros, which is a simple macros system, not to be confused with the website framework's macro processor.)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

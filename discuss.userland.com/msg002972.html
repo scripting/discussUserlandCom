@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Ad Server in Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Ad Server in Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>2/17/1999; 2:21:09 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002958.html">Ad Server in Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2972 (In response to <a href="msg002960.html">2960</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002971.html">2971</a> / <a href="msg002973.html">2973</a></td></tr>				</table>			<br>Today I went live with a modified version of imageRef, which reformats the imageUrl into an absolute path pointing to port 81 which is handled by IIS. Frontier serves all text pages via mainResponder, all images are handled through IIS.<p>
+
+Check out <a href="http://www.egger-lerch.at/">http://www.egger-lerch.at/</a> The image on the frontpage is linked through a random script.<p>
+
+The patch is very easy: Two lines in html.getImageData and a new #pref in the website table which specifies the port. The images are still stored in the GDB, they are written out when needed. No change in the way how to build a website with Frontier. <p>
+
+<b>PLEASE NOTE:</b>
+Work on a copy of imageRef and html.getImageData because these scripts are Userland area. <p>
+
+I tried this because my NT setup went unstable using the ISAPI plug-in for Frontier. (I had a strange behaviour of IIS)<p>
+
+Kurt
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:56 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,32 @@
+<html>	<head>		<title>Re: DG and Umlaute (ä and friends)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: DG and Umlaute (ä and friends)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>2/19/1999; 11:25:52 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003033.html">DG and Umlaute (&auml; and friends)</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3044 (In response to <a href="msg003033.html">3033</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003043.html">3043</a> / <a href="msg003045.html">3045</a></td></tr>				</table>			<br>This is a Mac issue. Here's a possible fix -- not necessarily the one we'll use -- but still interesting to see if it works for you as it does on my Mac.<p>
+
+First, make sure mainResponder is up-to-date. Then jump to mainResponder.respond.<p>
+
+Expand the the "on core ()" block.<p>
+
+Scroll about 3/4ths the way down this block, and expand the block that reads:<p>
+
+case string.upper (adrparamtable^.method) //initialization based on method<p>
+
+Expand the "POST" block.<p>
+
+Expand the "else" block.<p>
+
+Add these lines to the end of the "else" block:<p>
+
+if system.environment.isMac<p>
+
+&nbsp;&nbsp;&nbsp;local (i)<p>
+
+&nbsp;&nbsp;&nbsp;for i = 1 to sizeOf (adrparamtable^.postArgs)<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adrparamtable^.postArgs [i] = latinToMac.convert (adrparamtable^.postArgs [i])<p>
+
+<b>What this does</b><p>
+
+It converts incoming POST args from latin to Mac text.<p>
+
+<b>Warning</b><p>
+
+This may not be the way this is fixed finally. But any fix will most likely use the latinToMac.convert verb, so that's what we're testing here.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003050.html">Re: DG and Umlaute (ä and friends)</a>, Christoph Pingel, 2/19/1999; 12:00:06 PM<p><li>&nbsp;<a href="msg003051.html">Re: DG and Umlaute (ä and friends)</a>, Christoph Pingel, 2/19/1999; 12:00:09 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

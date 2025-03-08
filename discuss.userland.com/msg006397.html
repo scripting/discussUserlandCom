@@ -1,0 +1,67 @@
+<html>	<head>		<title>Examples of Scripting on Linux</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Examples of Scripting on Linux</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark A. Hershberger</td></tr>				<tr><td><b>Posted:</b></td><td>5/17/1999; 11:56:00 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006341.html">Scripting on Linux</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6397 (In response to <a href="msg006341.html">6341</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006396.html">6396</a> / <a href="msg006398.html">6398</a></td></tr>				</table>			<br><i>
+> What is the state of interapplication messaging on Linux (keep in<br>
+> mind that this question is coming from a Mac user)?<br>
+</i><p>
+
+Linux (Unix) likes to use pipes.<p>
+
+<i>
+> For example, if I'm browsing the Web with Netscape, is it possible<br>
+> to ask Perl to get the URL of Netscape frontmost window?<br>
+</i><p>
+
+This one took me a bit longer to figure out than the next one.  But that is just because I hadn't seen it done before.  As long as your app is friendly, you can get all sorts of information via XWindows.  I wrote a short script that grabs the urls from all Navigator windows.   <p>
+
+<pre>
+#!/bin/sh<p>
+
+# This sort script print out the urls that each navigator
+# window is pointing to.<p>
+
+xwininfo -root -tree | awk '/"Navigator" "Netscape"/ &#123;print $1}' | xargs --max-args=1 xprop _MOZILLA_URL -id | awk '&#123;print $3}'<p>
+
+# xwininfo -root -tree                      | Get a list of all windows 
+#                                           | on the screen.
+# awk '/"Navigator" "Netscape"/ &#123;print $1}' | Get the navigator windows.
+# xargs --max-args=1 xprop _MOZILLA_URL -id | Run xprop on each Nav window.
+# awk '&#123;print $3}'		            | Print out the quoted URLs.
+</pre><a href="http://everybody.org/mah/samples/get_urls.txt"><a href="http://everybody.org/mah/samples/get_urls.txt">http://everybody.org/mah/samples/get_urls.txt</a></a> (Please grab the script from this url as my script is getting garbled here.)<p>
+
+Restricting this to just the "frontmost" window is left as an exercise to the reader because I have no clue how to do that at the moment.<p>
+
+<i>
+> Another example. If I'm getting a Web page with Perl (LWP), can I<br>
+> pipe the result to Netscape, so it will display the result in this<br>
+> browser?<br>
+</i><p>
+
+I did this with Lynx and shell script:<p>
+
+<pre>
+#!/bin/sh<p>
+
+# Invoke this script with a URL on the command line and it will pop up in
+# your current Netscape session.<p>
+
+# usage: lynx_get <a href="http://example.com/">http://example.com/</a><p>
+
+url=$1				# The URL to fetch.
+tmpfile=/tmp/lynxget.$$		# temporary file.
+GET='lynx -source'		# GET could refer to any program that
+				# will fetch a page and put the page to
+				# stdout (e.g. GET from LWP dist, wget).<p>
+
+$GET $url > $tmpfile		# Fetch the URL.
+netscape -remote "openURL(file:$tmpfile)" # Send the file to Netscape.
+</pre><a href="http://everybody.org/mah/samples/lynx_get.txt"><a href="http://everybody.org/mah/samples/lynx_get.txt">http://everybody.org/mah/samples/lynx_get.txt</a></a><p>
+
+It would be easy to convert the code to Perl.  Heck, a nice messaging API to netscape
+wouldn't be that hard to build in pure Perl if you wanted. (I don't think it would be portable, though, since this API seems to be UNIX only.)<p>
+
+<i>
+> This is trivial stuff to do on a Mac, is it possible on<br>
+> Linux?<br>
+</i><p>
+
+Pretty trivial under Unix.  Once you get it.</br></br></br></br></br></br></br></br></br>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

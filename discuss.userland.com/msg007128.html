@@ -1,0 +1,47 @@
+<html>	<head>		<title>navbar macro - update</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>navbar macro - update</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/8/1999; 5:01:01 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007066.html">The Need For Speed</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7128 (In response to <a href="msg007088.html">7088</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007127.html">7127</a> / <a href="msg007129.html">7129</a></td></tr>				</table>			<br>This update to Frontier's navbar macro supports a new XML-based format for specifying the links that should show up in the navbar. The format is defined below. This feature is enabled via the new flXmlOutline parameter.<p>
+
+This version is also supposed to be thread-safe when using the old outline-based format (by working on a local copy of the outline).<p>
+
+A bug has also been fixed: When the breakAtCategories parameter is true, some characters were removed from the lines preceding category headings.<p>
+
+<b>XML outlines</b><p>
+
+The XML outline should contain a single <navbar&gt; tag at the top-level. The <navbar&gt; tag can contain four kinds of tags:<p>
+
+The <category&gt; tag has a single attribute "title". It's the text that will be displayed in the navbar if the showCategories parameter is true.<p>
+
+The contents of the <odb&gt; tag is assumed to be an absolute address or an address relative to the website's root table (i.e. the table containing the #ftpSite table). The <odb&gt; tag has a single optional attribute "title" for specifying the text that should be displayed in the navbar. If the attribute is unspecified, the title of the referenced page will be used.<p>
+
+The contents of the <url&gt; tag is assumed to be a URL. The <url&gt; tag has a single optional attribute "title" for specifying the text that should be displayed in the navbar. If the attribute is unspecified, the URL itself will be used.<p>
+
+The contents of the <glossref&gt; tag is assumed to be an entry in the site's glossary. The <glossref&gt; tag has a single optional attribute "title" for specifying the text that should be displayed in the navbar. If the attribute is unspecified, the linktext specified in the glossary will be used.<p>
+
+<b>Example</b><p>
+
+<pre><navbar&gt;
+	<category title="Samples Site"/&gt;
+	<odb&gt;
+		websites.samples.default
+		</odb&gt;
+	<odb title="Random Stuff"&gt;
+		websites.samples.randomStuff
+		</odb&gt;
+	<category title="Other Sites"/&gt;
+	<url title="Frontier"&gt;
+		http://frontier.userland.com/
+		</url&gt;
+	<glossref&gt;
+		Scripting News
+		</glossref&gt;
+	</navbar&gt;
+</pre><p>
+
+<b>Changes from XML format of previous testing version</b><p>
+
+<link type="adr"&gt;</link&gt; has been changed to <odb&gt;</odb&gt;<p>
+
+<link type="url"&gt;</link&gt; has been changed to <url&gt;</url&gt;<p>
+
+<link type="glossary"&gt;</link&gt; has been changed to <glossref&gt;</glossref&gt;<p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

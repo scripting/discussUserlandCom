@@ -1,0 +1,12 @@
+<html>	<head>		<title>navbar test version: speed improvements</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>navbar test version: speed improvements</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/7/1999; 2:43:54 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007066.html">The Need For Speed</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7093 (In response to <a href="msg007088.html">7088</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007092.html">7092</a> / <a href="msg007095.html">7095</a></td></tr>				</table>			<br>Today's test version of the navbar macro allows you to specify the navbar structure in XML instead of a custom outline format. Theoretically, this should improve rendering times noticeably since in Frontier 6 walking a compiled XML structure is much faster than walking an outline.<p>
+
+According to the tests I conducted so far, using XML to define the structure of the navbar reduces the time required to extract the navbar structure from the outline by 20 to 30 per cent.<p>
+
+However, extracting that information is only part of the task.<p>
+
+If you use ODB addresses in the outline, a much larger amount of time is actually spent calling html.getPath to compute the paths to the listed pages. This amount of time is the same no matter whether you use the old outline format or the new XML format.<p>
+
+This means that with the test version released today, the total speed improvement is probably less than 20 per cent for fairly standard websites.<p>
+
+There might be room for further improvements. The XML format supported by today's test version may still change. (Warning!)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

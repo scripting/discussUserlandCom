@@ -1,0 +1,41 @@
+<html>	<head>		<title>Re: DNS problems</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: DNS problems</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jason Levine</td></tr>				<tr><td><b>Posted:</b></td><td>4/30/1999; 8:23:49 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005439.html">DNS problems</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5462 (In response to <a href="msg005450.html">5450</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005461.html">5461</a> / <a href="msg005463.html">5463</a></td></tr>				</table>			<br>Michael:<p>
+
+Dig knows how to figure out what the hostname is and what the domain is; the error that I showed is a legitimate error of Network Solutions' root servers not acknowledging the validity of userland.com as a domain.<p>
+
+As an example, here's the exact same dig, but using another name server (the name server at Globix, my ISP):<p>
+
+<PRE>$ dig @ns1.nyc.globix.net discuss.userland.com<p>
+
+; <<>> DiG 2.2 <<>> @ns1.nyc.globix.net discuss.userland.com
+; (1 server found)
+;; res options: init recurs defnam dnsrch
+;; got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 10
+;; flags: qr aa rd ra; Ques: 1, Ans: 1, Auth: 3, Addit: 3
+;; QUESTIONS:
+;;      discuss.userland.com, type = A, class = IN<p>
+
+;; ANSWERS:
+discuss.userland.com.   86400   A       206.204.24.20<p>
+
+;; AUTHORITY RECORDS:
+userland.com.   86400   NS      ns4.conxion.net.
+userland.com.   86400   NS      ns1.conxion.net.
+userland.com.   86400   NS      ns3.conxion.net.<p>
+
+;; ADDITIONAL RECORDS:
+ns4.conxion.net.        3600    A       206.204.235.3
+ns1.conxion.net.        3600    A       206.204.4.6
+ns3.conxion.net.        3600    A       206.204.210.9<p>
+
+;; Total query time: 24 msec
+;; FROM: aloha to SERVER: ns1.nyc.globix.net  204.254.224.2
+;; WHEN: Fri Apr 30 11:24:33 1999
+;; MSG SIZE  sent: 38  rcvd: 179</PRE><p>
+
+Now, I get a "NOERROR" response, and the actual IP address of the host.<p>
+
+Note that, as of right now, Columbia's nameservers still don't know anything about userland.com -- the DNS change is still propagating.  (Also note that this is additional proof that the problem was at the root server level; making a change at that level, and then having it propagate out slowly, as TTLs expire on name servers around the world, is the only way that the problem could still exist in some places and not in others.)<p>
+
+/jason
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005465.html">Re: DNS problems/ DNS Future</a>, Daniel Berlinger, 4/30/1999; 9:50:12 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

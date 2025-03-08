@@ -1,0 +1,12 @@
+<html>	<head>		<title>Bug(?) in mainResponder.respond</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Bug(?) in mainResponder.respond</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>2/16/1999; 3:09:20 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002932.html">Bug(?) in mainResponder.respond</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2932</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002931.html">2931</a> / <a href="msg002933.html">2933</a></td></tr>				</table>			<br>In folderDive I found a "noFolderError()" - without the argument. I supose it should be "noFolderError(f)"<p>
+
+Tommy<p>
+
+on folderDive (f, name) &#123;
+	local (pc = file.getpathchar ());
+	if not file.exists (f) &#123; <a href="http://allow/">//allow</a> URLs to reference odbs without including ".root"
+		local (name = file.filefrompath (f) - pc); <a href="http://for/">//for</a> error message
+		f = f + ".root";
+		if not file.exists (f) &#123;
+			noFolderError ()}};
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002933.html">Re: Bug(?) in mainResponder.respond</a>, Dave Winer, 2/16/1999; 3:10:45 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:55 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Radio Userland xplatform?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Radio Userland xplatform?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Robert Cassidy</td></tr>				<tr><td><b>Posted:</b></td><td>7/26/2000; 1:22:14 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg019092.html">Radio Userland xplatform?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>19138 (In response to <a href="msg019131.html">19131</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg019137.html">19137</a> / <a href="msg019139.html">19139</a></td></tr>				</table>			<br>Yes, that is what I suspected. OpenURL is delegation at it's best: "here, go deal with this and leave me alone."<p>
+
+This is all theoretical Applescriptness - reality may vary:<p>
+
+In that case you will need to talk directly to the app. For SoundJam, you need to poll 'player state' to see if it is stopped or not. There doesn't seem to be any way to determine the remaining time for a song, but you can just shove a new track into the playlist after the current one and remove old ones once they are done. (that is, you can completely rewrite the playlist and see what track it is currently on). The Soundjam boys are pretty responsive, so we could probably have them shove the feature set a touch to get time remaining.<p>
+
+For Quicktime Player it's trickier. It has no concept of a playlist, though you can get the the remaining time for a track and open a new one, specifying a delay before it starts. So track 'A' has 43 seconds to go, so open track 'B' and wait 43 seconds to start playing. Touchy, but feasable. QT5 is coming, and might help this problem.<p>
+
+I suspect that Audion is close to SoundJam. Though, true to Mac users, the Audion and SoundJam populations are independently stubborn so they don't always play so well together.<p>
+
+Real I have no clue on. I've never had the software work for more than 5 minutes on any machine I've owned over the last 4 years.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg019139.html">Re: Radio Userland xplatform?</a>, Dave Winer, 7/26/2000; 1:25:24 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

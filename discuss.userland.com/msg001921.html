@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Frontier 6 Outliner</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Frontier 6 Outliner</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Michael Myers</td></tr>				<tr><td><b>Posted:</b></td><td>1/8/1999; 2:43:36 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001909.html">Frontier 6 Outliner</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1921 (In response to <a href="msg001916.html">1916</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001920.html">1920</a> / <a href="msg001922.html">1922</a></td></tr>				</table>			<br>Nicholas Riley said:<p>
+
+But there are two things that make me not quite understand how it would work in Frontier.<p>
+
+-<hr size=2 width=100%><p><p><p>
+
+I've thought about it too, but didn't want to say anything until I had a sense of UserLand's feelings on the general idea.<p>
+
+Since Frontier was not built from the ground up to do it, the solutions seem like kludges.<p>
+
+The coder needs a way to tell Frontier that the given outline element is a "here document", maybe something similar to the way we convert an element to a comment. Then variable names will get substituted as is. The printf() function in C does this -- no special characters are needed to denote a variable name. This seems better than requiring a special syntax for variables. WinBatch uses that strategy -- you enclose your variable name in a pair of percent signs to signify substitution within a string. Messy. Most people use distinctive variable names anyway. When needed, a backslash or single quotes could be used to protect a token against substitution. <p>
+
+Since the primary reason for doing this is to ease generation of HTML within script, any metacharacters that you actually want displayed could be entered in HTML entity format. <p>
+
+I don't know what sort of performance hit this would entail. What about odb references? The script parser would have to evaluate these.<p>
+
+You would want to be able to enter a line break that didn't produce a new outline entry (as the Return key does). Since shift-return is already taken (creates a comment), it would have to be a more complex. Ctrl-Shift-Return on Windows, is option-Return available on Mac?<p>
+
+I admit, it all seems rather inelegant. Probably the source of Doug's reluctance!
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001923.html">Re: Frontier 6 Outliner</a>, Dave Winer, 1/8/1999; 2:47:05 PM<p><li>&nbsp;<a href="msg001924.html">Re: Frontier 6 Outliner</a>, Steve Ivy, 1/8/1999; 3:01:33 PM<p><li>&nbsp;<a href="msg001927.html">Here Documents proposal (was Re: Frontier 6 Outliner)</a>, Jim Roepcke, 1/8/1999; 4:39:35 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:07 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

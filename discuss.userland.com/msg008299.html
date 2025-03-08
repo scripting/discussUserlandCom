@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: A common syndication format?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: A common syndication format?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dan Libby</td></tr>				<tr><td><b>Posted:</b></td><td>7/7/1999; 1:20:37 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008044.html">Syndication formats mailing list</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8299 (In response to <a href="msg008064.html">8064</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008298.html">8298</a> / <a href="msg008300.html">8300</a></td></tr>				</table>			<br><Matt>
+I'm very interested in formal definitions like DTDs and (someday) XML-Schema, but like Dave, I'd hate to see the process get hung up on technical XML details. So...I'll volunteer to take a "word" definition of the format and turn it into a formal definition (a DTD).
+</Matt><p>
+
+I've already created a DTD for both RSS 0.9 and 1.0.  Neither are public yet, but are in testing with our new validator.  The validator is actually doing DTD validation, meaning that we will soon require well-formed VALID xml, unlike today.  I'm planning to post these on the syndication mailing list (<a href="mailto:syndication@onelist.com">syndication@onelist.com</a>).<p>
+
+<Matt>
+Should HTML contained within items be represented as markup or as unparsed escaped or in CDATA) text? If HTML is considered to be markup, what HTML tags are allowed?
+</Matt><p>
+
+<rant>
+I'm not a big fan of allowing *any* html.  My view is that it should be up to the receiver how to format the data for publishing.  If there is something the author thinks is important enough to be italicized, then it probably deserves its own tag describing what it actually is, not how it should look to a web browser.  Otherwise our format just becomes an XML compliant transfer mechanism for HTML and you have the same old problems about mingling display semantics with data.
+</rant><p>
+
+<Matt>
+Are HTML entities like &copy; allowed?
+</Matt><p>
+
+We defined all the HTML entities in the RSS 0.9 and 1.0 DTD's, which means that yes, they are allowed there.  I don't know if scriptingnews currently supports these or not.<p>
+
+-dan
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:19 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

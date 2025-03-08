@@ -1,0 +1,16 @@
+<html>	<head>		<title>Re: 'Uploading' a guest database via WebEdit?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: 'Uploading' a guest database via WebEdit?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel Reynolds</td></tr>				<tr><td><b>Posted:</b></td><td>6/24/1999; 5:05:31 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007550.html">'Uploading' a guest database via WebEdit?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7803 (In response to <a href="msg007550.html">7550</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007802.html">7802</a> / <a href="msg007804.html">7804</a></td></tr>				</table>			<br><table><tr>
+<td bgcolor='#999999'>&nbsp;</td>
+<td><i>Is there a convenient way to 'upload' a guest database to a remote Frontier server from a local desktop? - We have a setting where we might want to put guest databases for our customers onto a remote server.<p>
+
+The only way I could imagine now would be to create a new database remotely and then upload the individual tables via WebEdit. Is this the correct way?</i>
+</td></tr></table><p>
+
+That's how I do it, but I just use it to get stuff from the NT
+to the Mac so I can save it on a ZIP drive for transport between facilities.<p>
+
+You could write an XML-RPC handler that creates a GDB on the server (make sure you secure it). Then you could invoke the RPC to create a new GDB with the right name, and use WebEdit to send over the GDB contents, one top-level table at a time. And finally, use WebEdit to make a new entry in the server Frontier's user.databases table, so
+the GDB is reopened when Frontier or the machine is restarted.<p>
+
+Or, you could fall back on a non-Frontier solution:
+If your server has an FTP server, you could save the GDB and copy it to the server in the correct location. Then you'd need to be able to tell Frontier (on the server) to open the new file.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:03 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

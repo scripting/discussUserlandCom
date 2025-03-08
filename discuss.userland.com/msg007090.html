@@ -1,0 +1,32 @@
+<html>	<head>		<title>navbar test version: XML format</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>navbar test version: XML format</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/7/1999; 1:35:00 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007066.html">The Need For Speed</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7090 (In response to <a href="msg007088.html">7088</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007089.html">7089</a> / <a href="msg007091.html">7091</a></td></tr>				</table>			<br>Today's test version of the navbar macro optionally allows you to define the contents of the navbar via XML.<p>
+
+First, the navbar macro got a new optional parameter, flXmlOutline. It defaults to false, preserving previous behavior. If flXmlOutline is true, the specified outline (or string or wptext) will be interpreted as XML.<p>
+
+<b>XML outlines</b><p>
+
+The XML outline should contain a single <navbar&gt; tag at the top-level.<p>
+
+The <navbar&gt; tag can contain two kinds of tags, <category&gt; and <link&gt;.<p>
+
+The <category&gt; has a single attribute "title". It's the text that will be displayed in the navbar if the showCategories parameter is true.<p>
+
+The <link&gt; tag has two attributes, "type" (required) and "title" (optional). The contents of the <link&gt; tag is interpreted based on the "type" attribute. The value of the "title" attribute is the text that will be displayed in the navbar.<p>
+
+If "type" is "adr", the contents of the <link&gt; tag is assumed to be an absolute address or an address relative to the site's root table (i.e. the table containing the #ftpSite table). If the "title" attribute is unspecified, the title of the referenced page will be used.<p>
+
+If "type" is "url", the contents of the <link&gt; tag is assumed to be a valid URL. If the "title" attribute is unspecified, the URL will be used.<p>
+
+If "type" is "glossary", the contents of the <link&gt; tag is assumed to be a glossary entry. If the "title" attribute is specified, it will override the link text specified in the glossary (by calling the glossSub macro).<p>
+
+<b>Example</b><p>
+
+<pre><navbar&gt;
+	<category title="Samples Site"/&gt;
+	<link type="adr"&gt;websites.samples.default</link&gt;
+	<link type="adr" title="Random Stuff"&gt;websites.samples.randomStuff</link&gt;
+	<category title="Other Sites"/&gt;
+	<link type="url" title="Frontier"&gt;http://frontier.userland.com/</link&gt;
+	<link type="glossary"&gt;Scripting News</link&gt;
+	</navbar&gt;
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007109.html">Re: XML navbar test version--tags in titles?</a>, Ian Beatty, 6/8/1999; 7:07:53 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

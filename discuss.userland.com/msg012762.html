@@ -1,0 +1,51 @@
+<html>	<head>		<title>Re: An answer for Apache newbies</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: An answer for Apache newbies</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Michael A. Alderete</td></tr>				<tr><td><b>Posted:</b></td><td>11/5/1999; 2:11:40 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012705.html">A question for Apache gurus</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12762 (In response to <a href="msg012705.html">12705</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012761.html">12761</a> / <a href="msg012763.html">12763</a></td></tr>				</table>			<br>From looking at your redirect list, I think using .htaccess files is a bad way to go. The main reason that Apache gurus say don't use .htaccess files is because there is a significant performance hit, caused by Apache looking for an .htaccess file in the page's directory and *every* directory above it, until it finds one or it hits the root directory. <p>
+
+That is, if the visitor requests the file:<p>
+
+  <a href="http://www.userland.com/ContentServer/customizing/callbacks.html">http://www.userland.com/ContentServer/customizing/callbacks.html</a><p>
+
+Apache will look for an .htaccess file in this order:<p>
+
+  $SERVER_ROOT/ContentServer/customizing/.htaccess<br>
+  $SERVER_ROOT/ContentServer/.htaccess<br>
+  $SERVER_ROOT/.htaccess<p>
+
+On a Unix system, the file system access is very fast, so the performance hit is only important on high volume sites. But I think scripting.com is one of those sites!<p>
+
+On the Be web site, we turn off looking for .htaccess files with the following directive:<p>
+
+<Directory /> <br>
+    AllowOverride None <br>
+</Directory><p>
+
+Then to handle the fairly large number of redirects that we need to do, we use the mod_alias module, which is not quite as sophisticated as the mod_rewrite module that some were advocating, but is easier to write rules for, and (I think) is faster (because it only handles simpler cases). mod_alias is still pretty sophisticated; I think all of your redirects can be handled by it.<p>
+
+mod_alias is enabled by the following directives (assuming you're using Apache with dynamically loaded modules, the most flexible way to go):<p>
+
+  LoadModule alias_module       libexec/mod_alias.so <br>
+  AddModule mod_alias.c<p>
+
+Then you can create your aliases and redirects, probably in your VirtualHosts section; here are a few samples from the Be configuration:<p>
+
+# Redirect a page in old section to new site/section <br>
+RedirectMatch ^/documentation(.*) <a href="http://www-classic.be.com/documentation$1">http://www-classic.be.com/documentation$1</a> <br>
+RedirectMatch ^/aboutbe/jobs.* /jobs<p>
+
+# Redirect anything in section to one page <br>
+RedirectMatch ^/products/beos_tour.* /action<p>
+
+# Redirect one page to another page <br>
+Redirect /aboutbe/whatsbe.html <a href="http://www.be.com/aboutbe/">http://www.be.com/aboutbe/</a><p>
+
+These are redirects, in that they take the person to a new URL, rather than the one they accessed. You can also do aliases, which make the URL they accessed actually point to another file. To make an alias, just change the "Redirect" portion of the above commands to "Alias".<p>
+
+Redirects are the right way to go if the move is permanent, and you want people to use the new URL. Aliases are the right thing if you want people to use the alias (maybe because it's shorter than the full URL).<p>
+
+Hope this is useful!<p>
+
+P.S. So why would Apache have the .htaccess files if they're bad? When you have a lot of people who need to modify the configuration, and you don't want them all mucking with your httpd.conf file. Normally only one person should be able to touch your httpd.conf file!<p>
+
+It's most useful for ISPs and other hosts which allow people with wildly different needs to have their own directory or virtual host on someone else's server. Each person puts an .htaccess file in their own directory to create their customized file mappings, redirects, permissions, CGI or pre-processing configurations, etc. <p>
+
+If you own the whole host, don't use .htaccess files!
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012763.html">Re: An answer for Apache newbies</a>, Dave Winer, 11/5/1999; 2:22:27 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

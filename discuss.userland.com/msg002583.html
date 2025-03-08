@@ -1,0 +1,50 @@
+<html>	<head>		<title>Lightweight Distributed Objects (LDO); was Re: Encodings</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Lightweight Distributed Objects (LDO); was Re: Encodings</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ken MacLeod</td></tr>				<tr><td><b>Posted:</b></td><td>1/30/1999; 7:35:35 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002563.html">XML-RPC Spec Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2583 (In response to <a href="msg002574.html">2574</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002582.html">2582</a> / <a href="msg002584.html">2584</a></td></tr>				</table>			<br>The Casbah Project <<a href="http://www.ntlug.org/casbah/">http://www.ntlug.org/casbah/</a>> has been working on a similar protocol to XML-RPC called Lightweight Distributed Objects (LDO) which is patterned after Apple's (nee NeXT's) Portable Distributed Objects (PDO).  We've addressed many similar issues (persistent connections, XML tags, data typing, protocol layering) and would be glad to add our findings to the discussion here.<p>
+
+I have been working on some final design changes and the LDO documentation recently because Casbah is nearing it's first developer release, so hopefully I will soon have a lot of specs handy to look at.  In the meantime I want to followup to a few threads already going on.<p>
+
+This message specifically is in response to Bob Atkinson's message about using fewer tags.<p>
+
+LDO's XML tag set uses only four tags.  The primary data-defining tags are <dictionary> (similar to XML-RPC's <struct>), <list> (<array>), and <atom> (which most closely matches <value> without subelements).  The fourth tag is <ref> which allows an already defined data element to be reused verbatim (this is not for circular object references, that's implemented at a higher level in LDO).<p>
+
+The data-defining tags all accept a `type' attribute that defines their object or value type.  Type's are similar to MIME types or URIs and are of the form `<i>LANGUAGE</i>:<i>TYPE</i>', where <i>LANGUAGE</i> is the language or standard (`python', `COM', `MIME') that defines types and <i>TYPE</i> is a type name from that language or standard (`float', `jpeg', `text/xml').<p>
+
+<atom>'s are where data is actually stored, like numbers, strings, or other types.  <atom> also accepts an `encoding' attribute for using `base64'.<p>
+
+<dictionary> keys can be any data type in addition to just strings (simple names), so dictionaries are defined as pairs of items, where the first item is the key and the second item is the value.  In most cases, dictionaries are simply structs so the first item would be an <atom> containing the name of the struct member.<p>
+
+Here is an example of an LDO XML serialization of a simple list of two structures:<p>
+
+<pre>
+  <?xml version="1.0"?>
+  <list>
+    <dictionary>
+      <atom>computer</atom>
+      <atom>Macintosh</atom>
+      <atom>os</atom>
+      <atom>Mac OS X</atom>
+    </dictionary>
+    <dictionary>
+      <atom>computer</atom>
+      <atom>Gateway 2000</atom>
+      <atom>os</atom>
+      <atom>Windows 2000</atom>
+    </dictionary>
+  </list>
+</pre><p>
+
+In LDO, remote procedure calls are encoded at a higher level than the serialization, so they are represented as dictionaries.  For XML-RPC the keys would be `methodName' and `params'.  The first example in the <a href='http://www.scripting.com/frontier5/xml/code/rpc.html'>XML-RPC spec</a> would be encoded like this:<p>
+
+<pre>
+  <?xml version="1.0"?>
+  <dictionary>
+    <atom>methodName</atom>
+    <atom>examples.getStateName</atom>
+    <atom>params</atom>
+    <list>
+      <atom type="xml-rpc:i4">41</atom>
+    </list>
+  </dictionary>
+</pre><p>
+
+The document type definition (DTD) for LDO XML serialization is available at <<a href="http://bitsko.slc.ut.us/~ken/casbah/ldo/ldo-xml.dtd">http://bitsko.slc.ut.us/~ken/casbah/ldo/ldo-xml.dtd</a>>.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002585.html">Re: LDO</a>, Dave Winer, 1/30/1999; 7:55:19 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

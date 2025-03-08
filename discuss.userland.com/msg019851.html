@@ -1,0 +1,121 @@
+<html>	<head>		<title>A History of "Open Source", Part II</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>A History of "Open Source", Part II</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>8/20/2000; 11:05:22 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg019844.html">A History of "Open Source"</a></td></tr>				<tr><td><b>Msg #:</b></td><td>19851 (In response to <a href="msg019845.html">19845</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg019850.html">19850</a> / <a href="msg019852.html">19852</a></td></tr>				</table>			<br><i>Would it be fair to say that this piece isn't meant to be objective or balanced?</i><p>
+
+You would be <i>entirely</i> fair to say that. If I had an infinite number of Saturday afternoons to spend writing, I could tell you more of the story. And it still wouldn't be especially objective or balanced. :-)<p>
+
+<i>For example, why is it that Tanenbaum is never mentioned in open-source histories?</i><p>
+
+Mostly because he's a brilliant man, and everyone hates to end the story by making him look silly.<p>
+
+But since you ask...<p>
+
+<b>Lions' Commentary on Unix</b><p>
+
+In 1977, John Lions wrote the most famous banned book in computer science. The first 90 pages of the book contained nothing but source code--a reformatted copy of the 6th Edition Unix kernel.<p>
+
+The second 100-odd pages contained Lions' commentary. He started with an overview of Unix, the PDP11/40, and the C programming language. But before long, Lions dove into the real meat of the book: a detailed walkthrough of the Unix kernel.<p>
+
+Lions wouldn't just <i>tell</i> you how the kernel worked; he wanted you to read the code. But he helped you understand the tricky bits:<p>
+
+<blockquote><i>It will be seen later that "main" calls "sched" which never terminates. The need for or use of the last three instructions of "start" (lines 0670, 0671 and 0672) is therefore somewhat enigmatic. The reason will come later. In the meantime you might like to ponder "why?".</i></blockquote><p>
+
+The authors of Unix were delighted. To this day, Ken Thompson and Dennis Ritchie are <i>still</i> praising the <i>Lions' Commentary</i> to the skies.<p>
+
+The AT&T lawyers, on the other hand, were less enthusiastic.<p>
+
+We can find the story in Salus' excellent <a href="http://search.borders.com/fcgi-bin/db2www/search/search.d2w/Details?&mediaType=Book&prodID=2431100">Quarter Century of Unix</a>:<p>
+
+<blockquote><i>The UKUUG newsletter announced the availability of the code and commentary, but the next issue stated that future orders should be placed with Bell Laboratories and by 1978 the volumes were no longer available.</i></blockquote><p>
+
+<blockquote><i>They must be the most frequently photocopied books in the entire area of computer science. They carry the appropriate copyright notices and the restriction to licensees, but once again, there was no way that Western Electric could stem the circulation of something of such value.</i></blockquote><p>
+
+Professors couldn't legally use the <i>Lions' Commentary</i> to teach their classes. But a few professors chose to skirt the law, and to meet with their students unofficially, in the evenings, when they could discuss the commentary in secret.<p>
+
+A generation of computer scientists learned about operating systems from Lions' book. (And if you've been keeping your illegal copy a closely-guarded secret, you'll be delighted to know that you can now <a href="http://search.borders.com/fcgi-bin/db2www/search/search.d2w/Details?&mediaType=Book&prodID=4390289">get a legal copy</a>.)<p>
+
+<b>Andrew Tanenbaum</b><p>
+
+Salus tells us that Andrew Tanenbaum was an early reader of the <i>Lions' Commentary</i>. He was allegedly inspired by the book, but offended by the legal restrictions.<p>
+
+So Tanenbaum set out to write a kernel and commentary of his own. The new kernel was called <a href="http://www.minix.org/">Minix</a>, and the new commentary was published in 1987 as <a href="http://cw.prenhall.com/bookbind/pubbooks/tanenbaum/chapter0/deluxe.html">Operating Systems: Design and Implementation</a>.<p>
+
+A younger generation of computer scientists learned about operating systems from this book.<p>
+
+<b>The Minix Community</b><p>
+
+By 1990, comp.os.minix was one of the most popular computer-science newsgroups. Tanenbaum's book was used by universities throughout the world, and tens of thousands of people had used Minix in class.<p>
+
+In most of these classes, the final assignment was something like, "Add an interesting new feature to Minux, based on what you learned in class."<p>
+
+But there were still lawyers in paradise. Prentice-Hall held the rights to Minix, and refused to make the source code generally available. So even though thousands of programmers had written Minix enhancements, they could only share them with other readers as cumbersome patch files.<p>
+
+And Tanenbaum had no desire to turn Minix into anything other than a teaching system, despite the hordes of impressionable young programmers who wanted to make it something greater.<p>
+
+(And just as a footnote: Most Minix developers relied on Stallman's C compiler, GCC. Everything fits together in this story.)<p>
+
+<b>Linus Torvalds</b><p>
+
+One of these young Minix developers was none other than Linus Torvalds. He was, perhaps, more enthusiastic than most, and certainly more willing to give up his free time.<p>
+
+Linus was upset by the restrictions on Minix, just as Tanenbaum had been upset by the restrictions on the <i>Lions' Commentary</i>. Like many other Minix hackers, Linus wanted to keep on developing his Minix enhancements.<p>
+
+Somewhere along the way, Linus rewrote all of Minix code, thus freeing his work from the long fingers of Prentice-Hall. (I don't know exactly when this happened.)<p>
+
+When Linus released his new kernel to the world in 1991, Tanenbaum was <a href="http://www.dina.kvl.dk/%7Eabraham/Linus_vs_Tanenbaum.html">unimpressed</a>:<p>
+
+<blockquote><i>I still maintain the point that designing a monolithic kernel in 1991 is a fundamental error. Be thankful you are not my student. You would not get a high grade for such a design...</i></blockquote><p>
+
+<blockquote><i>Writing a new OS only for the 386 in 1991 gets you your second 'F' for this term. But if you do real well on the final exam, you can still pass the course.</i></blockquote><p>
+
+(This is probably why Tanenbaum gets left out of histories of open source. He deserves to be remembered for his excellent books, not for this one quote.)<p>
+
+After a short flamewar with Tanenbaum, Linus apologized in public:<p>
+
+<blockquote><i>And reply I did, with complete abandon, and no thought for good taste and netiquette. Apologies to ast, and thanks to John Nall for a friendy "that's not how it's done"-letter. I over-reacted, and am now composing a (much less acerbic) personal letter to ast. Hope nobody was turned away from linux due to it being (a)
+possibly obsolete (I still think that's not the case, although some of the criticisms are valid) and (b) written by a hothead :-)</i></blockquote><p>
+
+<b>The Linux License</b><p>
+
+Linus was upset by the restrictions placed on Minix, and vowed to do better with Linux. His first license was staunchly anti-commercial: you could copy and modify Linux, but you could never charge money for it.<p>
+
+But as Linux became more popular, several companies wanted to sell it on floppy disks. (CD-ROM drives and the Internet weren't uniquitous back then, remember?)<p>
+
+This seemed like a reasonable request to Linus. But it meant he needed a new license: one which allowed commercial redistribution, but which still preserved the freedom to enhance and share Linux without restriction.<p>
+
+Well, Linus was uterly dependent upon GCC, and GCC had been released under Stallman's <a href="http://www.fsf.org/copyleft/gpl.html">General Public License</a> (GPL). Linus didn't necessarily approve of Stallman's politics, and he didn't completely understand the GPL. But he <i>did</i> know two things:<p>
+
+<ul>
+<li>The GPL allowed people to distribute software in exchange for money.</li>
+<li>The GPL required that every user get certain get rights: the right to read the source code, the right to modify the software, and the right to share their modifications with others.</li>
+</ul><p>
+
+So Linus released the next version of Linux under the GPL. As he later <a href="http://dxm.org/tcok/linusint/">claimed</a>:<p>
+
+<blockquote><i>Making Linux freely available is the _single_ best decision I've ever made. There are lots of good technical stuff I'm proud of too in the kernel, but they all pale by comparison.</i></blockquote><p>
+
+(Linus and Stallman don't actually speak to each other very much. Each clearly respects the other for his technical abilities, but doesn't buy into the other's politics.)<p>
+
+<b>The Linux Explosion</b><p>
+
+What happened when hordes of impatient Minix hackers collided with the GNU project?<p>
+
+Right.<p>
+
+Linux got an instant labor force. The politically-motivated people all claimed to be working for Stallman's vision. The people who didn't care about politics--but who really liked to hack on kernels--called Stallman a crank and followed Linus.<p>
+
+Stallman, of course, was a bit confused. Linus had written the final piece of the GNU system, but he didn't care about the GNU politics. And Linus could lead people that would never listen to Stallman. Stallman <a href="http://www.fsf.org/gnu/linux-and-gnu.html">felt cheated</a>, but also saw his vision finally taking shape.<p>
+
+<b>The Other Parts of the Story</b><p>
+
+Of course, I <i>still</i> haven't told more than a tiny fraction of the story. The free software movement is like a stool with three legs: the GNU Project, the Minix community, and the BSD community. Each of these stories is terribly important, and I've only told parts of the first two.<p>
+
+And I still haven't said anything about Perl or Apache. I haven't talked about the rise and fall of the <i>Open</i> Software Foundation, or about the Unix wars of the 80's. I haven't talked about Bell Labs, or UC Berkeley or the Stanford University Network computer (from whence from Sun Microsystems gets its name).<p>
+
+I haven't talked about Slackware, or about the folks at RedHat. I haven't told you the story of how Larry Augustin helped his roommates write Yahoo's business plan, but then decided to sell Linux workstations instead. (He's now CEO of <a href="http://www.valinux.com/">VA Linux</a>, so don't shed any tears on his behalf.)<p>
+
+History is woven together from a thousand such stories. This particular piece of history fits together like a jigsaw puzzle, and I couldn't hope to do it justice in five hundred pages.<p>
+
+The web helps, a little. I've tried to use lots of hyperlinks, so other people could tell you their parts of the story in their own words.<p>
+
+Cheers,<br>
+Eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg019855.html">Re: A History of "Open Source", Part II</a>, Joshua Allen, 8/20/2000; 2:05:19 PM<p><li>&nbsp;<a href="msg019856.html">Re: A History of "Open Source", Part II</a>, Ken MacLeod, 8/20/2000; 3:53:50 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:07 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,25 @@
+<html>	<head>		<title>Re: XML Namespaces difficulty</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML Namespaces difficulty</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David McCusker</td></tr>				<tr><td><b>Posted:</b></td><td>8/29/2000; 12:55:14 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg020465.html">cam?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>20508 (In response to <a href="msg020504.html">20504</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg020507.html">20507</a> / <a href="msg020509.html">20509</a></td></tr>				</table>			<br>Ken MacLeod: <i> The deterministic symbol space is the tuple (NamespaceURI, LocalName) which forms a universally unique element or
+attribute name.</i><p>
+
+That's very good, I love hearing about tuples, sets, and operators.  Given that definition, I would only ask whether the NamespaceURI part is ever implied by context, rather than stated explicitly?<p>
+
+If the namespace is ever implied, presumably this is across some scope. Is there a nice definition for such scopes, and are they lexical?  Inside a scope where a namespace is implied, all all symbols so implicitly scoped, or do some symbols escape the qualification?<p>
+
+Ken: <i><blockquote><code><br>
+dc = "http://purl.org/dc/elements/1.1/"<p>
+
+                   doc.title<br>
+                   doc.description<br>
+                   doc.(dc, 'source')</code></blockquote><p>
+
+               Here, the object doc has had a new set of attributes "mixed-in" to it (from the Dublin Core in this example). The new
+               attributes are distinguished from the originals by fully qualifying the tuple used as accessors.</i><p>
+
+That's a good example and looks clear.  What default namespace qualifies the symbols 'title' and 'description' above?<p>
+
+Ken: <i>It's not clear to me that there's any ambiguity there, can you shed more light on that?</i><p>
+
+The example looks like code in some language I assume is not XML.  Often code in procedural languages is less ambiguous than encodings in declarative languages.  Normally I think of XML as primarily declarative in use (though folks could also use it procedurally, I know).<p>
+
+So my question would be this.  Is XML syntax less clear than the example about when an explicit namespace is used for qualification?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg020545.html">Re: XML Namespaces difficulty</a>, Ken MacLeod, 8/30/2000; 9:31:55 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:23 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

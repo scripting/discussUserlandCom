@@ -1,0 +1,14 @@
+<html>	<head>		<title>Frontier Mailserver/Content Server integration</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Frontier Mailserver/Content Server integration</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>6/28/1999; 10:14:15 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007880.html">Content Server domain issue</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7894 (In response to <a href="msg007883.html">7883</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007893.html">7893</a> / <a href="msg007895.html">7895</a></td></tr>				</table>			<br><i>I'm wondering the best way to do it. <p>
+
+ 1) Write a filewriter filter for the mailserver. </i><p>
+
+Well this is done, and it seems to work with the content server. A day of testing and I'll unleash this on the unsuspecting world. When it's verified, I'll put it through the mailserver root update process.<p>
+
+As an aside, this (frontier stuff) is <i>really</i> cool technology to play with.<p>
+
+Incoming mail when sent through this filter is saved in a specified folder, optionally with a unique name and the attachments split out. <p>
+
+Security is still an issue if attachments are written, so they are turned off till explicitly turned on. This could be addressed with a username/password pair in the body of the incoming email, along with the names of the files included in the incoming email.<p>
+
+eric
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

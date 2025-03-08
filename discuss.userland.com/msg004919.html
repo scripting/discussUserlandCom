@@ -1,0 +1,55 @@
+<html>	<head>		<title>Make your DG searchable</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Make your DG searchable</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Lixian B. Chiu</td></tr>				<tr><td><b>Posted:</b></td><td>4/9/1999; 11:27:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004919.html">Make your DG searchable</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4919</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004918.html">4918</a> / <a href="msg004920.html">4920</a></td></tr>				</table>			<br>Steps to make make Frontier 6 index your discussion group message:<p>
+
+1)	In your user.databases table, you need to make an entry for htmlInterfaces.root (NOT disucss.root), and under this new user.databases.["htmlInterfaces.root"] table, put a boolean object "supportsIndexing" and make it true.<p>
+
+	So, simply put, you need to set a boolean object user.databases.["#htmlInterfaces.root"].supportsIndexing to true.<p>
+
+
+2)	set config.mainResponder.prefs.flSearchEngine to true<p>
+
+3)	in your discussion group's message table (the one inside discuss.root), put the address of your msgReader object into ["xxx:yyy:discuss.root"].["your discussion group's name"].prefs.adrMsgReader, for example, on my discuss.root, I have:<p>
+
+	discuss.prefs.adrMsgReader = @["Earth:Frontier 6.0:Guest Databases:www:htmlInterfaces.root"].discussionGroup.msgReader<p>
+
+4)	empty your root.websites.["#data"] table<p>
+
+5)	in your htmlInterfaces.root,<p>
+
+	discussionGroup.["#search"].siteURL -> change to your site's url, mine is <a href="http://localhost/discussionGroup/">http://localhost/discussionGroup/</a><p>
+
+	discussionGroup.["#ftpSite"].url -> change to your discussion site's url, mine is localhost/discussionGroup/<p>
+
+	discussionGroup.["#ftpSite"].folder -> delete it<p>
+
+
+That's almost all you need to do. After you performed all these steps, try submit a message, and then go to your config.mainResponder.data.searchQueue, you will find your message is waiting to be indexed. If you want to see the actual indexing, go to user.scheduler, move the entry "searchEngine" from hourly to everyMinute.<p>
+
+You must notice that I said "almost". Yes, you only get 99% of it working. It does index your message, but the url of the message is wrong. To correct this, you need to go into mainResponder.search.client.indexPage, then look for this line:<p>
+
+<I>
+else <<it's a msgReader-style page: get contents from the discussion group<p>
+
+&nbsp;&nbsp;&nbsp;if searchTable.title == nil<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searchTable.title = adrDgMsg^.subject<p>
+
+&nbsp;&nbsp;&nbsp;pageText = string (adrDgMsg^.body)
+</I><p>
+
+You need to add one more line after this code segment, and make it:<p>
+
+<I>
+else <<it's a msgReader-style page: get contents from the discussion group<p>
+
+&nbsp;&nbsp;&nbsp;if searchTable.title == nil<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searchTable.title = adrDgMsg^.subject<p>
+
+&nbsp;&nbsp;&nbsp;pageText = string (adrDgMsg^.body)<p>
+
+&nbsp;&nbsp;&nbsp;searchTable.url = searchTable.url + "$" + number (nameOf (adrDgMsg^))
+</I><p>
+
+<p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004935.html">Re: Make your DG searchable</a>, Darcy Clark, 4/10/1999; 9:34:22 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:17 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

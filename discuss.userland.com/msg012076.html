@@ -1,0 +1,17 @@
+<html>	<head>		<title>Re: system.paths and guest databases</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: system.paths and guest databases</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jeremy Bowers</td></tr>				<tr><td><b>Posted:</b></td><td>10/15/1999; 1:02:32 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004849.html">system.paths and guest databases</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12076 (In response to <a href="msg004850.html">4850</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012075.html">12075</a> / <a href="msg012077.html">12077</a></td></tr>				</table>			<br>In the message this is a reply to, which probably belongs on the Frontier discussion, Brent Simmons states:<p>
+
+<I>Please don't edit system.paths -- to do so is to edit a very critical section of Frontier. There are always ways to accomplish things without editing this table.</I><p>
+
+I've got my website in a guest database, and I want to make the #tools table accessible, as I used to edit the path to do so.  By "accessible", I mean that while running the scripts in "#tools" for the purposes of debugging, other references to "#tools" are considered in scope.  So, if I had:<p>
+
+#tools
+<UL><LI>createLink</LI>
+<LI>listOfLinks</LI>
+</UL><p>
+
+I could debug listOfLinks, which references simply "createLink", without giving the full path.  In addition, I have nested tables and such.<p>
+
+Basically, I want to add #tools to the path, without adding #tools to the path.  How exactly is this done?<p>
+
+(note that during render time, this isn't a problem, as the #tools table acts in exactly the fashion I need.  That still makes debugging hard.)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:04 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

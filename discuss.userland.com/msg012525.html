@@ -1,0 +1,15 @@
+<html>	<head>		<title>Advice re: Microsoft and bug reporting</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Advice re: Microsoft and bug reporting</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jason Levine</td></tr>				<tr><td><b>Posted:</b></td><td>10/29/1999; 11:59:15 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012525.html">Advice re: Microsoft and bug reporting</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12525</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012522.html">12522</a> / <a href="msg012526.html">12526</a></td></tr>				</table>			<br>Hello all... in my debugging of a problem I'm having with Frontier & tcpcmd talking to an IIS 4.0 FTP server, I've uncovered two problems in IIS and how it logs FTP activity.<p>
+
+My question for you guys is -- does anyone have any advice about the <b>best</b> way to pass this information on to someone who cares at Microsoft?  I've never been able to figure out how best to do that.<p>
+
+For those that are interested, here are the two problems:<p>
+
+<ol>
+<li>IIS does not log file deletions.</li>
+<li>In the W3C Extended Log Format, IIS screws up the server port number field.  (When, during passive FTP, a server sends to the client the port number that the client should contact to open an FTP data connection, it does so by breaking a 16-bit integer into its two eight-bit components, converting them into decimal integers, and sending them that way.  IIS, when it writes to the log, puts the two eight-bit components back together BACKWARDS.  Funny, and if you're interested, I can explain more and show examples.)</li>
+</ol><p>
+
+Thanks a ton in advance...<p>
+
+/jason
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

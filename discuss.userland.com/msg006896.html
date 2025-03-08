@@ -1,0 +1,21 @@
+<html>	<head>		<title>Copying a table</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Copying a table</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Polaschek</td></tr>				<tr><td><b>Posted:</b></td><td>5/31/1999; 8:01:49 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006896.html">Copying a table</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6896</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006895.html">6895</a> / <a href="msg006897.html">6897</a></td></tr>				</table>			<br>Here's what I'm trying to do:<p>
+
+I want to build a table in local storage within a script, and then copy it to the clipboard as a table, so I can later paste it into another table. The reason I'm doing this is that I can't be sure which of a dozen tables I'll be pasting it into (otherwise I'd just build it right in the destination).<p>
+
+I do this with the following snippet:
+<pre>
+local(tempTable)
+new(tableType, @tempTable)
+new(stringType, @tempTable.text)
+new(dateType, @tempTable.date)
+tempTable.text = "test"
+tempTable.date = clock.now()
+clipboard.putvalue(tempTable)
+</pre><p>
+
+The problem is that when I paste, I get an item named "pasted binary" that's a binary object (of kind binary[tabl]). I can manually convert this to a table, but it seems as if there ought to be a way for this to happen automagically.<p>
+
+I'm using Frontier 5.0.2b19. Anyone have any suggestions? Ideally I would be able to set the name of the item as well as making making it paste as a table.<p>
+
+-DaveP
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:32 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

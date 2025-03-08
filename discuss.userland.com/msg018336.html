@@ -1,0 +1,18 @@
+<html>	<head>		<title>IIS 4.0 HTTP Headers</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>IIS 4.0 HTTP Headers</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>michael</td></tr>				<tr><td><b>Posted:</b></td><td>7/5/2000; 12:33:54 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018336.html">IIS 4.0 HTTP Headers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18336</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018335.html">18335</a> / <a href="msg018337.html">18337</a></td></tr>				</table>			<br>I need help. Using Asp objects, how does one change the set of HTTP headers that are sent back to the client? I've used the response.status method to set the initial header, but I need to delete some of the default headers IIS is sending back like:<p>
+
+Server: Microsoft-IIS/4.0<p>
+
+Date: Wed, 05 Jul 2000 17:30:11 GMT<p>
+
+Connection: Keep-Alive<p>
+
+Content-Length: 1035<p>
+
+Content-Type: application/x-tmpdata<p>
+
+Set-Cookie: ASPSESSIONIDGGGQGQCC=HKIDIIKBJICFOIAMKDOPANPG; path=/<p>
+
+Cache-control: private<p>
+
+According to the protocol I'm trying to write to, only the content-length,status, and content-type headers are allowed. Also, the client posts the message using an HTTP/1.0 POST command, but IIS always responds with HTTP/1.1. How can I make IIS or my Asp page write 1.0 to the client? Do I have to use an ISAPI filter for this? Tell me there's another way!
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:34 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

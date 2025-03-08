@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Chuck's XML-RPC Comments</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Chuck's XML-RPC Comments</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Skip Montanaro</td></tr>				<tr><td><b>Posted:</b></td><td>1/25/1999; 5:36:49 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002401.html">Chuck's XML-RPC Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2437 (In response to <a href="msg002432.html">2432</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002436.html">2436</a> / <a href="msg002438.html">2438</a></td></tr>				</table>			<br>Chuck: As you said yourself, text/xml is too broad (at least for
+  some servers.) Being able to discover the URI for the XML RPC
+  services on a given HTTP host as well as discover the appropriate
+  MIME type allows a diverse range of servers to use their own 
+  calling conventions to support the same RPC service.<p>
+
+If "text/xml" is too broad and you don't want to tie to a particular URI, I think you should add a parameter to the media type, e.g.:<p>
+
+    Content-type: text/xml; service=XML-RPC<p>
+
+Skip
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:33 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

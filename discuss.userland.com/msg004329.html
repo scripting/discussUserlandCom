@@ -1,0 +1,12 @@
+<html>	<head>		<title>Textarea editing in desktop text tools</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Textarea editing in desktop text tools</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>3/19/1999; 8:33:07 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004318.html">Registry Hack for IE5's "Edit with..."</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4329 (In response to <a href="msg004318.html">4318</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004327.html">4327</a> / <a href="msg004330.html">4330</a></td></tr>				</table>			<br>Boy that's tantalizingly close to what I am looking for.<p>
+
+I would like an editor to hook into the <textarea> part of a web page.<p>
+
+Let's say that part of a <textarea> control would contain a column of program icons immediately to the right of the vertical scrollbar, or immediately to the left of the <textarea> box, above it or below it, I don't care. There would be a place in the Registry where a program could link itself into this group, a program would have to opt-in for this specific feature. On the Mac, a program would place an alias of itself in a folder that the browser checks whenever a form is being opened.<p>
+
+Now in the browser, when I see a <textarea> box and click on one of the icons, the program launches and a copy of whatever I had already typed into the <textarea> would show up in the editing window. I do my thing, and every time I save, the result goes back into the <textarea>. Bring the browser to the front and click on the Submit button and the text goes to the server.<p>
+
+The key new feature for the editor is that it has to be able to save thru a COM message on Windows, and an Apple Event on the Mac. The browser has to have a receiver to get the event. But with this feature, we hook the browser into the desktop editing environment at a level that many users will be able to grok. <p>
+
+It also takes a burden off the app developer, they can leverage the browser, without having to support WebDAV or XML-RPC. Everyone has a web browser, right? It already knows how to send stuff to a web server. (That's what web browsers are for.)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:55 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

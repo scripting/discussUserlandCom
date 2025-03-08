@@ -1,0 +1,16 @@
+<html>	<head>		<title>Unix and Email Viruses</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Unix and Email Viruses</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>6/15/1999; 5:00:57 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007409.html">Unix and Email Viruses</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7409</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007408.html">7408</a> / <a href="msg007410.html">7410</a></td></tr>				</table>			<br>It is difficult to create an email virus in unix that doesn't explicitly exploit a bug of a specific mail system. <p>
+
+To execute an attached shell script or executable from a message, you typically have to save it, then change the file to an executable (chmod +x), then run it.  Attachments don't automatically run, and if they did, it would be considered a bug. <p>
+
+<i>Furthermore, the ability to run a file is not determined by the file name.</i><p>
+
+Even then, unless there was an exploit for a particular program, you're running as the user, not as a privleged account. That makes it harder to do anything truly interesting or malicious. (Depending on your point of view) You can't replace the file manager or the email program. You can't bind to the smtp port. You can send mail, but you can't intercept anyone elses mail on that system. <p>
+
+I'm not saying that a lot of havoc is impossible, but there are far higher hurdles in the unix world to writing viruses than there are in the windows world. <p>
+
+That being said, if there were a systematic flaw in something as critical as say... sendmail* ... There would be a real big effect. Probably a reality approaching the hype of Melissa shutting down the internet. i.e. there's only so much havoc to be done on a bunch of clients. Get the servers and all hell breaks loose.<p>
+
+<i>added later</i><p>
+
+* see Robert Morris, fellow Cornell Alumnus and author of the infamous and legendary Sendmail Internet Worm. 
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007411.html">Re: Unix and Email Viruses</a>, Paul Nakada, 6/15/1999; 5:42:05 PM<p><li>&nbsp;<a href="msg007444.html">Re: Unix and Email Viruses</a>, Sidney Markowitz, 6/16/1999; 10:10:26 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

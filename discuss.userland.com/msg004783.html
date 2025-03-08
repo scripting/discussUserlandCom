@@ -1,0 +1,11 @@
+<html>	<head>		<title>Updated My.UserLand.Com</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Updated My.UserLand.Com</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>4/3/1999; 5:39:03 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004783.html">Updated My.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4783</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004782.html">4782</a> / <a href="msg004784.html">4784</a></td></tr>				</table>			<br>This list may grow over the next couple of days..<ul><p>
+
+<li>The <a href="http://my.userland.com/setup">Choose Your News</a> page now says when each channel has been last updated. I need this for debugging and it seems like it would be useful to know that the channel is alive and being updated.<p>
+
+The date doesn't say when the content was last updated. This is something that we should add to RSS. It's important if we're going to develop some idea of which channels are alive or not. We could do comparisons, but I'd rather give this to the content provider.<p>
+
+<li>Related change, instead of reading each channel every hour on the hour, we only read the "fast" channels, the ones that take less than two seconds to update. That's the vast majority of them. However, a few of them take as much as thirty seconds to update. Lots of things can contribute to this, poor network topology, or a slow server, or?<p>
+
+The slow channels are updated one at a time, it picks the oldest one out of the services table every five minutes and updates it. This keeps the slow channels out of the way of the fast ones.
+</ol></li></li></ul>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004794.html">Re: Updated My.UserLand.Com</a>, Dave Winer, 4/4/1999; 12:10:34 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

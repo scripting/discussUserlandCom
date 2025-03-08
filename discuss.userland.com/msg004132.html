@@ -1,0 +1,41 @@
+<html>	<head>		<title>Stock quotes from Zope in XML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Stock quotes from Zope in XML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>3/15/1999; 1:12:46 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000827.html">Zope vs. Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4132 (In response to <a href="msg004125.html">4125</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004131.html">4131</a> / <a href="msg004133.html">4133</a></td></tr>				</table>			<br>OK, here's a little demo of Zope. I happen to have a big database of stock prices from last Friday (about 10,000 quotes total). This data lives in a PostgreSQL database on a RedHat Linux system, so there's no way Frontier can get those quotes.<p>
+
+Fortunately, I just spent the last fifteen minutes teaching Zope to speak XML. So now you can find out what Apple cost last Friday:<p>
+
+<a href="http://moebius.dartmouth.edu/Zope/frontier/stock_quote?ticker=AAPL">http://moebius.dartmouth.edu/Zope/frontier/stock_quote?ticker=AAPL</a><p>
+
+Substitute MSFT for Microsoft, and so on. Now if a Frontier user can parse this XML, we can close the loop and Frontier will be able speak to PostgreSQL. Plus, Frontier will support Oracle on AIX, Sybase on Solaris and even MS SQL Server on NT, all for no extra work.<p>
+
+To make this data available by XML-RPC, I'll have to extend Z ORB and Z Publisher to parse XML requests. Fortunately, Python already supports XML-RPC, and Zope already supports RPC over HTTP, so this will be easy.<p>
+
+Here's the Zope code for this query. The stuff in <!--# --> comments is DTML, and the stuff in quotes after "expr=" is a bit of inline Python.<p>
+
+<PRE>
+<?xml version='1.0'?>
+<!--#call expr="RESPONSE.setHeader('Content-Type', 'text/xml')"-->
+<!--#in look_up_price-->
+<stockquote>
+<ticker><!--#var ticker--></ticker>
+<date><!--#var date--></date>
+<open><!--#var opening--></open>
+<high><!--#var high--></high>
+<low><!--#var low--></low>
+<close><!--#var closing--></close>
+<volume><!--#var volume--></volume>
+</stockquote>
+<!--#else-->
+<error>I've never heard of <!--#var ticker-->. Sorry.</error>
+<!--#/in-->
+</PRE><p>
+
+Here's the SQL source code for look_up_price:<p>
+
+<PRE>
+select *
+from price
+where ticker = <!--#sqlvar ticker type=string-->
+and date = '1999-03-12'
+</PRE><p>
+
+Any Frontier developer want to build the other half of this demo?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004137.html">Re: Stock quotes from Zope in XML</a>, Dave Winer, 3/15/1999; 2:01:45 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:47 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,102 @@
+<html>	<head>		<title>Re: What is Mail to the Future?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: What is Mail to the Future?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Bakin</td></tr>				<tr><td><b>Posted:</b></td><td>2/5/1999; 2:03:04 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002691.html">A new toy!</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2708 (In response to <a href="msg002694.html">2694</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002707.html">2707</a> / <a href="msg002709.html">2709</a></td></tr>				</table>			<br>Have you tried the "MIME type viewer" for XML in IE5?  You can use it to make the XML readable to a user even if he isn't using a specific application to grab the XML and transform it.<p>
+
+Consider the following for your msgReader.xml$n script:<p>
+
+1.  Add a reference to an XSL style sheet, e.g., after the "<?xml version="1.0" ?> line generate:<p>
+
+<pre>
+<?xml:stylesheet type="text/xsl" href="msgReader.xsl" ?>
+</pre><p>
+
+2.  Add the following XSL stylesheet file as msgReader.xsl.  Don't shoot me for the page design, though.<p>
+
+<pre>
+<?xml version="1.0" ?><p>
+
+<xsl:stylesheet 
+  xmlns:xsl="http://www.w3.org/TR/WD-xsl"
+  xmlns:fo="http://www.w3.org/TR/WD-xsl/FO"
+  xmlns:HTML="http://www.w3.org/HTML"
+  xmlns:css="http://www.w3.org/TR/NOTE-XSL-and-CSS"
+><p>
+
+<xsl:template match="/">
+  <HTML>
+    <HEAD>
+      <STYLE>
+        .label&#123;font:italic 10pt/16pt Verdana; color:black}
+        .subject&#123;font:11pt/16pt Verdana; color:red}
+        .receiver&#123;font:11pt/16pt Verdana}
+        .date&#123;font:11pt/16pt Courier; color:black}
+        .sentFlag&#123;font:italic 8pt/16pt Verdana; color:green}
+        .text&#123;font:10pt/15pt Verdana; color:black; background:yellow}
+      </STYLE>
+      <TITLE>Mail to the Future</TITLE>
+    </HEAD>
+  </HTML>
+  <BODY>
+    <xsl:for-each match="message">
+      <xsl:apply-templates select="receiverMailAddress" />  <BR/>
+      <xsl:apply-templates select="subject" />              <BR/>
+      <xsl:apply-templates select="insertionDate" />
+      <xsl:apply-templates select="hasBeenSent" />          <BR/>
+      <xsl:apply-templates select="messageBody" />          <BR/>
+      <xsl:apply-templates select="dateTime" />
+    </xsl:for-each>
+  </BODY>
+</xsl:template><p>
+
+<xsl:template match="receiverMailAddress">
+    <SPAN CLASS="label">To:</SPAN>
+    <SPAN CLASS="receiver">
+      <A><xsl:attribute name="href">mailto:<xsl:value-of /></xsl:attribute>
+      <xsl:value-of />
+      </A>
+    </SPAN>
+</xsl:template><p>
+
+<xsl:template match="subject">
+    <SPAN CLASS="label">Subject:</SPAN>
+    <SPAN CLASS="subject">
+      <xsl:value-of />
+    </SPAN>
+</xsl:template><p>
+
+<xsl:template match="messageBody">
+  <BR>
+    <SPAN CLASS="text">
+      <xsl:value-of />
+    </SPAN>
+  </BR>
+</xsl:template><p>
+
+<xsl:template match="insertionDate">
+    <SPAN CLASS="label">Time to send:</SPAN>
+    <SPAN CLASS="date">
+      <xsl:value-of />
+    </SPAN>
+</xsl:template><p>
+
+<xsl:template match="hasBeenSent">
+  <!-- <xsl:if match="(value() $eq$ 'true') $or$ (value() $eq$ 'TRUE')"> -->
+  <SPAN CLASS="sentFlag">
+  <xsl:choose>
+    <xsl:when match=".[(value()$eq$'true')$or$(value()$eq$'TRUE')]">
+      (already sent)
+    </xsl:when>
+    <xsl:otherwise>
+      (not yet sent)
+    </xsl:otherwise>
+  </xsl:choose>
+  </SPAN>
+</xsl:template><p>
+
+<xsl:template match="dateTime">
+    <SPAN CLASS="label">(Message queued</SPAN>
+    <SPAN CLASS="date">
+      <xsl:value-of /></SPAN><SPAN CLASS="label">)</SPAN>
+</xsl:template><p>
+
+</xsl:stylesheet>
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002709.html">Re: What is Mail to the Future?</a>, David Bakin, 2/5/1999; 2:05:01 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

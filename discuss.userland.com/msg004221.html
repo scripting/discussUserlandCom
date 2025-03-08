@@ -1,0 +1,23 @@
+<html>	<head>		<title>workspace.checkHeadlines</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>workspace.checkHeadlines</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>3/17/1999; 3:19:36 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004221.html">workspace.checkHeadlines</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4221</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004220.html">4220</a> / <a href="msg004222.html">4222</a></td></tr>				</table>			<br>Workspace.checkHeadlines is enclosed.<p>
+
+<b>What it does</b><p>
+
+This script is a utility script that checks objects for headlines that are greater than 255 characters.<p>
+
+<b>Why use it</b><p>
+
+If you want to share scripts from Frontier 6 with Frontier 5 users, it's necessary to make sure headlines in scripts aren't greater than 255 characters. This is because of the <a href="http://www.scripting.com/frontier5/stories/commentBit.html">comment-bit</a> bug.<p>
+
+<b>How to use it</b><p>
+
+Call it with the address of the object you want to check. If the address points to a table, it will check all the objects in the table and its subtables.<p>
+
+The second parameter, flCheckScripts, is an optional boolean that defaults to true. If true, then scripts are checked for headlines greater than 255 characters.<p>
+
+The third and last parameter, flCheckOutlines, is an optional boolean that defaults to false. If true, then outlines are checked for headlines greater than 255 characters.<p>
+
+<b>Return value</b><p>
+
+The script returns a list of addresses of scripts, outlines, or both that contain headlines that are greater than 255 characters. If it finds no long headlines, then an empty list is returned.<p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

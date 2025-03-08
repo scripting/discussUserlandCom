@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Make Frontier/Manila answer on different IP</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Make Frontier/Manila answer on different IP</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>12/20/1999; 5:59:13 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013775.html">Make Frontier/Manila answer on different IP</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13778 (In response to <a href="msg013775.html">13775</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013777.html">13777</a> / <a href="msg013779.html">13779</a></td></tr>				</table>			<br>Frontier as a standalone app cannot be restricted to a specific IP address of a host w/ multiple IPs. There is a workaround for this (I use it on my main frontier server):<p>
+
+<b>Run Frontier behind the IIS:</b>
+<ol>
+<li>Install the <a href="http://frontier.userland.com/stories/storyReader$76">Frontier/ISAPI dll</a> for IIS.
+<li>Restrict the default IIS webserver to the main IP address of your machine with the IIS Management Console
+<li>Create a second IIS webserver instance, restrict it to the secondary IP address of your machine
+<li>Setup to ISAPI filter (frontier.dll) with the "frontierGetsEverything.dll"
+</ol><p>
+
+That should do the trick. You now should have two instances of IIS listening on port 80 on different IP addresses.<p>
+
+Note: I still use the built-in Frontier server on port 81 for use w/ RPC and WebEdit because of the 48kB POST limit of the current Frontier ISAPI Filter.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013795.html">Re: Make Frontier/Manila answer on different IP</a>, Evan Williams, 12/21/1999; 11:52:43 AM<p><li>&nbsp;<a href="msg013842.html">Re: Make Frontier/Manila answer on different IP</a>, Evan Williams, 12/22/1999; 6:21:33 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

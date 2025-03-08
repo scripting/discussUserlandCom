@@ -1,0 +1,16 @@
+<html>	<head>		<title>XMLizing Folders?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XMLizing Folders?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>11/8/1998; 10:19:19 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000001.html">First message</a></td></tr>				<tr><td><b>Msg #:</b></td><td>281 (In response to <a href="msg000001.html">1</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000280.html">280</a> / <a href="msg000282.html">282</a></td></tr>				</table>			<br>As an experiment this morning I put together a little server component that catches references to directories that end with .xml and returns a list of objects contained in that directory, in XML of course. <p>
+
+I've been wading thru all the spec confusion around this, and decided to approach the problem from the other side, to find out actually how much development work was involved. It took less than an hour to put this together.<p>
+
+We have a pragmatic application for this, a customer who needs a script that checks a folder on a web server every night, to see if there are any new files added, and to get only those files. It's a pretty basic operation, and unless you want to go WebDAV, it's not very much work on either the client or server.<p>
+
+Here's a directory you can look at thru this little server component:<p>
+
+<a href="http://nirvana.userland.com/misc/rel200.xml">http://nirvana.userland.com/misc/rel200.xml</a><p>
+
+Now I'll hear a crashing loud noise about namespaces and where's my DTD and all that stuff. The point is, there should be a DTD for this type of object. They appear on all of our computers, they're called folders. Where's the XML spec for folders?<p>
+
+Dave<p>
+
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:45:48 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

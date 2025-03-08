@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Scripting News XML DTD/Parsing Issues</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scripting News XML DTD/Parsing Issues</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Matt Hamer</td></tr>				<tr><td><b>Posted:</b></td><td>5/18/1999; 8:00:47 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006368.html">Scripting News XML DTD/Parsing Issues</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6407 (In response to <a href="msg006404.html">6404</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006406.html">6406</a> / <a href="msg006408.html">6408</a></td></tr>				</table>			<br>You're right, this is the simplest solution!<p>
+
+In the case of the Scripting News format, it may be the right one.<p>
+
+A couple of comments about using a CDATA section...<p>
+
+1.  Since it isn't parsed, well-formedness+validity can't be checked (without using a "sub-parser" to parse the character data within text).<p>
+
+We wouldn't be able to catch the fact that <i&gt; is missing an end tag in the following:<p>
+
+<text&gt;<[!CDATA[<i&gt;Update! New tag: &amp;lt;profile&amp;gt; added to Scripting News DTD]]&gt;</text&gt;<p>
+
+We also can't restrict tags to a subset of HTML.<p>
+
+2.  It implicitly "says" that markup within the text element isn't really part of the "scripting news format".  Maybe it isn't.<p>
+
+I'm sure that this debate has happened sometime on XML-DEV.  I'll check the archives.<p>
+
+Ulitmately, I guess, it is up to Dave/Userland to decide.  With or without a DTD modification, it still requires a change to the script that generates xScriptingNews.xml.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006411.html">Re: Scripting News XML DTD/Parsing Issues</a>, Lixian B. Chiu, 5/18/1999; 9:41:52 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

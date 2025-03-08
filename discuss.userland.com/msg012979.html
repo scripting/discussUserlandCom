@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: RSS Issues: Comments requested</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: RSS Issues: Comments requested</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jonathan Eisenzopf</td></tr>				<tr><td><b>Posted:</b></td><td>11/10/1999; 7:21:59 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012932.html">RSS Issues: Comments requested</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12979 (In response to <a href="msg012976.html">12976</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012978.html">12978</a> / <a href="msg012980.html">12980</a></td></tr>				</table>			<br>I agree with you. There isn't any logical reason. It's an XML thing. BTW, pardon my anal retentiveness, I'm a sysadmin:<p>
+
+HTML has suffered greatly because browsers have been forgiving with bad HTML. When I process RSS files from remote hosts, I usually run the file through a validating XML parser which checks the file against the RSS DTD. Then I process the file. This ensures that I'm really dealing with a RSS file and not something else.<p>
+
+If we "bless" the efforts of those who would abitrarily add and distribute RSS files with non-spec elements, we won't be able to validate the file. <p>
+
+In fact, Slashdot only recently started distributing valid RSS files (they weren't encoding default entities). This was a pain in the arse because you had to pre-parse the file before you could use an XML parser on it. XML parsers make it alot easier to deal with XML.
+The Open Directory Project still has this problem BTW.<p>
+
+So, back to the colon thing. To add non-element colons, everyone who wanted to publically distribute the modified RSS file would also have to distribute a modified DTD if one wanted to validate the file. When you use colons, or namespaces, you do not have to modify the RSS DTD. You only have to declare the namespace you are importing, and use it. This is a simple way to extend RSS. Then, when you distribute the file, others could effectively ignore the namespace if they wish since it doesn't collide with the RSS spec.<p>
+
+Am I off my rocker here or does this make sense? Or am I just terminally anal?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013049.html">Re: RSS Issues: Comments requested</a>, Dan Libby, 11/14/1999; 11:06:24 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:28 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

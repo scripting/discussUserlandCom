@@ -1,0 +1,31 @@
+<html>	<head>		<title>DG Image Problem (not found)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>DG Image Problem (not found)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Glenn</td></tr>				<tr><td><b>Posted:</b></td><td>5/18/1999; 4:10:51 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006438.html">DG Image Problem (not found)</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6438</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006437.html">6437</a> / <a href="msg006439.html">6439</a></td></tr>				</table>			<br>I'm changing the look of the DG pages for internal use. I have placed some gifs in #images of htmlInterfaces.root.discussionGroup.#images. As long as the page url is /htmlInterfaces/discussionGroup/ all is fine. If I click on a date in the calendar and try to open url /htmlInterfaces/discussionGroup/$1999/05/17 the images are not found.<p>
+
+I have looked in the log and found that:<p>
+
+url = /htmlInterfaces/discussionGroup/<p>
+
+gives<p>
+
+pathargs = ""<p>
+
+referrer = <a href="http://192.168.88.74:81/htmlInterfaces/discussionGroup/">http://192.168.88.74:81/htmlInterfaces/discussionGroup/</a><p>
+
+url = /htmlInterfaces/discussionGroup/images/Metris%20Black%20Discussion<p>
+
+whereas<p>
+
+url = /htmlInterfaces/discussionGroup/$1999/05/17<p>
+
+gives<p>
+
+pathargs = 1999/05/images/Metris%20Black%20Discussion<p>
+
+referrer = <a href="http://192.168.88.74:81/htmlInterfaces/discussionGroup/$1999/05/17">http://192.168.88.74:81/htmlInterfaces/discussionGroup/$1999/05/17</a><p>
+
+url = /htmlInterfaces/discussionGroup/<p>
+
+I'm not sure where the pathargs come from but the directory structure is definitely flipped.<p>
+
+thx
+dave
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

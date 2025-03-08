@@ -1,0 +1,24 @@
+<html>	<head>		<title>Re: Scripting on Linux</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scripting on Linux</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>5/17/1999; 11:07:25 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006341.html">Scripting on Linux</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6364 (In response to <a href="msg006341.html">6341</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006363.html">6363</a> / <a href="msg006365.html">6365</a></td></tr>				</table>			<br>>What is the state of interapplication messaging on Linux (keep in
+>mind that this question is coming from a Mac user)?<p>
+
+The most pertinent answer from a Mac user's point of view, I imagine, is that UNIX-family OSes typically don't have a single, integrated, uniform interprocess communication standard (despite the fact that both BSD and AT&T System V flavors of UNIX do, indeed, have standard IPC APIs). That is, the APIs exist, but software isn't uniformly written to take advantage of them. In this respect, the situation isn't dissimilar to the situation on the Macintosh. :-)<p>
+
+The basic, standard IPC APIs are actually pretty weak, which is one of the reasons that CORBA rolled around. I know that Navigator is CORBA-aware, with an Inprise-nee'-Visigenic ORB in each and every copy. What I don't know is what, if any, of Navigator's functions are made available through CORBA.<p>
+
+>For example, if I'm browsing the Web with Netscape, is it possible
+>to ask Perl to get the URL of Netscape frontmost window?<p>
+
+This depends upon whether Netscape exposes a means to get the URL of the front window, and if so, does it do so through a mechanism that Perl can integrate with. Unfortunately, I don't know the answer to either question offhand, but my educated *guess* would be that recent versions of Navigator expose the DOM (Document Object Model) through CORBA, and I know there are Perl/CORBA integration points, so it seems like an experiment wouldn't be hard to whip together.<p>
+
+>Another example. If I'm getting a Web page with Perl (LWP), can I
+>pipe the result to Netscape, so it will display the result in this
+>browser?<p>
+
+This one's a lot easier: yes, even if it's only by having Perl write the page to some magical filename in /tmp and then passing the local URL to Navigator by the command line.<p>
+
+>This is trivial stuff to do on a Mac, is it possible on Linux? <p>
+
+Probably. It's trivial to do on a Mac because Netscape and Microsoft both bothered to implement some AppleEvents in their software. The open question is whether Netscape bothered to expose similar functionality via CORBA in Navigator, or whether similar functionality can be had somehow by passing command-line arguments to a Navigator process.<p>
+
+Paul
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006388.html">Re: Scripting on Linux</a>, Wesley Felter, 5/17/1999; 9:42:01 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:14 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

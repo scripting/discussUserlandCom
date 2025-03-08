@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: MSIE and XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: MSIE and XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Hannes Wallnöfer</td></tr>				<tr><td><b>Posted:</b></td><td>2/3/1999; 8:12:34 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000947.html">www.xml-rpc.com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2649 (In response to <a href="msg002646.html">2646</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002648.html">2648</a> / <a href="msg002650.html">2650</a></td></tr>				</table>			<br>Here's how to use a Java class as a COM object. (Note: This process is intended mainly for the development process, since it requires the MS Java SDK to be installed.) <p>
+
+<ul><li> The Java class used as COM object needs a public constructor that takes no argument.</li>
+<li> Put all used Java class files into directory C:\Windows\Java\trustlib.</li>
+<li> Use the javareg.exe tool in the Microsoft Java SDK to register the class as a COM object.</li>
+</ul><p>
+
+javareg /register /class:your.java.Class /progid:foo.XmlRpcClient<p>
+
+In an ASP page you can create the object like this:
+<OBJECT RUNAT=Server SCOPE=Session ID=client PROGID="foo.XmlRpcClient"></OBJECT><p>
+
+or from JScript: 
+client = Server.CreateObject("foo.XmlRpcClient");<p>
+
+I guess this is slightly different for the client side. <p>
+
+Strings, numbers, dates and booleans should be converted automatically between Java and the script. The biggest problem will be building the argument list and compound arguments like <structs> or <arrays>. The class would have to offer factory methods that returns a Java Hashtable or Vector. The script could then access these objects to add arguments.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002651.html">Re: MSIE and XML-RPC</a>, Hannes Wallnöfer, 2/3/1999; 8:36:39 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

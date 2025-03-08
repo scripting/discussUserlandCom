@@ -1,0 +1,38 @@
+<html>	<head>		<title>problem with 8/20/1999 SE (searchEngine) changes</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>problem with 8/20/1999 SE (searchEngine) changes</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Thomas A. Creedon</td></tr>				<tr><td><b>Posted:</b></td><td>8/22/1999; 11:30:31 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009773.html">problem with 8/20/1999 SE (searchEngine) changes</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9773</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009772.html">9772</a> / <a href="msg009774.html">9774</a></td></tr>				</table>			<br><b>Problem solved if you get the latest mR (mainResponder) update.  8/22/1999; 14:15:00 Pacific Time USA  - Thomas</b><p>
+
+Hello all,<p>
+
+First, let me thank all the people at Userland for making the changes to the SE (searchEngine) to open it up to indexing numbers and small words.  I really needed that feature in my context.  I had made my own modifications to the SE scripts to support number indexing.  Now I don't have to worry about maintaining those custom scripts!  Yahoo!<p>
+
+I've been working with the latest 8/20/1998 SE changes and I was having a problem.<p>
+
+I'm using mainResponder.search.utilities.indexDiscussionGroup to index my DG (discussion group) over again.  I ran the script and shortly got the error: &quot;Can't create item &quot;index.&quot; because &quot;&quot; is an illegal name.&quot;.  I clicked on the &quot;Go To&quot; button in the Error Info window and was taken to mainResponder.search.server.indexOnePage, to the following if block:
+<pre>
+if not defined (adrLetter^) &#123;
+	new (tableType, adrLetter)&#125;
+                                 ^<i>cursor pointing just before here</i>
+</pre>
+So I reran the script in debug mode and checked some values and found these:
+<pre>
+adrLetter	address:	@["Frontier:Frontier™ v6.0 ƒ:Guest Databases:ops:Index.root"].index
+firstLetter	string:	
+oneWord	string:	
+</pre>
+adrLetter is pointing to the index table itself, not a letter table.    firstLetter and oneWord are both strings of size 0.  Somewhere along the line, those values became empty.<p>
+
+So I dug a bit more and found that if the text being indexed contains some text like so...<p>
+
+martians land on earth , have some coffee, and buzz off!<p>
+
+...the script sets oneWord to &quot;,&quot; because it's surrounded by spaces.  The script does some cleaning after the oneWord is set and we end up with nothing, which causes the address problem I saw.<p>
+
+Here is what I did to fix mainResponder.search.server.indexOnePage so it worked for me.  Don't do this unless you know what you are doing!  I put in a check for a word of zero length.  I put my check in below this commented out if block...
+<pre>
+if sizeOf (oneWord) < 3 <a href="http://we/">//we</a> don't index very short words, except for "op" and "wp"
+</pre>
+Here's the check I put in...
+<pre>
+if sizeOf (oneWord) == 0 {
+	continue}
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009777.html">Re: problem with 8/20/1999 SE (searchEngine) changes</a>, Brent Simmons, 8/22/1999; 1:35:43 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:02 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

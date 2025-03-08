@@ -1,0 +1,16 @@
+<html>	<head>		<title>MTTF feedback/questions</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>MTTF feedback/questions</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt Granroth</td></tr>				<tr><td><b>Posted:</b></td><td>7/1/1999; 6:21:43 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008042.html">MTTF feedback/questions</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8042</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008041.html">8041</a> / <a href="msg008043.html">8043</a></td></tr>				</table>			<br>First, this is <i>not</i> a complaint!! ;-)<p>
+
+I am tooling around with MailToTheFuture (cooool), and have come across some differences between what the docs say and what is returned.  What I'm seeking here is just simple clarification!<p>
+
+1) The deleteMessage docs claim that it returns an empty string if it succeeds.  However, when I tried it, it returned something like <boolean>1</boolean>.<p>
+
+Okay.  Is it supposed to return a boolean meaning that it succeeded or not?  And what's with the 1?  Is that supposed to be "true"?  Or is it really returning the the number of the message deleted?<p>
+
+2) setMessage returns the same curious <boolean>1</boolean> that I can't figure out.  Does it mean the same thing (the docs are totally silent on this one)?<p>
+
+3) I can't quite put my finger on what getAllMessages returns.  Is this a dynamicly sized struct with each member name a unique number?  If so, would it make more sense to have an <array> of <struct>s?<p>
+
+Also, Dave, would you mind terribly if I made a standalone app with MailToTheFuture functionality?<p>
+
+Thanks for listening!
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:11 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

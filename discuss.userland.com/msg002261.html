@@ -1,0 +1,40 @@
+<html>	<head>		<title>Re: How to push Perl hash through XML RPC?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: How to push Perl hash through XML RPC?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kragen Sitaker</td></tr>				<tr><td><b>Posted:</b></td><td>1/19/1999; 11:53:22 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2261 (In response to <a href="msg002227.html">2227</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002260.html">2260</a> / <a href="msg002262.html">2262</a></td></tr>				</table>			<br>OK, here's what's happening.<p>
+
+You create a hash.  Then you evaluate it in a list context, turning it into the list @args, containing 'state1', '18', 'state2', '27', 'state3', and '4', in that order.  Then you pass this list to the call() method.  Of course, call() has no way of knowing that that list came out of a hash originally, so it transmits it as a list.<p>
+
+In your second example, you say you initialize the hash with a &#123;} list.  I don't see how this is possible.  Are you sure you typed it in correctly?<p>
+
+When I run the following program under perl 5.004_04<p>
+
+  my %hash = &#123;'a' => 'b'};<p>
+
+  print '(', keys (%hash), ")\n";<p>
+
+the output I get is<p>
+
+  ()<p>
+
+This suggests to me that when you initialize a hash with an unbalanced list (that is, one containing an odd number of elements), the last one gets dropped.  (And, of course, running under perl -w, I get the error message:<p>
+
+  Odd number of elements in hash list at - line 1.<p>
+
+)<p>
+
+I haven't tried using the Frontier::Client module in Perl myself (is it on CPAN?), but I suspect you might get better results like this:<p>
+
+  my $hash = &#123;'state1' => 18, 'state2' => 27, 'state3' => 4};<p>
+
+  # . . .<p>
+
+  my $result = $server->call($method, $hash);<p>
+
+That way, Frontier::Client will at least be able to tell you're trying to send a struct.  Whether it will *handle* it correctly, I don't know -- and I also don't know whether there's another way to get it to handle it.<p>
+
+That HASH(address) nonsense is what happens when you take a scalar that's a reference to a hash and interpret it in a string context, and it suggests to me that Frontier::Client might not gracefully handle being passed references to hashes.  Why don't you grep the source code for "<struct>"?<p>
+
+On other topics:<p>
+
+Maybe the Frontier::Client module should be renamed something else -- XMLRPC::Client, perhaps.  Not that I dislike Frontier, but I hope that XML-RPC will be bigger than Frontier is.<p>
+
+And when will Dave switch to using Basic HTTP authentication instead of this bloody cookie stuff?  I hate having to enable cookies for just one or two web sites.  I don't mind logging in, but having to enable cookies to log in is too much of a pain -- because then I forget and leave cookies enabled for other web sites, which I don't want.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002262.html">Re: How to push Perl hash through XML RPC?</a>, Ken MacLeod, 1/19/1999; 12:06:44 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:23 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

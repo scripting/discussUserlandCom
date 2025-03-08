@@ -1,0 +1,22 @@
+<html>	<head>		<title>[Troubleshooting F6] "Invalid Stream", says Betty</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>[Troubleshooting F6] "Invalid Stream", says Betty</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Steve Ivy</td></tr>				<tr><td><b>Posted:</b></td><td>2/21/1999; 3:55:26 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001729.html">Troubleshooting a Nirvana Server installation</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3081 (In response to <a href="msg001729.html">1729</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003080.html">3080</a> / <a href="msg003082.html">3082</a></td></tr>				</table>			<br>OK, I've been working with F6 for a while now, but always at the office where I'm on the LAN fulltime. So worrying about how to get MR running smoothly on a non-net-connected machine wasn't an issue.<p>
+
+Well, now I'm trying to get F6's web server running at home, and I'm having a bear of a time of it.<p>
+
+I followed the instructions on this page,
+<a href="http://www.nisto.com/mac/question/network.html#Question-network-nonetwork">http://www.nisto.com/mac/question/network.html#Question-network-nonetwork</a><p>
+
+and set my IP address to 192.0.1.2. Apple's Web Sharing works fine, currently on port 80.<p>
+
+My problem is that trying to start Frontier's Web Server results in an "Invalid Stream" error, pointing to inetd.isDeamonRunning at the line: status = tcp.statusStream(listenerTableAdr^.ref, @bytesPending)<p>
+
+I've fiddled with changing ports (by jumping to user.inetd.config.http) and sometimes Frontier will let me start betty, but only one in ten tries. Sometimes that works after changing ports on Web Sharing, sometimes changing ports on both has no effect.<p>
+
+I can't find rhyme nor reason to it.<p>
+
+Does anyone have experience with this? <p>
+
+Relevant data:
+F6.0b2, MacOS 8.5.1<p>
+
+--Steve
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003082.html">Re: [Troubleshooting F6]</a>, Dave Winer, 2/21/1999; 4:30:25 PM<p><li>&nbsp;<a href="msg003096.html">F6 Question: Log Interruptions</a>, Ian Beatty, 2/22/1999; 8:28:11 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:01 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

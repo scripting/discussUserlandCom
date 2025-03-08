@@ -1,0 +1,50 @@
+<html>	<head>		<title>secure access to mainResponder sites</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>secure access to mainResponder sites</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mike Mell</td></tr>				<tr><td><b>Posted:</b></td><td>8/7/1999; 5:00:55 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009258.html">secure access to mainResponder sites</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9258</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009257.html">9257</a> / <a href="msg009259.html">9259</a></td></tr>				</table>			<br>Here is what I did to give myself and others secure access to a gdb in mainResponder.<p>
+
+1. Copy [htmlInterfaces.root].logon to the top level of mySite.<br>
+&nbsp;&nbsp;&nbsp;(by top level, I mean at the same level as mySite.#ftpSite)<p>
+
+2. Rename mySite.logon to "public" // the magic name. It must be "public"<p>
+
+3. Copied [config.root].mainResponder.urls to the top level of my site.<p>
+
+4. Renamed urls to #urls<p>
+
+5. Deleted all the urls except the ones below and changed the values as follows:<br>
+&nbsp;&nbsp;&nbsp;icons	string:	<a href="http://www.myDomain.com/resources/icons/">http://www.myDomain.com/resources/icons/</a><br>
+&nbsp;&nbsp;&nbsp;memberCheckMail	string:	<a href="http://www.myDomain.com/mySite/public/checkYourMail">http://www.myDomain.com/mySite/public/checkYourMail</a> <br>
+&nbsp;&nbsp;&nbsp;memberLogoff	string:	<a href="http://www.myDomain.com/mySite/public/logoffConfirm">http://www.myDomain.com/mySite/public/logoffConfirm</a> <br>
+&nbsp;&nbsp;&nbsp;memberLogon	string:	<a href="http://www.myDomain.com/mySite/public/">http://www.myDomain.com/mySite/public/</a><p>
+
+&nbsp;&nbsp;&nbsp;memberHome	string:	<a href="http://www.myDomain.com/mySite/">http://www.myDomain.com/mySite/</a> // left off "public"<p>
+
+6. Rebuilt the public.#glossary <br>
+&nbsp;&nbsp;&nbsp;deleted public.#ftpSite<p>
+
+7. Added mySite.#members string: "mySiteMembershipName" to the top level of the site // can be any string so long as it matches the string in #8 & 9 below and does NOT match the top level table of the site itself (eg "mySite")<p>
+
+8. Duplicated [members.root].default <br>
+&nbsp;&nbsp;&nbsp;renamed [members.root].default #1 to "mySiteMembershipName"<p>
+
+9. Edited [members.root].mySiteMembershipName:<br>
+&nbsp;&nbsp;&nbsp;[members.root].mySite.mailTemplate to contain the url of the site home page <br>
+&nbsp;&nbsp;&nbsp;[members.root].mySite.cookieName == "mySite"<br>
+&nbsp;&nbsp;&nbsp;[members.root].mySite.mailReturnAddress == <a href="mailto:mike@nthwave.net">mike@nthwave.net</a><p>
+
+I believe these are the complete and precise steps required for anyone to provide secure access to a gdb site in mainResponder. <p>
+
+Next, I want to provide access for four know people:<br>
+1. I went to the sign up page <br>
+&nbsp;&nbsp;&nbsp;<a href="http://myDomain.com/mySite/public/signup">http://myDomain.com/mySite/public/signup</a><p>
+
+2. Entered their email address <br>
+&nbsp;&nbsp;&nbsp;repeat for each person<p>
+
+3. Set [members.root].mySite.openToPublic to false --<br>
+&nbsp;&nbsp;&nbsp;no more new sign ups are allowed.<p>
+
+Hope that helps someone.<br>
+Mike Mell<p>
+
+KEYWORDS:
+membership, members, secure access, mainresponder
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:47 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

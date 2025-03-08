@@ -1,0 +1,8 @@
+<html>	<head>		<title>WebEdit and Subscription</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>WebEdit and Subscription</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Benoit Cazenave</td></tr>				<tr><td><b>Posted:</b></td><td>7/5/1999; 8:31:23 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008197.html">WebEdit and Subscription</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8197</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008196.html">8196</a> / <a href="http://static.userland.com/userLandDiscussArchive/msg008198.html">8198</a></td></tr>				</table>			<br>I'm having problems setting up the subscription feature for guest databases. When I do an update the server chokes on a date problem. I traced down what is happening and it seems that in mainResponder.subscriptions.server the line that reads :<p>
+
+lastupdate = date (lastupdate) <a href="http://convert/">//convert</a> from a net-standard-string<p>
+
+isn't working. I tried a QuickScript and somehow date () doesn't work with net-standard-strings. Try date(date.netstandardstring (clock.now ())), I get a can't coerce error.<p>
+
+Our date preferences are set to french  standards in the Date & Time control panels.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

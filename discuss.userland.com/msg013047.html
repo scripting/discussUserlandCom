@@ -1,0 +1,24 @@
+<html>	<head>		<title>Re: Bugs in Mac IE 4.5?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Bugs in Mac IE 4.5?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>John DeSoi</td></tr>				<tr><td><b>Posted:</b></td><td>11/14/1999; 9:22:22 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013039.html">Bugs in Mac IE 4.5?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13047 (In response to <a href="msg013039.html">13039</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013046.html">13046</a> / <a href="msg013048.html">13048</a></td></tr>				</table>			<br>I sent this one to MS recently. Drives me crazy.<p>
+
+John DeSoi, Ph.D.<p>
+
+
+Date: Thu, 16 Sep 1999 16:06:12 -0400
+To: Internet Explorer Bug Report <<a href="mailto:iebug@microsoft.com">iebug@microsoft.com</a>>
+From: John DeSoi 
+Subject: cache control defect IE 4.5 Macintosh<p>
+
+IE 4.5 Macintosh does not honor HTTP cache control headers. My server is sending the header<p>
+
+Cache-Control: No-Cache<p>
+
+with the original page load, yet IE displays the cached page for subsequent page loads (at least when the access time between page loads is relatively small). For example, if I click on a link to a no-cache page, hit back, and then click on the link again, IE does not re-request the page. This is the case even though I have my preference setting to update the cache "Always" (advanced settings).<p>
+
+I have tried Max-Age=0 as the cache control directive, but the problem is the same. IE also shows a cached page if I send an "Expires" directive with a date far in the past. IE 4.0 and 5.0 on Windows appear to handle the cache control directives correctly.<p>
+
+Thanks for your help in resolving this. This issue makes it impossible to use IE on the Mac for interactive database applications.<p>
+
+Let me know if I can provide further information,<p>
+
+John DeSoi, Ph.D.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,18 @@
+<html>	<head>		<title>RPC-based previewing</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>RPC-based previewing</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/18/1999; 4:17:34 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002979.html">RPC-based previewing</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2979</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002978.html">2978</a> / <a href="msg002980.html">2980</a></td></tr>				</table>			<br>I'm working on a new application called console.root. It's a single-user website. It runs on my desktop behind a #security script. <p>
+
+In this environment, even though all the rendering happens on the desktop machine, you still need to communicate with the server, so I use XML-RPC to do the connection. <p>
+
+For example, I have a call that returns me today's message as an XML-RPC <struct>. That's mainresponder.news.getTodaysMsgTable. <p>
+
+All the items in mainResponder.news are for support of news.root. I still have to write docs about how news.root sites work. <p>
+
+Anyway, I just got something working that you can try on your machine, it works in Frontier 5.1 or greater, probably in the Trial version too:<p>
+
+<pre>
+local (server = "nirvana.userland.com", port = 80, procedurename = "mainresponder.news.getpreview");
+local (params = &#123;"scriptingNews"});
+webbrowser.displaytext (betty.rpc.client (server, port, procedurename, @params))
+</pre><p>
+
+Try it out in your Quick Script window. I'm sure you can see how this functionality fits into a site editor's console. I'll write some more about this of course, and the code is available thru the GDB/Update command.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002981.html">Re: RPC-based previewing</a>, David Theige, 2/18/1999; 6:46:19 AM<p><li>&nbsp;<a href="msg002986.html">Re: RPC-based previewing</a>, Kurt J. Egger, 2/18/1999; 8:10:57 AM<p><li>&nbsp;<a href="msg002987.html">Re: RPC-based previewing</a>, Jim Byrne, 2/18/1999; 8:16:31 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:57 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

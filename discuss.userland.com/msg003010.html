@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Dictionary on the Control Panel</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Dictionary on the Control Panel</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Williams</td></tr>				<tr><td><b>Posted:</b></td><td>2/18/1999; 12:54:27 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002979.html">RPC-based previewing</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3010 (In response to <a href="msg003007.html">3007</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003009.html">3009</a> / <a href="msg003011.html">3011</a></td></tr>				</table>			<br>The following works for me:<p>
+
+$ telnet www.dictionary.com 80
+Trying 206.117.28.62...
+Connected to dictionary.com.
+Escape character is '^]'.
+GET /cgi-bin/dict.pl?db=wn&term=tonsil HTTP/1.0<p>
+
+And then the page comes out with their definition of tonsil enclosed in <!-- resultItemStart --> and <!-- resultItemEnd -->.<p>
+
+I've also tried it with some of the Perl library code and with PHP.<p>
+
+Surely it's not the IP address....
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

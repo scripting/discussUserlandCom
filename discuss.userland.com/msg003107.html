@@ -1,0 +1,105 @@
+<html>	<head>		<title>multiFTP - Rendering to multiple servers</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>multiFTP - Rendering to multiple servers</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Philip Suh</td></tr>				<tr><td><b>Posted:</b></td><td>2/22/1999; 11:08:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003107.html">multiFTP - Rendering to multiple servers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3107</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003106.html">3106</a> / <a href="msg003108.html">3108</a></td></tr>				</table>			<br><pre>
+</pre>
+<b>Rendering websites to multiple servers</b><p>
+
+I had a project where I needed to render websites out to a staging server, and then to a live server.  After playing with filewriters for awhile I decided that modifying the builtins.html scripts was the most direct and simple way to accomplish this.<p>
+
+Since people have asked me about this, I've packaged it up.  suites.multiFTP is an installer that modifies builtins.html.  You can download from:<p>
+
+<a href="http://www.filsa.net/downloads/suites.multiFTP.fttb">http://www.filsa.net/downloads/suites.multiFTP.fttb</a><p>
+
+<a href="http://members.xoom.com/filsa/downloads/suites.multiFTP.fttb">http://members.xoom.com/filsa/downloads/suites.multiFTP.fttb</a><p>
+
+What follows is the readme from suites.multiFTP. Enjoy.<p>
+
+Phil<p>
+
+<hr size=2 width=100%><p><p><p>
+
+<b>This is the multiFTP suite.</b><p>
+
+Created by Philip Suh of filsa.net on January 14, 1999 at 1:33:20 PM.<p>
+
+<b>[Why I Wrote It]</b><p>
+
+I wrote this to automate the process of installing multiFTP into Frontier.<p>
+
+<b>[What It Does]</b><p>
+
+This suite modifies the standard HTML suite to allow multiFTP servers.<p>
+
+It also creates backups of the changed scripts, which are kept at user.multiFTP.backups. You can use the menu commands 'Show Backups' and 'Restore from Backup' to uninstall multiFTP.<p>
+
+<b>[Dependencies]</b><p>
+
+It requires a version of the Frontier app at least version 5.1.4 or higher.<p>
+
+<a href="http://www.scripting.com/frontier5/">http://www.scripting.com/frontier5/</a><p>
+
+<b>[How To Use It]</b><p>
+
+In the website that you want to render out to various servers, create an #ftpSites table.  Inside #ftpSites, create subtables for each server.  Inside those server subtables, create tables with similar information to your usual #ftpSite.<p>
+
+For example, #ftpSites.stage and #ftpSites.live, for your staging and live servers.<p>
+
+It might look something like this:<p>
+
+<ul>
+<li>#ftpSite
+	<ul><li>folder
+	<li>method
+	<li>url</ul>
+<li>#ftpSites
+	<ul><li>live
+		<ul><li>folder
+		<li>method
+		<li>url</ul>
+	<li>stage
+		<ul><li>folder
+		<li>method
+		<li>url</ul></ul>
+</ul>
+The use the commands in the multiFtp menu for rendering pages: 'Preview, Publish Page, and Publish Table'.  You will be prompted for the site table name you want to use.<p>
+
+If you want, you can call html.buildOnePage and html.ftpTable with a new parameter, siteTableName.  siteTablename should be a string, the name of the subtable of ftpSites which you want to use. This allows you to render to different servers via a script.<p>
+
+<b>[<b> Warning <b>]</b></b></b><p>
+
+This software has no warranty.<p>
+
+It works by modifying standard portions of the Frontier HTML renderer.  Note that future changes to Frontier may render these scripts incompatible.  Use this software at your own risk.<p>
+
+Really, be very careful.  You could really screw yourself up, and you may curse me for it, but don't say I didn't warn ya.<p>
+
+Now that I've scare you all off, come back!  It's been very stable for me and has worked without any problems.  If you back up before you install, and you follow the directions here, you shouldn't have any problems.<p>
+
+Please read the version notes in multiFTP.suiteInfo.versionInfo<p>
+
+<b>[<b> Notice: Purpose of this software <b>]</b></b></b><p>
+
+This software is very much alpha software, I have no intentions of cleaning it up and making it idiot-proof.  I don't plan to take it to beta stage.<p>
+
+However, I hope it is used and that the features it offers will be rolled into some future version of Frontier.  It's not perfect, I'm sure there are problems with the implementation, but I hope it will prompt discussion on what I think is a good feature.<p>
+
+Additionally, I hope that some sort of multi-server feature makes it into the next versions of Frontier.<p>
+
+Note that this implementation will break macros that search for a top level #ftpSite for info about the site's location.  IMHO those macros should be changed to use adrPageTable^.ftpSite or adrPageTable^.adrSiteRootTable, as necessary.<p>
+
+<b>[Discussion - Bug Reports]</b><p>
+
+Discuss this feature at: <a href="http://discuss.userland.com/msgReader$3107">http://discuss.userland.com/msgReader$3107</a><p>
+
+Send bug reports to <a href="mailto:phil@filsa.net">phil@filsa.net</a><p>
+
+<b>[Copyright Statement]</b><p>
+
+suites.multiFtp was created for Userland Software, Inc.
+by Philip Suh<p>
+
+Copyright &#169; 1999 by Userland Software.<p>
+
+scriptInstaller copyright  1998-1999 by Philip Suh.<p>
+
+
+</li></li></li></li></li></li></li></li></li></li></li></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003112.html">Re: multiFTP - Rendering to multiple servers</a>, Jim Roepcke, 2/22/1999; 11:33:26 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:02 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: Deleting Account is more than storage cleaning</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Deleting Account is more than storage cleaning</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>6/2/1999; 9:52:52 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006907.html">Scripting News Bulletins via Email</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6952 (In response to <a href="msg006951.html">6951</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006951.html">6951</a> / <a href="msg006953.html">6953</a></td></tr>				</table>			<br>The e-mail address is the primary key for membership records.<p>
+
+In relational database terms, if you delete a record from a database, you usually want to do a cascading delete (deleting record in other tables that refer to the primary key just deleted).<p>
+
+It might be that deleting an account in UserLand's membership database would require they delete all the messages that account wrote.  This is just speculation of course, since I don't know the members.root/discuss.root structure very well. (I wish I did)<p>
+
+One rule I learned early in database (schema) design was to never use meaningful information (such as SSN) as a primary or foreign key.  This is exactly the situation that that rule tries to help people avoid.<p>
+
+If you applied that rule to members.root, a meaningless number would become the primary key for the record (which is the name of the account table), and the e-mail address would become an attribute of the record.<p>
+
+An index could easily be maintained that allowed easy translation between the meaningless number key and the e-mail address, so that the e-mail address could be used to lookup records.<p>
+
+(This is not a reccommendation, suggestion, or request, just conversation)<p>
+
+Short answer -- it might not be as easy as it sounds to rename or remove a member record.<p>
+
+Jim
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg015855.html">Re: Deleting Account is more than storage cleaning</a>, Charles Goodier, 4/1/2000; 11:19:11 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:34 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

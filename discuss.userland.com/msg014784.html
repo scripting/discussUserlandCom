@@ -1,0 +1,44 @@
+<html>	<head>		<title>Re: Flash does anti-aliasing</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Flash does anti-aliasing</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>jjracc@rit.edu</td></tr>				<tr><td><b>Posted:</b></td><td>1/24/2000; 7:48:46 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg014704.html">Flash in Manilla?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>14784 (In response to <a href="msg014760.html">14760</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg014783.html">14783</a> / <a href="msg014785.html">14785</a></td></tr>				</table>			<br>
+As has already been said, major OSes already include system-level anti-aliasing:<p>
+
+<UL><p>
+
+<LI>
+Windows 95, via the Plus! Pack (which also included things like the Internet Setup Wizard)<p>
+
+<LI>
+Mac OS 8.5 and later<p>
+
+<LI>
+Windows 98 (and NT 4?)<p>
+
+</UL><p>
+
+For specific instructions on a Mac:<p>
+
+<OL><p>
+
+<LI>
+Open the Appearance control panel.<p>
+
+<LI>
+Go to the "Fonts" tab in the control panel.<p>
+
+<LI>
+Turn on "Smooth all fonts on screen."<p>
+
+<LI>
+Set a minimum size for font smoothing (anti-aliasing); it must be 12 points or greater. Be aware that the normal system font sizes (for menus and other interface elements, but not window contents) are 12 point.<p>
+
+</OL><p>
+
+The anti-aliasing feature, as far as I can tell, is turned on by default on all new Macs (and has been, since Mac OS 8.5 came out more than a year ago) and by system upgrades from older versions to Mac OS 8.5+. Turning it off, or setting the minimum to a slightly larger size, can still improve screen redraw performance noticeably, particularly on slower Macs.<p>
+
+<B>Note:</B> Because Macs assume a screen resolution of 72 dpi (vs. 96 dpi for Windows), Macs will use fewer pixels to render a 12 point font than a Windows computer will. That generally means that anti-aliasing is a little less effective, to my eye, on small fonts on a Mac screen. (It also means that Macs can display "more" at 1024x768 and other screen sizes than Windows computers can. Compare a Word document at the same zoom setting on a Mac vs. a Windows PC, for example.) But then again, I use Windows hardly ever.<p>
+
+There are also alternative system-level anti-aliasing schemes for the Mac, too.<p>
+
+One is Adobe Type Manager -- the ubiquitous ATM. ATM 4 (I think that's where they started it) and later can anti-alias type, but only do so with PostScript Type 1 fonts (not TrueType).<p>
+
+Greg Landwebber's shareware SmoothType extension also does system-level anti-aliasing; it works on both PostScript and TrueType fonts. It has been out for many years and should easily be found via Versiontracker.com. I tend to find that its anti-aliasing is a little too blurry for my degenerating eyes. :)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:54:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

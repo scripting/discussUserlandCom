@@ -1,0 +1,76 @@
+<html>	<head>		<title>Scalable content via mainResponder</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Scalable content via mainResponder</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel Reynolds</td></tr>				<tr><td><b>Posted:</b></td><td>4/22/1999; 2:32:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005205.html">Scalable content via mainResponder</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5205</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005204.html">5204</a> / <a href="msg005206.html">5206</a></td></tr>				</table>			<br>MainResponder allows a neat trick to switch templates on the fly, so you can get pages formatted for different purposes--such as for printing or for particular browsers--in your dynamic site.<p>
+
+You can change the template from your firstFilter, so you can use a simple, "hard-coded" link on any page to generate a printable version of the current page. Or any other alternate version, as far as that goes.<p>
+
+Or you can select a specific template based on other information included in the request. For example, you could select one template if the request comes in from an Internet Explorer 2.0 browser, and a different one if it comes from Netscape 5.<p>
+
+
+<b>HOW TO DO IT</b><p>
+
+You can add formatted-for-printing pages to any mainResponder site by doing the following:<p>
+
+1. In your page template, add the following link (wherever you think
+   is appropriate, and change the link text as you like, of course):
+<pre>
+   &#92;<a href='http://static.userland.com/userLandDiscussArchive/{adrpagetable^.URI&#32;+&#32;&quot;?printable=true&quot;}'&gt;Print-optimized version of page</a&gt;
+</pre><p>
+
+2. In your FirstFilter, add the following block:
+<pre>
+   if ( adrPageTable^.searchArgs contains "printable=true" ) &#123;
+      table.assign( @adrPageTable^.template, adrPageTable^.templates^.print )&#125;
+</pre><p>
+
+3. Finally, create a new template called "print" in your #templates
+   subtable, with minimal additions to the page (maybe just your
+   copyright statement and a go-back-to-the-real-page link).<p>
+
+Now load the (real) page into your browser. Click on the new link
+to get the print-optimized version.<p>
+
+Look, ma--no clutter!<p>
+
+
+<b>A MORE GENERAL APPROACH</b><p>
+
+Or, for a more general technique, replace ?printable=true" with "?tmpl=print" (or any other template), parse the searchArgs out to a table with webserver.parseArgs...
+<pre>
+   webserver.parseArgs(adrPageTable^.searchArgs, @adrPageTable^.argTable )
+</pre>
+...and switch on the value of argTable.tmpl to select which template to render with:
+<pre>
+if defined( adrPageTable^.argTable.tmpl ) &#123;
+   local ( maybeTemplate = @adrPageTable^.templates^.[ adrPageTable^.argTable.tmpl ] );
+   if defined( maybeTemplate^ ) &#123;
+      table.assign( @adrPageTable^.template, maybeTemplate^ )&#125;&#125;
+</pre><p>
+
+
+<b>DIFFERENT TEMPLATES FOR DIFFERENT BROWSERS</b><p>
+
+Instead of looking at the searchArgs, you might look at requestHeaders.User-Agent, which identifies the browser, and switch on it. For example:
+<pre>
+local &#123;
+   userAgent = string.firstWord( adrPageTable^.requestHeaders.["User-Agent"] );
+   browser = string.nthField( userAgent, '/', 1 );
+   browserVersion = string.nthField( userAgent, '/', 2 )&#125;;
+if ( double(browserVersion) < 4.0 ) &#123;
+   table.assign( @adrPageTable^.template, adrPageTable^.templates^.pre40browsers )&#125;</pre><p>
+
+
+<b>OR YOU CAN REDIRECT</b><p>
+
+If you want, instead of changing the template, you can redirect to a different URL--perhaps a static version of the site, or whatever. To do that, replace the <i>table.assign()</i> calls in any (or all) the above sample code with a redirect scriptError (for immediate redirect):<pre>
+   scriptError( "!redirect http://url.to.redirect.to" )
+</pre><p>
+
+
+<b>DO IT ALL!</b><p>
+
+Left as an exercise to the reader: Combine the above techniques in a single website. You'll end up with a chain of <i>if</i> and <i>case</i> statements and a very adaptable website!<p>
+
+
+Voila! Scalable content via the mainResponder--in your choice of flavor!<p>
+
+- Sam
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005208.html">Re: Scalable content via mainResponder</a>, Dave Winer, 4/22/1999; 2:36:42 PM<p><li>&nbsp;<a href="msg005213.html">Re: Scalable content via mainResponder</a>, Brent Simmons, 4/22/1999; 3:29:31 PM<p><li>&nbsp;<a href="msg005242.html">Re: Scalable content via mainResponder</a>, Robert Brook, 4/23/1999; 4:42:31 AM<p><li>&nbsp;<a href="msg005455.html">Re: Scalable content via mainResponder</a>, Brian V. Hughes, 4/30/1999; 6:13:29 AM<p><li>&nbsp;<a href="msg011625.html">Re: Scalable content via mainResponder</a>, Samuel Reynolds, 9/29/1999; 4:51:58 PM<p><li>&nbsp;<a href="msg014912.html">Re: Scalable content via mainResponder</a>, Robert Slotboom, 2/3/2000; 3:58:32 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:28 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

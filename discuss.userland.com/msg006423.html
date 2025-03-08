@@ -1,0 +1,11 @@
+<html>	<head>		<title>Rendering Scripting News from XML in the browser</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Rendering Scripting News from XML in the browser</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Matt Hamer</td></tr>				<tr><td><b>Posted:</b></td><td>5/18/1999; 12:18:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006368.html">Scripting News XML DTD/Parsing Issues</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6423 (In response to <a href="msg006368.html">6368</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006422.html">6422</a> / <a href="msg006424.html">6424</a></td></tr>				</table>			<br>I've created two test files:<p>
+
+<a href="http://www.innovision.com/xmlprotocols/sn1.xml">http://www.innovision.com/xmlprotocols/sn1.xml</a>
+<a href="http://www.innovision.com/xmlprotocols/sn2.xml">http://www.innovision.com/xmlprotocols/sn2.xml</a><p>
+
+The first assumes that a restricted set of HTML tags (not escaped) are allowed within text elements and that HTML entities are converted to the numeric equivalent (for now I've removed the DOCTYPE declaration, so validating parsers won't choke on the HTML markup).<p>
+
+The second simply wraps the content of text elements within CDATA sections.<p>
+
+Does anyone out there have IE5 and enough knowledge of their style sheet implementation to try to render these documents and report any differences in the way the text elements look?  Maybe someone knows how IE (or in general) browsers might/should treat HTML markup embedded in CDATA sections?
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

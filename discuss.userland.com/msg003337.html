@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: FAQ: Do you love Microsoft?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: FAQ: Do you love Microsoft?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>2/27/1999; 10:46:54 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003019.html">Mail to the Future Server Functionality</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3337 (In response to <a href="msg003317.html">3317</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003336.html">3336</a> / <a href="msg003338.html">3338</a></td></tr>				</table>			<br>Why do you need specific hooks for XML-RPC functionality on a browser that supports client-side scripting and the DOM?  Can't you use JavaScript and the DOM (ie: reflowing DHTML layers) to make the HTTP requests and get the results?<p>
+
+You may not be able to put XML in the body of the RPC request, but there's no reason why the parameters you pass to the server need to be in XML, unless they are deeply hierarchical.  Even if you need to send an array to the server, you can do that with simply HTTP GET.<p>
+
+The response, yeah, that you want in XML, so that you can use the XML parser to get at the returned data.<p>
+
+Jim
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:11 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

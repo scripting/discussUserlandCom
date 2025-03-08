@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: base64 to the rescue!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: base64 to the rescue!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Fredrik Lundh</td></tr>				<tr><td><b>Posted:</b></td><td>1/19/1999; 10:26:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2249 (In response to <a href="msg002232.html">2232</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002248.html">2248</a> / <a href="msg002250.html">2250</a></td></tr>				</table>			<br>XML fully supports Unicode and a bunch of other character
+sets, so representing European characters is no problem at
+all on the XML level -- no need to invent weird tags for
+that purpose.<p>
+
+I guess that what you describe as "correctly" means that
+Frontier doesn't handle this at all -- it just passes ISO
+Latin 1 (or ISO-8859-1-Windows-3.1-Latin-1, to be specific)
+without specifying an encoding in the XML header.  While
+XP correctly defaults to UTF-8 (an 8-bit Unicode encoding)
+in that case.<p>
+
+Try modifying the XML header to include encoding='ISO-8859-1'
+before passing it to XP.<p>
+
+Don't know if the Userland folks are working on Unicode support
+for future Frontier versions, but they probably should ;-)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002295.html">XML-RPC character encoding</a>, Hannes Wallnöfer, 1/20/1999; 6:49:41 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:23 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

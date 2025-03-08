@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: Spellchecker for Frontier WP-texts?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Spellchecker for Frontier WP-texts?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Polaschek</td></tr>				<tr><td><b>Posted:</b></td><td>9/16/1999; 9:59:35 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011047.html">Spellchecker for Frontier WP-texts?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11138 (In response to <a href="msg011058.html">11058</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011136.html">11136</a> / <a href="msg011139.html">11139</a></td></tr>				</table>			<br>Thanks for the links! I've grabbed Exclaibur, and it does everything I need. The problem now is that Frontier doesn't do everything I need (but I should be able to write what I need).<p>
+
+Before I reinvent the wheel, has anyone else implemented a <a href="http://www.wordservices.org/">Word Services</a> <a href="http://www.wordservices.org/Developers/Suite/wssuite.html#[7]">Client Suite</a> in Frontier? According to the docs:
+<blockquote>
+To support the protocol, the word processor must support a small subset of the Core suite, particularly the Get Data and Set Data events, the formRange key form, and the formAbsolutePosition key form, including positions relative to the end of the container.
+</blockquote><p>
+
+Frontier doesn't support these events, so it's not a trivial task.<p>
+
+The other approaches would be to:<ol>
+<li>Loop through every word in a Frontier WP-Text and call Excalibur for each word, but I'm having problems getting back the list of suggested spellings for misspelled words. I can get the list in Script Editor, but when I try it with an AppleScript within Frontier (5.0.1), I get an empty list back. Frustrating.
+<li>Cut the text to the clipboard, hand the clipboard to Excalibur, correct that within Excalibur, and then paste the corrected text back into Frontier. My problem here is that I can't seem to find a good way to make Frontier wait for an unspecified amount of time that's going to be spent in Excalibur (Excalibur doesn't have a "correct the clipboard" event, you just tell it to do that on startup and launch the application. Guess I could loop while watching isRunning(), but that requires the user to quit Excalibur after making the changes)
+</ol><p>
+
+Thanks for any thoughts.<p>
+
+-DaveP
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

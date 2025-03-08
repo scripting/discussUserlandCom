@@ -1,0 +1,19 @@
+<html>	<head>		<title>kHTTPd: Static page server for Linux</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>kHTTPd: Static page server for Linux</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>7/4/1999; 10:17:44 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008168.html">kHTTPd: Static page server for Linux</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8168</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008167.html">8167</a> / <a href="msg008169.html">8169</a></td></tr>				</table>			<br>(Speaking for myself, not for UserLand.)<p>
+
+It looks like the Linux community is annoyed by static page benchmarking. Arjan van de Ven (a kernel hacker in the Netherlands) has written a tiny, clever piece of code to serve static pages as quickly as possible:<p>
+
+<a href="http://www.fenrus.demon.nl/">http://www.fenrus.demon.nl/</a><p>
+
+This code runs in the kernel and intercepts static page requests before they ever reach Apache. Linus thinks that Arjan's code is "very interesting":<p>
+
+<a href="http://lwn.net/1999/0610/a/lt-khttpd.html">http://lwn.net/1999/0610/a/lt-khttpd.html</a><p>
+
+<i>So yes, I think this is a really solid approach. I can't guarantee that it works, but the initial kernel httpd by Arjan is _very_ small, making me rather optimistic that it's a good idea.</i><p>
+
+Will this go into the mainstream kernel? Probably not, unless users need it. But the module will most likely be available as an add-on for Linux 2.4.<p>
+
+This is one of the reasons that Microsoft should stop attacking Linux. The more Microsoft advertises some shortcoming in Linux, the greater the number of developers who want to fix it. After all, there's always some guy in the Netherlands who wants a challenge. :-)<p>
+
+Cheers,<br>
+Eric</br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008169.html">Further Linux Musings & How to Listen</a>, Eric Kidd, 7/4/1999; 10:21:02 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

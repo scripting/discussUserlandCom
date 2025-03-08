@@ -1,0 +1,58 @@
+<html>	<head>		<title>Re: Response to Flutterby</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Response to Flutterby</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Everitt</td></tr>				<tr><td><b>Posted:</b></td><td>10/27/1999; 4:51:15 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012280.html">Response to Flutterby</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12385 (In response to <a href="msg012368.html">12368</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012384.html">12384</a> / <a href="msg012386.html">12386</a></td></tr>				</table>			<br>Sorry to come in late to the discussion.<p>
+
+We have some experience in this subject over in Zope.  Historically 
+we've been out in front in thinking about the web as a big object 
+system, treating URLs as nested object calls that pass (and marshal) 
+arguments into methods.  For us, XML-RPC takes this Zope benefit 
+and extends it beyond web browsers and into other programming 
+languages and applications.  It's a platform thing.<p>
+
+In Zope 2 we finally added our multiprotocol, concurrent server 
+(ZServer).  With it the same transactional object system can be 
+reached by HTTP, FTP, a telnet-like protocol, XML-RPC, WebDAV, 
+FastCGI, PCGI, etc.  Some folks are working on adding IMAP as a 
+protocol.  Application developers <i>for the most part</i> don't 
+have to do anything special to make their objects available for 
+different publishing systems.<p>
+
+One of the prime reasons to do FTP was to allow web editing tools 
+like Dreamweaver and development tools like Emacs/ange-ftp to 
+play ball.<p>
+
+The moral: FTP is not a distributed object system.  This makes 
+using a rich object system via FTP into an underwhelming experience.<p>
+
+The very first thing you notice is that FTP doesn't have anything 
+like Content-Type.  This makes client and server interpretation of 
+what the damn resource is into a guessing games of filename semantics. 
+As an object guy, I just hate the crap out of that.<p>
+
+Next, FTP doesn't have a transparent security system.  I really like 
+the progression of techniques in HTTP, from Basic Auth, to Digest 
+Auth, to SSL 2, to SSL and client-side certificates.  For the most 
+part this is all transparent to application developers, as it is 
+part of the protocol negotiation instead of the payload.<p>
+
+How about other request/response semantics?  Well, FTP gives you 
+no request semantics, other than the operation, and one 
+response semantic, being the response code.  HTTP has a rich and 
+extensible set of headers for both the request and response 
+negotiation.  Someone in the Zope community is working on adding an 
+"XMLRPCMethod" product to Zope with caching in it.  He wants to 
+let the server express caching policies to the client.  HTTP already 
+has a facility for this.<p>
+
+Thus, I take issue with Dan Lyke's assertion of: "it's a 
+reimplementation of systems for which perfectly serviceable 
+protocols already exist."  While it is true that FTP, SMTP, NNTP, 
+et al. have spent decades covering important territory, there is 
+definate lossage in viewing them as transports for a rich object 
+model.<p>
+
+I'll also take issue with Dave's last sentence above about HTTP 
+POST.  Looking at the HTTP methods that WebDAV adds, well, there 
+are a lot of interesting verbs there besides POST, such as 
+discovery of properties, etc.<p>
+
+That's it for now.</i></i>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012399.html">Re: Response to Flutterby</a>, Ken MacLeod, 10/27/1999; 7:08:48 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,23 @@
+<html>	<head>		<title>redirection: new anchor attribute?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>redirection: new anchor attribute?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Thomas A. Creedon</td></tr>				<tr><td><b>Posted:</b></td><td>11/14/1999; 11:44:05 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013041.html">redirection: new anchor attribute?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13041</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013040.html">13040</a> / <a href="msg013042.html">13042</a></td></tr>				</table>			<br>Hello all,<p>
+
+A thought just hit me.  Redirection tracking is very useful.  It currently has some drawbacks though.
+<blockquote>
+if the redirection server is down, then the link breaks<p>
+
+the urls get ugly.  even more so if several levels are involved.
+</blockquote><p>
+
+So here is my long term idea for handling this.  The anchor tag (perhaps img and others) need to have a new attribute called something like redirect.  It's value would be a list of urls.<p>
+
+Of course the browsers would need to be updated or perhaps a plug-in could handle the task.  The browser when it hit these attributes would send off the href's value to the servers in the redirect attribute.  If a server in the redirect attribute was unreachable then it would be passed over, the user wouldn't be prevented from reaching the final destination.<p>
+
+The handling of how the browser contacts the servers in the redirect attribute could be made fancier.  For example, if a server in the redirect attribute were unreachable, that server could be added to a retry queue.  All kinds of options for handling there.<p>
+
+An example: <a href="http://static.userland.com/userLandDiscussArchive/&quot;"<a href="http://www.salonherringwiredfool.com/&quot">http://www.salonherringwiredfool.com/&quot</a>; redirect=&quot;<a href="http://redirect.userland.com">http://redirect.userland.com</a> <a href="http://redirect.creedon.net&quot">http://redirect.creedon.net&quot</a>;&gt;SalonHerringWiredFool</a&gt;<p>
+
+Comments?
+<pre>
+Toodle-loooooooo..........
+Thomas
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013042.html">Re: redirection: new anchor attribute?</a>, Dave Polaschek, 11/14/1999; 3:43:02 PM<p><li>&nbsp;<a href="msg013045.html">Re: redirection: new anchor attribute?</a>, Heng-Cheong Leong, 11/14/1999; 6:36:51 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

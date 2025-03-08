@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Online Oultiners</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Online Oultiners</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Oliver Wrede</td></tr>				<tr><td><b>Posted:</b></td><td>4/13/1999; 8:06:28 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004954.html">Online Oultiners</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4968 (In response to <a href="msg004962.html">4962</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004967.html">4967</a> / <a href="msg004969.html">4969</a></td></tr>				</table>			<br><i>how big of a leap do you think it is from this "tree-view" capability to actual, on-line outlining</i><p>
+
+I don't have any idea. ;-)<p>
+
+As far as I can understand it, it is a problem of transport between the server (holding the content) and the client (displaying it). A "expand everything" can result in a quite huge download -- making the outline clumsy and sluggish. It could work well on a LAN maybe.<p>
+
+I did some experimtens with a hidden frame, through which I pulled contents from the server and then I used the "innerHTML" object to replace partial content in the visible frame ("innerHTML" is IE4-only I think).<p>
+
+Most of the examples I found require you to have out the complete structure in the page and the scripts just provide ways to hide and reveal specific parts of the whole structure.<p>
+
+Every expand action would have to be checked against structure on the server. Every click-to-edit in the text would have to automatically check out the object. That's a lot of traffic. I am not aware of what "persistent connections" could do here, but if the messaging between client and server could be solved in a "streaming" way (without permanent http requests which cause additional delay each time) I think there could be a lot of performance gain then.<p>
+
+Oliver
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:19 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

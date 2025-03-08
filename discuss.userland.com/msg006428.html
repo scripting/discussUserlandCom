@@ -1,0 +1,7 @@
+<html>	<head>		<title>Scripting Netscape on Unix</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Scripting Netscape on Unix</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark A. Hershberger</td></tr>				<tr><td><b>Posted:</b></td><td>5/18/1999; 1:50:16 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006341.html">Scripting on Linux</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6428 (In response to <a href="msg006341.html">6341</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006427.html">6427</a> / <a href="msg006429.html">6429</a></td></tr>				</table>			<br>After some more investigation, it looks like Netscape is totally
+scriptable on unix.  I discovered this after examining the Netscape.ad file that comes with the distribution.<p>
+
+The interesting thing is the command "xfeDoCommand()".  With this command, you can do "netscape -remote xfeDoCommand(print)" to print the current document.  Of course, in looking through Netscape.ad, it looks like their are hundreds of other interesting commands.  For example:<p>
+
+netscape -remote 'fishcam()'
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

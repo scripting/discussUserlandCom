@@ -1,0 +1,19 @@
+<html>	<head>		<title>Mail encoding from MTTF</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Mail encoding from MTTF</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Keola Donaghy</td></tr>				<tr><td><b>Posted:</b></td><td>5/12/1999; 10:41:01 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006108.html">Mail encoding from MTTF</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6108</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006107.html">6107</a> / <a href="msg006109.html">6109</a></td></tr>				</table>			<br>I am trying to figure out if it is possible to change the encoding of mail sent by MTTF (and Frontier in general, I guess) so that 8 bit characters are sent properly As it is right now if I use 8 bit chars they get turned into garbage when received by my FirstClass system.<p>
+
+I did an interesting test that gave me part of the answer. I sent email from Outlook Express that contained some of our 8-bit
+characters, and they were received correctly. Here are the content type and transfer encodings from the header:<p>
+
+Content-type: text/plain; charset="ISO-8859-1"<BR>
+Content-transfer-encoding: base64<p>
+
+When I sent a message without any 8 bit chars here are the same header fields:<p>
+
+Content-type: text/plain; charset="US-ASCII"<BR>
+Content-transfer-encoding: 7bit<p>
+
+I've looked at the TCP verbs, and though you can set mime type, I don't see if an how this encoding can be set. Ideas anyone?<p>
+
+mahalo!<p>
+
+Keola</br></br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006118.html">Re: Mail encoding from MTTF</a>, André Radke, 5/12/1999; 11:41:50 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

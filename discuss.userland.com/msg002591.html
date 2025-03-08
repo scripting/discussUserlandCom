@@ -1,0 +1,39 @@
+<html>	<head>		<title>Re: Omitting type tags; was Re: New tweaks for XML-RPC?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Omitting type tags; was Re: New tweaks for XML-RPC?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Harold Gilchrist</td></tr>				<tr><td><b>Posted:</b></td><td>1/30/1999; 10:25:35 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002561.html">New tweaks for XML-RPC?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2591 (In response to <a href="msg002572.html">2572</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002590.html">2590</a> / <a href="msg002592.html">2592</a></td></tr>				</table>			<br>The key point here is that an incoming CGI invocation doesn't have
+type info, so it'd get hard to map it to a XML-RPC that required 
+same.  I think that extending the reach of XML-RPC to the CGI syntax
+in this manner is quite interesting indeed. It allows an XML-RPC 
+server to serve a much broader range of client engines than it could
+previously. You as Joe-web-app-developer just get that much more 
+power by focussing your sever-side development efforts under a 
+XML-RPC engine who can then handle the breadth of clients all 
+automatically for you. Such engines are thus that much more useful 
+in the world. <p>
+
+Just some thoughts....<p>
+
+..........................................<p>
+
+<p>
+
+Bob,<p>
+
+Adding to your thoughts on this subject....<p>
+
+While I was looking at the XML-RPC spec, I was starting to "turn it off in my mind" because of the limited reach it was causing itself by being so strict in communicating in both directions on the wire.<p>
+
+I think what is needed here is 2 modes of operation:<p>
+
+1) Synchronous - Where the conversation on the wire is XML in both directions and has strict type info, as the spec is now.<p>
+
+2) Asynchronous - Where the spec allows the server to use standard CGI methods like GET statements as well as less type info requirements for receiving.  <p>
+
+Asynchronus mode should be the default and supported by all XML-RPC servers, and Synchronous mode should be optional.  Included would be a way to bump up the conversation to Synchronous if the server supports it.  Negotiations would be done using standard CGI methods.<p>
+
+Talking only for harry-web-app-developer, I would find it hard, next to impossible to support a Synchronous server on most of my present web server infrastructures now and probably for the next year or two.<p>
+
+The reason I can't support a Synchronous server is because "I" don't have complete control of how the webserver is configured, receives information and how and what libraries are configured.  This is just a fact of life for me and others.<p>
+
+But the Asynchronous model brings me and others back into this conversation because it requires less and the infrastucture we have today can meet it's requirements.<p>
+
+Just my thoughts....
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

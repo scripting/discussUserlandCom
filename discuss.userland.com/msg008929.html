@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: Fixed. Re: Dave: userland's mail is broken</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Fixed. Re: Dave: userland's mail is broken</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>7/30/1999; 8:44:05 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008922.html">Dave: userland's mail is broken</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8929 (In response to <a href="msg008928.html">8928</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008928.html">8928</a> / <a href="msg008930.html">8930</a></td></tr>				</table>			<br><i>cool. judging from the error message, one could have belived that you'd written one dot too many:</i><p>
+
+<i>Name server: mailspool.conxion.net.userland.com.: no data known</i><p>
+
+It's the number one dumb mistake to make with a DNS, actually, and it took me about two seconds to realize how stupid I'd been. Here's how it works:<p>
+
+Every zone is described by a DNS zone file. (What's a zone? It's almost the same thing as a domain, but it can contain multi-part hostnames and subzones. The details are boring.) Zone files contain two kinds of hostnames: absolute hostnames, and relative hostnames. Absolute hostnames are written with a trailing period (try this in your web browser sometime; it works). Relative hostnames have no trailing period.<p>
+
+When I left off the period, I accidentally specified that mailspool.conxion.net was a host within the current zone, userland.com. That's where it got "mailspool.conxion.net.userland.com." (Notice the trailing period here, too.) Like I said, this is the number one stupid mistake to make when configuring a DNS server. :-(<p>
+
+All of Conxion's DNS servers appear to have correct data now, and mail should be working normally. Once again, if you still see this error, have your sysadmin flush your DNS cache.<p>
+
+Cheers,<br>
+Eric</br>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

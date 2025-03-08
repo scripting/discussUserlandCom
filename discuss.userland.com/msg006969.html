@@ -1,0 +1,25 @@
+<html>	<head>		<title>ActiveX XML-RPC client/server</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>ActiveX XML-RPC client/server</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Carter-Tod</td></tr>				<tr><td><b>Posted:</b></td><td>6/3/1999; 6:37:33 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006969.html">ActiveX XML-RPC client/server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6969</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006968.html">6968</a> / <a href="msg006970.html">6970</a></td></tr>				</table>			<br>I'm playing with an ActiveX XML-RPC client (and ASP-based server) and I have some questions:<p>
+
+<a href="http://www.wc.cc.va.us/FrontierIMS/XML/rpc.asp">http://www.wc.cc.va.us/FrontierIMS/XML/rpc.asp</a><p>
+
+What's the significance of the <base64> tag?  Does it match up to Visual Basic's byte data type or do I have to specifically encode it (I think I can use the dll at <a href="http://sevillaonline.com/ActiveX/Base64.htm">http://sevillaonline.com/ActiveX/Base64.htm</a> to do this).<p>
+
+How do I deal with other data types:<p>
+
+vbEmpty  Empty (uninitialized)<br>
+vbNull  Null (no valid data)<br>
+vbLong  Long integer<br>
+vbSingle  Single-precision floating-point number<br>
+vbCurrency  Currency<br>
+vbObject   Automation object<br>
+vbError   Error<br>
+vbVariant  Variant (used only with arrays of Variants)<br>
+vbDataObject  A data-access object<br>
+vbByte  Byte<br><p>
+
+Also, I think the Visual Basic dictionary matches up to the <struct> type, but how do I detect whether a variable is a dictionary?  The VarType(var) function doesn't seem to address this.<p>
+
+TIA<p>
+
+David</br></br></br></br></br></br></br></br></br></br>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:34 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

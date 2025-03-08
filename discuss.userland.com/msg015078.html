@@ -1,0 +1,11 @@
+<html>	<head>		<title>Manila Express for Mac - will this help?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Manila Express for Mac - will this help?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tom Donovan</td></tr>				<tr><td><b>Posted:</b></td><td>2/17/2000; 2:03:26 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg015078.html">Manila Express for Mac - will this help?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>15078</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg015077.html">15077</a> / <a href="msg015079.html">15079</a></td></tr>				</table>			<br>I have a little combination Javascript bookmarklet/mainResponder app that I wrote as a proof-of-concept.  In a nutshell, the bookmarklet grabs the title and URL of the current page and feeds it to my Frontier server, which takes the items, packages them in a form that allows addition of a description and selection of a category, then stores them in a table.<p>
+
+The Javascript is:<p>
+
+javascript:theURL='<a href="http://myserver/bookmarks/">http://myserver/bookmarks/</a>'+document.title+'$'+location.href;
+void(window.open(theURL,'Backflip','toolbars=0,scrollbars=0,location=0,statusbars=0,menubars=0,resizable=0,width=500,height=400'))<p>
+
+As I said, this is proof-of-concept.  To be useful, it would require more intelligence on the back-end, something like a FileMaker database.<p>
+
+At least that's what I was thinking before I saw Manila Express.  With the right hooks in a Manila site, it sure seems like this could do for the Mac almost everything ME does on the Windows side.  I updated my Manila root and MR root looking for something that might resemble such a hook, but didn't find anything.  Are there any plans to release the source of ME?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg015080.html">Re: Manila Express for Mac - will this help?</a>, Dave Winer, 2/17/2000; 2:22:26 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:20 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

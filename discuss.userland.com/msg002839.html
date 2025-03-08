@@ -1,0 +1,18 @@
+<html>	<head>		<title>Custom Netcenter and Frontier...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Custom Netcenter and Frontier...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Andrew Wooldridge</td></tr>				<tr><td><b>Posted:</b></td><td>2/11/1999; 10:39:45 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002804.html">WebDAV, the DG, Dreamweaver, Golive</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2839 (In response to <a href="msg002814.html">2814</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002838.html">2838</a> / <a href="msg002840.html">2840</a></td></tr>				</table>			<br>One item in particular where I see a fit with frontier is a new thing at netscape called Custom Netcenter. Basically companies will now be able to create their own 'front end' to netcenter - along with their own internal custom channels.<p>
+
+What this means for frontier is this - custom channels (say a stock ticker or a headline channel) are typically fetched from some public location in a format called SPF (site preview format) - which is XML.<p>
+
+So say every 15 mins, the custom netcenter server goes and gets this spf file which goes into an ldap database (anyone viewing the channel before this sees the "older" version of this dynamic channel).<p>
+
+What frontier could do easily is be the source of this spf file.  
+The custom netcenter server doesnt care what the url is - as long as it returns a valid spf file...<p>
+
+So say some company wants a custom netcenter - say ACME.  Well along with the regular channels, they want a channel that has some corporate news.  Well, they might engage frontier to poll news from various authors, and automatically create this spf file. Then, every 15 min or so, the custom netcenter server goes and fetches this file.  <p>
+
+I dont know if the SPF format is publically available, but as soon as I can find out I will post a link here.  It would be cool if folks build some kind of custom scripts that just take care of the spf conversion - it's just xml (specifically a layer over RDF).<p>
+
+Here's a link to a news story about Custom Netcenter..
+<a href="http://www.computerworld.com/home/news.nsf/all/9812163nets">http://www.computerworld.com/home/news.nsf/all/9812163nets</a><p>
+
+BTW - I'm not trying to push Custom Netcenter at all, I'm just mentioning it because I see very quickly how Frontier could be a great fit in the structure ...
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002840.html">Re: Custom Netcenter and Frontier...</a>, Lawrence Lee, 2/11/1999; 11:19:46 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

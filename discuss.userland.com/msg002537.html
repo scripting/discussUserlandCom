@@ -1,0 +1,36 @@
+<html>	<head>		<title>Distributed OO Network Application Architecture (was zzzzzz)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Distributed OO Network Application Architecture (was zzzzzz)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Matthew Dornquast</td></tr>				<tr><td><b>Posted:</b></td><td>1/27/1999; 12:37:40 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002471.html">Jini Jini Jini (Zzzzz?)</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2537 (In response to <a href="msg002535.html">2535</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002536.html">2536</a> / <a href="msg002538.html">2538</a></td></tr>				</table>			<br>Another product deserves consideration (IMHO) when discussing distributed computing/java.  It's Objectspace's voyager.  Check it out! <<a href="http://www.objectspace.com/developers/voyager/white/index.html">http://www.objectspace.com/developers/voyager/white/index.html</a>><p>
+
+A few key services/technologies in distributed computing:
+Location transparency (Code doesn't think of being at machine X, it thinks of running near a service or chunk of data-- wherever that is)
+Federated directory/naming services
+Autonomous code(self moving/agent)
+Pass by ref AND value.  (ala corba 3.0)<p>
+
+Other tools you need to make that stuff work:
+Transaction services (multi-phase commit across multiple cpus)
+Persistence services (one could argue that a large enough space with distributed cloning could eliminate much of this requirement.  <p>
+
+<<Weird thought just entered my head-- and application who's data is all in ram distributed across the internet with built in parity of sorts-- allowing reconstruction of destroyed nodes dynamically? Hmm.. have to think more on that one.>><p>
+
+When you combine:
+object oriented development (in particular providing solutions via component collaboration), distributed computing technologies (listed above), and Java's VM/classloader w/ OO infrastructure you get something that's well.  Unique in my development experience.<p>
+
+I can *see* solutions through tightly integrated systems following strict open standards in a hardwired web of applications.<p>
+
+I *dream* about collaborations of loosely coupled objects whose concerns are roles, responsibilities and services.<p>
+
+It's a different way to architect.  One we didn't have the luxury of doing before the internet/java.  (Okay, some did-- and DID.  But they were proprietary systems with limited space to grow)<p>
+
+<<Here is a piece of architectural religion I've been considering the last year or so:<p>
+
+There is no longer any reason to sacrifice the flexibility of an application's architecture to achieve the required performance goal.  <p>
+
+The precondition to such a statement is the application runs in a networked environment with sufficient local resources to establish a distributed architecture on which to work.<p>
+
+We've got enough technology/io/cpu/network cycles to distribute any problem accross N machines.<p>
+
+If we don't, can anyone argue we wont?>><p>
+
+
+-Matthew
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

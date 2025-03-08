@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Three options</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Three options</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Simeon Simeonov</td></tr>				<tr><td><b>Posted:</b></td><td>1/15/1999; 4:22:57 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2160 (In response to <a href="msg002158.html">2158</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002159.html">2159</a> / <a href="msg002161.html">2161</a></td></tr>				</table>			<br>Hi,<p>
+
+I just finished the alpha version of a piece of software that converts WDDX data to the XML-RPC data format. It's written in fairly portable C Plus Plus (Dave, why can't I put a plus character in the message text???) so it seems possible that we can use it as a bridge in a variety of existing XML-RPC servers. The hard part is removing all dependencies to make the code distributable.<p>
+
+What should I do about WDDX recordsets? XML-RPC doesn't support them natively... <p>
+
+Also, what should I do about special characters in strings? The current XML-RPC data spec will lead to XML syntax errors if serialized strings have any special characters other then tabs, carriage returns, and newlines.<p>
+
+Dave, can you do the XML-RPC data to WDDX piece? From a quick read of the XML-RPC spec it seems like WDDX datatypes are a clean superset of XML-RPC's with the exception of integers which you can map to the number element.<p>
+
+Regards,<p>
+
+Sim, <i>Allaire</i>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002164.html">Request for Help</a>, Dave Winer, 1/15/1999; 5:06:54 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

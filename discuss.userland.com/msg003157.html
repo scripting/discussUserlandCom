@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: What do people use Java for?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: What do people use Java for?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jon Bodner</td></tr>				<tr><td><b>Posted:</b></td><td>2/23/1999; 9:45:46 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003140.html">What do people use Java for?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3157 (In response to <a href="msg003142.html">3142</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003156.html">3156</a> / <a href="msg003158.html">3158</a></td></tr>				</table>			<br>Chuck,<p>
+
+I've got a lot of respect for you and the work you've done, but I've got to disagree.  Java on the server is a Good Thing.<p>
+
+First of all, this "Java is interpreted" canard has got to stop.  Java is not interpreted when there's a JIT around, which is true for virtually every platform right now.  Granted, the JIT needs to process the code at run-time, but server processes should be long-life; after a few calls to the server (which you could even seed yourself), you'll be running very close to the performance of native C++.  As you said, development in Java is pretty quick.  You could take the money saved on developer time and put it towards a faster box to run the code ;-)<p>
+
+Correct me if I'm wrong, but aren't most servers I/O-bound and not CPU-bound?  I've never seen any evidence that a well-written Java server couldn't handle a heavy load.  Jigsaw was able to saturate a T1 in a PC Week test.<p>
+
+I've found that "invisible" Java works really well.  Take a look at the places WebLogic is running to get an idea of what can be done.  Combining an environment which allows for rapid development with good enough performance to get the job done is a huge win.  <p>
+
+-jon
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003159.html">Re: What do people use Java for?</a>, Lixian B. Chiu, 2/23/1999; 9:59:39 AM<p><li>&nbsp;<a href="msg003166.html">Re: What do people use Java for?</a>, Kevin Stewart, 2/23/1999; 11:02:48 AM<p><li>&nbsp;<a href="msg003173.html">Re: What do people use Java for?</a>, Chuck Shotton, 2/23/1999; 11:50:08 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:04 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

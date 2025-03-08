@@ -1,0 +1,18 @@
+<html>	<head>		<title>Visible Windows-based HTTP apps</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Visible Windows-based HTTP apps</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>12/13/1998; 7:55:37 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001153.html">Visible Windows-based HTTP apps</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1153</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001152.html">1152</a> / <a href="msg001154.html">1154</a></td></tr>				</table>			<br>On Windows Frontier is a HTTP server, I hope this is well-known now. We're finding out that it's a very different kind of server for Windows, in that it has a user interface, and it's very important that the user interface be visible while the server is running, or at least that we have the option of having it visible.<p>
+
+This is no problem when Frontier is running standalone, doing its own serving, but it's an unsurmountable problem when it's running behind IIS, and we believe it will also be a problem when we get it running behind Apache.<p>
+
+On the Mac, interestingly, there's no such problem. The interface between web servers and apps that are linked in is thru Apple Events, and there's no requirement that the app be invisible or background-only, in Mac terms. It can be, and there's a way to do plug-ins that don't have user interface code, and they're common, but links to regular apps like FileMaker and Frontier are common too. These are not faceless apps. Quite the opposite, you might think of them as face-ful apps.<p>
+
+We really need to be able to see our app while it's running. We need it to be able to debug the Frontier app itself, and to debug the servers we deploy, and after they're solid, to get a readout on performance.<p>
+
+Frontier really has a UI and not all of it is accessible thru HTTP/HTML, maybe someday it will be, but that day is not here yet. (Honestly IMHO HTML is not up to it. Look at all the shitty outliners implemented in DHTML. C code works better. No reason to wait. It works now.)<p>
+
+Anyway, I thought I'd point this out to my friends at Microsoft. There's an important bit of server flexibility that we miss from the Mac. <p>
+
+Dave<p>
+
+PS: Everyone is struggling with what "Application Server" means. Maybe this is what it means. Regular desktop apps wired up to HTTP. We want it to be very easy for our brothers with great desktop tools to easily wire their apps up to HTTP. Running them in an invisible mode cancels out much of their value.<p>
+
+PPS: I bet Microsoft runs the apps invisibly to get more performance out of the server so it does better in benchmarks the magazines run against O'Reilly and Netscape web servers. Our servers are not going to handle 10 million hits a day. We are happy to trade off some performance for this flexibility.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001156.html">Re: Visible Windows-based HTTP apps</a>, Wesley Felter, 12/13/1998; 1:33:10 PM<p><li>&nbsp;<a href="msg001157.html">Re: Visible Windows-based HTTP apps</a>, Jim Roepcke, 12/13/1998; 2:55:38 PM<p><li>&nbsp;<a href="msg001166.html">Solution for Visible Windows-based HTTP apps</a>, Brent Simmons, 12/14/1998; 12:49:56 AM<p><li>&nbsp;<a href="msg001292.html">Re: Visible Windows-based HTTP apps</a>, Marc Canter, 12/15/1998; 4:35:00 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

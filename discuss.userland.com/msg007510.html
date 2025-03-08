@@ -1,0 +1,159 @@
+<html>	<head>		<title>Re: Scripts to produced Channel files?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scripts to produced Channel files?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jamie Scheinblum</td></tr>				<tr><td><b>Posted:</b></td><td>6/17/1999; 9:00:50 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007483.html">Scripts to produce Channel files?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7510 (In response to <a href="msg007486.html">7486</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007509.html">7509</a> / <a href="msg007511.html">7511</a></td></tr>				</table>			<br>Well, here's a prelim version. I'll have a better version after I see Dave's example. Then we can get in feature/syntax sync.  Don't use this version, its not feature complete, and will probably get angry about syntax... A better/real version is forthcoming.<p>
+
+Dave: how much of the scripting news header do I need to implement to stick to the spec?<p>
+
+Here's the input file:
+--
+Hello this is a text document
+<a href="http://www.cnn.com">Hello</a>
+Do you like text documents?<p>
+
+<p><p>
+
+hello this is another text document <a href=http://www.scripting.com>script</a> stuff
+--<p>
+
+Here's the output:<p>
+
+--
+$ perl parse.pl input.txt 
+<?XML version="1.0"?>
+<!DOCTYPE scriptingNews SYSTEM "http://www.scripting.com/dtd/scriptingNews.dtd">
+<scriptingNews>
+        <ITEM>
+                <TEXT>Hello this is a text document Do you like text documents? </TEXT>
+                <LINK>
+                        <URL><a href="http://www.cnn.com&lt">http://www.cnn.com&lt</a>;/URL>
+                        <LINETEXT>Hello</LINETEXT>
+                </LINK>
+        </ITEM>
+        <ITEM>
+                <TEXT>hello this is another text document   stuff </TEXT>
+                <LINK>
+                        <URL><a href="http://www.scripting.com&lt">http://www.scripting.com&lt</a>;/URL>
+                        <LINETEXT>script</LINETEXT>
+                </LINK>
+        </ITEM>
+</scriptingNews>
+--<p>
+
+And here's the source so far...<p>
+
+--
+use HTML::Parser;<p>
+
+
+### Copyright 1999 Jamie Scheinblum
+### <a href="mailto:Jamie@networked.org">Jamie@networked.org</a>
+### 6/17/99
+### Working source-code, not for re-distribution<p>
+
+### What do we use to mark the end of a paragraph?
+### Make this a regular expression to match<p>
+
+my ($article_mark) = '^<p>$';<p>
+
+###<p>
+
+&#123;
+        package Parse;
+        @ISA = qw(HTML::Parser);<p>
+
+        my (%link);
+        my ($cur_url);
+        my ($look_for_text) = 0;
+        my ($doc_text);<p>
+
+        sub get_links &#123;
+                return %link;
+        }<p>
+
+        sub get_doc_text &#123;
+                return $doc_text;
+        }<p>
+
+        sub clear &#123;
+                $doc_text = "";
+                %link = &#123;};
+                $look_for_text = "";
+        }<p>
+
+        sub start &#123;
+                my ($this) = shift;
+                my ($tag, $attr, $attrseq, $origtext) = @_;
+                if ($tag eq "a") &#123;
+                        $cur_url = $attr->&#123;href};
+                        $look_for_text = 1;
+                }
+        }<p>
+
+        sub text &#123;
+                my ($this) = shift;
+                my ($text) = shift;<p>
+
+                if ($look_for_text == 1) &#123;
+                        $link&#123;$cur_url} .= $text;
+                } else &#123;
+                        $doc_text .= $text." ";
+                };
+        }<p>
+
+        sub end &#123;
+                my ($this) = shift;
+                my ($tag,$orig) = @_;<p>
+
+                if ($tag eq "a") &#123;
+                        $look_for_text = 0;
+                }
+        };
+}<p>
+
+my $parser = Parse->new;<p>
+
+print "<?XML version=\"1.0"?>n";
+print "<!DOCTYPE scriptingNews SYSTEM \"<a href="http://www.scripting.com/dtd/scriptingNews.dtd">http://www.scripting.com/dtd/scriptingNews.dtd</a>">n";
+print "<scriptingNews>\n";<p>
+
+
+foreach my $input_file (@ARGV) &#123;
+        ### For each file on the commandline, process the file<p>
+
+        open(INPUT, $input_file) || die "$! : $input_file\n";<p>
+
+        ### Read the file
+        while (<INPUT>) &#123;
+                ### Strip returns
+                s/n//;
+                s/r//;<p>
+
+                if (/$&#123;article_mark}/) &#123;
+                        &item;<p>
+
+                } else &#123;
+                        $parser->parse($_);
+                }
+        }
+        close(INPUT);
+        &item;
+}
+print "</scriptingNews>\n";<p>
+
+sub item &#123;
+        ### New article time
+        my $hash = Parse->get_links();
+        ### Now print out the xml tags<p>
+
+        print "\t<ITEM>\n";
+        print "\t\t<TEXT>",Parse->get_doc_text(),"</TEXT>\n";<p>
+
+        foreach my $key (keys(%&#123;$hash})) &#123;
+                print "\t\t<LINK>\n";
+                print "\t\t\t<URL>$key</URL>\n";
+                print "\t\t\t<LINETEXT>$hash->&#123;$key}</LINETEXT>\n";
+                print "\t\t</LINK>\n";
+        }<p>
+
+        print "\t</ITEM>\n";
+        Parse->clear();
+}
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007513.html">Re: Scripts to produced Channel files?</a>, Jamie Scheinblum, 6/17/1999; 9:02:10 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

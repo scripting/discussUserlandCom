@@ -1,0 +1,52 @@
+<html>	<head>		<title>Announcing - Scheme from Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Announcing - Scheme from Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Matt Neuburg</td></tr>				<tr><td><b>Posted:</b></td><td>2/25/1999; 9:17:38 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003260.html">Announcing - Scheme from Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3260</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003259.html">3259</a> / <a href="msg003261.html">3261</a></td></tr>				</table>			<br>An idea that has long been dear to my heart is bearing fruit!<p>
+
+One of my favorite programming languages is <a href=http://www-swiss.ai.mit.edu/scheme-home.html>Scheme</a>. I love UserTalk too, of course, but it turns out that quite a bit of what I love about it is its Scheme-likeness. But I'm not going to explain right now why Scheme is cool; a lot of Frontier users already know. See, for instance, <a href=http://www.scripting.com/mail/mail980402.html>Paul Snively's letter about using it for parsing DTDs</a>.<p>
+
+Now, Aubrey Jaffer maintains a cross-platform Scheme implementation called <a href=http://www-swiss.ai.mit.edu/~jaffer/SCM.html>SCM</a>. Not only is this an excellent Scheme; it comes with a number of language extensions such as process synchronization, arrays, regex, and other cool features too numerous to list. Anyway, Bob Schumaker maintains the <a href=http://www.io.com/~cobblers/scm/>Macintosh build of SCM</a>, as a shared library and a small editor application which talks to it.<p>
+
+So I wrote to him, and he has kindly created a faceless background application that accepts a misc/dosc Apple event and talks to the shared library. This means that (rather as I understand MacPerl was supposed to do) you can now talk Scheme from inside Frontier, by means of Apple events!<p>
+
+Here's what to do if you want to try it out. Download the latest version of SCM for Mac:<p>
+
+   <a href="http://www.io.com/~cobblers/scm/scmmac.sit.bin">http://www.io.com/~cobblers/scm/scmmac.sit.bin</a>
+   <a href="http://www.io.com/~cobblers/scm/hqx.cgi?scm/scmbin.sit.hqx">http://www.io.com/~cobblers/scm/hqx.cgi?scm/scmbin.sit.hqx</a><p>
+
+Open the folder and start up the application called "scm (faceless)". Now you can talk to it with Frontier; for example, to add 1 and 1, you would say:<p>
+
+<pre>   msg(misc.doscript("SCM ", "(+ 1 1)"))
+</pre><p>
+
+and you'd see "2" appear in the message window. You have to send one Scheme command at a time; the FBA remembers the session as you go along, of course. One neat thing about doing this from Frontier is that a Frontier outline makes a nice editor for a Scheme program. Let's say you use indentation in the standard Scheme way, like this:<p>
+
+<pre>(define (prod term a next b)
+    (define (iter acc a)
+        (cond
+            ((> a b) acc)
+            (else
+                (iter (* acc (term a)) (next a)))))
+    (iter 1 a))
+(define (wallis x)
+    (if (even? x)
+        (/ x (+ x 1.0))
+            (/ (+ x 1.0) x)))
+(* 4 (prod wallis 2 (lambda (x) (+ x 1)) 100000))
+</pre><p>
+
+If that's in an outline called workspace.scm, here's a very simple routine to run it:<p>
+
+<pre>target.set(@workspace.scm); op.firstsummit()
+loop
+    editmenu.copy()
+    msg(misc.doscript("SCM ", clipboard.getvalue("TEXT")))
+    if not op.go(down,1)
+        break
+</pre><p>
+
+(I'm sure there's a better way, but I just wanted to gather up the current line and all its subheads as a string, and copying came to mind.)<p>
+
+One of the best features of SCM is that it's insanely fast. For example, I wrote a Scheme program to solve a puzzle I heard on the radio. The puzzle is: you have a four-by-four grid of 1s and 0s; the "score" of each entry in the grid is itself plus all its neighbors (including diagonals); if the score of every entry is odd, what are the entries?<p>
+
+My program takes a fairly brute force approach: it is prepared to generate every possible grid until it finds one that passes the test. (It does save a little time, like this: if it generates a row, and finds that an entry in the previous row now fails the test, it rejects that grid.) Anyhow, I've tried my program on some Scheme implementations where this takes quite a while to crank out. Frontier, talking to Bob's faceless SCM with Apple events, solved it in a second or two.<p>
+
+The FBA hasn't had much testing, but it seems to be working great so far. So please treat it gently, but do try it out if you know Scheme and you're curious. m.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:08 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

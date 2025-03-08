@@ -1,0 +1,17 @@
+<html>	<head>		<title>Re: numbered objects</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: numbered objects</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Oliver Wrede</td></tr>				<tr><td><b>Posted:</b></td><td>5/31/1999; 7:13:12 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006851.html">numbered objects</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6894 (In response to <a href="msg006852.html">6852</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006893.html">6893</a> / <a href="msg006895.html">6895</a></td></tr>				</table>			<br><i>You can use square brackets to have tables like yours. For instance: new (tabletype, @workspace.["1.a.3.c.5.e"])</i><p>
+
+I actually wanted to have a subtables for each dot-delimited item! Your suggestion will create <i>one</i> table, but it should create a six-level hierarchy.<p>
+
+I now found this solution for it:<p>
+
+<pre>
+objectName="1.a.3.c.5.e";
+objectName="[\""+string.ReplaceAll(objectName,".",""].["")+"\"]";
+table.surePath(objectName);
+new(tableType,address(objectName));
+</pre><p>
+
+I can go with this for a while. The problem for me is, that I may have dots in the names, which should not create a sublevel! But this has to be solved elsewhere....<p>
+
+Oliver
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:32 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

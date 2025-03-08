@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: Memory management w/ Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Memory management w/ Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>1/12/1999; 5:33:17 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002011.html">Memory management w/ Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2013 (In response to <a href="msg002011.html">2011</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002011.html">2011</a> / <a href="msg002014.html">2014</a></td></tr>				</table>			<br>Very interesting. What was the record structure of the database? Was it flat? Just a single table with 50,000 sub-tables?<p>
+
+I'm not sure I understand your last question though. Any locals allocated by the script are disposed after it finishes executing. The compiled script is retained, so the script isn't recompiled every time you run it. However if you need to reclaim the memory used by the compiled script, there's a verb that does this.<p>
+
+<a href="http://docserver.userland.com/script/unCompile">http://docserver.userland.com/script/unCompile</a><p>
+
+However I'm not sure if that answers your question.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002015.html">Re: Memory management w/ Frontier</a>, Kurt J. Egger, 1/12/1999; 6:00:25 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

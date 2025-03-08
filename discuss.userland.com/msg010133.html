@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: Thoughts on ESR and Perl</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Thoughts on ESR and Perl</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>8/27/1999; 11:16:59 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009840.html">Opening Up Linux Journal and O'Reilly</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10133 (In response to <a href="msg010125.html">10125</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010132.html">10132</a> / <a href="msg010134.html">10134</a></td></tr>				</table>			<br><i>There's a lot of bricolage in Linux development, and not necessarily a lot of architecture.</i><p>
+
+If you watch the linux-kernel lists closely, you'll notice that Linus is still the system architect. He tightly controls about 50,000 lines of code at the heart of the system, and makes final decisions about architectural changes. Everything else is heavily modularized and delegated to other maintainers.<p>
+
+Alan Cox is probably the number two hacker. Unlike Linus, he works on the kernel full time. Alan does most of the work on stable kernels, and he does lots of heavy integration work on the development kernels. Should Linus ever retire ("Someday I'm going to be eighty and senile", Linus says), Alan is most likely to take over Linus' job.<p>
+
+Around Linus and Alan, there's a group of a few dozen well-respected developers who maintain major sections of the kernel and solve hard problems. After that, you have the driver maintainers, the single-feature experts, the porting teams and various interlopers.<p>
+
+Let's say you write a patch to Linux. First, you need to make the patch available online, and post a pointer to the linux-kernel mailing list. A whole bunch of people will try your patch, and you'll get lots of feedback. If you listen to this feedback, and improve your patch, you'll eventually be noticed by a module maintainer or Alan. They'll give you more feedback, and probably tell you to rewrite your patch. Somebody else may write a similar patch.<p>
+
+Eventually, somebody important will like your code, and they'll include it in their private version of the kernel. At some point, the maintainer will forward his or her code to Linus, and Linus will include it in <i>his</i> copy of the kernel. Of course, Linus may veto your patch, or he may rewrite it from scratch without telling anybody, thus causing major screams from the module maintainers and Yet Another Polite Flamewar. Linus gets to do whatever Linus wants to do. He's usually right, and when he's wrong, he usually admits it and listens. The best way to convinve Linus he's wrong is to write code which works.<p>
+
+Of course, you could ignore the whole process and release your own version of the Linux kernel, with all your favorite patches. Linus won't complain, and nobody would notice or care.<p>
+
+Who chooses the module maintainers? Nobody, really. In any software project, you always know which programmers are qualified to modify which bits of code. If you want to be a module maintainer, start maintaining something. If anybody notices, you're doing fine. If nobody pays attention, you didn't do it right. Them's the breaks.<p>
+
+Cheers,<br>
+Eric
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

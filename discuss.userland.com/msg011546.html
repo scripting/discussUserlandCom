@@ -1,0 +1,27 @@
+<html>	<head>		<title>[solution]Re: A question about searchArgs</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>[solution]Re: A question about searchArgs</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mike Murry</td></tr>				<tr><td><b>Posted:</b></td><td>9/28/1999; 11:14:45 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010342.html">A question about searchArgs</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11546 (In response to <a href="msg010348.html">10348</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011545.html">11545</a> / <a href="msg011547.html">11547</a></td></tr>				</table>			<br>Last month I posted a question on parsing searchArgs. My solution was the following:<p>
+
+webserver.parseArgs(adrPageTable^<a href="mailto:.searchArgs,@scratchpad.argTable">.searchArgs,@scratchpad.argTable</a>)<br>
+local (projectnum = @scratchpad.argtable.project)<br>
+local (issuenum = @scratchpad.argtable.issue)<br>
+delete (@scratchpad.argtable.project)<br>
+delete (@scratchpad.argtable.issue)<p>
+
+The downside to this solution was that if the script died before it got to the delete statements, scratchpad.argtable.xxx was changing from strings to lists, which caused other scripts using this table to not work.<p>
+
+Thomas Creedon was kind enough to offer me this solution<p>
+
+local (argTable)<br>
+webserver.parseArgs (adrPageTable^.searchArgs, @argTable)<p>
+
+but I couldn't get this to work. I didn't have the time to explore it further, so I just used my original, imperfect solution. I had a chance to revisit it this morning, and after carefully going over the docserver page on webserver.parseArgs(), I figured out my problem. I'm posting this here in case anyone else needs this info. Thomas' solution was almost right. Since the second argument to webserver.parseArgs() needs to be a table, all you need to do is add<p>
+
+new (tabletype, @argTable)<p>
+
+and Thomas' solution works perfect. The final script sample should then look like this:<p>
+
+local (argTable)<br>
+new (tabletype, @argTable)<br>
+webserver.parseArgs (adrPageTable^.searchArgs, @argTable)<p>
+
+If I'm the only one who didn't get this, I'm sorry for wasting the space. Otherwise, I hope this helps someone out.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

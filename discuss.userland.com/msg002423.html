@@ -1,0 +1,23 @@
+<html>	<head>		<title>Success!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Success!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Keola Donaghy</td></tr>				<tr><td><b>Posted:</b></td><td>1/23/1999; 3:28:57 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000936.html">Search Engine XML-RPC Interface</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2423 (In response to <a href="msg000936.html">936</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002422.html">2422</a> / <a href="msg002424.html">2424</a></td></tr>				</table>			<br>Thanks, Brent, for the help. Got this working as a final filter to my site. The one problem was that I was using ContentServer to render the site twice, once to my HD and once to a remote site, had to set the filter to ignore the local rendering and avoid a "file:///" type of URL. If anyone is interested here is my FinalFilter:<p>
+
+<PRE>
+on finalFilter (adrPageTable) 
+ if (adrPageTable^.template != "local")
+  bundle 
+    local (title = adrPageTable^.title);
+    local (url = adrPageTable^.url);
+    local (text = searchEngine.stripMarkup (adrPageTable^.renderedText));
+    local (siteName = "NahenaheNet");
+    local (siteURL = "http://www.nahenahe.net/");
+    user.addToSearchEngine (title, url, text, sitename, siteURL)}};
+ return (true)}
+</PRE><p>
+
+user.addToSearchEngine is essentially the example script Brent posted. Suggestions welcome.<p>
+
+One last question (for today :-) ) - how well does the search engine handle 8 bit characters? I'm curious about this for my Hawaiian language site which used 8 bit chars.<p>
+
+aloha!<p>
+
+kd
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:32 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

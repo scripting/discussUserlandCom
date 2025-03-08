@@ -1,0 +1,17 @@
+<html>	<head>		<title>Re: CORBA Random Number Server in Python</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: CORBA Random Number Server in Python</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kent Spaulding</td></tr>				<tr><td><b>Posted:</b></td><td>7/16/1999; 3:17:05 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008440.html">Today's scriptingNews Outline</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8536 (In response to <a href="msg008502.html">8502</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008535.html">8535</a> / <a href="msg008537.html">8537</a></td></tr>				</table>			<br>Yes, although I may be a bit sketchy on the details and names.  I'll give it shot.<p>
+
+You can find a great little tutorial at <a href="http://www.artima.com/javaseminars/modules/Jini/index.html">http://www.artima.com/javaseminars/modules/Jini/index.html</a>
+with good info.  The first pages give an overview of Jini Lookup.<p>
+
+Jini has some protocols/services, Lookup, Join, and Discovery, that allow Jini Services to find one another.  A Service registers itself with a Jini Lookup Server (via Discovery which finds Lookup Services and Join which adds a Service to the Lookup Service).  Now other Services can use Lookup to find it. <p>
+
+How two Services interact once they know about each other is a matter of using an agreed upon protocol.  This is not defined by Jini.  So, printer manufacturers wil come up with the Jini Printer Service protocol, and so forth.<p>
+
+When you create a Service, you can get a UUID from Join which you'll then use from that point on when adding yourself to Lookup Servers.<p>
+
+Okay, much of Discovery only works on subnets with IP Multicast capabilities, at present.  Wesley mentioned this.  The plan is for Internet wide access at some point.<p>
+
+The coolest thing about Jini is that Services can be found, and then run locally.  The code for the Service implementation can move from its server to your local box and eecute there.  (This is optional of course, a service could send a proxy instead).  That's a great feature.<p>
+
+It would be nice is XML-RPC had a similar service.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

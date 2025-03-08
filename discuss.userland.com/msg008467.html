@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: 302 Found instead of newsToRss.xml</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: 302 Found instead of newsToRss.xml</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>7/14/1999; 9:13:46 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008461.html">302 Found instead of newsToRss.xml</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8467 (In response to <a href="msg008461.html">8461</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008466.html">8466</a> / <a href="msg008468.html">8468</a></td></tr>				</table>			<br><i>Whenever myUserlandSuite.registerChannel accesses newsToRss.xml on my news site, it gets a "302 Found" html page, then complains that "RDF" doesn't exist in the resulting html code. This makes sense, but doesn't explain to me why mainresponder is sending a "302 Found" message.</i><p>
+
+Does the table containing the newsToRss.xml script also contain a #members directive? I suspect that myUserlandSuite.registerChannel is being redirected to your site's logon page.<p>
+
+<i>I read somewhere that "302" means a redirect, but as far as I can tell, it's not redirecting.</i><p>
+
+Right. Following redirects is a rather new feature in tcp.httpClient and as far as I know the feature is not being used in the released version of myUserland.root.<p>
+
+<i>Now... I do have config.mainresponder.domains.default pointing to another table, and "news" in that table points to news.root. Could this be a cause for my problems?</i><p>
+
+I don't think so.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008468.html">Re: 302 Found instead of newsToRss.xml</a>, Steve Ivy, 7/14/1999; 9:33:38 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:24 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,73 @@
+<html>	<head>		<title>Re: Is XML-RPC a scripting environment?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Is XML-RPC a scripting environment?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>joubin</td></tr>				<tr><td><b>Posted:</b></td><td>1/20/1999; 1:37:05 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2328 (In response to <a href="msg002303.html">2303</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002327.html">2327</a> / <a href="msg002329.html">2329</a></td></tr>				</table>			<br>This issue can simply be taken care of <i>in the xml-rpc protocol</I> by cleaning up the specs.<p>
+
+Currently, data (or "objects") is represented as:<p>
+
+<Pre>
+   <param>
+      <value>
+         <SOME_TYPE>
+             textualValueRepresenationOfType
+         </SOME_TYPE>
+      </value>
+   </param>
+</pre><p>
+
+where <SOME_TYPE> could be <int>, <boolean>, etc.<p>
+
+Now, simply replace (above) <value>....</value> with:<p>
+
+<pre>
+   <object>
+      <typeName> <!-- or class -->
+         typeName
+      </typeName>
+      <valueRep>
+         <SOME_COMMON_TYPE>
+            objectValueRepresenation_in_SOME_TYPE
+         </SOME_COMMON_TYPE>
+      </valueRep>
+   </object>
+</pre><p>
+
+where <SOME_COMMON_TYPE> is a type of data representation which is common to any platform. All of xml-rpc data is encoded as 'string' or base64 string representations anyway.  So here this is either <string> or <base64>.<p>
+
+
+For example:<p>
+
+<pre>
+<?xml version="1.0"?>
+<methodCall>
+   <methodName>examples.setStateFlag</methodName>
+   <params>
+     <param>   <!-- state # -->
+        <object>
+           <typeName>integer</typeName>
+           <valueRep>
+              <string>41</string>
+           </valueRep>
+        </object>
+     </param>
+     <param>   <!-- state flag -->
+        <object>
+           <typeName>GIF</typeName>
+           <valueRep>
+              <base64>
+                 ... base64 encoded gif goes here
+              </base64>
+           </valueRep>
+        </object>
+     </param>
+     <param>   <!-- replaceOld flag -->
+        <object>
+           <typeName>boolean</typeName>
+           <valueRep>
+              <string>true</string>
+           </valueRep>
+        </object>
+     </param>
+   </params>
+</methodCall>
+</pre><p>
+
+Of course, the question remains as to <I>exactly what</I> purpose does the <param> tag serve anyway?  But that's another topic...
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:28 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

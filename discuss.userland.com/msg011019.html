@@ -1,0 +1,37 @@
+<html>	<head>		<title>Re: New Third Voice version out</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: New Third Voice version out</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jeremy Bowers</td></tr>				<tr><td><b>Posted:</b></td><td>9/14/1999; 10:27:05 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011014.html">New Third Voice version out</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11019 (In response to <a href="msg011015.html">11015</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011018.html">11018</a> / <a href="msg011020.html">11020</a></td></tr>				</table>			<br>Fair question...<p>
+
+OK, if you download Third Voice for Netscape, it goes through its install routine, installs some executables, etc.<p>
+
+It starts a proxy server on your machine.  It modifies your Netscape configuration (with implicit permission, of course).  <p>
+
+If you currently have Netscape 4+ open, you can follow along by doing this:<p>
+
+<UL>
+<LI>Edit->Preferences</LI><p>
+
+<LI>Open the Advanced menu on the bottom if it is not open.</LI><p>
+
+<LI>Click Proxies.</LI><p>
+
+<LI>Now, on the right, select Manual proxy configurations. You can now click the button next to it, so please do so.</LI><p>
+
+<LI>A new server type has been added for HTTP, pointing to 127.0.0.1 (which is a special number that always means the same machine that the TCP/IP request is made on, for those who don't know), on port 3333.  (Note: It was quickly discovered that this server accepted connections from ANY machine, making it <I>look</I> as if the machine with the proxy server were doing whatever those remotes were doing... I'll skip the painfully obvious security implications this time.)</LI>
+</UL><p>
+
+This means that netscape will route all requests through that proxy server.  The proxy server adds in stubs that allows Third Voice to function and download the notes, with the plugin that can connect to the Third Voice servers.  Which is to say, the user never even sees the original page.<p>
+
+A simple "View Source" cut & paste or "Save page" WILL save these manipulations (unlike the IE) version... for an example, see <A HREF="http://www.msu.edu/~bowersj2/tvexample.htm"><a href="http://www.msu.edu/~bowersj2/tvexample.htm">http://www.msu.edu/~bowersj2/tvexample.htm</a></A>.  (It'll probably fail, as you don't have it installed... interesting... the server seems to notice the modifications are already there... I wonder if it can be fooled?  Anyhow, view source.  It will clearly NOT match what Userland put there... note those scripts towards the top.)<p>
+
+A screenshot:<p>
+
+<IMG SRC="http://www.msu.edu/~bowersj2/scripting.gif"><p>
+
+That is the homepage of Scripting News. We all know what that looks like... this is chopped a bit to show the importent stuff, shrunk a bit for space, and, as all three of the messages are personally insulting to Dave, I've gone ahead and blurred out the message (as that is not relevant).  The frame on the left is optional, and can be pulled up into just the upper left of the browser window.  The note is there (only ususally legible).<p>
+
+I think calling that "inside a frame" is reasonable... I'll give you two more, but they are too large to include here.  
+<A HREF="http://www.msu.edu/~bowersj2/scripting2.gif">Here</A> is a complete screen shot of this page, with the frame down.  <A HREF="http://www.msu.edu/~bowersj2/scripting3.gif">Here</A> is the same picture with the TV plugin retracted to minimum size.<p>
+
+The HTML does not have the actual messages added into it (although, there's nothing STOPPING them from doing so except that it is more efficient to only grap the requested message), but the stub that allows it to do so is added, obviously, without your permission being an issue.<p>
+
+Is there anything else you would like to know?  I'm going to uninstall this thing pronto... opening a port like this, even after the so-called "fix", is not something I'm willing to do in the longterm...
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011021.html">Re: New Third Voice version out</a>, Dave Winer, 9/14/1999; 10:39:10 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

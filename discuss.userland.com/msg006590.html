@@ -1,0 +1,62 @@
+<html>	<head>		<title>Using the DG framework for something other than DGs...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Using the DG framework for something other than DGs...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td></td></tr>				<tr><td><b>Posted:</b></td><td>5/22/1999; 9:02:07 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006532.html">Things we learned from BucksWoodside.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6590 (In response to <a href="msg006584.html">6584</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006589.html">6589</a> / <a href="msg006591.html">6591</a></td></tr>				</table>			<br>Hello all,<p>
+
+Dave, Someone out here is getting the message!  I hear you! :-)  Perhaps a short description of how I'm using a discussion group to help manage some VITAE might help illustrate this area of functionality.<p>
+
+We have a research group of about 40 people.  We are currently putting together a website.<p>
+
+We had a need to be able to publish certain parts of a person's VITA on the website.  People within the organization should be able to see all VITAE.  People from the outside would see selected portions of each VITA.  One or more people would possibly be maintaining these VITAE and a web interface would be desirable.<p>
+
+The DG framework is a natural fit for input and maintenance.  Table renders are used for output to the web.<p>
+
+I first decided that we only needed a hierarchy of two levels deep.  The first level is mostly a place holder for the persons name and perhaps notes.  The second level contain a person's VITA divided into sections that should and shouldn't be available to the outside world.  This may help you visualize...
+<pre>
+VITA A
+   VITA A - Section 1
+   VITA A - Section 2, viewable outside
+   VITA A - Section 3<p>
+
+VITA B
+   VITA B - Section 1, viewable outside
+   VITA B - Section 2
+   VITA B - Section 3, viewable outside<p>
+
+VITA C
+   VITA C - Section 1
+   VITA C - Section 2, viewable outside
+   VITA C - Section 3, viewable outside
+</pre>
+So VITA A, B, and C are new message threads.  Each section is a response message to the top message.  Here is a quick list of some of the things I had to do.  This is an overview.
+<pre>
+   Created a new DG<p>
+
+   Added some code to allow users to select a checkbox to indicate if a
+   section should or shouldn't be viewable outside the organization.<p>
+
+   Modified the DG so that the user can only respond to the top message
+   in a thread.<p>
+
+   Added membership so that only certain people could access the VITAE
+   management system.<p>
+
+   Modified the DG so that there could be administrators.  People who
+   can edit any message in the DG.  In various membership checking
+   routines I just added some code to check if the current user is an
+   administrator.<p>
+
+   Changed the text of various DG pages to be relevant to the task at
+   hand.  For example, instead of New Thread, the link is New VITA.<p>
+
+   Created a table renderer for internal use that shows each VITA in
+   it's entirety<p>
+
+   Created a table renderer that shows only sections of each VITA that
+   have been marked as available to the outside world.
+</pre>
+All in all I feel that I really didn't have to make to many changes to the DG to mold it to our needs.  As DG improvements come down the road, I'm confident that the changes I made can be reapplied without to much effort.  I don't think that will be necessary for awhile though.  I don't think the basic structure of discuss.root or members.root are going to change much.<p>
+
+I'm pleased with the system so far.  It was fun to do and really only took a couple of days to accomplish.  There may still be some improvements we may need, but the core functionality is there.
+<pre>
+Toodle-looooooooo.........
+Thomas
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006591.html">Re: Using the DG framework for something other than DGs...</a>, Dave Winer, 5/22/1999; 9:27:43 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

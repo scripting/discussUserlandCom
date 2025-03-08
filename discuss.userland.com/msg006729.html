@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: Making Frontier faster by caching html code</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Making Frontier faster by caching html code</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>5/26/1999; 8:23:10 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006689.html">Making Frontier faster by caching html code</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6729 (In response to <a href="msg006725.html">6725</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006728.html">6728</a> / <a href="msg006730.html">6730</a></td></tr>				</table>			<br><i>how do we determine whether the data that this macro gathering have been changed or not</i><p>
+
+I would avoid to cache the result of such a macro.<p>
+
+I think the major use of this kind of caching would be for parts of the page with simple but frequently used macros - like imageRef, stylesheet etc. A macro that collects data from several different locations are more likely to be the "live" material of the page. <p>
+
+(I could imagine a setup where such a macro checks the time-stamps of it's sources, and flushes the cache if anything has changed, but I'm not sure it's worth the effort.)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:27 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

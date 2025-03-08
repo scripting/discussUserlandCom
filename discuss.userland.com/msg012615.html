@@ -1,0 +1,51 @@
+<html>	<head>		<title>Re: Multiple DG, Membership & Logon</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Multiple DG, Membership & Logon</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Stephen B. Waters</td></tr>				<tr><td><b>Posted:</b></td><td>11/2/1999; 7:38:57 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012598.html">Multiple DG, Membership & Logon</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12615 (In response to <a href="msg012600.html">12600</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012614.html">12614</a> / <a href="msg012616.html">12616</a></td></tr>				</table>			<br>Thanks for your advice. I did straighten htmlInterfaces.root.newsStoryDG.#prefs.defaultMembershipGroup and htmlInterfaces.root.newsStoryDG.edit.#members out.<p>
+
+The real stumbling block was that I had put a #urls in [htmlInterfaces.root].logon to try to make it apply specifically to my discussion groups. This caused a problem when I followed Mike Mell's procedure reported in a Script Meridian Community list email titled "Re: membership woth mainResponder" sent 13 Sep 1999.<p>
+
+His good advice was to move a copy of [htmlInterfaces.root].logon into [htmlInterfaces.root].newsStoryDG and rename it public and to change the urls copied into [htmlInterfaces.root].newsStoryDG.#urls from config.<p>
+
+My mistake was not to remove the #urls that earlier I had copied into logon. So I had TWO #urls and the original took precedence over the modified ones at the top level of newsStoryDG.<p>
+
+Mike Mell's procedure as reported by Ken Dow follows:
+> Well, well well. Here is what I did to give myself and others secure access to a gdb in mainResponder.<p>
+
+> 1. copy [htmlInterfaces.root].logon to the top level of mySite. (by top level, I mean at the same level as mySite.#ftpSite)<p>
+
+> 2. rename mySite.logon to "public" <a href="//">//</a> the magic name<p>
+
+> 3. copied [config.root].mainResponder.urls to the top level of my site.<p>
+
+> 4. renamed urls to #urls<p>
+
+> 5. adjusted all the urls paths to "http://mydomain.com/mySite/public" except for memberHome which became "http://mydomain.com/mySite/" <a href="//">//</a> left off "public"<p>
+
+> 6. rebuilt the public.#glossary deleted public.#ftpSite<p>
+
+> 7. added mySite.#members (string) == "mySite" to the top level of the site<p>
+
+> 8. duplicated [members.root].default<p>
+
+> 9. renamed [members.root].default #1 to "mySite"<p>
+
+> 10. edited [members.root].mySite: [members.root].mySite.mailTemplate to contain the url of the site home page<p>
+
+[members.root].mySite.cookieName == "mySite"<p>
+
+[members.root].mySite.mailReturnAddress == <a href="mailto:mike@nthwave.net">mike@nthwave.net</a><p>
+
+> I believe these are the complete and precise steps required for this will work for anyone. <p>
+
+> Next, I want to provide access for four know people:<p>
+
+> 1. I went to the sign up page <a href="http://myDomain.com/mySite/public/signup">http://myDomain.com/mySite/public/signup</a><p>
+
+> 2. entered their email address. Repeat for each one<p>
+
+> 3. set [members.root].mySite.openToPublic to false. No more new sign ups are allowed.<p>
+
+> Hope that helps someone. --Mike<p>
+
+> Andre Radke wrote:<p>
+
+> > FWIW, the logon page can be located inside the site, only it must be contained in a table named "public" (which is a "magic" name).
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

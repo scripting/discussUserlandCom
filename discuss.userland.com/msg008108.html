@@ -1,0 +1,37 @@
+<html>	<head>		<title>Building a Channel in Zope</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Building a Channel in Zope</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Flanagan</td></tr>				<tr><td><b>Posted:</b></td><td>7/2/1999; 9:33:46 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008108.html">Building a Channel in Zope</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8108</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008107.html">8107</a> / <a href="msg008109.html">8109</a></td></tr>				</table>			<br>I finally decided to hunker down and make an RSS channel for the Zope-based web log I've been dinking around with. <I>It's easy!</I>
+It only took me 15 minutes, and I was 
+<A HREF="http://my.userland.com/viewChannel$1023">up and running</A>.<p>
+
+The longest part was figuring how to get Zope to serve it up as text/xml, and not surround it with <HTML> tags, but here's the DHTML version of the RSS (DXML?):<p>
+
+<PRE>
+<!--#call "RESPONSE.setHeader('Content-type', 'text/xml')"-->
+<?xml version="1.0"?>
+   <rdf:RDF 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns="http://my.netscape.com/rdf/simple/0.9/"><p>
+
+     <channel>
+       <title>Bubble Chamber</title>
+       <link><a href="http://jimfl.yi.org:88&lt">http://jimfl.yi.org:88&lt</a>;/link>
+       <description>Science and Technology News</description>
+     </channel><p>
+
+     <image>
+       <title>BubCham</title>
+       <url><a href="http://jimfl.yi.org:88/images/bcsmall&lt">http://jimfl.yi.org:88/images/bcsmall&lt</a>;/url>
+       <link><a href="http://jimfl.yi.org:88&lt">http://jimfl.yi.org:88&lt</a>;/link>
+     </image>
+<!--#with links-->
+<!--#in expr="objectValues(['Folder'])" sort="id" size=10 -->
+<!--#if released-->
+     <item>
+       <title><!--#var title--></title>
+       <link><a href="http://jimfl.yi.org:88/links/&lt">http://jimfl.yi.org:88/links/&lt</a>;!--#var id-->/goURL</link>
+     </item>
+<!--#/if-->
+<!--#/in-->
+<!--#/with-->
+</rdf:RDF>
+</PRE>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

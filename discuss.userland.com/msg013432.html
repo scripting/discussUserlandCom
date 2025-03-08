@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Automatic monitor page re-size html code?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Automatic monitor page re-size html code?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jeremy Bowers</td></tr>				<tr><td><b>Posted:</b></td><td>12/3/1999; 10:47:09 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013430.html">Automatic monitor page re-size html code?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13432 (In response to <a href="msg013430.html">13430</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013431.html">13431</a> / <a href="msg013433.html">13433</a></td></tr>				</table>			<br>First, the size of the monitor doesn't matter too much to a web developer.  It's the screen resolution that matters.  <p>
+
+Resizing code varies between Netscape and IE.  Adapted from <a href="http://www.bookmarklets.com/tools/windowing/index.phtml">http://www.bookmarklets.com/tools/windowing/index.phtml</a> (NS) and
+<a href="http://www.bookmarklets.com/tools/windowing/indexE.phtml">http://www.bookmarklets.com/tools/windowing/indexE.phtml</a> (IE), the code for Netscape will use things like <p>
+
+<PRE>window.moveTo(0,0);
+window.outerWidth=screen.availWidth;
+window.outerHeight=screen.availHeight;</PRE><p>
+
+(Note that actually only resizes the screen to take all available space, which isn't quite the same thing as being maximized.)<p>
+
+IE will need <p>
+
+<PRE>window.moveTo(0,0)
+window.resizeTo(screen.availWidth,screen.availHeight-20)</PRE><p>
+
+You will need to test availWidth and availHeight for whatever parameters you are checking for.  Note that availWidth != screen width and availHeight != screen height; esp. in Windows 95, resolution is not necessarily a good predictor of height.  For instance, the Taskbar could be on the side of the screen eating 200 pixels worth of space.  Plus, your <I>website</I> will not get that space, the <I>browser</I> gets that space.  You get what's left over after the navigation widgets, status bar, menus, etc.<p>
+
+You're probably better off redoing the template to work in the lower resolutions, or deciding not to support the lower resolutions, if your users will put up with that.  (If you use dynamically resizing tables correctly, you should be able to make things work well, unless you are just trying to cram too much stuff in.)  Besides, I would consider a website resizing my browser for me without asking an act of war, and I doubt I'm alone.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,16 @@
+<html>	<head>		<title>Analyzing protocols and file formats</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Analyzing protocols and file formats</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ken MacLeod</td></tr>				<tr><td><b>Posted:</b></td><td>5/6/2000; 11:00:54 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016956.html">scriptingNews outline for 5/5/2000</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17079 (In response to <a href="msg016956.html">16956</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017078.html">17078</a> / <a href="msg017080.html">17080</a></td></tr>				</table>			<br><blockquote><i>File types that might be OK as email enclosures: HTML, GIF, JPEG, ZIP, WAV</i></blockquote><p>
+
+This is probably a pretty accurate, if informal, analysis.<p>
+
+And that's the important part of it, and what a security person would do, an analysis must be made.<p>
+
+Going <a href="http://discuss.userland.com/msgReader$17013">back</a> to the <a href="http://www.faqs.org/faqs/firewalls-faq/">c.s.firewalls FAQ</a>, the security analysts' job is not just to assess the protocol or file format (the bits on the wire), but the way it's used and the applications that use it.<p>
+
+Taking HTTP for example you have to examine the browsers and your web servers too.  Because HTTP is capable of transfering various file types, you have to examine the browsers and plug-ins that implement those file types.  When protocols are tunneled through HTTP, you have to analyze them as individual protocols, and the contents they carry and the applications that use them.<p>
+
+HTTP and SMTP are typically passive protocols, they don't usually invoke special processing in the client or server.  This makes analysis easier.  HTML, GIF, JPEG, ZIP, WAV are also passive file formats.  In both cases the analyst is mostly concerned with data-based attacks (stack overruns, for example).<p>
+
+Word and Excel documents, JavaScript (incl. in HTML), Java, and ActiveX are active file formats.  Not only do the formats have to be analyzed (for data-based attacks) but also the environment and context where they are run.  Significant measures must be taken to prevent attacks.<p>
+
+For security policies that start out as "block everything", proper implementation will generally dip into each protocol or file format and make sure that each portion only passes what is permitted.  For security policies that start out as "allow everything", implementations will dip into each protocol when issues are discovered with particular formats or protocols.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg017081.html">Re: Analyzing protocols and file formats</a>, Robert Cassidy, 5/6/2000; 2:02:15 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:07 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

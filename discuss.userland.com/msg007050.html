@@ -1,0 +1,33 @@
+<html>	<head>		<title>My.UserLand.Com Change Notes</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>My.UserLand.Com Change Notes</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>6/6/1999; 12:51:08 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007036.html">New My.UserLand.Com Engine</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7050 (In response to <a href="msg007036.html">7036</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007049.html">7049</a> / <a href="msg007051.html">7051</a></td></tr>				</table>			<br>A review of changes to My.UserLand.Com in the last 48 hours.<ul><p>
+
+<li>More frequent updating of channels. Now it will attempt to read each channel once every hour. If any characters changed in the file, it will show up in the <a href="http://my.userland.com/viewUpdatedChannels">Recently Updated Channels</a> list, which rolls over every night at midnight.<p>
+
+This creates a new way to follow channels. I want to know when there's new stuff. This helps me get familiar with the channels in a new way. I hope other people tune into this view, consider bookmarking the page and visiting it for a week, just to see how it flows. I think this is esp important if you're running one of the sites. <p>
+
+<li>Did a lot of work on error reporting. You can now quickly see the XML text for each of the sites as they were loaded. If it's a well-formedness error, the location is highlighted with <a href="http://206.204.24.3/snimages/xmlerrormessage.gif">three red asterisks</a>. If there's a semantic error, the message is displayed along with a pretty-printed version. Often this creates the bizarre effect of wrapping XML tags around an HTML error page. If it's obvious that a site has moved, I'll just delete the service from the service list.<p>
+
+<li>Channel ID collisions. There were two sets of duplicates in the services table, one of them involved <a href="http://my.userland.com/viewChannel$8">Scripting News</a> and the other involved <a href="http://my.userland.com/viewChannel$18">Motley Fool</a>. In cleaning this up, I couldn't figure out which was the real Fool file. So if Mark Kennedy could take a look and if it's not, let me know.<p>
+
+<li>We now show the date and time of last update for all channels. It will take a while for this to percolate, the HTML is re-generated only when it changes. (I may write a script that forces all channels to be reloaded, once.)<p>
+
+<li>The <a href="http://my.userland.com/viewChannel$40">viewChannel</a> page now shows more information about the channel.
+</ul></li></li></li></li><p>
+
+<b>Goal</b><p>
+
+The goal for this round of changes was to get a handle on what's going on here, and develop tools to learn more about what's going on. It's exciting to see the sites flow. It's becoming more realtime. Yeah!<p>
+
+<b>Portals mail list</b><p>
+
+A reminder that we have a mail list going for this work, some people prefer to use email over this DG. Here are the instructions:<ul><p>
+
+<li>To subscribe, send email to <a href="mailto:requests@userland.com">requests@userland.com</a> with the subject line: subscribe portals. (No punctuation.)<p>
+
+<li>To subscribe to the digest version, send email to <a href="mailto:requests@userland.com">requests@userland.com</a> with the subject line: subscribe digest portals. <p>
+
+<li>To post to the list, send mail to <a href="mailto:portals@userland.com">portals@userland.com</a>.<p>
+
+<li>To unsubscribe, send email to <a href="mailto:requests@userland.com">requests@userland.com</a> with the subject line: unsubscribe portals.
+</ul>
+</li></li></li></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007051.html">Re: My.UserLand.Com Change Notes</a>, Larry Yudelson, 6/6/1999; 2:02:52 PM<p><li>&nbsp;<a href="msg007057.html">Re: My.UserLand.Com Change Notes</a>, David Detlefsen, 6/6/1999; 5:39:24 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

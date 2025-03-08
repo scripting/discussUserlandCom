@@ -1,0 +1,45 @@
+<html>	<head>		<title>Re: the frontiers of Frontier™</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: the frontiers of Frontier™</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tom Fuerstner</td></tr>				<tr><td><b>Posted:</b></td><td>9/6/1999; 7:47:38 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010510.html">the frontiers of Frontier™</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10621 (In response to <a href="msg010516.html">10516</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010620.html">10620</a> / <a href="msg010622.html">10622</a></td></tr>				</table>			<br>hi dave,<p>
+
+even though frontier is now marketed as a web-content-management-tool i prefer to consider it a multipurpose-programming-environment. for me its a tool that helps me to evaluate and solve complex implementation issues. <p>
+
+the main reason that frontier is capable to do this is that it is a fabulous tool to structure and manipulate digital data (information) the easy way. especially during the prototyping phase of a project no other tools delivers the power  comparable to frontiers table-  and outline-structure. almost litterally i can see my data change when i operate on them. <p>
+
+this very special Frontier™-power to visualize and manipulate data and their structure makes it a perfect fit to be an interface for webrelated projects together with the fact that any information put into an frontier odb is automatically structured. <p>
+
+the quality of a website is best described by the fact how  well the site is structured. So consequently frontier is a extraordinary webtool cause it not just helps you to implement and mantain  websites efficiently -  frontier also structures your website. I know that this is also true for other web-middleware-tools connected to relational databasesystems. but SQL-databases tend to hide to much details of your data. <p>
+
+some aspects how frontier structures information as a content management tool inspired me to develop new tools that could help to turn information into knowledge. the challenge for me was ( and still is ) to take the distributed web publishing, introduced with frontiers cool discussiongroup editing,  some step further. <p>
+
+inside the DG (discussionGroup) every published text is connected to a lot of matainformation that seems very valuable to be further evaluated. what i want to know is what is going to happen when i use this metainformation to deliver the right information to the approbriate person or to use the metainformation to connect people to each other in a more reasonable way. <p>
+
+first i implemented an algorythm (weighted term analyzing ) that creats a topological relationship for every text ( massage) posted to the DG. this topology maps the similarity of all texts compared to each other. this empowers me to install interesting services for the user. if a user shows special interest in a special text frontier will be capable of giving him advice for further reading. cause every text is related to an author it could be possible that two very similar messages could mean similar interests of the two authors who might to get in touch. if there are links inside one of the very similar textmessages it could be that these specific links could be also of interest for the authors of the other messages. and so on...... <p>
+
+this idea of bringing users with similiar (or completely different ) interests together led to the implementation of a match-making routine inside of frontier. the match-maker is based on a simple web-form with 64 questions the user has to answer with a simpe yes or no. this questionaire is then transormed into a so called propertyBot - a userprofile implemented as a list; e.g: propertyBot_1 == &#123;0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0&#125; .
+using this kind of userprofile together with a special classification system described by simple rules makes it easy to make a list of the 5 best and the 5 worst people matching a specific user.
+The usage of the classification system together with weighted rules reduced the calculation-time significantly.  ; e.g.:<p>
+
+trendy, trendy, 1 == "trendy people like trendy people" 
+this keeps the similarity index at the same level.<p>
+
+strategisch,strategisch, -2 == "strategic thinking people do not like each other"
+reduces the similarity index especially between strategic thinking people.<p>
+
+
+finally as a third idea i gave every user of the DG the possibility to judge over any other user. 
+this is very interesting because together this delivers a very interesting picture of the digital personality of a user.  the main purpose for using this system is to establish some kind of intelligent filtering on huge amounts of data and people and institutions producing these data. <p>
+
+wherever possible i developed these new routines in accordance with frontiers mainresponder. this meant that i enlarged the member-table with a similarityText table and a personalProfile table. But this also means that any of this profile operations and caculations are based on the complete membertable which leads directly to the problems i described in my last posting. 
+as you can imagine taking one propertyBot - list and comparing it to more then 10k others requires a lot of calculation power from frontier. Everytime i run a comparision i have to clause and reopen frontier automatically or ist slows down in a way that is not acceptable. ( saving the frontier.root is no solution )<p>
+
+so, my experiance is that very big tables in frontier are no problem as long as you just call (avaluate) a specific value. but if you are going to operate on a lot or all of the values of a big table things become nasty. ( concerning calculation speed and memory management ) <p>
+
+another thing is that really big tables like a over 10k sized member table means to much redundant data. instead as a lesson learned from newtons datasoups i used a member table as a prototypical object. describe the data-structure once with an intelligent table structure and store the data itself elsewhere. may be in a very frontier like objectdatabase via xml-rpc like implemented by hannes walln&ouml;fer. his vision of a webdatabse is based on an ObjectStore OODB. very powerful and scriptable with ECMA javascript. 
+Me personally  i try to solve this problem by using frontier together with python ander BE OS. Very fast very efficient even though i dont like Zope. but python is very cute . remembers me a lot of ScriptX. 
+The more i work with frontier the more i start to program it in a object oriented fashion by using tables as protoobjects and storing the real data either in simple textfiles or in databases. So i am dreaming of frontier extended with a objectoriented database natively callable via xml-rpc.<p>
+
+to sum it up: to solve the problem with big tables i  have to separate structure from data inside frontier. i can reach this goal with either better connecting frontiers odb with an external database-system (relational or object-oriented) or implementing some kind of relational  (OODB-like) storing mechanism into frontier itself.<p>
+
+i will report more in this when i have collected more experiance with this kind of system.<p>
+
+by tom
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,93 @@
+<html>	<head>		<title>Re: Can I script Outlook Express or Eudora?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Can I script Outlook Express or Eudora?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Howard Hansen</td></tr>				<tr><td><b>Posted:</b></td><td>9/7/1999; 10:53:57 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010622.html">Can I script Outlook Express or Eudora?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10678 (In response to <a href="msg010629.html">10629</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010677.html">10677</a> / <a href="msg010679.html">10679</a></td></tr>				</table>			<br>In response to your request, I've written a VB dll to archive messages to an XML format.  You'll need to register the dll on your system type "regsvr32 <dllpath>" at the command prompt.  <p>
+
+Once that's done, just double-click the exe file and you'll get a quick test-harness application.  <p>
+
+I wasn't sure how Frontier liked to work with COM objects -- if it preferred passing all of the parameters as arguments to a method, or would just as easily set the properties separately, then excecute the function.  So I implemented both.  For the one-liner, just call the ArchiveMesssages method on an object created with the progid "ArchiveEu.Archiver".  If it succeeds, the method returns the value 0, if a problem occurs, it'll return something else.  <p>
+
+
+EudoraFolderToArchive As String
+	<li>Which mail folder do you want to archive defaults to "", which archives all folders.</li>
+DaysOlderThan As Integer
+	<li>Archive all messages older than this number of days.</li>
+DeleteArchivedMessages As Boolean
+	<li>Delete messages as they are archived?  Defaults to false.</li>
+ArchiveSubfolders As Boolean
+	<li>True (default) = archive all subfolders of the folder specified in EudoraFolderToArchive </li>
+DestinationPath  As String
+	<li>Archive selected messages to what file -- provide the full path!</li>
+SaveAsUnicode As Boolean
+	<li>True = save xml file as unicode, defaults to false = non-unicode xml file.  </li>
+OverwriteExisting As Boolean
+	<li>If true, archive XML file overwrites an existing file with the same name. Defaults to false.  </li>
+ArchiveBaseDate As Date
+	<li>Archive messages based on this date.  Defaults to time COM object is instantiated.<br>
+	(not available with ArchiveMessages version of call, unless someone wants it!)</li><p>
+
+
+Bugs:  <p>
+
+<li>the folder recursion implementation doesn't seem to work correctly right now, so I'd do a folder at a time.  </li>
+<li>stores the HTML representation of the message body, which may have a different encoding than the base XML.  I've run into problems with accented characters, etc.  Perhaps it would be better to store the text version of the body. </li>
+<li>Date code currently ignores the UMT delta value, since VB doesn't understand it natively yet. </li><p>
+
+
+XML:<p>
+
+Here's an example of the XML for an archive:<p>
+
+<?xml version='1.0'?><br>
+<archive><br>
+<br>
+<message ID='45'><br>
+&nbsp;&nbsp;<date>08:39 PM 1/8/98 +0000</date><br>
+&nbsp;&nbsp;<from>Order Dept</from><br>
+&nbsp;&nbsp;<subject>Order 15518</subject><br>
+&nbsp;&nbsp;<status>1</status><br>
+&nbsp;&nbsp;<to><a href="mailto:junk@halfmagic.com&lt">junk@halfmagic.com&lt</a>;/to><br>
+&nbsp;&nbsp;<header><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<attach></attach><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<bcc></bcc><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<cc></cc><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<embeddedcontent></embeddedcontent><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<headerfrom><a href="mailto:orders@secondspin.com">orders@secondspin.com</a> (Order Dept)</headerfrom><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<headerdate>Thu, 08 Jan 1998 13:39:18 -0700</headerdate><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<headerstatus></headerstatus><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<inreplyto></inreplyto><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<msgID><<a href="mailto:3.0.32.19980108133915.02d820c8@206.204.3.13">3.0.32.19980108133915.02d820c8@206.204.3.13</a>></msgID><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<persona></persona><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<precedence></precedence><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<priority></priority><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<prioritymatch></prioritymatch><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<references></references><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<replyto></replyto><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<headersubject>Order 15518</headersubject><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<headerto><a href="mailto:junk@halfmagic.com&lt">junk@halfmagic.com&lt</a>;/headerto><br>
+&nbsp;&nbsp;</header><br>
+<messagebody><br>
+Dear Howard,
+<br>
+Thanks for your order.&amp;nbsp; Unfortunately we are out of:
+<br>
+Beck
+Clash
+Elvis Costello
+Ella Fitzgerald
+Roches
+<br>
+but we have pulled the other CDs for you.&amp;nbsp; Please let us know if we should
+proceed with the order.
+<br>
+We are unable to accept additions or substitutions.
+<br>
+Thanks,
+ss<p>
+
+</messagebody><br>
+</message><br>
+<br>
+</archive><br><p>
+
+
+The following fields have &amp; replaced with &amp;amp; and < replaced with &amp;lt; in their values:
+from, subject, to, bcc, cc, headerfrom, inreplyto, msgID, persona, references, replyto, headersubject, headerto, and messagebody.  This might cause problems later on, and more fields may need to be xml encoded.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:27 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,20 @@
+<html>	<head>		<title>Three options</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Three options</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>1/14/1999; 4:39:32 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2119 (In response to <a href="msg002103.html">2103</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002118.html">2118</a> / <a href="msg002120.html">2120</a></td></tr>				</table>			<br>Simeon, thanks again for posting this message publicly. There are marketing issues that make more sense to try to handle privately, and I've been emailing with Jeremy about these, but I feel strongly that the design and technical issues should be open and public.<p>
+
+I agree with almost everything you've said. Having agreement on the way objects are marshalled would be the best possible outcome, but it may be too late for that. It depends on how much work each of us is willing to do, and how much pain we want our users to have to endure. <p>
+
+<b>Three options</b><p>
+
+Here are the three options we're considering:<p>
+
+1. Do a Frontier suite for reading and writing WDDX formatted data. Then you could add Frontier to the list of environments that can participate in WDDX applications. I don't see any problems with this, it's straightforward and non-controversial. Requires some developer resources which are scarce, but it doesn't appear to be a huge job.<p>
+
+2. Allow a WDDX packet to be a parameter in an XML-RPC call. This would be especially attractive if you agreed to use our format for the XML-RPC wrapper, and deploy it, and promote it to your users and other developers.<p>
+
+3. Begin a negotiation to either adopt our format for marshalling objects, or we adopt yours, or we agree on a third format that is different from both. I know some developers would like to re-open our format. I've resisted this, because it's a formula for spinning. We're too small a company to want to spend much time in architecture debates, and we already did that in early 1998, and it wasn't fun! However, I believe this is the biggest win for both our companies. <p>
+
+Comments follow..<p>
+
+No matter what, we will continue to support our current wire format. We called it RPC2 because it was the second format. We can and will probably do a RPC3, RPC4, etc. The insulation for our developers is that the API remains constant. We won't break apps, but compatibility with other environments becomes more complex the more RPCs there are. The support issues are problematic. There has to be mutual pain here to make that work. We can't take all of it.<p>
+
+We have a lot of flexibility. Here's a menu for you. Which one do you want to pursue? A win in every category.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002158.html">Re: Three options</a>, Simeon Simeonov, 1/15/1999; 12:11:24 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:17 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,21 @@
+<html>	<head>		<title>Re: Is XML-RPC a scripting environment?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Is XML-RPC a scripting environment?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Fredrik Lundh</td></tr>				<tr><td><b>Posted:</b></td><td>1/20/1999; 8:13:44 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2303 (In response to <a href="msg002293.html">2293</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002302.html">2302</a> / <a href="msg002304.html">2304</a></td></tr>				</table>			<br><i>My own opinion, at this moment, is that we should try for the first approach, to get a rigorous set of rules in place about what coercions will take place.</i><p>
+
+Here's my proposal:<p>
+
+1) simply add the relevant parts of your response to
+Mr. Nitpicker to the official specification <i>as a
+requirement</i>.  XML RPC implementations must be strict
+in what they write -- if a value doesn't have a valid
+syntax, the implementation is broken.<p>
+
+2) in the spirit of XML, recommend that both clients
+and servers simply refuse to deal with malformed packages.<p>
+
+3) don't define any conversions at all in the protocol;
+if a method can accept either a <string> or a <base64>
+chunk, or a <boolean> instead of an <int>, it's up to
+the server implementor to define that.<p>
+
+I think most other solutions would reduce interoperability
+rather than improve it...
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002305.html">Re: Is XML-RPC a scripting environment?</a>, Dave Winer, 1/20/1999; 8:19:16 AM<p><li>&nbsp;<a href="msg002328.html">Re: Is XML-RPC a scripting environment?</a>, joubin, 1/20/1999; 1:37:05 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

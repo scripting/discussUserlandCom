@@ -1,0 +1,18 @@
+<html>	<head>		<title>texthitcounter.root -- improvement</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>texthitcounter.root -- improvement</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Andrew Duncan</td></tr>				<tr><td><b>Posted:</b></td><td>12/29/1999; 8:30:16 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013948.html">texthitcounter.root -- improvement</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13948</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013947.html">13947</a> / <a href="msg013949.html">13949</a></td></tr>				</table>			<br>While playing with texthitcounter.root, I noticed that Netscape doesn't send the referer field for a JavaScript include, but I came up with a workaround that seems to work quite nicely.<p>
+
+It's a two-part job. The first part is to use the following macro instead of putting the <SCRIPT&gt; tag directly into the template:<p>
+
+on hitcounter () &#123;
+	local(pta = html.getPageTableAddress());
+	local(txt="");
+	txt = "<SCRIPT LANGUAGE=\"JavaScript" SRC="http://hitcounter.yourdomain.com/counter.js$" + pta^.url + ""&gt;</SCRIPT&gt;";
+	return txt&#125;<p>
+
+The second part is also simple. Edit the counter.js script, replacing the two instances of "requestheaders.referer" with "pathargs".<p>
+
+The net result is that the URL of the page containing the &#123;hitcounter()&#125; macro is passed to the counter.js script, which logs the hit against the supplied URL.<p>
+
+I also tested it with iCab 1.8, but since it doesn't currently support JavaScript, it's effectively a noop. I guess this means that there are limits to how accurate the hitcount can be, depending on the browser in question.<p>
+
+You can see an example of this setup at <a href="http://web.webwerks.co.nz/">http://web.webwerks.co.nz/</a> -- look for "Page Views" the very bottom of the page.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013952.html">Re: texthitcounter.root -- improvement</a>, William Jones, 12/29/1999; 11:24:45 AM<p><li>&nbsp;<a href="msg013965.html">Re: texthitcounter.root -- improvement</a>, Ian Thompson, 12/30/1999; 7:08:25 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

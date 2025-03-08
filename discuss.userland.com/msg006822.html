@@ -1,0 +1,69 @@
+<html>	<head>		<title>Supporting New Attributes in ImageRef</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Supporting New Attributes in ImageRef</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tom Clifton</td></tr>				<tr><td><b>Posted:</b></td><td>5/27/1999; 5:30:07 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006822.html">Supporting New Attributes in ImageRef</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6822</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006821.html">6821</a> / <a href="msg006823.html">6823</a></td></tr>				</table>			<br>The imageRef macro supports a raft of attributes that provide information about an image.<p>
+
+These include:  <p>
+
+explanation, border, hspace, vspace, align, usemap, ismap, height, width, name, id, style, class, and (from a recent update) title.<p>
+
+At times, however, you may want to use an attribute that is not currently supported by the macro. This may happen after a new version of a browser comes out that supports additional attributes.<p>
+
+If you need/want to use an unsupported attribute in imageRef you have several options:<p>
+
+1) use an existing supported attribute to pass the unsupported attribute.<p>
+
+2) write your own imageRef macro that supports the attribute.<p>
+
+3) use an imageRef like macro that supports arbitrary attributes.<p>
+
+4) request Userland modify imageRef to support the attribute you need.<p>
+
+
+The first is a quick and dirty approach. In the recent example of imageRef not supporting the "TITLE" attribute, you can still add a title attribute by passing it within another attribute. For Example:<p>
+
+imageRef("logo",name:"imageName\" TITLE="imageTitle")<p>
+
+builds the image tag:<p>
+
+<img name="imageName" TITLE="imageTitle" ...><p>
+
+The reason this works, is that imageRef takes the parameter value and builds the image tag with the form of ATTRIBUTE="attributeValue", where attributeValue = string(parameterValue).<p>
+
+So, passing an unsupported attribute via a supported attribute is simply a matter of building a string that has quotes in the right places to generate a properly formatted attribute/value pair (ie ATTRIBUTE="attributeValue"). <p>
+
+ImageRef is going to provide quotes at the first and last position in the string. You need to make sure that there are quotes around each value by adding escaped quotes.<p>
+
+In the case above, we add an escaped quote after the name value and after the equal sign. ImageRef takes care of the other quotes. It is easy to add additional unsupported attributes, just add the attribute and place escaped quotes around its value. For example:<p>
+
+imageRef("logo",name:"imageName\" UNITS="pixels" TITLE="imageTitle")<p>
+
+builds the image tag:<p>
+
+<img name="imageName" UNITS="pixels" TITLE="imageTitle" ...><p>
+
+The second approach is a little more involved, though still pretty easy. Start by making a copy of system.verbs.builtins.html.data.standardMacros.imageRef.  Place your copy of imageRef into user.html.macros or the #tools table of your website. <p>
+
+In the first line of your copy of imageRef add the parameter that you need. If we stick with the title example, the first line would now say:<p>
+
+on imageRef (imagespec, explanation=nil, hspace="", align="", usemap="",
+     ismap=false, border=0, pageTable=nil, glossref="", vspace="", 
+     lowsrc="", rollsrc="", height="", width="", name="", id="", style="",
+     class="", title="")<p>
+
+Next, add the appropriate lines in the script to add the attribute to into the image tag. In imageRef this is usually done with a couple of lines of code like:<p>
+
+if title != "" // Check for a title attribute
+     add (" title=\"" + title + """) // add the attribute to the image tag<p>
+
+In imageRef, there are a number of statements like this, so it should be pretty easy to find where to add the new code.<p>
+
+The third approach relies on alternative macros that have been developed by other Frontier users and developers. These macros are designed so you can add any attribute to an image tag. To do this, they use an approach that is similar to approach number 1 described above.<p>
+
+For imageRef, there are at least 2 third party macros that support arbitrary attributes:
+<ul>
+<li>"Enhanced Imageref" at <a href="http://www.ocha.net/plugins/imageref/">http://www.ocha.net/plugins/imageref/</a>
+<li>"HtmlImage" at <a href="http://www.spinwardstars.com/frontier/f5/htmlImage.html">http://www.spinwardstars.com/frontier/f5/htmlImage.html</a>
+</ul><p>
+
+A final approach is to ask Userland to modify its macro to support the new attribute. Userland is generally responsive to new feature requests, as seen with the recent update of the imageRef macro to include the title attribute.  <p>
+
+But, Userland has a small staff and may not be able to devote the time necessary add the feature. If you need a solution quickly, You may need to go with one of the solutions outlined above.</img></img></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006901.html">Re: Supporting New Attributes in ImageRef</a>, Malcolm Fitzgerald, 5/31/1999; 7:27:35 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

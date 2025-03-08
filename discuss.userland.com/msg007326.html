@@ -1,0 +1,29 @@
+<html>	<head>		<title>xml-rpc spec vs frontier?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>xml-rpc spec vs frontier?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt Granroth</td></tr>				<tr><td><b>Posted:</b></td><td>6/13/1999; 9:17:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007326.html">xml-rpc spec vs frontier?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7326</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007325.html">7325</a> / <a href="msg007327.html">7327</a></td></tr>				</table>			<br>Question: when there is a difference between the XML-RPC spec and the way Frontier does it.. who wins?  Normally, I'd go with a spec anyday, but since Frontier is the benchmark in this case, I'm not sure.<p>
+
+F'rinstance, send this to betty.userland.com:<p>
+
+ <?xml version="1.0"?>
+ <methodCall><methodName>examples.getStateName</methodName>
+ <params>
+   <param>
+     <value><i4>12</i4></value>
+   </param> 
+ </params>
+ </methodcall><p>
+
+(note that the case is wrong for the closing methodCall tag)<p>
+
+betty responds thusly:<p>
+
+ (lots of fault stuff)
+ <member>
+    <name>faultString</name>
+    <value>
+       <string>Poorly formed XML text,we were expecting a </methodcall> tag. (At character #139.)</string>
+    </value>
+ </member><p>
+
+Ooooops!  The faultString contains </methodcall>.  According to the spec, that intial < should be encoded &amplt; (also, my xml parser throws a tantrum when it encounters it).<p>
+
+Now who's right?  Should my parser handle that better?  Or is betty slipping up?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007331.html">Re: xml-rpc spec vs frontier?</a>, Dave Winer, 6/14/1999; 7:03:38 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

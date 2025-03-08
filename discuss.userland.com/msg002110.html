@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: RFC: New attribute for glossary entries</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: RFC: New attribute for glossary entries</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>1/13/1999; 2:37:27 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002101.html">Staging Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2110 (In response to <a href="msg002106.html">2106</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002109.html">2109</a> / <a href="msg002112.html">2112</a></td></tr>				</table>			<br>Okay, now it's time to pick apart my own RFC :-)<p>
+
+My proposal didn't address Scalable Content.<p>
+
+Here's a potential way to get it to work with Scalable Content.<p>
+
+If "dynamic" is a boolean, it applies to all templates.<p>
+
+If "dynamic" is a table, it contains booleans named after each template in the site's #templates table.  An entry called "default" would be used for the default template, #template, and any un-named templates would assume dynamic is true, for backwards compatibility.<p>
+
+Jim
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

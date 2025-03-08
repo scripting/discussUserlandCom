@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Frontier server times out (or something)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Frontier server times out (or something)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>erik</td></tr>				<tr><td><b>Posted:</b></td><td>5/27/1999; 9:28:39 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006772.html">Can't list discussion</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6798 (In response to <a href="msg006791.html">6791</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006797.html">6797</a> / <a href="msg006799.html">6799</a></td></tr>				</table>			<br>I've seen this happen many times with Userland web pages, let's say on average once a day, and occasionally on my own Frontier-served web pages. Unless it is a coincidence, that might suggest ruling out the ISP. The page background gets painted, maybe the header, and then it eventually stops trying to load anything else on the page (this in Netscape v4.x). This morning I had the problem and the browser was on the same machine as Frontier's web served dynamic page, it persisted when I pressed the "Reload" button, and I fixed it by quitting out of Frontier, and restarting. Next time I'll try quitting out of the browser and see whether that does anything. About the time this morning that I saw the problem on my Frontier web server, there was an inetd error in the error log:<p>
+
+        client = 16.x.yyy.zz
+        port = 81
+        stream = 25
+        whatWentWrong = Can't write stream because TCP/IP error code 10035 - Resource temporarily unavailable.
+        whatWereWeDoing = Returning data<p>
+
+I really would like to see the problem identified, as it makes Frontier look unreliable.<p>
+
+    erik
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:29 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

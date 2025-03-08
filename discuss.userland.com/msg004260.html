@@ -1,0 +1,33 @@
+<html>	<head>		<title>Re: domains vs doctree in mainresponder</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: domains vs doctree in mainresponder</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Christopher Short</td></tr>				<tr><td><b>Posted:</b></td><td>3/18/1999; 3:53:13 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002974.html">domains vs doctree in mainresponder</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4260 (In response to <a href="msg004248.html">4248</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004259.html">4259</a> / <a href="msg004261.html">4261</a></td></tr>				</table>			<br><i>First it would look in the table.</i><p>
+
+<i>If it doesn't find it there, it would look in the folder.</i><p>
+
+sort of...<p>
+
+for those that can't use different domain names, but still want to run different websites off the root (default?) domain, this is achieved by having config.mainresponder.domains.default point to a table. Entries in this table are then addresses or filespecs to websites.<p>
+
+So you can have<p>
+
+<a href="http://yoursite/site1">http://yoursite/site1</a><p>
+
+<a href="http://yoursite/site2">http://yoursite/site2</a><p>
+
+etc<p>
+
+But by using a table to control this you can't have<p>
+
+<a href="http://yoursite/">http://yoursite/</a><p>
+
+be the default site, as far as I can tell unless you have the table (pointed to by config.mainresponder.domains.default) be a website.<p>
+
+As I understand it, Clay, wants <a href="http://yoursite/">http://yoursite/</a> to default to the WWW folder in the Nirvana Server folder if the table itself is not a website - which I don't believe is currently possible.<p>
+
+<i>what happens if you directly reference the default item in your docTree table rather than allow Frontier to choose that item for you as it's default? In other words, point directly at <a href="http://yoursite/default">http://yoursite/default</a> </i><p>
+
+You can point to a single page that way - but none of the links to other pages at the same level (eg other 'home'/'default' pages) can be linked unless each also has an entry in the table - which is kinda cumbersome.<p>
+
+Hopefully, this has shed some light on the subject.<p>
+
+Cheers,
+Christopher
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

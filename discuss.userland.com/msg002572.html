@@ -1,0 +1,69 @@
+<html>	<head>		<title>Omitting type tags; was Re: New tweaks for XML-RPC?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Omitting type tags; was Re: New tweaks for XML-RPC?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Bob Atkinson</td></tr>				<tr><td><b>Posted:</b></td><td>1/29/1999; 11:40:03 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002561.html">New tweaks for XML-RPC?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2572 (In response to <a href="msg002561.html">2561</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002571.html">2571</a> / <a href="msg002573.html">2573</a></td></tr>				</table>			<br>WRT the type-representation issues:<p>
+
+Why not simply eliminate the type-tags altogether?<p>
+
+<pre>
+<params>
+ <param><value>3</value></param>
+ <param><value>this is a string param</value></param>
+</params>
+</pre><p>
+
+instead of<p>
+
+<pre>
+<params>
+ <param><value><i4>3</i4></value></param>
+ <param><value><string>this is a string param</string></value></param>
+</params>
+</pre><p>
+
+In its fullness, this change would percolate through arrays & structs, but for the moment, let me just stick to the basic, scalar types for motivation. I'll followup with the other info in later responses.<p>
+
+(Aside: even better, I think, would be<p>
+
+<pre>
+<params>
+ <param>3</param>
+ <param>this is a string param</param>
+</params>
+</pre><p>
+
+but that requires rethinking how to pass the names of named-parameters.)<p>
+
+A few observations motivate my suggestion, among them:<p>
+
+(*) It's simpler, in that the packets become easier to read and to grok.<p>
+
+(*) If you're basically going to reduce the scalar types to just <string>, why bother saying that data type each time (I'd still keep element tags for structured types, like <struct> & <array>.)<p>
+
+(*) My experience is that servers that receive calls have enough intrinsic knowledge so as to be able to coerce incoming data into the type that's internally needed and expected. So this type informaton doesn't have to actually be transmitted on the wire. <p>
+
+(*) Not sending type info on the wire is the approach taken by traditional RPC systems such as DCE's NDR, thus providing an example that this idea is at least not completely off the wall.<p>
+
+(*) If you omit meta data on the wire, then it becomes feasible to build a XML-RPC server infrastructure that can easily service BOTH XML-RPC calls AND CGI calls. For example, a GET to <p>
+
+<a href="http://www.stockquoteserver.com/stockQuote/GetLastTradePrice?Symbol=DIS">http://www.stockquoteserver.com/stockQuote/GetLastTradePrice?Symbol=DIS</a><p>
+
+might map into an equivalent XML-RPC invocation<p>
+
+<pre>
+POST /stockQuote HTTP/1.0
+Host: www.stockquoteserver.com
+...
+<methodCall>
+  <methodName>GetLastTradePrice</methodName>
+  <params><param>
+     <name>Symbol</name>
+     <value>DIS</value>
+  </param></params>
+</methodCall>
+</pre><p>
+
+The key point here is that an incoming CGI invocation doesn't have type info, so it'd get hard to map it to a XML-RPC that required same.<p>
+
+I think that extending the reach of XML-RPC to the CGI syntax in this manner is quite interesting indeed. It allows an XML-RPC server to serve a much broader range of client engines than it could previously. You as Joe-web-app-developer just get that much more power by focussing your sever-side development efforts under a XML-RPC engine who can then handle the breadth of clients all automatically for you. Such engines are thus that much more useful in the world.<p>
+
+Just some thoughts....<p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002591.html">Re: Omitting type tags; was Re: New tweaks for XML-RPC?</a>, Harold Gilchrist, 1/30/1999; 10:25:35 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

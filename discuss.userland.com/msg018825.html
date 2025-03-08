@@ -1,0 +1,12 @@
+<html>	<head>		<title>Crude benchmark</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Crude benchmark</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/20/2000; 2:22:59 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018825.html">Crude benchmark</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18825</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018824.html">18824</a> / <a href="msg018826.html">18826</a></td></tr>				</table>			<br>I just ran this script on the 933Mhz W2K machine.<p>
+
+<pre>
+local (ctloops = 10000);
+local (tc = clock.ticks ());
+for i = 1 to ctloops &#123;
+	msg (i)&#125;;
+clipboard.putvalue (string ((double (clock.ticks ()) - tc) / (60.0 * ctloops)))
+</pre><p>
+
+And did a paste: 0.000195.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg018830.html">Re: Crude benchmark (updated  ;-)</a>, Sam DeVore, 7/20/2000; 2:53:58 PM<p><li>&nbsp;<a href="msg018831.html">Re: Crude benchmark</a>, Dave Winer, 7/20/2000; 3:14:02 PM<p><li>&nbsp;<a href="msg018832.html">Re: Crude benchmark</a>, Sean Lindsay, 7/20/2000; 3:17:34 PM<p><li>&nbsp;<a href="msg018836.html">iBook  300 mHz G3</a>, Clark Venable, 7/20/2000; 8:12:25 PM<p><li>&nbsp;<a href="msg018848.html">Re: Crude benchmark (StarMax 3000/240)</a>, Lewis Downey, 7/20/2000; 9:29:06 PM<p><li>&nbsp;<a href="msg018856.html">PWB 1400 - Re: Crude benchmark</a>, Karl Dubost, 7/21/2000; 4:01:27 AM<p><li>&nbsp;<a href="msg018857.html">PWB 1400 - Re: Crude benchmark</a>, Karl Dubost, 7/21/2000; 4:02:58 AM<p><li>&nbsp;<a href="msg018874.html">Re: Crude benchmark</a>, Donald W. Larson, 7/21/2000; 10:20:57 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:45 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,26 @@
+<html>	<head>		<title>drawCalendar Flaw</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>drawCalendar Flaw</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Andrew Duncan</td></tr>				<tr><td><b>Posted:</b></td><td>12/11/1999; 2:25:36 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013558.html">drawCalendar Flaw</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13558</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013557.html">13557</a> / <a href="msg013559.html">13559</a></td></tr>				</table>			<br>When Userland recently announced the "Multiple days on the home page" feature, I thought "Yippee, that's great!"<p>
+
+So I made sure I had the latest updates, jumped to the admin page, dialed in 7 days worth of news, and... nothing.<p>
+
+The reason was that I had edited the default page for the site, AKA the news page, to patch in a custom version of drawCalendar. This explains the news issue, and raises another one...<p>
+
+IMHO, it's a design flaw that makes it necessary to do this. There is no other way to get rid of those damn font tags that cause the calendar to render with helvetica/arial. Even just removing those tags from the distro, allowing the style sheet to control the fonts, would be an improvement.<p>
+
+That a custom version had to be written for Manila is significant, I think.<p>
+
+Speaking as one who has every intention of starting a commercial Manila hosting service, I can tell you that this *is* a major flaw. For a commercial service to work, the look and feel *must* be open to customisation.<p>
+
+Many of the people (potential funders) I've discussed Manila hosting with have questioned why it is that the sites look so similar. Clearly there are many ways in which Manila sites *can* be customised, albeit not always thru the browser. Equally clearly most Manila sites to date simply haven't had the need or desire to perform extensive customisation.<p>
+
+However, if I had even 25 sites which needed a customised calendar, I'd have to do a lot of work to keep them in synch with the latest additions to Manila. The effort itself is not the problem, but how do I explain to my investors why the effort is required?<p>
+
+The calendar in particular, since it is central to the Manila navigation model, should be open to customisation.<p>
+
+I can think of at least two ways to make it possible, but it will require Userland to make and distribute the changes. The simplest would be three optional directives in the #prefs table, which are checked for by drawCalendar and used if they exist. The other way would be some kind of callback.<p>
+
+As things stand, it's not possible without having screwups whenever there is an update to Manila, as has just happened.<p>
+
+I can understand that Userland might want to use the calendar as a branding device for Manila: if that is so, and if it is a course that Userland are committed to, then I can understand their reluctance to make the calendar customisable. If someone at Userland could simply confirm that this is the case, then I can accept it and move on.<p>
+
+Otherwise, can we please start a discussion about how best to deal with it?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013560.html">Re: drawCalendar Flaw</a>, Dave Winer, 12/11/1999; 7:03:16 AM<p><li>&nbsp;<a href="msg013561.html">Re: drawCalendar Flaw</a>, David Theige, 12/11/1999; 7:47:18 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

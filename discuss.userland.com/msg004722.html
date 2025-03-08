@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: XML-RPC for WebObjects/Objective-C?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC for WebObjects/Objective-C?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Steve Ivy</td></tr>				<tr><td><b>Posted:</b></td><td>4/1/1999; 5:39:06 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004716.html">XML-RPC for WebObjects/Objective-C?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4722 (In response to <a href="msg004717.html">4717</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004721.html">4721</a> / <a href="msg004723.html">4723</a></td></tr>				</table>			<br>I see a couple issues involved here:<p>
+
+
+- Getting an xml parser on OSXS. I don't think that'd be a problem since you can take James Clark's expat (straight c) and put obj-c wrappers on it. <p>
+
+
+- The trick would be deciding how to "objectivize" the various datatypes used in xml-rpc. PropertyLists might do it, although I would think you'd want to parse the xml into an actual object graph. I haven't read up on PropertyLists, so someone like Jonathan is welcome to correct me.<p>
+
+
+Generally, someone needs to develop a generic xml framework for OSXS, including parser, validator, and the ability to create and work with xml trees. Implementing xml-rpc in the context of this framework would be simple. (I would include the DOM in that spec as well).<p>
+
+--Steve
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004732.html">Re: XML-RPC for WebObjects/Objective-C?</a>, Jonathan Hendry, 4/1/1999; 8:56:48 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:10 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

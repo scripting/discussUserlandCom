@@ -1,0 +1,22 @@
+<html>	<head>		<title>Secure Prevention of Deep Linking</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Secure Prevention of Deep Linking</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Flanagan</td></tr>				<tr><td><b>Posted:</b></td><td>8/10/1999; 2:22:30 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009274.html">Deep Linking</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9320 (In response to <a href="msg009309.html">9309</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009319.html">9319</a> / <a href="msg009321.html">9321</a></td></tr>				</table>			<br>Jeremy Bowers writes:<p>
+
+<I>
+There are many technical possibilities. The one I came up with involves creating a permission token of some kind, and embedding it (dynamically) into the querystring on the link, recording that that is legal to follow for, say, 10 minutes, after which, you need to reload the page for a new one. (No cookies, no broken links, all you need is a database, and a competent programmer could put this together in hours. For real security, add IP tracking, so even a script
+to pull a current link off a page won't work.)</I><p>
+
+I came up with a few in my head as well, and the one which Jeremy suggests is the most sensible. Here's a way to make it very secure, and not require a database (or any state):<p>
+
+The webserver has a token, which is kept secret, and changed every day. When the user hits the "gateway" URL, a page is generated where links into content are via a CGI with URLs that include a reference to content, a timestamp and a token which is of the form<p>
+
+MD5(clientip + timestamp + secret)<p>
+
+Where '+' can mean either concatenation, XOR or any suitable combination operator. Replace MD5 with your favorite hash. The tokens guarantee access for that IP address for a preconfigured amout of time (1 hour), and cannot be forged (it is unlikely you would be able to extract the secret token from the hash). A faked or expired token simply re-loads the gateway page (or generates a nastygram, if that's your thing...)<p>
+
+The URL then looks like:<p>
+
+<PRE><a href="http://www.stingy.com/stories/deeplink?ts=934319263&tk=7fab539d59ff83c2e91a049acb123a4b">http://www.stingy.com/stories/deeplink?ts=934319263&tk=7fab539d59ff83c2e91a049acb123a4b</a></PRE><p>
+
+The server doesn't need to check a database of links to verify that the code is correct, nor does it need to maintain any state on a per-client basis. <p>
+
+The content CGI only needs to re-compute the hash based on the client's IP address, the supplied timestamp (ts=) and it's own secret token, and compare it with the supplied client token (tk=). If they're the same, then the URL is valid and the content is supplied.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009331.html">Re: Secure Prevention of Deep Linking</a>, Jeremy Bowers, 8/11/1999; 5:52:50 AM<p><li>&nbsp;<a href="msg009354.html">Overkill?</a>, erik@geekfun.com, 8/11/1999; 3:53:06 PM<p><li>&nbsp;<a href="msg009365.html">Re: Secure Prevention of Deep Linking</a>, John Brewer, 8/11/1999; 7:15:25 PM<p><li>&nbsp;<a href="msg009371.html">Re: Secure Prevention of Deep Linking</a>, Jim Flanagan, 8/11/1999; 9:00:41 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:48 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

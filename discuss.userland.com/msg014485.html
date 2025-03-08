@@ -1,0 +1,44 @@
+<html>	<head>		<title>Spellchecking suggestion</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Spellchecking suggestion</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Sean Lindsay</td></tr>				<tr><td><b>Posted:</b></td><td>1/15/2000; 2:09:28 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg014485.html">Spellchecking suggestion</a></td></tr>				<tr><td><b>Msg #:</b></td><td>14485</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg014484.html">14484</a> / <a href="msg014486.html">14486</a></td></tr>				</table>			<br>Dave,<p>
+
+Have another look at the <A HREF="http://www.cogsci.princeton.edu/~wn/license/">licence agreement</A> for <A HREF="http://www.cogsci.princeton.edu/~wn/">WordNet</A>, which states:<p>
+
+<Blockquote>WordNet&#174; is unencumbered, and may be used in commercial applications in accordance with the following license agreement....<p>
+
+Permission to use, copy, modify and distribute this software and database and its documentation for any purpose and without fee or royalty is hereby granted, provided that you agree to comply with the following copyright notice and statements, including the disclaimer, and that the same appear on ALL copies of the software, database and documentation, including modifications that you make for internal use or for distribution.<p>
+
+WordNet 1.6 Copyright &#169; 1997 by Princeton University. All rights reseved.</Blockquote><p>
+
+This makes a lot of things possible.<p>
+
+<b>Dictionary with Definitions</b><p>
+
+The WordNet database is available in a "Prolog-readable" format that is basically a text file, and can be converted reasonably easily into a Frontier db. (I've written a script to do this, but it's in 5.0.2-era code.)<p>
+
+Apart from the obvious utility of having instant access to 50,000+ words, the WordNet database has another benefit: definitions.<p>
+
+The definitions stricture is terrific. In the main wordlist, each word is assigned a number which corresponds to a definition, stored in a different file. It also stores info on each word's synonym set, etc. (Everything that the online WordNet does.)<p>
+
+At a simple level the wordlist can be converted to a lookup table. (It's about 4.7MB) The definition number can also be stored with each word. If the definitions list is also converted to a separate db, you get a powerful online dictionary. Smart cookies could no doubt figure out a way to reduce the size of the lookup table.<p>
+
+I haven't gotten far with the implementation of definitions yet (I'm using the quirky db verbs directly!), but as a spellchecking lookup table it works fine.<p>
+
+Other, specialised dictionaries could be created using the same format. (I have a medical wordlist, but haven't converted it yet.)<p>
+
+<b>Spellchecking Interfaces</b><p>
+
+The most difficult part of this process is the spellchecking routine itself. For me the process is complicated because the WordNet dictionary is in US-English, and I write in the Queen's English, so my spellchecking routine needs a "UK English" flag and a set of rules for converting -ize to -ise etc.<p>
+
+I'm sure the community will develop lots of interfaces, though. For instance it would be possible to create a web interface that turns each misspelled word into a drop-down box of suggestions.<p>
+
+Of course, all interfaces would have to include WordNet's copyright notice.<p>
+
+<b>The Suggestions Theory</b><p>
+
+Suggested words is the hardest bit. Creating an algorithm for finding suggestions is well beyond my capabilities, so I've tried a different tack: keeping a table of misspelled words together with the corrected words, and maintaining a set of "auto-correct" words for common typos ("hte" -> "the" etc.).<p>
+
+The system I'm toying with will pop up a dialog box when it finds a mispelled word, including a suggestion in the edit field. If a misspelling is replaced with a particular suggestion repeatedly, it becomes an auto-correction.<p>
+
+<b>The Community Spellchecker</b><p>
+
+A powerful way to implement this would be to allow the users of the spell-checker to contribute their suggestion lists to a central db, which could combine them. This would be the fastest way for the suggestion feature to develop.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:54:06 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

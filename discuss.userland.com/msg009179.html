@@ -1,0 +1,76 @@
+<html>	<head>		<title>Re: Scripting Challenge: Tree Charts in Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scripting Challenge: Tree Charts in Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>John Styles</td></tr>				<tr><td><b>Posted:</b></td><td>8/5/1999; 1:00:42 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009163.html">[Mini-HowTo] Auto-numbering</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9179 (In response to <a href="msg009167.html">9167</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009178.html">9178</a> / <a href="msg009180.html">9180</a></td></tr>				</table>			<br>If you are interested in using a client side ActiveX control rather than generating an image on the fly, then check out
+<a href="http://www.quiksoft.com/sitemapper/samples/smsched.asp">http://www.quiksoft.com/sitemapper/samples/smsched.asp</a><p>
+
+Which uses a control. It is not freeware so if you use it other than from their web-site you get various 'this is a demo' messages, which is 'cool' - to each their own business model.<p>
+
+Here is some code which displays a fully open tree with a top node each of which has 2 branches, each of which has 2 braches each of which has 2 branches. It was unashamedly developed by using one of their web pages and hacking it around until it worked.<p>
+
+-- SNIP HERE --
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><p>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR"
+</head><p>
+
+<body bgcolor="#FFFFFF" topmargin="0"><p>
+
+<p><font size="5">Minimalist Sample</font> </p><p>
+
+
+<p>
+<OBJECT ID="MyTree" ALIGN=TOP WIDTH=100% HEIGHT=100% type="application/x-oleobject"
+CLASSID="CLSID:93068922-3E44-11D1-8424-0020AFD5F29D"
+CODEBASE="http://download.quiksoft.com/obj/sitemapper2.ocx#version=2,1,0,11">
+</OBJECT><p>
+
+
+<script language="VBSCRIPT"><p>
+
+Sub Blah
+    
+   MyTree.Font="Arial"
+   MyTree.Sorted=false
+   MyTree.DeleteAllNodes
+   MyTree.AddNode "1", "", 0
+   MyTree.AddNode "1\2", "", 1
+   MyTree.AddNode "1\2\3", "", 2
+   MyTree.AddNode "1\2\3\4", "", 3
+   MyTree.AddNode "1\2\3\5", "", 4
+   MyTree.AddNode "1\2\6", "", 5
+   MyTree.AddNode "1\2\6\7", "", 6
+   MyTree.AddNode "1\2\6\8", "", 7
+   MyTree.AddNode "1\9", "", 8
+   MyTree.AddNode "1\9\10", "", 9
+   MyTree.AddNode "1\9\10\11", "", 10
+   MyTree.AddNode "1\9\10\12", "", 11
+   MyTree.AddNode "1\9\13", "", 12
+   MyTree.AddNode "1\9\13\14", "", 13
+   MyTree.AddNode "1\9\13\15", "", 14
+   MyTree.ExpandAll
+  
+End Sub    <p>
+
+
+Sub Window_OnLoad()
+   MyTree.Appearance=0
+   Blah()<p>
+
+End Sub<p>
+
+</script> </p>
+</body>
+</html>
+---- END SNIP --<hr size=2 width=100%><p><p>
+It should be reasonably obvious to the trained eye what's going on here. The first parameter is the 'path' of the node - only the bit after the last slash is displayed. The final parameter is the icon used for the node.<p>
+
+It would presumably be easy to dynamically generate the
+MyTree.AddNode statements.<p>
+
+I think this is a more elegant solution that generating images. There may be freeware ActiveX controls which do the same thing. Obviously not a cross platform solution though!<p>
+
+John Styles
+<a href="mailto:john@gurk.demon.co.uk">john@gurk.demon.co.uk</a>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

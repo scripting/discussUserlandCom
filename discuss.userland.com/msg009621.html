@@ -1,0 +1,77 @@
+<html>	<head>		<title>Re: Applescript XML-RPC Client</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Applescript XML-RPC Client</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Spahr</td></tr>				<tr><td><b>Posted:</b></td><td>8/18/1999; 6:00:55 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009612.html">Applescript XML-RPC Client</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9621 (In response to <a href="msg009617.html">9617</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009620.html">9620</a> / <a href="msg009622.html">9622</a></td></tr>				</table>			<br>Dave<p>
+
+I would love base64 to work. Point me to a way to do it (that hopefully does not require launching an app), and I can add it relatively easily. I'd really like myself, for projects I need this client for.<p>
+
+<i>How did you do it?</i><br>
+Mac OS 8.6's URL access gives you a transparent http (and https!) client to use in your scripts. <a href='http://www.latenightsw.com'>Late Night Software</a> put expat in an osax. After that it was just fleshing it out..<p>
+
+<i>Also, would it be possible to paste the read me into a DG message?</i><br><p>
+
+
+Applescript XML-RPC Client<br>
+version 1.3d1, 8.18.99<br>
+by James Spahr, <a href="mailto:james@designframe.com">james@designframe.com</a><br><p>
+
+
+In order to use this script you need the XML Tools osax from<br>
+Late Night Software. You can download it here:<br><p>
+
+<a href="http://www.latenightsw.com/freeware/XMLTools/index.html">http://www.latenightsw.com/freeware/XMLTools/index.html</a><p>
+
+You also need to be running Mac OS 8.6 or higher<p>
+
+
+How to use:<p>
+
+After you place the "xmlrpc.lib" file into you scripts folder,<br>
+within your system folder, you can call the xml-rpc client from<br>
+any script like this:<p>
+
+<pre>
+tell application "Finder"
+	set pathToxmlrpcLib to path to system folder as string
+end tell<p>
+
+set pathToxmlrpcLib to pathToxmlrpcLib & "Scripts:xmlrpc.lib"
+set xmlrpc_client to (load script file pathToxmlrpcLib)<p>
+
+set serverURL to "http://www.scripting.com:81/RPC2"
+set serverScript to "examples.getStateList"
+set serverParams to &#123;&#123;1, 4, 45, 6&#125;&#125;<p>
+
+tell xmlrpc_client
+	set s to xmlrpc (serverURL, serverScript, serverParams)
+end tell<p>
+
+return s<p>
+
+</pre>
+The important aspects of this example are the use of the load script<br> command, and the xmlrpc api. The xmlrpc api looks like this:<br>
+<Pre>
+ xmlrpc (serverURL, serverScript, serverParams)
+ </pre>
+server URL is a complete URL, beginning with <a href="http://">http://</a>, or <a href="https://">https://</a><br>
+and ending with the path to the xml-rpc server<br><p>
+
+serverScript is the name of the script to call on the remote machine<p>
+
+serverParams is a list of parameters to send to the server.<p>
+
+all arguments are required.<p>
+
+
+Known Issues:<br>
+<base64> is not supported<p>
+
+<struct> format is a little odd, but it works. Structs are<br>
+formatted as a list of records in applescript:<p>
+
+&#123;&#123;structName:"number", structValue:12&#125;, &#123;structName:"str", structValue:"Hello!"&#125;&#125;<p>
+
+<p>
+
+Please let me know about any problems, or success stories.<p>
+
+James<br>
+<a href="mailto:james@designframe.com">james@designframe.com</a></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009624.html">base64 source code</a>, Dave Winer, 8/18/1999; 6:21:34 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:57 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

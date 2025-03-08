@@ -1,0 +1,98 @@
+<html>	<head>		<title>Free and legal RLE compresed GIF code?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Free and legal RLE compresed GIF code?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Don Hopkins</td></tr>				<tr><td><b>Posted:</b></td><td>8/28/1999; 1:19:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010005.html">GIFs get expensive</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10172 (In response to <a href="msg010005.html">10005</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010171.html">10171</a> / <a href="msg010173.html">10173</a></td></tr>				</table>			<br>To the original point about using GIF files on the web: <p>
+
+I certainly hope this only applies to dynamically generated LZW compressed GIF files, created by the web server, but not (for example) to GIF files written out by a licensed copy of PhotoShop and then uploaded to the web server. <p>
+
+In the case of web servers dynamically generating gif files, it is possible to write out a run-length-encoded gif file that any gif decoder will correctly decompress.<p>
+
+Since run length encoding is not covered by the LZW patent, you don't have to pay a licensing fee to use code that generates RLE compressed gif files, I believe. <p>
+
+RLE compressed gif files are a bit larger that LZW compressed gif files, since it's not as good a compression scheme.
+But they are still quite good for flat "business graphics" kind of stuff like bar charts and stock graphs.<p>
+
+If your web server is dynamically generating pornographic images with smooth full color gradients, then you're better off using the free jpeg library anyway. <p>
+
+Version 1.4 of the "GD" library has free code that writes out RLE compressed GIF files. 
+But in the latest version 1.6.3, that code has been dropped, replaced with free PNG code.
+I don't know why they removed it, other than what the web page says:<p>
+
+<a href="http://www.boultell.com/gd">http://www.boultell.com/gd</a><p>
+
+"What's new in version 1.6?<p>
+
+Version 1.6 features the following changes: 
+Support for 8-bit palette PNG images has been added. Support for GIF has been removed. This step was taken to completely avoid the legal controversy regarding the LZW compression algorithm used in GIF. Unisys holds a patent which is relevant to LZW compression. PNG is a superior image format in any case. Now that PNG is supported by both Microsoft Internet Explorer and Netscape (in their recent releases), we highly recommend that GD users upgrade in order to get well-compressed images in a format which is legally unemcumbered."<p>
+
+"Non-LZW-based GIF compression code<p>
+
+Version 1.3 contains GIF compression code that uses simple Run Length 
+Encoding instead of LZW compression, while still retaining compatibility with normal LZW-based GIF decoders (your browser will still like your GIFs).<p>
+
+LZW compression is patented by Unisys. This is why there have
+been no new versions of gd for a long time. THANKS to
+Hutchison Avenue Software Corporation for contributing
+this code. THE NEW CODE PRODUCES LARGER GIFS AND IS NOT WELL
+SUITED TO PHOTOGRAPHIC IMAGES. THIS IS A LEGAL ISSUE.
+IT IS NOT A QUESTION OF TECHNICAL SKILL. PLEASE DON'T
+COMPLAIN ABOUT THE SIZE OF GIF OUTPUT. THANKS!"<p>
+
+Hmm... I don't know if they removed the RLE GIF code because there was an actual threat, or just to avoid any possibility of controversy. <p>
+
+If they took it out just to score a political point for PNG against Unisys, then I think it would have been more annoying to Unisys to keep the RLE GIF code in there, and encourage people to use it instead of licensing LZW.<p>
+
+The RLE-compression code seems to step around the patent quite elegantly. 
+Iff (and a big iff -- I mean "IF AND ONLY IF", not "Image File Format") RLE GIF compression code really is legally safe to use without paying Unisys, then everyone should know about it, and Unisys can just dry up and blow away. <p>
+
+But I'm afraid that it might be the kind of thing, that Unisys would have to sue somebody and lose, before the code could be considered in the clear. <p>
+
+Does anyone know the legal status of RLE GIF compressors, for sure?
+I would like to use the code myself, but it's kind of weird that it's been dropped from the latest version of GD. <p>
+
+Here is the copyright notice from version 1.4 of GD.<p>
+
+-Don<p>
+
+
+"Credits and license terms
+  
+In order to resolve any possible confusion regarding the authorship of
+gd, the following copyright statement covers all of the authors who
+have required such a statement. _Although his LZW compression code no
+longer appears in gd, the authors wish to thank David Rowley for the
+original LZW-based GIF compression code, which has been removed due to
+patent concerns._ _If you are aware of any oversights in this
+copyright notice, please contact Thomas Boutell who will be pleased to
+correct them._<p>
+
+COPYRIGHT STATEMENT FOLLOWS THIS LINE<p>
+
+Portions copyright 1994, 1995, 1996, 1997, 1998, by Cold Spring
+Harbor Laboratory. Funded under Grant P41-RR02188 by the National
+Institutes of Health.<p>
+
+Portions copyright 1996, 1997, 1998, by Boutell.Com, Inc.<p>
+
+GIF decompression code copyright 1990, 1991, 1993, by David Koblas
+(<a href="mailto:koblas@netcom.com">koblas@netcom.com</a>).
+     
+Non-LZW-based GIF compression code copyright 1998, by Hutchison
+Avenue Software Corporation (<a href="http://www.hasc.com/">http://www.hasc.com/</a>, <a href="mailto:info@hasc.com">info@hasc.com</a>).
+     
+_Permission has been granted to copy and distribute gd in any
+context, including a commercial application, provided that this
+notice is present in user-accessible supporting documentation._<p>
+
+This does not affect your ownership of the derived work itself, and
+the intent is to assure proper credit for the authors of gd, not to
+interfere with your productive use of gd. If you have questions,
+ask. "Derived works" includes all programs that utilize the
+library. Credit must be given in user-accessible documentation.<p>
+
+Permission to use, copy, modify, and distribute this software and
+its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation. This software is
+provided "as is" without express or implied warranty.<p>
+
+END OF COPYRIGHT STATEMENT"
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg010189.html">Re: Free and legal RLE compresed GIF code?</a>, Don Hopkins, 8/28/1999; 3:52:34 PM<p><li>&nbsp;<a href="msg010196.html">LibGd and LZW </a>, Arnold V. Lesikar, 8/29/1999; 8:04:23 AM<p><li>&nbsp;<a href="msg010350.html">Re: Free and legal RLE compresed GIF code?</a>, Don Hopkins, 8/31/1999; 3:57:42 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:14 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

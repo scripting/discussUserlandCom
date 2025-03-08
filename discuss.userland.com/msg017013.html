@@ -1,0 +1,24 @@
+<html>	<head>		<title>Re: Firewalls, Hooray</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Firewalls, Hooray</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ken MacLeod</td></tr>				<tr><td><b>Posted:</b></td><td>5/5/2000; 1:45:49 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016956.html">scriptingNews outline for 5/5/2000</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17013 (In response to <a href="msg016956.html">16956</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017012.html">17012</a> / <a href="msg017014.html">17014</a></td></tr>				</table>			<br><blockquote><i>The people who love firewalls say that our messages circumvent the intentions of the firewall administrators. I don't think this is true.  Ask people who try to run Pike behind a firewall. Oooops. It doesn't work.</i> [FI#1]</blockquote><p>
+
+The intent of firewall administrators is to understand all the communication going across the firewall and assess its possible security impact on the organization.<p>
+
+Section 3.11 of the <a href="http://www.faqs.org/faqs/firewalls-faq/">comp.security.firewalls FAQ</a> suggests this:<p>
+
+<blockquote><p>For firewalls where the emphasis is on security instead of connectivity, you should consider blocking <em>everything</em> by default, and only specifically allowing what services you need on a case-by-case basis.</p><p>
+
+<p>If you block everything, except a specific set of services, then you've already made your job much easier. Instead of having to worry about every security problem with everything product and service around, you only need to worry about every security problem with a specific set of services and products. :-)</p><p>
+
+<p>Before turning on a service, you should consider a couple of questions:
+<ul>
+   <li> Is the protocol for this product a well-known, published protocol?
+   <li> Is the application to service this protocol available for public inspection of its implementation?
+   <li> How well known is the service and product?
+   <li> How does allowing this service change the firewall architecture? Will an attacker see things differently? Could it be exploited to get at my internal network, or to change things on hosts in my DMZ?
+</ul><p>
+
+</blockquote><p>
+
+In essence, not a simple task and definitely something you'd want to do as few times as possible to prevent admin errors (one of the most common causes of firewall incidents).<p>
+
+When it comes to any particular protocol, incoming connections are far more difficult to assess than outgoing connections.</blockquote></blockquote>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg017016.html">Incoming</a>, David Valentine, 5/5/2000; 2:28:56 PM<p><li>&nbsp;<a href="msg017019.html">Firewall stance and tunneling</a>, Ken MacLeod, 5/5/2000; 3:10:56 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

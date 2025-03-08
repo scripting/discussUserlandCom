@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: system.verbs.builtins.html.ftpText</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: system.verbs.builtins.html.ftpText</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>6/5/1999; 1:17:54 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007025.html">system.verbs.builtins.html.ftpText</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7032 (In response to <a href="msg007025.html">7025</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007031.html">7031</a> / <a href="msg007033.html">7033</a></td></tr>				</table>			<br>Thanks for pointing out this bug.<p>
+
+The correct fix is not call html.ftpText at all for binary objects. If you follow the scripts, you'll see that html.buildObject calls html.publishBinaryObject, which handles writing the file to disk and ensuring that it has the proper type and creator.<p>
+
+But then html.ftpText was re-writing the file to disk, and writing it as a text file this second time. No good.<p>
+
+To fix this, both html.commands.releaseRenderedPage and html.ftpTable should check to see if the object being published is a binary -- if so, don't call html.ftpText, since the file's already been written.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,40 @@
+<html>	<head>		<title>It's just storage</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>It's just storage</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>5/16/1999; 8:21:32 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006265.html">Source release of Prefs.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6318 (In response to <a href="msg006317.html">6317</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006317.html">6317</a> / <a href="msg006319.html">6319</a></td></tr>				</table>			<br>In the message to the XML-DEV list, I suggested that other environments could support the XML preferences spec. I wanted to direct that message to people here too, esp ones who have implemented <a href="http://www.xmlrpc.com/">XML-RPC</a> in environments other than Frontier. <p>
+
+A few days <a href="http://news.userland.com/1999/05/13/">ago</a> I posted some notes on the Scripting News home page about our decision in April to look to deploy some of our services on other OSes, esp various flavors of Unix.<p>
+
+The reason we pushed this project out quickly is because the XML spec for preferences is an essential tool for us in any environment we're going to run our services in. Getting it implemented in other environments is key to our being able to move apps from Frontier to other systems.<p>
+
+<b>Snippet</b><p>
+
+For reference, here's a snippet:<p>
+
+<pre>
+<panel title="Your Web Presence">
+	<description>Many Scripting News readers have their own websites. We'd like to index these sites in our search engine. We're also interested in knowing if you run your own server with a fixed address (a domain name is OK too). Are you running Frontier on your server?</description>
+	<item title="Home Page URL" type="string" adr="websiteinfo.homePageUrl" size="50" maxLength="80">
+		<popuptext>The web address of a page with information about yourself.</popuptext>
+		</item>
+	<item title="Server IP address" type="string" adr="websiteinfo.serverAddress">
+		<popuptext>If you're running your own web server at a fixed IP address, enter it here. This lets us find out what kind of server software UserLand.Com members are running.</popuptext>
+		</item>
+	<item title="Frontier" type="boolean" adr="websiteinfo.hasFrontier">
+		<popuptext>Is Frontier running on this system? If so, we could possibly connect our servers together in interesting ways</popuptext>
+		</item>
+	<item title="Frontier port #" type="string" adr="websiteinfo.frontierPort">
+		<popuptext>What TCP/IP port is Frontier running on? (It's usually 80 or 81.)</popuptext>
+		</item>
+	</panel>
+</pre><p>
+
+<b>It's just storage</b><p>
+
+If you look closely, you'll see that every object in the spec has an associated database address, something like websiteInfo.frontierPort or personalInfo.name. <p>
+
+In the Frontier implementation, these refer to items in sub-tables of the user's table in members.root. But they could just as easily map onto cells in a row in a relation stored in mySql, or a page in a FileMaker database on the Mac, or even something running in a HyperCard stack soup. <p>
+
+It's just storage. <p>
+
+<b>Questions</b><p>
+
+Does this make sense? Can we get this running in client-side Java? In Python and Zope? Perl running in Apache?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006331.html">Re: It's just storage</a>, Jim Roepcke, 5/16/1999; 2:48:33 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

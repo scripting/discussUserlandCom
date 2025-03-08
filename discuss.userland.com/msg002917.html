@@ -1,0 +1,12 @@
+<html>	<head>		<title>Defeating the browser's cache</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Defeating the browser's cache</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/16/1999; 5:42:22 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002917.html">Defeating the browser's cache</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2917</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002916.html">2916</a> / <a href="msg002918.html">2918</a></td></tr>				</table>			<br>I have a script that opens a web page in my browser, using <a href="http://docserver.userland.com/webBrowser/openURL">webBrowser.openUrl</a>, but how can I force it to refresh the page from the server?<p>
+
+<i>You can't!</i> There's no wire that connects up to the Refresh/Reload button. <p>
+
+<i>But</i> if you put this in the <head> section of the page, it will refresh every time you go there:<p>
+
+<pre><META HTTP-EQUIV="Expires" CONTENT="Mon, 01 Jan 1990 01:00:00 GMT"></pre><p>
+
+It works. It solved a big problem I had with editing the home page in the web browser. When a script opens the editing page sometimes it would show me an old version of the page. When I click on Post Message, items are deleted! Ooooops. <p>
+
+<i>Thanks to Tommy Sundstrom for posting this howto on the Script Meridian community list. It's a life-saver.</i>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002918.html">Re: Defeating the browser's cache</a>, Philip Suh, 2/16/1999; 6:14:18 AM<p><li>&nbsp;<a href="msg002922.html">Re: Defeating the browser's cache</a>, ben@fusiondev.com, 2/16/1999; 6:56:31 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:54 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

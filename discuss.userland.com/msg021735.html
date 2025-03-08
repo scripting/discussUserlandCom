@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: reserved words in OPML?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: reserved words in OPML?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>9/26/2000; 12:34:33 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg021693.html">reserved words in OPML?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21735 (In response to <a href="msg021697.html">21697</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021734.html">21734</a> / <a href="msg021736.html">21736</a></td></tr>				</table>			<br>To me, the type attribute is akin to the name of a "class" in OO terms.<p>
+
+Why not borrow a technique that has served Java very very well, the hierarchical namespace?<p>
+
+If I make some new node-types, i could call them:<p>
+
+type="com.roepcke.ftp.Server"<p>
+
+type="com.roepcke.ftp.Folder"<p>
+
+type="com.roepcke.ftp.File"<p>
+
+type="com.roepcke.imap.Message"<p>
+
+The nice thing is, this actually works right now, and doesn't need a central registry.  The hierarchy is optional of course, so type="link" and type="song" would still work, it wouldn't HAVE to be changed to com.userland.radio.link and com.userland.radio.song.<p>
+
+No XML namespaces needed, no registry, no collisions. (not that I'm saying they're a bad thing, I don't really know)<p>
+
+Jim
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg021762.html">Re: reserved words in OPML?</a>, Dave Winer, 9/26/2000; 7:24:36 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

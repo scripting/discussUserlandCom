@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Mail to the Future Server Functionality</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Mail to the Future Server Functionality</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Shinpaugh</td></tr>				<tr><td><b>Posted:</b></td><td>2/18/1999; 3:25:57 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003019.html">Mail to the Future Server Functionality</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3023 (In response to <a href="msg003019.html">3019</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003022.html">3022</a> / <a href="msg003024.html">3024</a></td></tr>				</table>			<br>We need a new RPC handler (mailtothefuture.editMessage) to edit MTTF messages.<p>
+
+Currently there is a facility to edit MTTF messages.  There is a Mainresponder Membership Handler for setting a MTTF user's profile called (mainresponder.members.setProfile) and since all the MTTF messages for that user are stored in a table called "Queue" in their profile, the data in the messages can be updated using this call.  Access to a specific message using this method is made up of "Member Group, Username, Password, Unique MessageID".<p>
+
+Here are the reasons why I think a different facility needed:<p>
+
+In the MTTF RPC Handlers there is a deleteMessage handler which deletes a message.  Access to a specific message in this method is made up of "Username, Password, msgNum".  msgNum is the nth message in that user's queue NOT a unique messageID.  <p>
+
+The function of editing an MTTF message really belongs within Mail to the Future, (since deleteMessage is there), it should be it's own RPC handler, and it should take the same access to a single message as deleteMessage does, (username, password, msgNum).  Instead of making modifications to the messages through two different keys, from two different RPC Handler sets.<p>
+
+So I suggest we add:<p>
+
+mailtothefuture.editMessage(username, password, n, msgStruct)
+ 
+This would take four params, memberkey (mail address), password, sequential message number, and a struct containing the message with revised data.<p>
+
+It would replace the nth message in the user's queue with the data contained in the revised msgStuct sent to the handler. Returns the empty string. If the user's queue doesn't have an nth element or the user/password fails, it <fault>s.<p>
+
+David
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003024.html">mailToTheFuture.setMessage</a>, Dave Winer, 2/18/1999; 10:04:57 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

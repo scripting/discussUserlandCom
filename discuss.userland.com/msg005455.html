@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Scalable content via mainResponder</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scalable content via mainResponder</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brian V. Hughes</td></tr>				<tr><td><b>Posted:</b></td><td>4/30/1999; 6:13:29 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005205.html">Scalable content via mainResponder</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5455 (In response to <a href="msg005205.html">5205</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005454.html">5454</a> / <a href="msg005456.html">5456</a></td></tr>				</table>			<br>Sorry for my late entry into this topic...<p>
+
+The only thing that I would add to Sam's How To is to caution people to make sure that all of the their templates are of the same type.<p>
+
+The assignment: <pre>
+    adrPageTable^.template = @adrPageTable^.templates^.print
+</pre><p>
+
+won't work correctly if your primary #template is an outline, and your print template is a wptext.<p>
+
+Of course, these days, I can't imagine why someone would use anything but outlines for templates, but maybe that's just me. ;-><p>
+
+-Hades
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

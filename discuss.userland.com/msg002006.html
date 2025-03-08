@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: The Quake Guy Talks</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: The Quake Guy Talks</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Bruce Hoult</td></tr>				<tr><td><b>Posted:</b></td><td>1/11/1999; 5:24:50 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001968.html">The Quake Guy Talks</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2006 (In response to <a href="msg002005.html">2005</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002005.html">2005</a> / <a href="msg002007.html">2007</a></td></tr>				</table>			<br><b>As to MultiFinder, I was refering to the handle based memory API. <b>MultiFinder did not require that all of a program's memory be</b></b>
+<b>Contiguous.</b><p>
+
+You're saying that under MultiFinder, the old, standard, Mac handle-based calls would share a single global memory space for all running apps?<p>
+
+That's not correct, and never has been.  Making that reliable in the face of programs expecting to be able to quit without explicitly deallocating all of their memory would have required breaking memory manager data-structure compatability with earlier releases (e.g. by putting an "owned by" field in each Handle) and Apple choose not to do that at that time.<p>
+
+The Amiga did what you suggest, but not MultiFinder.<p>
+
+It's even possible that Andy Hertzfeld's pre-MultiFinder "Juggler" did what you suggest -- I don't know as I only ran it experimentally and didn't poke deeply into it.  Andy had long since left Apple at that point and the presistent rumours that MultiFinder was based on Apple buying the code to Juggler have since been authoritatively debunked, AFAIK.<p>
+
+Are you thinking of Juggler?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002007.html">Re: The Quake Guy Talks</a>, Dave Winer, 1/11/1999; 5:35:21 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:11 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

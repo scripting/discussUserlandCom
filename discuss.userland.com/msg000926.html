@@ -1,0 +1,18 @@
+<html>	<head>		<title>Profiling/web server integration</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Profiling/web server integration</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>12/7/1998; 2:04:37 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000926.html">Profiling/web server integration</a></td></tr>				<tr><td><b>Msg #:</b></td><td>926</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000925.html">925</a> / <a href="msg000927.html">927</a></td></tr>				</table>			<br>We just connected profiling in Frontier to the web server.<p>
+
+It's very easy to use. If you add /profile to the beginning of the request, you'll get a table showing which routines were called and how many ticks it spent in each of the routines, while the server was building the page. This allows us to see which routines would benefit from optimization, and also allow us to clearly see the effects of attempts to optimize.<p>
+
+For example if you want to see a profile of this page:<p>
+
+<a href="http://discuss.userland.com/profile/msgReader$926">http://discuss.userland.com/profile/msgReader$926</a><p>
+
+More info on profiling:<p>
+
+<a href="http://www.scripting.com/frontier5/topics/profiling.html">http://www.scripting.com/frontier5/topics/profiling.html</a><p>
+
+<a href="http://docserver.userland.com/script/startProfile">http://docserver.userland.com/script/startProfile</a><p>
+
+<a href="http://docserver.userland.com/script/stopProfile">http://docserver.userland.com/script/stopProfile</a><p>
+
+Dave
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007041.html">Broken profiling example</a>, Tommy Sundström, 6/6/1999; 4:07:49 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:21 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

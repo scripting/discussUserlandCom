@@ -1,0 +1,27 @@
+<html>	<head>		<title>More on Benchmarking & Linux Scalability</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>More on Benchmarking & Linux Scalability</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>5/21/1999; 7:49:58 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006535.html">More on Benchmarking & Linux Scalability</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6535</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006534.html">6534</a> / <a href="msg006536.html">6536</a></td></tr>				</table>			<br><B>Admitting Linux Lost Some, Won Some</B><p>
+
+Jeremy Allison, author of SAMBA, <A HREF="http://www.wugnet.com/wininfo/display.asp?ID=2125">discusses</A> the PC Week benchmarks with WinInfo. He's sportsmanlike enough to say he lost some and won some:<p>
+
+<BLOCKQUOTE>
+Jeremy says that PC Week's results are very similar to the results he gets independently in SGI's labs: Windows NT beats Linux and Samba handily when serving Windows 95 clients. However, and perhaps most perplexingly, Windows NT Server performed more slowly than Linux when the client was Windows NT. <p>
+
+"I'm not trying to bash Windows...I also want to get the truth out there so that customers can decide for themselves (obviously I'd like them to choose Samba, but there are many circumstances where I'd happily admit NT is a better choice)," he wrote. "Knowing that NT beats Samba and Linux with Win95 clients has caused a great deal of activity to fix the scaling problems in the Linux kernel so I'm really glad of the real numbers being out there (and I do trust the PC Week figures, they're a very honest and reputable lab)."
+</BLOCKQUOTE><p>
+
+<B>Way More Technical Information than You Wanted to Know</B><p>
+
+The PC Week benchmarks were quite useful to the Linux kernel developers. Here's a list of <A HREF="http://www.kegel.com/mindcraft_redux.html">scalability and networking problems</A> identified in the Linux kernel itself. As you can see, there's a <I>lot</I> of smart people working to fix these.<p>
+
+Some of the problems identified:<p>
+
+<UL>
+<LI><B>The "Thundering Herd" Problem.</B> On a high-end site, Apache forks hundreds of server processes. Unfortunately, Linux was rescheduling all of these processes every time a new TCP/IP connection came in. The solution is to implement a wake_one call for waking up a single server processes.
+<LI><B>TCP/IP Serialization.</B> For some reason, TCP/IP sends were being fully serialized. This slowed certain tests down by a factor of four, but only required two lines of code to fix. Big win, and many thanks to PC Week!
+<LI><B>Miscellaneous Apache Issues.</B> Engineers at SGI have found ways to speed up Apache by a factor of three. These patches--along with some optimizations by IBM--will be rolled into a future Apache release.
+</UL><p>
+
+We'll see Linux loose on more benchmarks in the future--Microsoft likes benchmarks, and has billions of dollars in the bank. The Linux community will most likely respond by fixing legitimate problems in Linux. So a word to Microsoft: please keep tuning and testing. In doing so, you help users of both operating systems.<p>
+
+Cheers,
+Eric</li></li></li>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:20 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

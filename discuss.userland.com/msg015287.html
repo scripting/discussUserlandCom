@@ -1,0 +1,30 @@
+<html>	<head>		<title>tcp timeout ERROR - root updates</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>tcp timeout ERROR - root updates</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>John Lim</td></tr>				<tr><td><b>Posted:</b></td><td>2/27/2000; 6:38:33 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg015287.html">tcp timeout ERROR - root updates</a></td></tr>				<tr><td><b>Msg #:</b></td><td>15287</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg015286.html">15286</a> / <a href="msg015288.html">15288</a></td></tr>				</table>			<br>Hello,<p>
+
+I am trying to update my manila and mainresponder roots. <p>
+
+100% of the time, with manila.root, i get the error message:
+ 
+<pre>
+Can't update the root because 
+ "Can't read stream because TCP/IP error code 10060 - Connection timed out".
+</pre><p>
+
+About 80% of the time, I get the same error message when updating mainresponder.root. The remaining 20% of the time,it updates correcting. <p>
+
+Updating Frontier.root always works.<p>
+
+<b>Fix Attempts</b><br>
+I tried changing user.inetd.prefs.defaultTimeoutSecs from 30 to 120 and also user.inetd.config.http.timeout from 30 to 120.<p>
+
+No luck, it still timeouts after 30 secs. I am outside my firewall, so no proxy server issues here.<p>
+
+
+<b>Questions</b><br>
+Are there any other timeout parameters I can set on my Frontier?<p>
+
+Frontier.root always updates, mainresponder 20% of the time, manila never: could this problem be related to the size of the update?<p>
+
+Could updates.userland.com be the one that's timing out?<p>
+
+Is there a fix?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg015292.html">Re: tcp timeout ERROR - root updates</a>, Thomas A. Creedon, 2/27/2000; 7:28:55 PM<p><li>&nbsp;<a href="msg015293.html">Re: tcp timeout ERROR - root updates</a>, Alan German, 2/27/2000; 7:43:46 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:25 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

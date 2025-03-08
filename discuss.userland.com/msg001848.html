@@ -1,0 +1,46 @@
+<html>	<head>		<title>Different Nirvana Membership Pages</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Different Nirvana Membership Pages</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>John Simms</td></tr>				<tr><td><b>Posted:</b></td><td>1/5/1999; 1:56:54 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001848.html">Different Nirvana Membership Pages</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1848</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001847.html">1847</a> / <a href="msg001849.html">1849</a></td></tr>				</table>			<br>Your Nirvana website can use multiple membership pages.<p>
+
+All of this works on the assumption that if there's a pta^.adrMemberInfo item, that the user has been authenticated somewhere along the line. Whether it was this request or another one, it doesn't matter. You can also check pta^.memberGroupName to make sure they're in a specific group, but I don't in my examples.<p>
+
+First, you need to create your own form, because the macro members.logonForm has it's own default urls it uses.
+So, I've got an object "default" that looks like this:<p>
+
+#title "Please login"
+<form action="http://static.userland.com/userLandDiscussArchive/siteOne$logonForm" method="POST"><p>
+
+Email: <input type="text" name="mailAddress"><br><p>
+
+Password: <input type="password" name="password"><br><p>
+
+<input type="submit" value="Login to Site One"><p>
+
+</form><p>
+
+Next, you need the page you want a member taken to after a successfull logon. I've used scripts for these, but macros in a page should work as well.<p>
+
+I have a script named "siteOne" in the same table as default:<p>
+
+local (pta = html.getPageTableAddress());<p>
+
+if defined (pta^.adrMemberInfo) { //We know them, let's play<p>
+
+  local (memberTableAdr =  pta^.adrMemberInfo);<p>
+
+  local (memberKey = nameof (memberTableAdr^));<p>
+
+  pta^.title = "Welcome to Site One";<p>
+
+  return "Dear "   memberkey   ",<br>Thank you for visitng my site"}<p>
+
+else { //We don't know them.<p>
+
+  mainResponder.redirect("default")}<p>
+
+Now, the form's action is where the trick is. The $logonForm is VERY important. It's the flag for Nirvana to check the submitted form for authentication. Nirvana does this, and if successful, your page is called up. So you can specify any page in the action part of the form tag you want to have called up after authentication, so long as you tack on the $logonForm part.<p>
+
+For this to work, you also need to have updated your mainResponder.root after 12:00 noon pacific 1/5/98 to get an updated members.checkMembership that enables the $logonForm trick to work.<p>
+
+Download a working example from:<p>
+
+<a href="http://www.john.pair.com/release/sites.root.sit">http://www.john.pair.com/release/sites.root.sit</a>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005104.html">Re: Different Nirvana Membership Pages</a>, John Simms, 4/18/1999; 11:52:48 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:04 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

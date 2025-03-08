@@ -1,0 +1,20 @@
+<html>	<head>		<title>Discrete, Finite Value Choices</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Discrete, Finite Value Choices</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Bill Humphries</td></tr>				<tr><td><b>Posted:</b></td><td>5/16/1999; 11:48:20 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006265.html">Source release of Prefs.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6323 (In response to <a href="msg006317.html">6317</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006322.html">6322</a> / <a href="msg006324.html">6324</a></td></tr>				</table>			<br>Dave --<p>
+
+This is great stuff. I'm thinking how this applies to my site and one thing I'd do is stuff a user's favorite topic in a cookie so they get log entries on the topic at the top of the page.<p>
+
+To add that to the preferences XML spec:<p>
+
+<pre>
+<? xml version="1.0" ?>
+<wizard&gt;
+<panel title="Your Topics"&gt;
+<item type="string" title="Your Favorite Topic" adr="user.favorite"&gt;
+    <option value="Web Logs" display="Web Logs"/&gt;
+    <option value="Servers" display="Servers" /&gt;
+    <option value="Politics" display="Politics" /&gt;
+    <popuptext&gt;The entries on topic you select will be featured when you visit.</popuptext&gt;
+    </item&gt;
+</panel&gt;
+</wizard&gt;
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

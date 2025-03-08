@@ -1,0 +1,17 @@
+<html>	<head>		<title>Bug in Date() routine in 4.11?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Bug in Date() routine in 4.11?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Maarten Festen</td></tr>				<tr><td><b>Posted:</b></td><td>1/3/2000; 8:37:09 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg014017.html">Bug in Date() routine in 4.11?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>14017</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg014016.html">14016</a> / <a href="msg014018.html">14018</a></td></tr>				</table>			<br>Hi all (and Dave in particular),<p>
+
+I'm using Frontier 4.1 on PowerMac G3 and discovered an interesting (Y2K?) bug. I often have dates parsed from weird formats to DD-MM-YY and since this year, I see strange behaviour when using Date() to do this.<p>
+
+My date format in the control panel is on Dutch (DD-MM-YYYY). Up to last week, dates put in as DD-MM-YY with YY between 40 and 90 coerced fine, but since the start of the new year the statement:
+     Date( "27-11-48" )
+yields
+    "21-10-1912; 17:31:44"
+whereas earlier (in 1999) it would yield:
+    "27-11-1948; 0:00:00"<p>
+
+Tell me, is this a genuine Y2K bug? Is it a known bug or is it a respected feature? If the latter, what am I missing? Will there be a fix for this, even though it's unsupported software by now?<p>
+
+Sincerely,
+Maarten J. Festen (Frontier User since version 2!)
+Leeuwarden, the Netherlands.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg014019.html">Re: Bug in Date() routine in 4.11?</a>, André Radke, 1/3/2000; 9:39:42 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:54 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

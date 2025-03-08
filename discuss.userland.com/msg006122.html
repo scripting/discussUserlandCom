@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: Mail encoding from MTTF</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Mail encoding from MTTF</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Keola Donaghy</td></tr>				<tr><td><b>Posted:</b></td><td>5/12/1999; 12:23:25 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006108.html">Mail encoding from MTTF</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6122 (In response to <a href="msg006118.html">6118</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006121.html">6121</a> / <a href="msg006123.html">6123</a></td></tr>				</table>			<br><I>That's the problem: You will have to implement the encoding yourself and then set the appropriate MIME headers. </I><p>
+
+OK, I've got it working. I see how I could implement the base64 encoding without messing with tcp.sendmail, but it looks as though the headers are hard-coded into tcp.sendmail. I copied this into user.sendmail, made necessary mods and works fine now, mail arrives with the proper characters. Would this be the appropriate way to deal with it, or is there a simpler solution I'm overlooking?<p>
+
+Mahalo!<p>
+
+kd
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006123.html">Re: Mail encoding from MTTF</a>, Sam DeVore, 5/12/1999; 12:29:58 PM<p><li>&nbsp;<a href="msg006124.html">Re: Mail encoding from MTTF</a>, André Radke, 5/12/1999; 12:39:56 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,64 @@
+<html>	<head>		<title>XML-RPC Spec Update</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML-RPC Spec Update</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Simeon Simeonov</td></tr>				<tr><td><b>Posted:</b></td><td>2/9/1999; 8:14:51 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002774.html">XML-RPC Spec Update</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2774</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002773.html">2773</a> / <a href="msg002775.html">2775</a></td></tr>				</table>			<br>Hi,<p>
+
+Dave and I had a very productive talk this morning on the issue of extending XML-RPC so that it becomes flexible with respect to the datatype encoding/format that it uses. We wanted to come up with a low-cost solution that would allow us to (a) maintain compatibility with existing XML-RPC applications, (b) expose XML-RPC benefits to the WDDX community, and (c) give the XML-RPC spec and implementations room to maneuver in the future. <p>
+
+We agreed that it is important to add some form of versioning to the request and response packets. Dave will make a proposal on this sometime soon.<p>
+
+We also agreed on the importance of introducing a simple yet flexible mechanism for specifying the encoding/format of request and response parameters as well as fault values. We suggest that we extend the spec by:<p>
+
+- Adding a format attribute to the params and value elements. The allowed values could be "XML-RPC" and "WDDX" with new ones being introduced on an as needed basis. <p>
+
+- Adding a responseFormat attribute to the methodCall element. The allowed values are the same as for the format attribute. The value of the format attribute in the params or value elements of the method response will match the value of this attribute in the method request.<p>
+
+Here is an example using WDDX:<p>
+
+<pre>
+<?xml version="1.0"?>
+<methodCall responseFormat="WDDX">
+   <methodName>Server.getWelcome</methodName>
+   <params format="WDDX">
+      <wddxPacket version="0.9">
+         <header/>
+         <data>
+            <string>Hello</string>
+         </data>
+      </wddxPacket>
+   </params>
+</methodCall><p>
+
+<?xml version="1.0"?>
+<methodResponse>   
+   <fault>
+      <value format="WDDX">
+         <wddxPacket version="0.9">
+            <header/>
+            <data>
+               <struct>
+                  <var name="faultCode">
+                     <number>4</number>
+                  </var>
+                  <var name="faultString">
+                     <string>Too many parameters.</string>
+                  </var>
+               </struct>
+            </data>
+         </wddxPacket>
+      </value>      
+   </fault>
+</methodResponse>
+</pre><p>
+
+Here are some things to consider:<p>
+
+- The serialization/deserialization layer of an XML-RPC server needs to do the necessary datatype conversions to make sure that the same request and response datatypes are produced regardless of the encoding. For example, when the XML-RPC spec proposing only four datatypes to be used (string, base64, array, struct) comes into effect, the content of i4, int, boolean, double, and dateTime.iso8601 elements should be converted to strings.<p>
+
+- Do we need to add a set of reserved fault codes to indicate conditions related to the XML-RPC server itself, e.g., "unknown encoding format"?<p>
+
+Dave and I also considered the issue of browsers sending requests and receiving responses. This is an important area to look into, particularly looking forward to the increased capabilities of the 5.0 generation browsers. However, we decided to keep the discussion out of the XML-RPC spec for the time being.<p>
+
+Please, let us know what you think!<p>
+
+Regards,<p>
+
+Sim, <i><a href="http://static.userland.com/userLandDiscussArchive/www.allaire.com">Allaire</a></i>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002796.html">Re: XML-RPC Spec Update</a>, Fredrik Lundh, 2/10/1999; 1:43:29 AM<p><li>&nbsp;<a href="msg002799.html">Re: XML-RPC Spec Update</a>, Hannes Wallnöfer, 2/10/1999; 6:51:40 AM<p><li>&nbsp;<a href="msg002837.html">Re: XML-RPC Spec Update</a>, Christopher Bradford, 2/11/1999; 9:38:17 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

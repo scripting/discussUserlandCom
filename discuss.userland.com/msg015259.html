@@ -1,0 +1,33 @@
+<html>	<head>		<title>Re: <script> tag</script></title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: <script> tag</script></h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Andrew Wooldridge</td></tr>				<tr><td><b>Posted:</b></td><td>2/25/2000; 12:29:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg015238.html">scriptingNews outline for 2/25/00</a></td></tr>				<tr><td><b>Msg #:</b></td><td>15259 (In response to <a href="msg015254.html">15254</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg015258.html">15258</a> / <a href="msg015260.html">15260</a></td></tr>				</table>			<br>Another solution, for this specific case is to remove the script reference and place it in the head, then, place a dummy or "loading" gif in the correct location. Then swap that image out after the page has loaded.<p>
+
+So something like this<p>
+
+<head><p>
+
+<script src="http://ads.weblogs.com/newad.js"><p>
+
+</script><p>
+
+</head><p>
+
+<body onload="loadBannerAd('bannerad')"><p>
+
+...<p>
+
+<img id="bannerad" name="bannerad" src="http://static.userland.com/userLandDiscussArchive/dummygif.gif" height='20' width='100'><p>
+
+....<p>
+
+
+Then in the  new js file, just do something like this:<p>
+
+function bannerAd(bannerID)&#123;<p>
+
+
+eval("document."+bannerID+".src='somenewgif.gif'");<p>
+
+&#125;<p>
+
+
+This way the page renders without waiting, but then when it's done, the right gif pops into place!
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:54:24 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

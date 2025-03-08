@@ -1,0 +1,18 @@
+<html>	<head>		<title>How XML-RPC will Evolve</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>How XML-RPC will Evolve</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>11/8/1998; 9:05:48 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000001.html">First message</a></td></tr>				<tr><td><b>Msg #:</b></td><td>280 (In response to <a href="msg000001.html">1</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000279.html">279</a> / <a href="msg000281.html">281</a></td></tr>				</table>			<br>Leonard Rosenthol at Adobe Systems asked a question on the Script Meridian Community list about our plans to migrate XML-RPC thru new specs on schemas being worked on at the W3C. I ended up writing an essay in response, and wanted to get it on the record, since it's a public statement, and it may give others working in this area some clues about where RPC technology is at.<p>
+
+
+Our XML-RPC spec could expand in the future to allow transmission of additional scalar types, such as object database addresses,but that's the only kind of change we'll consider. It's frozen, deployed, apps have been built on it, and more are on the way.<p>
+
+However, this is tricky, so please read it carefully, the scripting interface in Frontier for XML-RPC, betty.rpc.client, could easily be modified, with an additional parameter, to use a different transport mechanism, such as one decided on by the W3C.<p>
+
+Honestly it doesn't look like one could be agreed to, based on what I know, before mid-1999. In the meantime, we can safely do a lot of development work above the line, knowing that we can link up to whatever the W3C comes up with for RPC. I'd argue that if it can't be wired up to that interface, it isn't RPC.<p>
+
+Further, at some point I hope to divert some of our development cycles to the high-level interface we designed earlier this year. By integrating the RPC syntax into the interpreter, giving it a way to make remote procedure
+calls with the same syntax as local procedure calls, we'll be very insulated from protocol changes.<p>
+
+We're not a member of W3C because we want to build systems, think of us as an OEM for the W3C. You guys figure out what you want to do, and when you're ready we'll do it your way too. Honestly, I'm hedging here, I think the W3C has bitten off more than it can deliver on. RPC appears to be way
+down on the priority list. For us, it's central to what we do. <p>
+
+Dave<p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:45:48 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,12 @@
+<html>	<head>		<title>sys.systemTask vs. thread.sleepFor</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>sys.systemTask vs. thread.sleepFor</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Doug Baron</td></tr>				<tr><td><b>Posted:</b></td><td>1/12/1999; 10:04:20 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002027.html">sys.systemTask vs. thread.sleepFor</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2027</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002026.html">2026</a> / <a href="msg002028.html">2028</a></td></tr>				</table>			<br>Rooted in history, there's often confusion about the right way to "busy loop" in Frontier. In the old days, there weren't any thread verbs; sys.systemTask was the one call recommended to use inside of a loop constuct to avoid hogging the processor.<p>
+
+With the advent of the thread verbs, another, usually better option is available: thread.sleepFor. It takes one parameter, the number of seconds to sleep. If you sleepFor(0), the thread is put to sleep and immediately reawakened, basically sitting out one or two rounds of thread processing.<p>
+
+When should each verb be used? That depends on what the busy loop is waiting for. If it just performed a UI operation, and is waiting for an update or other events to be handled, sys.systemtask is the way to go. This verb explicitly services window activation events, and incoming Apple events on the Macintosh. It yields to other threads one time, avoiding the overhead of a sleep/wake cycle.<p>
+
+OTOH, if the loop is waiting for tcp activity, or for another thread to complete, thread.sleepFor(0) is preferred. This verb gives more time to other threads than sys.systemTask does. Furthermore, if immediate response to the outside event isn't critical, sleeping for one or more seconds will greatly reduce the loop's overhead on the system.<p>
+
+One other note: sys.systemTask is much faster under Windows than it is on the Mac. This is due to the fact that it will always generate at least one call to WaitNextEvent, allowing the OS to swap Frontier out entirely. On Windows, where apps multitask preemptively, the overhead of checking for events is greatly reduced.<p>
+
+Doug
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

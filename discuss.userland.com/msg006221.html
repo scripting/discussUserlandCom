@@ -1,0 +1,46 @@
+<html>	<head>		<title>Darwin vs. Linux -- not really a "vs." at all</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Darwin vs. Linux -- not really a "vs." at all</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Robert Krajewski</td></tr>				<tr><td><b>Posted:</b></td><td>5/14/1999; 8:41:15 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006221.html">Darwin vs. Linux -- not really a "vs." at all</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6221</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006220.html">6220</a> / <a href="msg006222.html">6222</a></td></tr>				</table>			<br>I think that talk of Apple punting Darwin in favor of Linux
+is, to say, the least, premature, since the dynamics of, say
+the Darwin open source community, or a unified Linux desktop
+haven't had time to develop.<p>
+
+If Linux really became all that, Apple could probably polish MkLinux (Mach is important) and throw the various frameworks on top of that. Apple would still sell its hardware. The NeXT hands at Apple certainly have experience in porting their frameworks to other OSes. But again, this possibility is going to be pretty remote for a while.<p>
+
+The mere momentum of Linux isn't a reason to adopt it. It has to
+fit with the rest of your mission and your development history.
+I think that the performance of Linux as a server is a safe bet,
+but it has not proven itself as a good substrate for end-user
+applications that integrate with each other. (Example:
+so the gimp is good, but what can it talk to ? Can I even print
+an image to a non-Postscript printer from Linux ?)
+I don't see why Apple would switch when they've
+already got years of experience (thanks to NeXT)
+with respected open source tools and OSes
+-- Darwin is essentially a Free/Open/NetBSD enhancement--
+and there are plenty of people who feel that these *BSDs are just
+as good if not better than Linux, at least for certain tasks.
+Also, these *BSDs don't experience
+the version churn that the front-line of the Linux kernel does,
+and stability is required for any foundation of a
+complex software system such as MacOS X.<p>
+
+Another thing to keep in mind is that userland (heh-heh) Linux
+tools tend to be portable to other Unices, including BSD, so
+it's not like MacOS X would be left out of the party if some
+open-source Linux "killer app," which would very likely not be
+an end-user application, came along.<p>
+
+You really ought to investigate the idea of a Frontier runtime --
+you'd be forced to deal with modularity issues, and that core
+(excluding OS-specific application connection support)
+could probably stick mostly to C library and POSIX APIs, which
+would fit NT, Linux and all MacOS X variants quite nicely. It might
+make things run faster, but it would take up less memory and
+disk space.<p>
+
+You might find it interesting that the Mathematica folks, when porting
+to Carbon, decided to simply make the Carbonized (MacOS) UI code
+talk to their engine, running in the 4.4 BSD system, over pipes.
+It's pretty neat and combines the use of the good, proven UI with
+workhorse code that pretty much only needs generic services from
+the OS.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006241.html">Re: Darwin vs. Linux -- not really a</a>, Tom Hunt, 5/14/1999; 1:10:08 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:09 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

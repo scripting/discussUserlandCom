@@ -1,0 +1,10 @@
+<html>	<head>		<title>Search engine with multiple discussion groups</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Search engine with multiple discussion groups</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Deverman</td></tr>				<tr><td><b>Posted:</b></td><td>11/11/1999; 8:30:51 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012995.html">Search engine with multiple discussion groups</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12995</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012994.html">12994</a> / <a href="msg012997.html">12997</a></td></tr>				</table>			<br>I found a little quirk in setting up the search engine for multiple discussion groups whose data and interfaces are stored together in a guest database. <p>
+
+In the prefs table of the table holding the discussion group messages, the adrMsgReader pref was set to a string type. This messed up the indexing routines because they would resolve to the Frontier.root. Once the type of this variable was changed to address, every thing worked because the whole path was specified.<p>
+
+Oh, I just remembered before i even got to this problem I had to resolve another problem.<p>
+
+My mainResponder callbacks for addMsg and editMsg had to be changed to call the script mainResponder.search.client.indexDiscussionMessage(adrNewMsg) because the script that currently gets called assumes the messages are stored in the discuss.root file.<p>
+
+I hope this help someone.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:29 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

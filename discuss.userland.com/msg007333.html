@@ -1,0 +1,48 @@
+<html>	<head>		<title>Internet Alchemy</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Internet Alchemy</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>6/14/1999; 7:21:04 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007333.html">Internet Alchemy</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7333</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007332.html">7332</a> / <a href="msg007334.html">7334</a></td></tr>				</table>			<br>I took my eye off My.UserLand.Com for a few weeks and while I was dozing, Ian Davis, <a href="mailto:iand@fdc.co.uk">iand@fdc.co.uk</a>, of Internet Alchemy was doing some very innovative stuff with RSS, I'm still just figuring out what he's done, and where he wants to go.<p>
+
+<b>Synthetic channels</b><p>
+
+For example, he's publishing a <a href="http://my.userland.com/viewChannel$537">RSS file</a> that's a collection of files he synthesizes thru a set of Perl scripts called <a href="http://alchemy.openjava.org/rss/">RSSMaker</a>.<p>
+
+An example of such a synthetic channel is Wired News, one of the sites I watch every day because they get such interesting angles on stories that other news sites treat as press releases to regurgitate. I also like Wired because they often call me and quote me. I also used to work at Wired, so I feel a kinship there, call me sentimental.<p>
+
+Anyway, Ian's RSS Maker app makes it possible for me to get Wired News thru My.UserLand.Com.<p>
+
+<a href="http://my.userland.com/viewChannel$705">http://my.userland.com/viewChannel$705</a><p>
+
+<b>I implemented something special</b><p>
+
+Every night at midnight we check the RSS file Ian generates to see if he's added any new channels. If so, we add them to the UserLand channel list, they become part of our rotation, checked every hour for changes and added to the Recently Updated Channels list when they change. So Ian has the power to add new channels to our site simply by adding them to his channel list.<p>
+
+For Frontier people here's what the script looks like:<p>
+
+<pre>
+local (adrservice = @config.myUserLand.services.["http://alchemy.openjava.org/rss/index.rdf"]);
+if defined (adrservice^) 
+	local (adrtable = @adrservice^.items, i, ct = sizeof (adrtable^), url)
+	for i = 1 to ct 
+		url = adrtable^ [i].link;
+		if not defined (config.myUserLand.services.[url]) 
+			myUserLandSuite.newChannel (url, "iand@fdc.co.uk")
+</pre><p>
+
+That's where all the new channels over the weekend came from! There are lots of them, and they work! Thank you Ian.<p>
+
+<b>Beyond RSS</b><p>
+
+It's a secret to no one that RSS is a good start, but we need more.<p>
+
+Another level of structure is essential, an item needs to have text and links. Support for this is in <scriptingNews> format, but it lacks certain things that RSS has, so there will need to be a new format which, at least, incorporates all that both earlier formats have, and probably a bunch more things.<p>
+
+Ian has given this a lot of thought, and put up a proposal for a new format, called OCS format, for Open Content Syndication format.<p>
+
+<a href="http://alchemy.openjava.org/ocs/">http://alchemy.openjava.org/ocs/</a><p>
+
+It fills in a lot of the holes, he asks for keywords, frequency of update (I like this!), and categorization. RSS has already grown to the point where it needs to have these issues addressed.<p>
+
+I invite you all to check out Ian's work, let's learn from it, and get ready to take some next-steps.<p>
+
+Thanks!<p>
+
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007338.html">Re: Internet Alchemy</a>, Marc Canter, 6/14/1999; 9:09:43 AM<p><li>&nbsp;<a href="msg007343.html">Re: Internet Alchemy</a>, erik, 6/14/1999; 9:43:47 AM<p><li>&nbsp;<a href="msg007346.html">Re: Internet Alchemy</a>, Paul Nakada, 6/14/1999; 10:31:12 AM<p><li>&nbsp;<a href="msg007357.html">Re: Internet Alchemy</a>, Ian Davis, 6/14/1999; 12:51:42 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

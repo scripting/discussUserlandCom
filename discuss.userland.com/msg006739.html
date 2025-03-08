@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: mR update...a bug in Message Receiver?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: mR update...a bug in Message Receiver?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>5/26/1999; 9:41:43 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006737.html">problem with discussionRoot hasn't been defined...SOLVED</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6739 (In response to <a href="msg006737.html">6737</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006738.html">6738</a> / <a href="msg006740.html">6740</a></td></tr>				</table>			<br><i>[Macro error: Can't evaluate the expression because the name "discussionRoot" hasn't been defined.]</i><p>
+
+That's rather strange, since as far as I can see, none of the UserLand-supplied scripts that get called when you post a new message refer to a variable named discussionRoot, at least not outside of a try block.<p>
+
+Could you please check whether the message you posted got actually added to the messages table in discuss.root?<p>
+
+Do you have any scripts in config.mainresponder.callbacks.addMessage?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006741.html">Re: mR update...</a>, , 5/26/1999; 10:05:08 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:27 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

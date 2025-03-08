@@ -1,0 +1,30 @@
+<html>	<head>		<title>Re: Lightweight Distributed Objects (LDO); was Re: Encodings</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Lightweight Distributed Objects (LDO); was Re: Encodings</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ken MacLeod</td></tr>				<tr><td><b>Posted:</b></td><td>1/30/1999; 9:15:58 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002563.html">XML-RPC Spec Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2587 (In response to <a href="msg002585.html">2585</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002586.html">2586</a> / <a href="msg002588.html">2588</a></td></tr>				</table>			<br>>>How are we going to resolve the differences in the names of the tags?<p>
+
+XML-RPC, WDDX, and LDO XML and binary serializations all are at the same layer, so in effect they should be plug-compatible.  Once the issue of protocol versioning is resolved we could simply say a new serialization plug-in is available and still stay backward and forward compatible.<p>
+
+Regarding versioning, I don't recall anyone mentioning one of the possible solutions that's intended for that: the DOCTYPE declaration!  Specifically the PUBLIC identifier.  The doctype declaration MAY be used for validation, but it is not required to exist if you're only interested in well-formedness or are using a different schema for validation.  Possible doctype declarations for XML-RPC and LDO XML serialization are:<p>
+
+  <!DOCTYPE methodCall PUBLIC "-//UserLand Software//DTD XML-RPC V2.0//EN" "http://www.scripting.com/frontier5/xml/code/rpc.html"><p>
+
+  <!DOCTYPE dictionary PUBLIC "-//The Casbah Project//DTD LDO XML V0.0//EN" "http://casbah.org/ldo/ldo-xml.dtd"><p>
+
+The server can then select plug-ins based on the doctype.  They don't have to be really parsed, it could simply be a matter of looking for <!DOCTYPE, then snagging the string after PUBLIC to do the lookup.<p>
+
+For backward and cross compatibility, I've been working on a plug-in selector that goes something like this:<p>
+
+ 1) Grab the first available bytes from the stream or HTTP content-body<p>
+
+ 2) Search for ``magic'' (in the Unix `file' command sense), if magic exists then we're done<p>
+
+ 3) Is it an HTTP request (GET, PUT, POST, etc.)?, then we're done, hand it off to the HTTP receiver<p>
+
+ 4) Is it XML (starts with `<')?<p>
+
+    4a) does it have a doctype declaration? then we're done<p>
+
+    4b) Parse the document until the first open-tag, use that to select the receiver<p>
+
+>>I don't know when LDO appeared, but I wasn't aware of its existence when we designed XML-RPC.<p>
+
+LDO binary started probably about the same time-frame as XML-RPC (February-March 1998).  Shortly after I wrote the Frontier-RPC module and posted my post-mortem to the frontier-xml I created the LDO XML format in response to a request for a possible update to XML-RPC.  Somewhere around then the frontier-xml list went away and we just kept on working on it within Casbah.  Since then we've had a somewhat different target audience (XML-RPC is closer to traditional procedural RPCs and LDO is closer to distributed object systems) so it wasn't clear that there'd be interest in changing.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002588.html">Re: Lightweight Distributed Objects (LDO); was Re: Encodings</a>, Dave Winer, 1/30/1999; 9:36:36 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: xml.coercions.structToFrontierValue</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: xml.coercions.structToFrontierValue</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/28/1999; 11:50:59 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003019.html">Mail to the Future Server Functionality</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3372 (In response to <a href="msg003371.html">3371</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003371.html">3371</a> / <a href="msg003373.html">3373</a></td></tr>				</table>			<br>OK, I guess we need one more thing, an <object> tag in some page being served from www.mailtothefuture.com, right?<p>
+
+Here's how you do it. Add another object in your public table, make it a <struct> containing two items:<ol><p>
+
+<li>a #content-type of text/html. <p>
+
+<li>a <string> containing the HTML text.
+</ol><p>
+
+Make it an HTML page that contains an <object> that refers back to myJavaApp and then try referring to the HTML page with a URL.<p>
+
+If it works, post the URL here and we can all try it out. If it doesn't (Remember Murhphy!) post the experience here.<p>
+
+Thanks for working with me on this. It turned out to be more than a warmup project (I had a clue it might) but it's very neat and I think futuristic, but maybe not *that* futuristic.</li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003379.html">It works, but it's fragile</a>, Hannes Wallnöfer, 2/28/1999; 2:17:43 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:14 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

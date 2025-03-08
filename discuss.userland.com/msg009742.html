@@ -1,0 +1,23 @@
+<html>	<head>		<title>Re: user.databases and moving frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: user.databases and moving frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Thomas A. Creedon</td></tr>				<tr><td><b>Posted:</b></td><td>8/20/1999; 1:12:02 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009658.html">startup.startupScript revision</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9742 (In response to <a href="msg009726.html">9726</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009741.html">9741</a> / <a href="msg009743.html">9743</a></td></tr>				</table>			<br><i>
+Try it, it works.
+</i><p>
+
+Kewl!  I had some filespecs and some fully specified string paths in user.databases.  I wanted to convert to relative string paths.  I started to do it by hand but it quickly got tiresome.  So I added this to my custom menu.  I call it &quot;Convert filespec to relative f&quot;.
+<pre>
+local &#123;
+	adr = table.getCursor ()&#125;;
+if typeOf (adr^) == filespecType &#123;
+	local &#123;
+		relativeF = string (adr^)&#125;;
+	relativeF = ':' + (relativeF - file.folderFromPath (Frontier.getProgramPath ()));
+	adr^ = relativeF&#125;
+</pre><p>
+
+Of course you should check this script over to make sure it's suitable to your purposes.  This script is meant to deal only with converting user.databases fileSpec type entries to relative string paths.  It makes several assumptions.<p>
+
+Have fun!
+<pre>
+Toodle-looooooooo.........
+Thomas
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:01 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

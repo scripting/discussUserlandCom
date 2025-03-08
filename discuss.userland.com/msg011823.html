@@ -1,0 +1,25 @@
+<html>	<head>		<title>Testing your XML-RPC client</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Testing your XML-RPC client</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>10/7/1999; 9:43:14 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011823.html">Testing your XML-RPC client</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11823</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011822.html">11822</a> / <a href="msg011824.html">11824</a></td></tr>				</table>			<br>A question came up on the XML-RPC mail list:<p>
+
+<a href="http://www.egroups.com/group/xml-rpc/293.html">http://www.egroups.com/group/xml-rpc/293.html</a>?<p>
+
+A fellow named Bas is trying to call an XML-RPC handler on one of our servers. In the rush to get the new interface out, I overlooked that we have a new public interface for people to test their XML-RPC clients against.<p>
+
+<b>Basic info</b><p>
+
+Here's a Frontier snippet that calls the handler.<p>
+
+<pre>
+local (server = "aggregator.userland.com", port = 80)
+local (procname = "aggregator.getServiceInfo", params = &#123;747&#125;)
+scratchpad.infotable = betty.rpc.client (server, port, procname, @params)
+edit (@scratchpad.infotable)
+</pre><p>
+
+Here's an example of the <struct> it returns:<p>
+
+<a href="http://backend.userland.com/stories/storyReader$9">http://backend.userland.com/stories/storyReader$9</a><p>
+
+Full docs are here:<p>
+
+<a href="http://backend.userland.com/stories/storyReader$7">http://backend.userland.com/stories/storyReader$7</a>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011824.html">I see where the problem is</a>, Dave Winer, 10/7/1999; 9:59:11 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

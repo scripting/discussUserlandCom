@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: It's apparently an Apple MRJ 2.2 thing</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: It's apparently an Apple MRJ 2.2 thing</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Larry Rosenstein</td></tr>				<tr><td><b>Posted:</b></td><td>4/19/2000; 4:10:58 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016401.html">MSIE5/Mac and security hole</a></td></tr>				<tr><td><b>Msg #:</b></td><td>16419 (In response to <a href="msg016407.html">16407</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg016418.html">16418</a> / <a href="msg016420.html">16420</a></td></tr>				</table>			<br>It's almost certainly IE's problem, not MRJ's.  I'm pretty sure that the combination of IE 4.5 and MRJ 2.2 would not exhibit the bug.<p>
+
+The combination of IE 5 and MRJ 2.2 is the only one where MRJ uses the host app's networking code.  Therefore, the browser (In this case IE 5) has to be the one to enforce the security restriction on redirected HTTP requests.<p>
+
+I haven't used iCab at all, but it might not use the new JManager 2 (I think that's what it's called) interfaces, which is how this works.  If the host app doesn't support this this, then MRJ uses its own networking code, which doesn't have the bug.<p>
+
+There are a few signs that will tell you whether MRJ is using its own networking code or not.  If you try to access an applet on a password protected page, you'll have to login twice (once for the browser to access the HTML page and once for MRJ to access the Java code).  <p>
+
+Also, an applet that relies on cookies coming from the browser (eg, Yahoo's Java portfolio manager) won'r work unless the browser is fully integrated with MRJ.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:54:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

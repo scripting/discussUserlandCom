@@ -1,0 +1,64 @@
+<html>	<head>		<title>Eric Soroos's Frontier MailServer</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Eric Soroos's Frontier MailServer</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>7/28/1999; 11:05:55 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008835.html">Eric Soroos's Frontier MailServer</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8835</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008834.html">8834</a> / <a href="msg008836.html">8836</a></td></tr>				</table>			<br>Eric demoed his <a href="http://soroos.net/mailserver/">Frontier MailServer</a> last night for the Seattle Frontier User's Group.<p>
+
+1) It's a standard SMTP/POP3 mail server that can be scripted by Frontier.<p>
+
+2) It provides a web interface -- a la HotMail and similar -- for reading and writing email.<p>
+
+We started by looking at the web interface.<p>
+
+<b>WebMail</b><p>
+
+There are limitations, certainly, for any browser-based email. It's no match for Eudora's or Outlook's GUI. But the point is that one can be anywhere in the world with a net connection and read and write email. This is as true for HotMail as it is true for Eric's MailServer.<p>
+
+Eric's interface supports multiple users and multiple mailboxes. Writing and replying is via a text area in the browser.<p>
+
+Navigation is by time -- a calendar, the exact same calendar you see on the <a href="http://news.userland.com/discuss/">discussion group</a> or <a href="http://news.userland.com/">Scripting News</a> home page -- allows you to navigate backwards to see what mail you got last Saturday or a month ago Monday or whatever. I thought this was cool -- I wish Eudora had this.<p>
+
+The MailServer also supports search engine indexing -- though Eric had this feature turned off (due to resource requirements) it's possible to index every piece of incoming email and search it via the web.<p>
+
+<b>Major Geek feature</b><p>
+
+Regex users would love this: through the web interface, you can set up a number of regular expressions that are run on each piece of incoming email.<p>
+
+These reqular expressions result in a numeric score for each piece of email.<p>
+
+The way Eric had it set up, the lower the number, the more likely it's spam.<p>
+
+On any mailbox listing page, there's a box where you can change the threshold, the minimum score -- and the page refreshes, showing only the messages that score greater than or equal to that threshold.<p>
+
+<b>It's mainResponder</b><p>
+
+Note to Frontier users: the web interface uses mainResponder and prefs.root.<p>
+
+<b>The server itself</b><p>
+
+Then Eric gave us a quick tour of the code.<p>
+
+His inspiration for writing the server was that there was that other mailservers for Mac and Windows don't have the flexibility of something like UNIX procmail. If you want to integrate email with workflow, your options are limited. EIMS, for instance, will allow you to forward email or save it to a text file. It won't run any scripts for you.<p>
+
+Eric's MailServer is very much the opposite -- there are lots of filters, lots of options for processing email and integrating email into a content management system.<p>
+
+It would be possible, for instance, to post to a discussion group via email. Submit content to a website -- including attached images and other binaries. Archive mailing lists. Forward email via XML-RPC. Anything you can do with a Frontier script, you can do to email. Email is just data -- you can move it around, duplicate it, alter it, throw it away, send it back, store it, write it to disk, make web pages out of it, and so on.<p>
+
+Note: despite it's flexibility, it's still a standards-based SMTP/POP3 server. If you don't want to use the WebMail interface, you can use a client such as Eudora or Outlook to read and send email.<p>
+
+<b>Spam filtering</b><p>
+
+In addition to the regular expressions a user can set up to score email, there is spam filtering at the server level. This includes support for real-time blackout DNS and client whitelists and blacklists.<p>
+
+<b>Server admin</b><p>
+
+While individual users can set their personal preferences via the web, server admin takes place in Frontier. <a href="http://soroos.net/mailserver/Preferences.html">Preferences</a> are stored in config.root, at config.mailServer.<p>
+
+Eric writes: "I hope to change this to a web based system in the next iteration."<p>
+
+<b>Status</b><p>
+
+Eric's Frontier MailServer is not 1.0 yet. Eric has posted a <a href="http://soroos.net/mailserver/ToDo.html">To Do List</a>. The quick summary is that the SMTP and POP3 daemons are pretty much finished -- they're in a burn-in stage -- but that the WebMail and admin interfaces are still being improved.<p>
+
+<b>Summary</b><p>
+
+WebMail: Though the interface is limited to what you can do in a web browser, and could use more polish, I liked the calendar-based navigation and regular expressions scoring. I would have liked to see the search engine in action, as I've yet to see a desktop emailer with a good search feature.<p>
+
+Server: This is the part I'm most interested in. Integrating email into workflow is partly realized by <a href="http://contentserver.userland.com/">ContentServer</a>, but ContentServer inherits the limitations of standard email servers -- which at best will allow you to save email to specified watched folders. Being able to tap directly into the email flow opens a host of possibilities for Frontier developers. Though Eric's MailServer is not yet 1.0, I encourage everyone doing Frontier workflow management to check it out.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008839.html">Re: Eric Soroos's Frontier MailServer</a>, Eric Soroos, 7/28/1999; 12:15:39 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:34 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

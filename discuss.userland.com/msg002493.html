@@ -1,0 +1,50 @@
+<html>	<head>		<title>Re: virgin.root and user.root</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: virgin.root and user.root</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>1/26/1999; 11:26:00 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002458.html">Documenting The ODB</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2493 (In response to <a href="msg002484.html">2484</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002492.html">2492</a> / <a href="msg002494.html">2494</a></td></tr>				</table>			<br>This is crazy. At the same time as Dave wrote this posting, I thought of virgin roots, too:<p>
+
+- What does it take to get a virgin root, which stays virgin?<p>
+
+- Is there a way to support multiple frontier-users on one machine?<p>
+
+- How does this work out on a LAN or WAN (No difference if XML-RPC)?<p>
+
+Over time, every root gets used (machine stuff, user stuff, etc.). I use my personal Frontier on 2 machines (office and home). Anyone who has a similar setup knows that synchronising means hassle, even in the days of webedit.<p>
+
+As Frontier 6 matures, we will get a server and a client part. It would be great to get a login feature into the client, which checks against the server and the downloads the user.root into the machine (or if existent, synchronizes it via xml-rpc). So every user gets his enviroment on a virgin frontier anywhere in the world. Including the preferences, webedit servers, notepads, slideshows, etc.<p>
+
+I tested it and it worked almost perfect (BACKUP FIRST!):<p>
+
+- Create a new database named "user.root" in the main Frontier folder<p>
+
+- Copy the user table from frontier.root and paste it into the new "user.root" (Addressing works through the top-level registration of tables in the GDB)<p>
+
+- Rename the existing user table in the frontier.root to "defaultuser"<p>
+
+- At the beginning of system.startup.startupscript put:
+<pre>
+table.rename(@user,"defaultuser");
+filemenu.open (file.folderFromPath (frontier.getFilePath ()) + "user.root")
+</pre><p>
+
+- At the end of system.shutdown.shutdownscript put:
+<pre>
+table.rename(@defaultuser,"user");
+filemenu.save()
+</pre><p>
+
+ATTENTION: If the shutdownscript does not execute, your frontier.root will be unusable (BACKUP!). The Frontier kernel checks the existence of a user table in the frontier.root. There are some other kernel calls which refer to the frontier.root/user table (callbacks).<p>
+
+If we add an login to check which user.root frontier should use, we get multiple users on a shared machine (offices, labs, etc.)<p>
+
+The conceptual change would mean:<p>
+
+- A frontier.root db which stays generic, updates via Userland<p>
+
+- A machine.root gdb has all the machine related stuff<p>
+
+- A user.root gdb has all the personal stuff<p>
+
+
+This is for experienced frontier-users only.<p>
+
+
+Kurt
+			<br><br><hr><b>There are responses to this message:</b><ul></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: WebEdit source safety - can I turn this off?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: WebEdit source safety - can I turn this off?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>5/31/1999; 11:06:36 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006892.html">WebEdit source safety - can I turn this off?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6899 (In response to <a href="msg006892.html">6892</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006898.html">6898</a> / <a href="msg006900.html">6900</a></td></tr>				</table>			<br>You can make it so that you can check in objects you haven't checked out by editing webEditServer.rpcHandlers.webEdit.checkIn on the server.<p>
+
+Look for a block with a comment above it:<p>
+
+"Make sure the object is checked out by this user, if the object already exists."<p>
+
+Comment out the line "if defined (adrObject^)" to comment-out that entire block.<p>
+
+Now you can check in objects you haven't checked out.<p>
+
+There's a similar change you can make to the sendToServer rpc handler.<p>
+
+Of course -- be sure to note which changes you make, in case we update this code and your changes are over-written.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:32 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,68 @@
+<html>	<head>		<title>using netnews to provide free Third-Voice-like services</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>using netnews to provide free Third-Voice-like services</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Seth Gordon</td></tr>				<tr><td><b>Posted:</b></td><td>10/18/1999; 11:24:06 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012121.html">using netnews to provide free Third-Voice-like services</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12121</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012120.html">12120</a> / <a href="msg012122.html">12122</a></td></tr>				</table>			<br>I've noticed a lot of stuff regarding Third Voice on Scripting News.
+Let me humbly propose a way to deal with Third Voice: create a free,
+and more useful, protocol that supplants it.
+<p>
+Imagine a netnews group called "misc.url-links" (or some such), in
+which some messages are digitally signed, every message (aside from
+the signature) has a strict, easy-to-parse format, and each message
+makes a set of statements about various URLs and their relationships
+-- e.g.:
+<pre>
+==== BEGIN XYZ-CRYPTOGRAPHY-COMPANY SIGNED MESSAGE ====
+<a href="http://lwn.net/1999/features/MSResponse.phtml">http://lwn.net/1999/features/MSResponse.phtml</a>
+<a href="http://www.nacs.net/~heller/ms/ms_linuxmyths.html">http://www.nacs.net/~heller/ms/ms_linuxmyths.html</a>
+<a href="http://www.DoLinux.org/response.html">http://www.DoLinux.org/response.html</a>
+<a href="http://enlightenment.org/rant.html">http://enlightenment.org/rant.html</a>
+rebuts
+<a href="http://www.microsoft.com/ntserver/nts/news/msnw/LinuxMyths.asp">http://www.microsoft.com/ntserver/nts/news/msnw/LinuxMyths.asp</a><p>
+
+<a href="http://www.hinterlands.f9.co.uk/linuxmyths.html">http://www.hinterlands.f9.co.uk/linuxmyths.html</a>
+<a href="http://www.irisa.fr/prive/dmentre/ms-linux-myths-fud/">http://www.irisa.fr/prive/dmentre/ms-linux-myths-fud/</a>
+annotates
+rebuts
+<a href="http://www.microsoft.com/ntserver/nts/news/msnw/LinuxMyths.asp">http://www.microsoft.com/ntserver/nts/news/msnw/LinuxMyths.asp</a><p>
+
+<a href="http://www.useit.com/">http://www.useit.com/</a>
+<a href="http://www.scripting.com/">http://www.scripting.com/</a>
+is well-designed
+is informative
+==== BEGIN XYZ-CRYPTOGRAPHY-COMPANY SIGNATURE ====
+blah blah blah
+==== END XYZ-CRYPTOGRAPHY-COMPANY SIGNED MESSAGE ===
+</pre>
+(Maybe the format for describing the links should be based on XML; I'll skip over that implementation detail for the time being.)
+<p>
+Given this netnews group and this protocol, it would be just a Simple
+Matter of Progamming to create client software that would:
+<p>
+<ul>
+<li> download the latest articles in misc.url-links, filter them based on the user's preferences (e.g., I might only want to keep track of links signed by people I trust), verify digital signatures, and store the links in a relational database
+<li> given information provided by a user, send an appropriately
+formatted message to misc.url-links
+<li> allow the user to search the database
+<li> allow the user to search a more complete database maintained by a third party, such as the user's ISP or a dejanews-like company.
+</ul>
+Other possibilities that would be only slightly more complex:
+stand-alone programs or browser plug-ins that would...
+<ul>
+<li> search the database for links whenever you go to a new URL, and
+then display pages linked to that URL in a separate frame.  (In other
+words: almost exactly the same functionality as Third Voice, but
+without depending on one vendor's software and server.)
+<li> search the database for links matching your criteria that mention URLs that are in your browser's cache, and send you email or create a Web page containing those links, which you can browse at your leisure.
+<li> add a "Rate" menu to your browser (containing a standard list of
+predicates like "is informative", "is well-designed", "is poorly
+designed", "rules", "sucks"...) that would post a comment to
+misc.web-links on whatever URL you are viewing.  Or, to save
+bandwidth, it could accumulate a list of comments and then post the
+whole list at the end of the day as a single message.
+<li> block all Web pages that someone the user trusts has rated "is
+porn" (or whatever)
+<li> allow a user to browse thumbnails of pages in the browser's cache, check off if any of those pages are porn (or whatever), and send an appropriately formatted and signed message to misc.web-links
+</ul>
+The protocol is simple, it has a lot of potential, and it builds on
+well-established and widely available technologies (the Web, netnews,
+and relational databases).
+<p>
+What do y'all think?</p></p></p></p>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012126.html">Re: using netnews to provide free Third-Voice-like services</a>, Geoff Allen, 10/18/1999; 12:04:43 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

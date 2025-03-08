@@ -1,0 +1,9 @@
+<html>	<head>		<title>Re: Include current filename into document</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Include current filename into document</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>7/24/1999; 11:47:05 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008717.html">Include current filename into document</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8719 (In response to <a href="msg008717.html">8717</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008718.html">8718</a> / <a href="msg008722.html">8722</a></td></tr>				</table>			<br>With a macro: &#123;fname&#125;.<p>
+
+Or in a script:<p>
+
+<pre>
+local (pta = html.getPageTableAddress ())
+return (pta^.fname)
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

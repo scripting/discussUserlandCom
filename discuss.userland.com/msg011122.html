@@ -1,0 +1,18 @@
+<html>	<head>		<title>IETF & XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>IETF & XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark Nottingham</td></tr>				<tr><td><b>Posted:</b></td><td>9/16/1999; 7:25:29 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011122.html">IETF & XML-RPC</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11122</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011121.html">11121</a> / <a href="msg011123.html">11123</a></td></tr>				</table>			<br><i>Last summer the IETF ran this critique of XML-RPC. I think
+they missed that XML-RPC is merely a formalization for the
+body of POSTs to allow diverse scripting environments to
+connect over the Internet. There are lots of one-off solutions
+that only work for a single environment. The purpose of
+XML-RPC is to unify the one-offs, so we can do some
+building.</i><p>
+
+Thanks for the link, Dave - wasn't aware of this one, and it brings several issues (more to do with the protocol than XML-RPC) together in a nice way.<p>
+
+I don't see this draft as missing the point of XML-RPC, or picking on it in particular (although I don't know the history behind it). There are lots of people out there overloading the HTTP to do new and interesting things; I've done my fair share. XML-RPC is good (no, great) because it defines a central way of doing this that covers many, if not most, of these cases with a reusable umbrella implementation.<p>
+
+What concerns the authors and a lot of other people is that the HTTP is being used for things that it wasn't intended for; as they point out, it's getting to be a complex beast, with a lot of very subtle interactions. Stretching it to do things it wasn't designed for can have a lot of unintended, and unforseeable, effects.<p>
+
+Noone can deny the sexiness of doing RPC (and other things) over HTTP; HTTP is ubiquitous, easy to use (or at least it appears to be), and gets through firewalls easily (among other benefits pointed out in the draft). I don't think the authors were saying that it shouldn't be done, just that it needs to be done with a lot of forethought. Issues such as scalability, interoperability with different network components (such as firewalls, caches, L4 switches, etc) and current implementations, security and so forth mean that it has to be addressed very carefully.<p>
+
+I'm very confident that this can and should happen with XML-RPC/SOAP. A world without something like them would mean continuing use of ad-hoc tunnelling through HTTP, which is a Bad Thing. We just need to make sure that it's done right.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011126.html">Re: IETF & XML-RPC</a>, Jeremy Bowers, 9/16/1999; 7:57:07 AM<p><li>&nbsp;<a href="msg011127.html">Re: IETF & XML-RPC</a>, Dave Winer, 9/16/1999; 8:00:23 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

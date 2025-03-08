@@ -1,0 +1,46 @@
+<html>	<head>		<title>MTTF and templates</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>MTTF and templates</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/27/1999; 7:50:50 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003019.html">Mail to the Future Server Functionality</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3290 (In response to <a href="msg003027.html">3027</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003289.html">3289</a> / <a href="msg003291.html">3291</a></td></tr>				</table>			<br>OK, <a href="http://www.mailtothefuture.com/">Mail to the Future</a> gets even more robust today! We now have a provision for templates on the server. No, it's not a framework, just a simple provision that allows XML-RPC-savvy clients to push mail messages thru stationery. <p>
+
+<b>It's low-tech and easy</b><p>
+
+Here's how it works. First, as you know, each user has a storage structure on the server that can be accessed thru "mainResponder.members.setProfilePart" and getProfilePart. The template feature builds on that.<p>
+
+If you have a part at mailToTheFuture.template and if mailToTheFuture.flNoTemplate is not defined or is false, then every message sent from the account flows thru the template.<p>
+
+The template is plain text, special elements are denoted in <<double angle-brackets>>. Inside each <<element>> put the name of one of the fields of the message, like <<subject>> or one you invent, <<foo>>. When the message is sent the message flows thru the template, each bracketed element is replaced with the value of the field it refers to.<p>
+
+<b>Example</b><p>
+
+An example, in my MTTF table, I have a template:<p>
+
+<pre>
+This is a MTTF message send by Dave Winer thru a customized template.
+Here's some information about this message. 
+It was inserted on <<insertiondate>>. 
+The subject is <<subject>>. 
+The message said: "<<messageBody>>". 
+That's all for now!
+</pre><p>
+
+When I get a piece of mail sent thru that template, here's what I get in my inbox:<p>
+
+<pre>
+From: dave@userland.com
+X-Mailer: UserLand Frontier 6.0b3 (Windows NT)
+Date: Sat, 27 Feb 1999 16:00:00 GMT
+To: dave@userland.com
+Subject: Hello World<p>
+
+This is a MTTF message send by Dave Winer thru a customized template. 
+Here's some information about this message. 
+It was inserted on 2/27/99; 7:58:06 AM. 
+The subject is Hello World. 
+The message said: "This is a test message for people learning about MTTF templates". 
+That's all for now!
+</pre><p>
+
+<b>What is this good for?</b><p>
+
+Glad you asked! Canter & Company, as you know, are developing a DHTML interface on MTTF. One of the excellent features is stationery. So when they ship a message up to the server, they also ship graphic parts into the message table. When the message is sent, by the server, all the pieces are mashed together using the template. They assume that the recipient has an HTML-friendly emailer, such as Microsoft Outlook (in its various flavors). It's like "Blue Mountain Arts", right in your mailbox! I've seen it, soon you will too, <i>it's coooool!</i><p>
+
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003291.html">FAQ: Do you love Microsoft?</a>, Dave Winer, 2/27/1999; 8:23:40 AM<p><li>&nbsp;<a href="msg003292.html">Re: MTTF and templates</a>, Jacob Levy, 2/27/1999; 8:25:42 AM<p><li>&nbsp;<a href="msg003382.html">Re: MTTF and templates</a>, David Shinpaugh, 2/28/1999; 6:30:31 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:09 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,25 @@
+<html>	<head>		<title>this isn't going to help</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>this isn't going to help</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Robert Brook</td></tr>				<tr><td><b>Posted:</b></td><td>7/28/1999; 8:13:07 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008813.html">indexTable- can't get it to work</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8822 (In response to <a href="msg008813.html">8813</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008821.html">8821</a> / <a href="msg008823.html">8823</a></td></tr>				</table>			<br>- but I've been without my indexing for a long time now as well. I tried following the docs this morning (London time) - with no luck. I'm not seeing any pages queued for indexing, *except* when I check out with WebEdit. does this work for you?<p>
+
+hmm. the 'initIndex' script chokes on some code in my pages. trying to work out why - -<p>
+
+One thing that does work (to index pages when they are hit using MR) is to set up an 'index this page' script in the finalFilter, like so:<p>
+
+<pre>
+&#171;bundle
+	&#171;local
+		&#171;title = adrPageTable^.title
+		&#171;url = adrPageTable^.url
+		&#171;text = searchEngine.stripMarkup (adrPageTable^.renderedText)
+		&#171;siteName = "TIME Magazine"
+		&#171;siteURL = "http://loop.timeinc.com/time/"
+	&#171;user.html.addToSearchEngine (title, url, text, sitename, siteURL)
+	&#171;thread.easycall ("user.html.addToSearchEngine", &#123;title, url, text, sitename, siteURL})
+	&#171;return (true)
+</pre><p>
+
+DISCLAIMER: not my own work! Whoever posted this first: 1) thanks, and 2) please identify yourself!<p>
+
+This script works fine, but chokes on anything longer than a 'normal' page length, with a Betty/XML error. Might work for you, though - -<p>
+
+Still digging, you betcha.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008826.html">Re: this isn't going to help</a>, Steve Ivy, 7/28/1999; 8:22:41 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:34 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: XML-RPC Spec Comments</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC Spec Comments</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Simeon Simeonov</td></tr>				<tr><td><b>Posted:</b></td><td>2/4/1999; 1:56:32 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002563.html">XML-RPC Spec Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2680 (In response to <a href="msg002615.html">2615</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002679.html">2679</a> / <a href="msg002681.html">2681</a></td></tr>				</table>			<br>I hope you are wrong. :)<p>
+
+The basic scenario I was describing was that of someone using one of the out-of-the-box WDDX serialization/deserialization modules to send/receive XML-RPC "packets".<p>
+
+I believe we are in agreement in that it will be very difficult for us to come up with a single request encoding that will work for both WDDX and existing XML-RPC clients w/o forcing code changes. I believe we are also in agreement that we should allow request parameters to be encoded in WDDX format. You've told me this is relatively easy. BobA suggested one extensible model for doing this. Looks like a win.<p>
+
+The responses coming from the server are a difference story, though. That's where we have some problems. Let's keep WDDX as an example, though Bob's idea for pluggable encodings can support other datatype representations in the future. I think it is reasonable to assume that if the sender of a request sends you something using WDDX you should send him/her the response using WDDX. There is no need for additional encoding layers. So, I'm advocating mapping the methodResponse element and the things under it to something more WDDX friendly. All of the response information can be put in a struct.<p>
+
+Why does this matter? Because the addition of even one unknown element will make the use of pre-built WDDX deserializer modules, e.g., the one for COM/ASP or ColdFusion, difficult if not impossible. Right there we can loose a few hundred thousand potential XML-RPC developers. Not a win.<p>
+
+Regards,<p>
+
+Sim, <a href="http://static.userland.com/userLandDiscussArchive/www.allaire.com"><i>Allaire</i></a>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:45 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,35 @@
+<html>	<head>		<title>Re: MSIE and XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: MSIE and XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Shinpaugh</td></tr>				<tr><td><b>Posted:</b></td><td>2/4/1999; 6:07:13 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000947.html">www.xml-rpc.com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2687 (In response to <a href="msg002666.html">2666</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002686.html">2686</a> / <a href="msg002688.html">2688</a></td></tr>				</table>			<br>Brent, <p>
+
+Using your MSIE5 XML-RPC tester code, I altered 
+a request to a Frontier RPC handler that takes 
+two strings and a message table and it failed. <p>
+
+I've been altering for other non-struct requests 
+and they ran fine.<p>
+
+My request was:<p>
+
+<?xml version='1.0'?>
+<methodCall>
+<methodName>mttf.com.addxxx</methodName> 
+<params> 
+<param><value><string>ME</string></value></param> 
+<param><value><string>password</string></value></param>
+<param><value><struct>
+   <member><name>dateTime</name><value><string>2/5/99;12:00:00</string></value></member>
+   <member><name>messageBody</name><value><string>This is a ...</string></value></member>
+   <member><name>receiveMailAddress</name><value><string><a href="mailto:me@me.com&lt">me@me.com&lt</a>;/string></value></member>
+   <member><name>subject</name><value><string>123</string></value></member>
+</struct></value></param> 
+</params>
+</methodCall><p>
+
+Any clue why this would be rejected?<p>
+
+
+(See Fronter Server for MTTF: RPC handler addxxx)<p>
+
+Thanks, <p>
+
+David
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002688.html">Re: MSIE and XML-RPC</a>, Dave Winer, 2/4/1999; 6:21:22 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:45 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

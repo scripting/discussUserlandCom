@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: ScriptingNews 2.0b1 Comments</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: ScriptingNews 2.0b1 Comments</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jeffrey Veen</td></tr>				<tr><td><b>Posted:</b></td><td>6/21/1999; 9:04:04 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007426.html">ScriptingNews 2.0b1 Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7656 (In response to <a href="msg007615.html">7615</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007654.html">7654</a> / <a href="msg007657.html">7657</a></td></tr>				</table>			<br><i>So, I choose to let the XML tag for link be <a>. And let it have an attribute called HREF.</i><p>
+
+Well, sure. But it all has to be in the DTD. If it's not in the DTD, you can't validate it. Netscape would be silly not to validate the content flowing into Netcenter. One error in one RSS file and the my.netscape.com is in shambles. So we parse and validate our RSS on the way out, and you do so on the way in. Perfect code every time.<p>
+
+So, really, there's nothing arbitrary about XML. We can't just add something to RSS unless everyone agrees we should. That's why you have every right to rant at Netscape for reving the spec behind closed doors. It belongs to us now, the publishers.<p>
+
+Anyway, there's a solution to all of this: XML namespaces. It allows any combination of tags from any number of DTDs. That would solve the link problem instantly:<p>
+
+<RSS:item>
+<RSS:text>
+Interesting reading in <HTML:cite>Wired News</cite> about <HTML:a href="http://www.wired.com/news/news/culture/story/20308.html">The X Games</a> currently going on in San Francisco.
+</text>
+</item>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007657.html">Re: ScriptingNews 2.0b1 Comments</a>, Dave Winer, 6/21/1999; 9:24:05 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

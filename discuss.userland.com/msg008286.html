@@ -1,0 +1,12 @@
+<html>	<head>		<title>Debugging Betty</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Debugging Betty</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Steve Ivy</td></tr>				<tr><td><b>Posted:</b></td><td>7/7/1999; 11:10:52 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008286.html">Debugging Betty</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8286</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008285.html">8285</a> / <a href="msg008287.html">8287</a></td></tr>				</table>			<br>I'm trying to track down a faulty path somewhere in my frontier.root. I'm actually working with console.root, but whenever I try the preview, I get macro errors from the rpc calls to betty with mainresponder.new.getpreview. <p>
+
+The error says "The server, localhost, returned error code 7: Can't find a sub-table named "Lukas:Applications:Scripting:Frontier 6.0fc1:Guest Databases:apps:mainResponder.root".<p>
+
+Lukas, the drive, no longer exists. I can't find this path <i>anywhere</i> in frontier.root, and I can't figure out how to debug <b>betty.rpc.server</b> - it get's called outside the debug context when debugging the client. I want to step into the server so I can find where it's getting this path.<p>
+
+Can anyone help me?<p>
+
+--Steve<p>
+
+UPDATE: user.betty.rpchandlers was the culprit. There were a couple bad paths in there. I still am wondering how I could step through betty.rpc.server if I needed to.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

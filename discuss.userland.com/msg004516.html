@@ -1,0 +1,39 @@
+<html>	<head>		<title>Re: outline renderer for F6 HTML authoring</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: outline renderer for F6 HTML authoring</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ian Beatty</td></tr>				<tr><td><b>Posted:</b></td><td>3/25/1999; 1:03:07 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004469.html">[ANN] outline renderer for F6 HTML authoring</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4516 (In response to <a href="msg004515.html">4515</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004515.html">4515</a> / <a href="msg004517.html">4517</a></td></tr>				</table>			<br>Hi, Bernie. Or Mr. De Koven, whichever you prefer.<p>
+
+<aside>Geez, I write one simple renderer, and here I am hobnobbing with the exalted guru of technography. (Exalted by Dave Winer, at least, and he's pretty exalted himself.) </aside><p>
+
+<i>this is great! a real contribution! a direction I had really hoped things would be going in.</i><p>
+
+Web authoring has *got* to change. Word processors evolved from cryptic markup systems (remember TeX? RNF?) to WYSIWYG. Even those are often too complicated. And on the web and with XML coming along, document structure will become more prominent, at the expense of mere prettiness. (But visual elegance will always be important.) IMVHO, of course.<p>
+
+<i>now, as an outline user, but not a Frontier programmer, if you could make this work on a slightly higher level, with the technology hidden just a little more fully, you know, with things like menu commands to make tables and stuff, well, then it'd be even that much more useful.</i><p>
+
+I hear you. I have users who I'd like to have author stuff in outlines, but there's no way they're going to learn Frontier's ins and outs. That's why I'm so interested in the Frontier "workstation" product Dave has hinted about. I'd like my users to be able to run what looks like a simple outliner program, choose a menu command, and *wham* their outline gets sent to a Frontier server, rendered, and sent back to their browser. Even better if they could edit outlines right in their browser. (Dave, regarding your DG thread about creating a better text-field for HTML forms, how about the idea of an outline-field too? Sounds tough but valuable.)<p>
+
+In order to hide the "technology" of "tables and stuff", I can think of two things you might mean (either or both):<p>
+
+<ol><li>The user chooses a menu item, and Frontier inserts the appropriate special outline items (":table", etc.). In other words, simplify what the technographer needs to remember/write.</li><p>
+
+<li>Frontier keeps such special lines, directives, etc. (optionally) invisible, so the user sees only the text to appear in the final page. In other words, simplify what the technographer sees.</li></ol><p>
+
+Item 1 Shouldn't be very hard to implement, and it sounds like a good idea. I might play with that myself, but as I'm under the gun on my Ph.D. research, I can't promise I'll invest lots of time.<p>
+
+Item 2 Requires heavy changes to Frontier's outliner, I think, to support special text that can be displayed/hidden, and probably special display features to make clear what pars are lists, tables, etc. Even that would mess up the visible hierarchy (visible children of an invisible parent?), so I'm not sure how that would work. Is a line reading ":table" really so unfriendly?<p>
+
+I don't know how to get there, but to really get free of the markup, perhaps what you want is an outliner that can actually display tables, list, etc. approximately as they will appear? WYSIWYG outlining?<p>
+
+<i>have you been following the technography thread? are you aware of any tool that would allow me to broadcast outlines on the fly, as they are being built, over the internet, with minimal latency?</i><p>
+
+I've been following it loosely, for general ideas and directions but not details. I'm not aware of any such tool. But I should think one could set up Frontier so that it had an agent or thread which keeps track of a particular outline as you are editing it, and every time a change is made (or every 10 seconds or whatever works), it renders that outline to HTML and commands a browser to refresh. Or, better yet, have the outline rendered dynamically through WSF, and then all the thread must do is tell the browser to refresh at appropriate intervals. Frontier would automatically serve up what's currently in the outline.<p>
+
+Of course, the monitoring agent would have to check that the instantaneous state of the outline was "legal", because if the technographer were in the middle of typing a command tag or something, the rendered results might be garbage. The agent script would need some logic to handle those cases.<p>
+
+RE latency, I don't know enough about performance to say more than use a fast computer to run Frontier and a fast connection to the web browser(s). docRenderer(), or whatever equivalent one used, should probably be optimized. I didn't worry terribly about that.<p>
+
+
+Did I interpret you correctly in all of this? I'm a little unclear on what your vision of a more user-friendly version would be like. I'd like to hear more.<p>
+
+Cheers,<p>
+
+<a href="//">//</a> Ian
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004519.html">Re: outline renderer for technography</a>, Ian Beatty, 3/25/1999; 1:20:19 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:03 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

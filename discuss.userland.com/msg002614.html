@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: XML-RPC Spec Comments</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC Spec Comments</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Simeon Simeonov</td></tr>				<tr><td><b>Posted:</b></td><td>1/31/1999; 12:50:16 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002563.html">XML-RPC Spec Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2614 (In response to <a href="msg002584.html">2584</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002613.html">2613</a> / <a href="msg002615.html">2615</a></td></tr>				</table>			<br>Dave,<p>
+
+Re: (1), great!<p>
+
+Re: (2), I agree with you that specs have to make choices. Modular specs allow the spec designers to make choices, particularly in the future, without necessarily throwing multiple implementations of the spec in havoc.<p>
+
+Re: (3), here is a scenario. You can simulate a post on a hidden frame to get some data back from a server that you can later use in the browser. We have developers that are doing similar things with WDDX. Another scenario: a scriptable HTML editor sich as HomeSite (the most popular code-centric HTML editor for PCs) might want to make calls to servers to execute wizards or to get help on something. People have written a number of scripts that do things like that.<p>
+
+Re: (4), I have to disagree. If all one cares about is the information that comes through an HTTP post it doesn't matter whether the info comes through headers, cookies, form fields, or URL parameters. If you want to have a dynamic link you have no choice but to use URL parameters.<p>
+
+Re: WDDX integration, I've mentioned at least two times a major concern for us, the fact that many WDDX serializer/deserializer modules cannot be used out-of-the-box to parse XML-RPC requests/responses. This means that to get XML-RPC compatibility we'll be asking developers to have to write more code. Some won't mind, some will...<p>
+
+Now, I don't think it is reasonable to expect that s.o. who wants to write an XML-RPC server that works with WDDX won't have to do some coding. That's understandable. However, my goal is to try to get an integration scenario where all WDDX-enabled platforms can make XML-RPC requests and parse responses. The request-making part is easy. The response-parsing part is hard if you have XML that is not 100% WDDX. <p>
+
+WDDX is available on a large number of platforms. Asking people to write XML-RPC reponse parsers for each and every one of these seems like a big thing to do. And if we don't convice developers to do the work, we won't have interoperability. That's not a win situation.<p>
+
+Sim, <i>Allaire</i>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002615.html">Re: XML-RPC Spec Comments</a>, Dave Winer, 1/31/1999; 1:23:32 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:41 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

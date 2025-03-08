@@ -1,0 +1,36 @@
+<html>	<head>		<title>XML compile/decompile anomaly</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML compile/decompile anomaly</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>tommy.sundstrom@cma.se</td></tr>				<tr><td><b>Posted:</b></td><td>2/29/2000; 4:53:41 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg015344.html">XML compile/decompile anomaly</a></td></tr>				<tr><td><b>Msg #:</b></td><td>15344</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg015343.html">15343</a> / <a href="msg015345.html">15345</a></td></tr>				</table>			<br>When I xml.compile this element<p>
+
+<category name="abc"></category><p>
+
+I get a table that looks something like this:<p>
+
+<pre>
+category
+   /atts
+      name     "abc"
+   /pcdata     ""
+</pre><p>
+
+
+Then I use xml.addTable to add a <story name="def"> to this.
+So far it works just fine. <p>
+
+<pre>
+category
+   /atts
+      name     "abc"
+   /pcdata     ""
+   story
+      /atts
+         name  "def"
+      /pcdata  ""
+</pre><p>
+
+But when I try to xml.decompile the element, the <story> element is lost.<p>
+
+If I remove the /pcdata cell from the category, the <story> is preserved.<p>
+
+I'm a beginner at xml but I belive that an element can have a mixed content with both pcdata and elements. <p>
+
+If not, maybe xml.decompile should give an error message.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:54:27 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

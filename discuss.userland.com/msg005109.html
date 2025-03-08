@@ -1,0 +1,15 @@
+<html>	<head>		<title>log off problem in second discussion group</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>log off problem in second discussion group</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Theige</td></tr>				<tr><td><b>Posted:</b></td><td>4/18/1999; 11:07:21 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005101.html">Discussions for Multiple Membership Groups</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5109 (In response to <a href="msg005101.html">5101</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005108.html">5108</a> / <a href="msg005110.html">5110</a></td></tr>				</table>			<br>My second discussion group (new membership group, new cookie
+name) has a logoff page which is a clone of the page at discussionGroup.logon.logoff. I was seeing this in the browser: 
+[Macro error: Can't evaluate the expression because the name "" hasn't
+been defined.]<p>
+
+John Simms solved my problem:<p>
+
+"I ran into this when calling mainResponder.members.setCookie. Make sure the adrMembers parameter is supplied, and correct. I logoff users simply by using the macro:<p>
+
+&#123;"<!--" + mainResponder.members.setCookie ("", "",members) + "-->"}<p>
+
+Since the pageTable is within scope, and members is defined, I can just refer to it as such."<p>
+
+John.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011368.html">Re: log off problem in second discussion group</a>, Eric Soroos, 9/22/1999; 9:19:49 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:24 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

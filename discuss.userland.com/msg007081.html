@@ -1,0 +1,31 @@
+<html>	<head>		<title>Re: The Need For Speed</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: The Need For Speed</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Robert Brook</td></tr>				<tr><td><b>Posted:</b></td><td>6/7/1999; 10:58:14 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007066.html">The Need For Speed</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7081 (In response to <a href="msg007077.html">7077</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007080.html">7080</a> / <a href="msg007082.html">7082</a></td></tr>				</table>			<br>David, this sounds great.<p>
+
+I share your love of outlines. Perhaps I'll carry on writing in them, and then just change them back to text with the popup. (Crude, but effective!)<p>
+
+I've been looking at the Table Renderers tutorial on Script Meridian, and running over a few pointers on the Userland sites as well.<p>
+
+I have tried this:<p>
+
+A template (myNiceNewtemplate) containing something like<p>
+
+<pre>
+<h1>&#123;adrtable^.myHeadline}</h1>
+<blockquote>&#123;adrtable^.myBodytext}</blockquote>
+&#123;pagefooter()}
+</pre><p>
+
+ - and a table-to-be-rendered like this:<p>
+
+<pre>
+myTable
+    default  
+    myBodytext  
+    myHeadline
+</pre><p>
+
+ - where default simply contains #template "myNiceNewTemplate".<p>
+
+Yes, I know it probably looks mighty nasty in the ODB, but it opens all sorts of avenues when I stop thinking XML and start doing XML. After all, I can get data into (and out of) myHeadline and myBodytext by means of XML in a kind of neat way!<p>
+
+Please - point out some glaring errors. I'd be grateful!
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

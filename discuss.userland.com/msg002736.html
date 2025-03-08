@@ -1,0 +1,42 @@
+<html>	<head>		<title>XML-RPC comments from John Cowan</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML-RPC comments from John Cowan</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/7/1999; 5:40:02 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000947.html">www.xml-rpc.com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2736 (In response to <a href="msg000947.html">947</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002735.html">2735</a> / <a href="msg002737.html">2737</a></td></tr>				</table>			<br>From: John Cowan, <a href="mailto:cowan@locke.ccil.org">cowan@locke.ccil.org</a> on the <a href="http://www.lists.ic.ac.uk/hypermail/xml-dev/">xml-dev list</a>:<p>
+
+I have read the XML-RPC <a href="http://www.scripting.com/frontier5/xml/code/rpc.html">specification</a> with great
+interest.  I have the following issues with it:<ol><p>
+
+<li>There is no support for internationalization, despite the
+support present in XML.  Since the MIME type is text/xml
+(as opposed to application/xml), the character encoding is
+US-ASCII unless overridden.  No mention is made of support for
+character references like &#x2020; (DOUBLE DAGGER).<p>
+
+I would suggest supporting either "text/xml; charset='utf-8'".
+In addition, the references to "ASCII" in the spec should be changed.<p>
+
+<li>There is no support for integers longer than 32 bits.<p>
+
+I suggest allowing <int> values to be arbitrarily large, reserving
+the <i4> tag for 32-bit signed values.  This would be an upward
+compatible extension for senders; receivers would have to check
+whether <int> data was in fact within the 32-bit signed range
+if backward compatibility is desired.<p>
+
+<li>Floats are fairly useless because no rules exist for setting limits.<p>
+
+I suggest that no receiver be allowed to reject a value which can be
+represented in 32-bit IEEE floats: between 1e-149 and 1e104, positive
+or negative, or zero.<p>
+
+<li>The statement that "A string can be used to encode binary data"
+cannot be true, because arbitrary binary data cannot appear in XML
+documents: there is no way to represent bytes of value 0-8, 11-12, or
+14-31.  This is only a documentation consideration, as the base64
+element does allow the representation of arbitrary binary data.<p>
+
+<li>The very limited fault struct means that more complex exceptions
+such as Java, Python, or C++ support must be flattened into strings
+for return to the client, even though XML-RPC has ways of encoding more
+complex objects.<p>
+
+I suggest allowing a struct within a fault object.
+</ol></li></li></li></li></li>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:47 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

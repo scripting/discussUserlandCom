@@ -1,0 +1,36 @@
+<html>	<head>		<title>Re: Scripting on Windows</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scripting on Windows</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Robert Krajewski</td></tr>				<tr><td><b>Posted:</b></td><td>1/12/1999; 10:35:16 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002017.html">Scripting on Windows</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2031 (In response to <a href="msg002017.html">2017</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002030.html">2030</a> / <a href="msg002032.html">2032</a></td></tr>				</table>			<br>First, too bad that Apple snubbed you. Not that I have any inside
+information, but it appears that scripting in OS X should be
+exciting, especially since it looks like Yellow Box apps will fit
+into OSA quite nicely. (So the scriptable app set will include both Carbon and OpenStep apps.) Combine that with a modern OS and interoperability with the Blue Box and it's going to be easier for Mac scripting users to move to OS X than NT.
+I'd say you, as a Mac scripting
+provider, can view this an opportunity, not something
+to get upset about.<p>
+
+From the little I've seen from the end-user client side, scripting in Windows should, in theory,
+be just as pervasive as scripting on the Mac.
+My credentials: I am familiar with MacOS OSA and AppleEvents, but
+I have also done plenty of real implementation with OLE Automation,
+especially as it is embodied in MFC-based ActiveXs that provide scripting
+interfaces (IDispatch).
+Scripting within
+an application, or just to one application, has been pretty well
+supported since OLE Automation was introduced in OLE 2. If you drink
+the MFC kool-aid, you get a reasonable amount of scripting support
+as well, although the relatively new ActiveX Template classes might
+be a better fit for existing applications not based on MFC.<p>
+
+However, it was not until recently that OLE Automation got the sort
+of scripting-engine-side features and places to plug in (script providers, &c.) that
+MacOS OSA has had for quite a while.
+For example, the lack of a script engine abstractions means that
+apps in the Microsoft orbit use VBA, Lotus ones use LotusScript, and
+other parties must fend for themselves or adapt yet another
+party's engine.
+As a result, cross-application
+scripting has suffered, especially for the kind of ad hoc integration
+that is so easy to do on the Mac, or, if you just want to pipe streams
+around, in Unix environments. There is nothing stopping  a programmer
+enabling this stuff in Windows, but it's just not in the culture of Windows. Big apps tend to support automation, and ActiveX's do, too,
+but a lot of medium-sized apps and most of Windows' own utilities do
+not.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002039.html">Re: Scripting on Windows</a>, Dave Winer, 1/12/1999; 11:34:26 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

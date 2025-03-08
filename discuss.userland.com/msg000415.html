@@ -1,0 +1,24 @@
+<html>	<head>		<title>Tricky problem!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Tricky problem!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>11/23/1998; 3:39:31 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000001.html">First message</a></td></tr>				<tr><td><b>Msg #:</b></td><td>415 (In response to <a href="msg000403.html">403</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000414.html">414</a> / <a href="msg000416.html">416</a></td></tr>				</table>			<br>OK, I started working on a command bar that would apply to all pages on our server where membership is an important discriminator, where you get features based on membership. I started with the discussion group:<p>
+
+<a href="http://nirvana.userland.com/tickets/discuss/">http://nirvana.userland.com/tickets/discuss/</a><p>
+
+I had it working, when you're logged on, the single command in the menu would say Log Off, and if you're not logged on, the single command would say Log On. It was just the start. I was feeling good.<p>
+
+Then Brent told me that the assignment of discuss.userland.com had come thru. Great! I said, I'll wire that up right now. <p>
+
+<a href="http://discuss.userland.com/">http://discuss.userland.com/</a><p>
+
+Then I went back to work on my command bar, and it wouldn't work! I'd log off, then log on again, but it wouldn't stick. I groaned! Oh I hate working with cookies when they don't work. So I put dialog.alert calls in. All indications are that the cookie is getting back to me. I went into the debugger. It looks fine, the cookie code is working as it should.<p>
+
+So I went for a walk, and figured it out. I'm not getting the cookie back. The browser thinks that discuss.userland.com is different from nirvana.userland.com. It's doing the right thing. I wish I could somehow tell it to relax, and to send me the cookie anyway. <p>
+
+So now I'm trying to think of ways I can get that cookie to come to me and have the URL stay pretty and simple as discuss.userland.com. I'd hate to have to choose between cookies and simple URLs.<p>
+
+The best idea I've been able to come up with is to do what the banner ads guys do, put a graphic at the top of the page that does the cookie management, and have that graphic reside on nirvana.userland.com. But I bet that would be a bitch to implement. <p>
+
+What would be better is if there was some way to tell the browser to return the cookie for a list of domains. But I'm pretty sure that feature doesn't exist.<p>
+
+What to do?<p>
+
+Dave
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg000417.html">Re: Tricky Problem!</a>, William Crim, 11/23/1998; 4:49:28 PM<p><li>&nbsp;<a href="msg000418.html">Re: Tricky problem!</a>, Scott Storkel, 11/23/1998; 5:00:07 PM<p><li>&nbsp;<a href="msg000419.html">Re: Tricky problem!</a>, Adam Trachtenberg, 11/23/1998; 5:27:51 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:45:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

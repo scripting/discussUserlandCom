@@ -1,0 +1,20 @@
+<html>	<head>		<title>Membership "sign up" screen unreachable</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Membership "sign up" screen unreachable</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>erik</td></tr>				<tr><td><b>Posted:</b></td><td>5/27/1999; 11:55:30 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006813.html">Membership "sign up" screen unreachable</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6813</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006812.html">6812</a> / <a href="msg006814.html">6814</a></td></tr>				</table>			<br>Scene: F6 running on Xeon Pentium III NT4SP4 workstation. The usual membership deal with "employees". No XML prefs, no my.userland stuff (yet).<p>
+
+When people click on the sign up link from the logon page, their web browser spins awhile, then returns then to the logon page. I see the following inetd error in my logs:<p>
+
+client = 16.xxx.yy.zzz<br>
+port = 81<br>
+stream = 4<br>
+whatWentWrong = Can't write stream because TCP/IP error code 10054 - Connection reset by peer.<br>
+whatWereWeDoing = Returning data<br><p>
+
+Also see this error:<p>
+
+client = 16.xxx.yy.zzz<br>
+port = 81<br>
+stream = 11<br>
+whatWentWrong = Can't write stream because TCP/IP error code 10053 - Software caused connection abort.<br>
+                       whatWereWeDoing = Returning data<br><p>
+
+However when I try the same thing from MSIE v4.5 on Mac, it works. Strange? Could it all be because of IP Throttling in NT workstation?</br></br></br></br></br></br></br></br></br></br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006819.html">Re: Membership</a>, erik, 5/27/1999; 4:45:26 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:29 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

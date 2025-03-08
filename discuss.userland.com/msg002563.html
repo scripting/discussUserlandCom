@@ -1,0 +1,26 @@
+<html>	<head>		<title>XML-RPC Spec Comments</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML-RPC Spec Comments</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Simeon Simeonov</td></tr>				<tr><td><b>Posted:</b></td><td>1/29/1999; 8:11:02 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002563.html">XML-RPC Spec Comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2563</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002562.html">2562</a> / <a href="msg002564.html">2564</a></td></tr>				</table>			<br>Dave,<p>
+
+As per <a href="http://discuss.userland.com/msgReader$2452">your request</a> I am starting this new thread on the the XML-RPC spec. Here is how I think it should be done:
+<ul>
+<li>Split the spec so that it talks about four separate layers: transport, request/response encoding, data encoding, and server. The general specification of each of the layers should mostly talk in logical terms pertaining to the information the layer needs/produces and the transformations it performs. For example, you can say that the transport layer should implement request/response semantics and be able to transport the XML packet describing XML-RPC requests/responses.
+<li>Document at least two types of transports: HTTP(S) with content type text/xml (what you have now), and HTTP(S) with content type text/html (and all its varieties) which is useful for generic web applications that might want to expose XML-RPC functionality. I had suggested using hidden formfield variables with well-defined names for this. It might be nice to allow URL parameters to be used instead of form fields, although then large requests will fall prey to URL size limitations. The benefit is obvious: a link can encapsulate a request.
+<li>Require that in addition to object, method, and arguments information the request also includes information about which version of the encoding is being used. This will save you a lot of hassle in the future and will allow a server to handle legacy requests. The response should use the same version as the request. It may not hurt to specify the version there as well, though.
+<li>Document the existing encoding for XML-RPC extending it with optional version information defaulting to whatever the current version is.
+</ul><p>
+
+When the XML-RPC spec gets to this point of modularity we can meaningfully start talking about WDDX integration, etc. <p>
+
+The one problem that I'm still grappling with has to do with a single server accepting requests with multiple encoding types (as opposed to versions of the same encoding type). There are four ways to handle this:
+<ul>
+<li>Let the server determine this by looking at the request packet. This can involve some ad hoc coding but it allows plug'n'play use of "modules" that might produce a request in a specific encoding. That's very appealing.
+<li>Specify a mandatory top-level element for all encodings that specifies the name of the encoding used. This doesn't allow for plug'n'play and it makes integrating decoders into the request parsing tricky. This worries me.
+<li>Postulate that a server may have multiple entry points, e.g., URLs, but that each entry point can only understand one encoding. Here the entry point automagically determines the decoding strategy. This is appealing, but leaves it to the requester to know whom to call. This doesn't seem too bad, though, as the requester probably knows what encoding it's going to use.
+<li>Specify that the encoding type must be communicated via the transport. Essentially, we are adding an extra encoding type demultiplexer layer. For example, the transport using content type text/xml can automatically infer that it is using the traditional XML-RPC spec. The transport using content type text/html can pass a separate hidden form-field variable or URL parameter. In this scenario we have a way to pass structured information about the encoding type without mucking around with the encoding layer. Defaults can ensure that backward compatibility is fully maintained. This is my favorite.
+</ul><p>
+
+What do you think?<p>
+
+Regards,<p>
+
+Sim, <i>Allaire</i></li></li></li></li></li></li></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002574.html">Encodings; was Re: XML-RPC Spec Comments</a>, Bob Atkinson, 1/29/1999; 1:42:43 PM<p><li>&nbsp;<a href="msg002584.html">Re: XML-RPC Spec Comments</a>, Dave Winer, 1/30/1999; 7:45:58 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,37 @@
+<html>	<head>		<title>Re: Is XML-RPC a scripting environment?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Is XML-RPC a scripting environment?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Emmanuel M. Décarie</td></tr>				<tr><td><b>Posted:</b></td><td>1/20/1999; 6:56:55 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2296 (In response to <a href="msg002293.html">2293</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002295.html">2295</a> / <a href="msg002297.html">2297</a></td></tr>				</table>			<br><i>Perl must have *some* convention for what a boolean is, right? How could you program without booleans?</i><p>
+
+Dave, in some ways, and I hope I'm not misleading you, in Perl, all scalars are strings, but depending of the context, they get converted in other datatypes (integer, boolean...). If you want to get a quick overview of Perl, I suggest <i>Perl in a Nutshell</i> from O'Reilly. This book cover all aspects of Perl in an encyclopedic way.<p>
+
+From <i>Programming Perl</i> (2nd edition, p. 21) [BTW I find the first paragraph very interesting in the context of the political situation in the US]:<p>
+
+<i>Basically, Perl holds truths to be self-evident. That's a glib way of saying that you can evaluate almost anything for its truth value. Perl uses practical definitions of truth that depend on the type of thing you're evaluating. As it happens, there are many more kinds of truth than there are of nontruth.<p>
+
+Truth in Perl is always evaluated in a a scalar context. (Other than that, no type coercion in done.) So here are the rules for the various kinds of values that a scalar can hold:<p>
+
+<ol type="1" start="0">
+	<li>Any string is true except for "" and "0".
+	<li>Any number is true except for 0.
+	<li>Any reference is true.
+	<li>Any undefined value is false.
+</ol>
+</i><p>
+
+(...)<p>
+
+<pre>
+0           # would become the string "0" so false
+1           # would become the string "1", so true
+10 - 10     # 10 - 10 is 0, would convert to string "0", so false
+0.00        # becomes 0, would convert to string "0", so false
+"0"         # the string "0", so false
+""          # a null string, so false
+"0.00"      # the string "0.00", neither empty nor exactly "0", so true
+"0.00" + 0  # the number 0 (coerced by the +), so false
+$a         # a reference to $a, so true, even if $a is false
+undef()     # a function returning the undefined value, so false
+</pre><p>
+
+Cheers<p>
+
+-- Emmanuel (dreaming of a <i>Frontier in a Nutshell</i> book)</li></li></li></li>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:25 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

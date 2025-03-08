@@ -1,0 +1,15 @@
+<html>	<head>		<title>Third Voice security hole -- kiss of death</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Third Voice security hole -- kiss of death</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jacob Levy</td></tr>				<tr><td><b>Posted:</b></td><td>7/9/1999; 8:58:44 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008361.html">Third Voice security hole -- kiss of death</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8361</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008360.html">8360</a> / <a href="msg008362.html">8362</a></td></tr>				</table>			<br>I am still able to reproduce the security attack with the old version of the Third Voice software. The new version indeed does not allow the security attack. I find this "solution" totally inadequate, however. See below.<p>
+
+Based on the small amount of information given in the report here is my limited (take-with-a-rock-of-salt) analysis:<p>
+
+* The old Third Voice client software allows a user to post sticky notes with (potentially malicious) JavaScript embedded in them.
+* The newer Third Voice client does not allow this or does some checking that eliminates (some of? all of?) the dangerous uses of Javascript in a postit-note.
+* When a note is received that contains Javascript, the embedded Javascript is executed. I'm not sure whether the newer client software does any additional checking on the Javascript it receives and executes.
+* The Maltan hackers who reproduced the original bug with a new copy of the Third Voice client probably simply disabled the additional checks (presumably by binary editing).<p>
+
+It doesnt seem adequate to release fixed client software. As long as there is even one copy of the old (or newly compromised) client in use somewhere, malicious users can post notes with malicious Javascript in the note and client software everywhere will execute the embedded code.<p>
+
+I'm pretty sure Third Voice people are aware of the real solution -- filter all Javascript on the server and do not rely on client software to be bona fida. I dont even have to use a client released by Third Voice to post a note, since its a simple network protocol. Therefore implementing security through releases of new client software is ridiculous. The statement by Third Voice claiming that the Maltan hackers did not compromise Third Voice security because they didnt use the original Third Voice client exactly proves my point.<p>
+
+Third Voice probably depends on the ability of clients to execute Javascript for some of its functionality. Therefore it is caught in a bind. They can't disable Javascript and at the same time they must because of the security issues.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:21 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

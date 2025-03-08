@@ -1,0 +1,42 @@
+<html>	<head>		<title>Re: XML Namespaces difficulty</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML Namespaces difficulty</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ken MacLeod</td></tr>				<tr><td><b>Posted:</b></td><td>8/30/2000; 9:31:55 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg020465.html">cam?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>20545 (In response to <a href="msg020508.html">20508</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg020544.html">20544</a> / <a href="msg020546.html">20546</a></td></tr>				</table>			<br><blockquote><i>That's very good, I love hearing about tuples, sets, and operators. Given that definition, I would only ask whether the NamespaceURI part is ever implied by context, rather than stated explicitly?</i></blockquote><p>
+
+It's best that we seperate logical model (as defined in <a href="http://www.w3.org/TR/xml-infoset">XML Information Set</a>) from serialization model (as defined in <a href="http://www.w3.org/TR/REC-xml-names">Namespaces in XML</a>).<p>
+
+In the logical model (what one would see in a tree or from a parser [not in "keep the serialization as-is" mode]), no, NamespaceURI is never implied by context, it is always explicit.  In the serialization, one can default the namespace for unqualified names by using a standalone "xmlns=" declaration (ie. without the prefix).<p>
+
+<blockquote><pre>
+    dc = "http://purl.org/dc/elements/1.1/"<p>
+
+    doc.title
+    doc.description
+    doc.(dc, 'source')</pre><p>
+
+<i>What default namespace qualifies the symbols 'title' and 'description' above?</i></blockquote><p>
+
+If an element or attribute name does not have a namespace, then NamespaceURI is null.  (In the serialization, this means any element or attribute name not in the scope of a default namespace declaration, "xmlns=".)<p>
+
+<blockquote><i>The example looks like code in some language I assume is not XML. Often code in procedural languages is less ambiguous than encodings in declarative languages.</i></blockquote><p>
+
+My bad.  My example code actually does hide an ambiguity of my design:  I convert XML to "real" application objects, like EMail messages, MP3 headers, or HTML page.  Since the object above, 'doc', itself possibly has a namespace (defined by its class), those attributes <i>may</i> be in the namespace of the object.  They may also have a null NamespaceURI.  Unqualified (accessing without the tuple form), I would treat (null, 'title') the same as ('URI-of-doc-class', 'title').  The example would be synonomous with this:<p>
+
+<pre>
+    dc = "http://purl.org/dc/elements/1.1/"<p>
+
+    doc.(null, 'title')
+    doc.(null, 'description')
+    doc.(dc, 'source')
+</pre><p>
+
+and this:<p>
+
+<pre>
+    dc = "http://purl.org/dc/elements/1.1/"
+    doc_ns = "URI-of-doc-class"<p>
+
+    doc.(doc_ns, 'title')
+    doc.(doc_ns, 'description')
+    doc.(dc, 'source')
+</pre><p>
+
+(Aside, that code most closely resembles code I've written in Python, where it's really:  <code>doc[(dc, 'source')]</code>.)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:56:24 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

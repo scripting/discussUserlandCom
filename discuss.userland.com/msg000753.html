@@ -1,0 +1,24 @@
+<html>	<head>		<title>Domain-specific globals</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Domain-specific globals</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>12/3/1998; 6:31:31 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000753.html">Domain-specific globals</a></td></tr>				<tr><td><b>Msg #:</b></td><td>753</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000752.html">752</a> / <a href="msg000754.html">754</a></td></tr>				</table>			<br>This is a feature Bob asked for a while back.<p>
+
+Now, an entry in config.mainResponder.domains can be a table.<p>
+
+If so, nomad is initialized from a sub-element named docTree.<p>
+
+It can also have a subtable named globals, these are added to the globals
+from config.mainResponder.globals. The domain-specific ones override the
+global globals, if you get what I mean.<p>
+
+To test it out, I created a domain for legacy.userland.com and mapped it to
+a folder in the file system containing a September snapshot of
+www.scripting.com. I turned directory listings off for this site.<p>
+
+So if you jump here:<p>
+
+<a href="http://legacy.userland.com/98/">http://legacy.userland.com/98/</a><p>
+
+You'll get an error. That's proof that it works. <p>
+
+Here are docs for config.mainResponder.domains:<p>
+
+<a href="http://developers.userland.com/configuration/domains">http://developers.userland.com/configuration/domains</a>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

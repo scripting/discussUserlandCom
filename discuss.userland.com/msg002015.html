@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: Memory management w/ Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Memory management w/ Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>1/12/1999; 6:00:25 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002011.html">Memory management w/ Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2015 (In response to <a href="msg002013.html">2013</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002014.html">2014</a> / <a href="msg002016.html">2016</a></td></tr>				</table>			<br>I had a test w/ flat structures and the performance went down after 3000 sub-tables per table. But that could be the memory consumption, I ran the first tests on a smaller machine (64MB).<p>
+
+I recall reading postings in a discussion flat vs. deep table structures, where performance will be more stable with deep structures.<p>
+
+Now I use this record structure:
+<pre>
+LW:\gdb.root\gdb.tablename.["000"].["000"].["000"].["000000000001"].field
+</pre><p>
+
+For every 1.000 records I get a new parent, etc. Each record retains its full recId, so I can construct the real position out of its name. Maybe I&#180;m wrong and this tweaking is not needed, but my db will get transaction data in this sizes.<p>
+
+Thanks for the tip, I&#180;ll try it<p>
+
+Kurt
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002016.html">Re: Memory management w/ Frontier</a>, Dave Winer, 1/12/1999; 6:19:19 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

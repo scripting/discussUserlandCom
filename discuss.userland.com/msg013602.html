@@ -1,0 +1,54 @@
+<html>	<head>		<title>Fixing Manila Calendar HTML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Fixing Manila Calendar HTML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Richard Sexton</td></tr>				<tr><td><b>Posted:</b></td><td>12/13/1999; 4:16:41 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013602.html">Fixing Manila Calendar HTML</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13602</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013601.html">13601</a> / <a href="msg013603.html">13603</a></td></tr>				</table>			<br>I duno if this has been posted before but here goes...<p>
+
+Ever notice that "Sat" in the Manila calendar is misaligned on IE4.5 for Macintosh? This seems to happen on all out-of-box Manila sites but will sometimes go away when the site is rebuilt.<p>
+
+There is a pretty simple solution for this. It's just spacing... Here's the original HTML for the days row:<p>
+
+<pre>
+<tr height="10"&gt;
+	<td  width="19"&gt;
+		<font size="-2" color="green"&gt;<center&gt;Sun</center&gt;</font&gt;
+		</td&gt;
+	<td  width="19"&gt;
+		<font size="-2" color="green"&gt;<center&gt;Mon</center&gt;</font&gt;
+		</td&gt;
+	<td  width="19"&gt;
+		<font size="-2" color="green"&gt;<center&gt;Tue</center&gt;</font&gt;
+		</td&gt;
+	<td  width="19"&gt;
+		<font size="-2" color="green"&gt;<center&gt;Wed</center&gt;</font&gt;
+		</td&gt;
+	<td  width="19"&gt;
+		<font size="-2" color="green"&gt;<center&gt;Thu</center&gt;</font&gt;
+		</td&gt;
+	<td  width="19"&gt;
+		<font size="-2" color="green"&gt;<center&gt;Fri</center&gt;</font&gt;
+		</td&gt;
+	<td  width="19"&gt;
+		<font size="-2" color="green"&gt;<center&gt;Sat</center&gt;</font&gt;
+		</td&gt;
+</tr&gt;
+</pre><p>
+
+
+If you take out the whitespace between every /td then you will no longer see this problem. I know this sounds like voodoo but it's a well known, if not well understood, browser bug that's common to most browsers. Weird that it's only showing up in IE 4.5 Mac. <p>
+
+As a rule, avoid that whitespace for tight table layouts. You can also take out the row height attribute which most browsers seem to ignore. <p>
+
+BTW, what's with the font tag? CSS would be much cleaner. On the other hand, you'd need to use different stylesheets for Mac/Windows/Other to get the size right.<p>
+
+Here's the fixed HTML with a few improvements. Is it possible for me to update the calendar script myself? Where does it live?<p>
+
+<pre>
+<tr&gt;
+	<td align="center" width="19"&gt;<font size="-2" color="green"&gt;Sun</center&gt;</font&gt;</td&gt;
+	<td align="center" width="19"&gt;<font size="-2" color="green"&gt;Mon</center&gt;</font&gt;</td&gt;
+	<td align="center" width="19"&gt;<font size="-2" color="green"&gt;Tue</center&gt;</font&gt;</td&gt;
+	<td align="center" width="19"&gt;<font size="-2" color="green"&gt;Wed</center&gt;</font&gt;</td&gt;
+	<td align="center" width="19"&gt;<font size="-2" color="green"&gt;Thu</center&gt;</font&gt;</td&gt;
+	<td align="center" width="19"&gt;<font size="-2" color="green"&gt;Fri</center&gt;</font&gt;</td&gt;
+	<td align="center" width="19"&gt;<font size="-2" color="green"&gt;Sat</center&gt;</font&gt;</td&gt;
+</tr&gt;
+</pre><p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013603.html">Re: Fixing Manila Calendar HTML</a>, Dave Winer, 12/13/1999; 4:24:48 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

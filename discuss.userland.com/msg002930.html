@@ -1,0 +1,66 @@
+<html>	<head>		<title>Re: Membership RPC handlers</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Membership RPC handlers</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Shinpaugh</td></tr>				<tr><td><b>Posted:</b></td><td>2/16/1999; 2:32:21 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002757.html">Membership RPC handlers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2930 (In response to <a href="msg002757.html">2757</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002929.html">2929</a> / <a href="msg002931.html">2931</a></td></tr>				</table>			<br>We need to optimize the GET versions of the RPC handlers.<p>
+
+mainResponder.members.getProfile   (When used with MTTF)
+   
+   This returns the Queue object.  Which contains all the MTTF messages the user has.  This isn't necessary and even 8-10 messages is a pretty big dump.  Takes up bandwidth, memory, browser object space....<p>
+
+   We really need one more parameter that tells the handler where to start from and proceed down.<p>
+
+   <b>RECOMMENDED CHANGE<b></b></b><p>
+
+   mainResponder.members.getProfile(userGroup, userKey, userPassword, profileStart)
+         &#123;
+         for this group/user
+               if not defined (profileGroup) 
+                     Return it ALL!!!
+               else 
+                    Return everything from the "identifer" inside the  param profileStart (which could be a table or a single element name)  down the hierarchy.  
+         }<p>
+
+(Although this doesn't have anything to do with membership RPC handlers)<p>
+
+mailtothefuture.getAllMessages <p>
+
+   Same root problem.  What if users have 100s of messages, and I just want the 
+   new ones since a date, or the ones that haven't occured yet.<p>
+
+   This solution is a little tricker, I'd like to set selection parameters in a struct.<p>
+
+   <b>RECOMMENDED CHANGE<b></b></b><p>
+
+   mailtothefuture.getAllMessages(userKey, userPassword, selectStruct)
+         &#123;
+         for this user
+               if not defined (selectStruct) 
+                     Return all messages for this user
+               else 
+                    Return all messages that match selection criteria in the selectStruct  
+         }<p>
+
+
+   (Sample selection criteria)<p>
+
+   <selectStruct>
+         <params>
+         <param><name>status</name><value> = pending</value></param>
+         <param><name>insertionDate</name><value> > 01/01/99</value></param>
+         </params>
+   </selectStruct><p>
+
+   or some such mechanism for conveying the selection criteria.  If you have a better 
+   format solution, it's welcome as long as it does the job.<p>
+
+   This would return all new messages added since 01/01/99 that have not been sent 
+   yet.<p>
+
+
+Of course this also opens a disussion on what about how the response is sorted....
+maybe add to the selectStruct:<p>
+
+         <param><name>sort1</name><value>subject</value></param><p>
+
+If you need more spec, dissussion let me know.  <p>
+
+
+David
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003017.html">Re: Membership RPC handlers</a>, David Shinpaugh, 2/18/1999; 1:51:38 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:55 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

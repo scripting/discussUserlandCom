@@ -1,0 +1,17 @@
+<html>	<head>		<title>Sample Frontier Code</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Sample Frontier Code</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>1/28/1999; 8:53:24 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002454.html">Search Engine XML-RPC Interface</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2547 (In response to <a href="msg002541.html">2541</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002546.html">2546</a> / <a href="msg002548.html">2548</a></td></tr>				</table>			<br>Sample code, running on my system, to call your RPC handler:
+<pre>
+local (server = "asterix.cc.waikato.ac.nz", port = 80, procedure = "xxx");
+local (title = "Scripting News Archive: 1/28/99");
+local (url = "http://www.scriptingnews.com/1999/01/28");
+local (text = base64.encode (string (dweb.home.["99"].["01"].News28), 0));
+local (sitename = "Scripting News Archive");
+local (siteurl = "http://www.scriptingnews.com/");
+local (params = &#123;title, url, text, sitename, siteurl});
+dialog.alert (betty.rpc.client (server, port, procedure, @params))
+</pre><p>
+
+It works, but there are problems. The XML result it returns is not properly formed. When I resubmit the page it doesn't replace the original. Not sure what to set the procedure name to. <p>
+
+I think we clearly need something less ad hoc running in Apache, but this is a grrrreat beginning, thank you for picking up the ball. <p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

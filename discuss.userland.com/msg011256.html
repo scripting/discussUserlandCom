@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: htmlInterfaces.people in multiple DGs</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: htmlInterfaces.people in multiple DGs</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark Gillingham</td></tr>				<tr><td><b>Posted:</b></td><td>9/18/1999; 9:00:45 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005366.html">Membership Q</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11256 (In response to <a href="msg010297.html">10297</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011255.html">11255</a> / <a href="msg011257.html">11257</a></td></tr>				</table>			<br>Let me be more explict with an example.  I have DGa and DGb.  Each has a different membership with #members directives all over the place.  Each has a people subtable with people.prefs and people.profiles.  As I understand it, in order to specific membership lists in Profiles, one must change the people.profiles.default object from<p>
+
+<pre>
+#title "Member Profiles"
+&#123;viewProfile (config.mainResponder.globals.defaultMembershipGroup, pathargs)&#125;
+</pre><p>
+
+to this<p>
+
+<pre>
+#title "Member Profiles"
+&#123;viewProfile (members, pathargs)&#125;
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

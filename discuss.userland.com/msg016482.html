@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: For review: tcp.getMail</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: For review: tcp.getMail</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brian V. Hughes</td></tr>				<tr><td><b>Posted:</b></td><td>4/20/2000; 7:44:12 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016447.html">For review: tcp.getMail</a></td></tr>				<tr><td><b>Msg #:</b></td><td>16482 (In response to <a href="msg016473.html">16473</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg016481.html">16481</a> / <a href="msg016483.html">16483</a></td></tr>				</table>			<br>Well... since you asked. ;-><p>
+
+One of the messages in my inbox is a multipart/mixed with 2 parts. The first part is a multipart/alternative with 2 parts: text/plain, text/html.<p>
+
+The MIME parsing in tcp.getMail doesn't account for this nesting. It only handles MIME parts that are 1 level deep. If that's all it's supposed to do, then I guess it's ok.<p>
+
+The other thing I noticed, not related to MIME, was the presence of the response code from the TCP call. Are you deliberately leaving in the first line with the number of octets returned? If so, I was wondering what functionality this served?<p>
+
+-Hades
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg016483.html">Re: For review: tcp.getMail</a>, Alan German, 4/20/2000; 8:09:14 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

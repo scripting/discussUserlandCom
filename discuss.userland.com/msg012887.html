@@ -1,0 +1,47 @@
+<html>	<head>		<title>Re: Collab filtering at my.userland.com?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Collab filtering at my.userland.com?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>11/9/1999; 9:09:03 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012781.html">Collab filtering at my.userland.com?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12887 (In response to <a href="msg012861.html">12861</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012886.html">12886</a> / <a href="msg012888.html">12888</a></td></tr>				</table>			<br>Eugene Pervago wrote:<p>
+
+<I>I must be dumb today (I hope I'm not always like that :-) but how do you update that cut-off point based on usage patterns?</I><p>
+
+No dumbness involved--I'm just thinking out loud myself about how to generalize the notion, which we should probably stop calling "collaborative filtering," because I think that term really <I>does</I> refer more-or-less-explicitly to manually-rated content.<p>
+
+What I'm urging instead is, as you already know, taking advantage of a) having a metadatabase of what content on your site is "about," and b) taking advantage of user-tracking tools on your site (e.g. cookies, although if you have page-serving-time access to your referrer log you could probably do it by IP address and not worry about cookies, or you could stick a user-id of some kind in URLs) to dynamically maintain statistical information about user preferences. Not sure if this is the same thing as "collaborative filtering" or not.<p>
+
+I'm writing this totally off the cuff, so bear in mind that I'm overwhelmingly likely to get even the most rudimentary stuff wrong, as I don't think about it every day.<p>
+
+In any case, here's the gross idea, really <I>badly</I> oversimplified:<p>
+
+Assume users U, V, and W.<p>
+
+Assume content collections A, B, C, D, and E.<p>
+
+Associated with the users are vectors of probabilities that the user will be interested in the collection referred to by that vector entry, i.e. if a user's vector is (25, 10, 2, 90, 100) then that user is 25% likely to be interested in collection A, 10% in B, etc. Of course, these vectors are zero-initialized.<p>
+
+To simplify the discussion, let's assume that an explicit subscribe/unsubscribe action is necessary for the collections. Of course, the far more interesting case is when each "collection" is a single web page and the only commissive action taken to get there is entering a URL or clicking a link. Then you have to model how lengthy a viewing constitutes what percentage of interest, allowing for "rubbernecking," i.e. someone viewing something that they're actively <I>not</I> interested in out of shock, disgust, fear, loathing, etc.<p>
+
+OK. User U subscribes to collections A, D, and E. Their vector now looks like this:<p>
+
+(100, 0, 0, 100, 100)<p>
+
+User V comes along and subscribes to collection D. So far, 100% (this is one reason it's a weak example: the sample is WAY too small!) of people who have subscribed to D have also subscribed to A and E, so a recommendation is made for both. User V decides to subscribe to A but not E, giving (100, 0, 0, 100, 0) as their vector. They made an explicit choice <I>against</I> E although the correlation was suggested by a high percentage (100%!) of fellow subscribers to collection D also subscribing to collection E. What should we do with this information? Naively, it looks like we've effectively already captured it: Of the two users so far, we have 100% belief that those interested in D are also interested in A ((100 + 100) / 2), but only 50% that they're interested in E ((100 + 0) / 2).<p>
+
+Along comes User W, who subscribes to collection A. So far, we should definitely recommend collection D to them, and it's a coin toss as to whether we should recommend E or not. Our information about whether to recommend E or not will get better, presumably, as more people who subscribe to A and D do or do not subscribe to E.<p>
+
+This is the VASTLY oversimplified view of how this could work.<p>
+
+In reality, of course, there are some obvious issues to address:<p>
+
+<ol>
+<li>Interest isn't necessarily reflexive: A => B does not imply B => A.
+<li>The discussion has assumed that the the probabilities of interest in the various collections are conditionally independent (loosely speaking, that the topics of the collections are entirely unrelated to each other). This is, of course, ludicrous. A real-world implementation of this idea would need to consider that the collections cover a multitude of topics with many overlappings, do its best to identify the topics and overlappings (back to metadata and LSA again)! and end up expressing belief-that-collection-is-about-topic-X and modifying those beliefs, given that topics overlap among collections, using Bayes theorem rather than the simple observation that the probability of two conditionally independent assertions both being true is the product of their probabilities (if the probability of an article being about politics is .67 and the probability of the moon being made of green cheese is .5, then the probability of the article being about politics AND the moon being made of green cheese is .335). Read John Allen Paulos' "A Mathematician Reads the Newspaper" for an excellent explanation as to why this fact alone should have sent O.J. Simpson to the gas chamber.
+<li>"Interest" is a fuzzy concept to begin with, having as much to do with a reader's internal model as with a good statistical model of the content choices. The hope is that a large enough reader-and-topic sampling will filter out bad matches, but this might require measures beyond Bayseian Belief Networks such as machine learning and/or neural network approaches.
+<li>I've only written about probabilistic reasoning, and even that I've done simplistically. In the real world you'll also want to model some sort of utility function ("what's it worth to you?") for good matches, and combine Game Theory (the utility function) with Probability Theory (Bayes Theorem, etc.) to get Decision Theory and get better results.
+</ol><p>
+
+These are the thoughts that come off the top of my head. I'm sure there are several more issues that didn't come immediately to me, as I am no statistician, nor particularly up-to-date in fuzzy logic, neural networks, or machine learning.<p>
+
+IMHO, the definitive source for an initial foray into these ideas, especially Decision Theory, is <a href="http://www.cs.berkeley.edu/~russell/aima.html">Artificial Intelligence: A Modern Approach</a>, co-authored by Peter Norvig, an acquaintance of mine due to my having reviewed his first book, "Paradigms of Artificial Intelligence Programming: Case Studies in Common Lisp." While AIAMA can be a bit dense reading, Russell and Norvig make what I think is a compelling case for Decision Theory in constructing large, complex "intelligent" systems that are robust in the face of highly dynamic environments.<p>
+
+It's interesting to note that, prior to his current post at NASA Ames Research Center, Norvig was Chief Scientist at Junglee, who had, among other things, value-comparison technology usable across various arbitrary web sites, which they used both for the obvious "comparison shopping" application and for the less obvious employer-to-employee "matchmaking" process. Junglee was ultimately bought by Amazon, at which point Norvig, having family and friends in Silicon Valley, chose not to move to Washington and instead went to NASA Ames.<p>
+
+Anyway, that's the rough cut. I hope it leads to some further ideas and explorations!
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012908.html">Re: Collaborative Filter theory.</a>, - -, 11/10/1999; 12:09:46 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

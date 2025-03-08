@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: XML-RPC and Security</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC and Security</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>2/3/1999; 6:45:41 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002662.html">XML-RPC and Security</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2663 (In response to <a href="msg002662.html">2662</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002662.html">2662</a> / <a href="msg002664.html">2664</a></td></tr>				</table>			<br>Paul Nakada wrote:<p>
+
+<i>Can someone outline, in high level terms how one might securely access and update data on a per user basis when the data is exposed via XML-RPC.</i><p>
+
+Since you define the parameters that an XML-RPC handler accepts, you can define username and password parameters if you want. They can be encoded in any way you want, as long as the client knows how to encode them and the server knows how to decode them.<p>
+
+In addition, in Frontier we have a convention, you can include a #security script that runs before a handler is invoked, allowing you to disallow access based on HTTP username and password, IP address, or whatever other criteria are available.<p>
+
+So: while there's nothing in the spec about security, there's nothing to prevent you from implementing security however you want.<p>
+
+Reference:<p>
+
+<a href="http://www.scripting.com/frontier5/betty/stories/rpcSecurity.html">Security for RPC2</a> describes Frontier's #security convention.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002740.html">Callbacks in XML-RPC?</a>, Monty Hayter, 2/8/1999; 11:22:17 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: HTML engines in OSes -- what does that mean ?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: HTML engines in OSes -- what does that mean ?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Robert Krajewski</td></tr>				<tr><td><b>Posted:</b></td><td>6/3/1999; 10:05:11 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006966.html">HTML engines in OSes</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6979 (In response to <a href="msg006966.html">6966</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006978.html">6978</a> / <a href="msg006980.html">6980</a></td></tr>				</table>			<br>It's not so much that HTML rendering belongs in the OS as:<p>
+
+* It should be a standard service with a well-defined interface. It should be possible to invoke the service without regard to who implemented it.<p>
+
+and<p>
+
+* The OS vendor should arrange for (at least) one implementation of said service to be installed with the OS. (But perhaps the OS vendor doesn't actually right the code.)<p>
+
+Any programmer worth his/her salt recognizes an HTML renderer as just another piece of user-space code, albeit an important one in the connected era. But HTML itself is nothing special -- some other whizbang model might appear in the future.<p>
+
+As far as Internet Explorer on Windows goes, it *is* a standard service, and the interface is well-defined. In fact, it is well-defined enough that it can be reimplemented from outside Microsoft -- there is a Mozilla project working on this.<p>
+
+Unfortunately, ugly reality intrudes in two ways:<p>
+
+1. IE and Moz implement different sets of IETF, W3C, ECMA (Javascript), and vendor standards, or the same standard in different ways, so absolute behavioral similarity is pretty much impossible to rely upon. If you care about, say, VBScript, or layers, this is a big issue.<p>
+
+2. Because COM does not provide an easy way to invoke a service generically, the Moz control must install itself as the implementation of (a) GUID(s) initially assigned to Microsoft implementation(s). But what if some application specifically needs MSIE functionality ? Maybe COM+ solves this, but even COM categories are too weak to solve the problem. Note that one solution, which MS could implement, would be to move the real factory for MSHTML out of the factory for its currently assigned GUID to some other GUID, and kludge some kind of redirection so that Moz wouldn't have to overwrite MS in the registry. (Generally, being able to indirect one factory to another in COM would have been a cool feature -- I could have used that on a past project.)<p>
+
+Note that the Cyberdog framework made flexibility like possible, because the service abstraction was a native part of OpenDoc. Oh well. One interesting follow-on issue for Apple, once they've got the bigger things out of the way is, what are they going to do about the component architecture for MacOS X ?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006992.html">Re: HTML engines in OSes -- what does that mean ?</a>, Bob Atkinson, 6/3/1999; 1:50:41 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

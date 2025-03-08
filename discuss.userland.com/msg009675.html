@@ -1,0 +1,30 @@
+<html>	<head>		<title>Ugly Content Manager URLs</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Ugly Content Manager URLs</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>8/19/1999; 9:39:05 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009675.html">Ugly Content Manager URLs</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9675</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009674.html">9674</a> / <a href="msg009676.html">9676</a></td></tr>				</table>			<br>Hi Dave!<p>
+
+You wrote:<p>
+
+"Why do some content management systems produce such ugly URLs? Do the architects care about web users? Confusing stuff!"<p>
+
+Yeah, it really is, especially if the ugly URL is intended to be someplace that people can remember to come back to, to tell their friends about, etc.<p>
+
+There are basically two reasons that you see this sort of thing with most of the application servers out there (and it really is the application servers' fault rather than the content management system/portion's fault). The first reason is that the application servers are often serving up content dynamically from some kind of database, and the technology they're using isn't transparent enough--you can see the invocation of a CGI script, for example, along with the selection criteria being applied to the database. In the worst case, the URL could actually contain a SQL statement to execute! Most often, though, it's some sort of table or index name embedded in the URL.<p>
+
+The second reason you tend to see these ugly URLs, especially once you get past the home page/login page, is to avoid using cookies to pass user preference information  back to the server, because some folks still don't trust cookies and have disabled them in their browsers. If the site requires a registration/login process, that information needs to get passed somehow to every page viewed, and if cookies aren't available, the URL is the only mechanism left.<p>
+
+Both of these observations can certainly be mitigated by clever use of a decent web server's capabilities, e.g. to alias URLs so that "http://www.foo.com" gets redirected to "http://www.foo.com/cgi-bin/MyCGI.pl?arg1=bar+arg2=baz+arg3=bletch" or whatever. Netscape's servers, IIS, and Apache all make it relatively painless to make an ugly URL look like a nice one. The problem is, they all do it differently, and most of the app servers out there are cautiously web-server neutral: they don't configure the web server to do that mapping to hide the ugly URLs.<p>
+
+I think Frontier has an advantage here (in addition to the greatly lower complexity and cost of ownership, that is!) over most app servers: since your framework lives atop a hierarchical object-oriented database with flexible naming conventions in the first place, it's a *lot* easier for a Frontier developer to make:<p>
+
+<<a href="http://www.site.com/dir1/dir2/dir3/page.html">http://www.site.com/dir1/dir2/dir3/page.html</a>><p>
+
+map onto:<p>
+
+root.websites.site.dir1.dir2.dir3.page<p>
+
+or to parse the URL so as to dynamically generate "page.html," or whatever. In the end, it all comes back to having a scripting language with very broad functionality whose variable system is tightly bound to an OODB. And the irony, of course, is that you figured that out back in... what, 1990? How "antique" is Frontier 1.0?<p>
+
+Anyway, that's my (typically long-winded!) $.02 about the ugly URL problem and why Frontier doesn't suffer from it.<p>
+
+Thanks for reading!
+Paul Snively
+<<a href="mailto:mailto:psnively@earthlink.net">mailto:psnively@earthlink.net</a>>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009677.html">Re: Ugly Content Manager URLs</a>, Howard Fore, 8/19/1999; 10:12:30 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

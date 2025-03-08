@@ -1,0 +1,27 @@
+<html>	<head>		<title>Callback for Technography, etc.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Callback for Technography, etc.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ian Beatty</td></tr>				<tr><td><b>Posted:</b></td><td>5/5/1999; 5:55:36 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005676.html">Callback for Technography, etc.</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5676</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005675.html">5675</a> / <a href="msg005677.html">5677</a></td></tr>				</table>			<br><b>Outline-editing callback?</b><p>
+
+I woke up thinking about technography this morning... How difficult would it be for UserLand to put a callback into the outline editor, so that every time an outline is edited through the UI (item collapsed or moved, headline text changed, etc.), the callback is invoked? Ideally, the callback would have an argument which indicates the change made, such as:<p>
+
+<pre>    outlineChanged( "op.go(down,1)" )
+    outlineChanged( "op.setLineText(\"New headline")" )</pre><p>
+
+Would implementing this be practical? Would there be significant performance degradation?<p>
+
+(Does the UI in fact translate mouse clicks and keystrokes into op.xxx verbs to execute the changes? If so, this callback should be easy to do!)<p>
+
+<b>Applications</b><p>
+
+Such a callback could be used to implement technography of the kind Bernie is lookig for, with Frontier as both the server and client. Write a callback function that invokes an XML-RPC on the client machine(s) that mirrors the edit on a client copy of the outline. Every time the technographer makes a change to her copy of the outline, the same change gets made to all the client copies!<p>
+
+Or, if a two-way system were implemented (with some kind of semaphore system to avoid or resolve simultaneous changes), this could be the basis for collaboration software. Effectively, multiple parties could work together on the same outline.<p>
+
+Another application would be to use the callback to log the history of changes made while writing/editing an outline. Such a history could be used to implement infinite-level undo. It could also, if written to disk, be used to implement "continuous save", avoiding lost work in the event of a system crash or power outage. I'm sure there would be a performance hit for this, but for critical work, it might be worthwhile.<p>
+
+Another possibility: My "day job" involves research in alternative assessment techniques. I could envision putting a student down in front of Frontier and asking them to create an outline that summarized their knowledge of, say, introductory physics. Then, when I go to evaluate their work, I not only have the finished outline, but also the history of all the steps they went though in constructing it.<p>
+
+<b>Summary</b><p>
+
+It seems to me, in my relative ignorance of Frontier's underpinnings, that such a callback is crucial to implementing real remote technography and collaboration in Frontier. Somehow, scripts for these tasks must be told when an outline has changed, and what the change was.<p>
+
+-- Ian
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:48 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,39 @@
+<html>	<head>		<title>Re: LibGd and LZW</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: LibGd and LZW</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Don Hopkins</td></tr>				<tr><td><b>Posted:</b></td><td>8/29/1999; 2:40:29 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010005.html">GIFs get expensive</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10205 (In response to <a href="msg010204.html">10204</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010204.html">10204</a> / <a href="msg010206.html">10206</a></td></tr>				</table>			<br>I see 3 options to choose from:<p>
+
+1) PNG. I agree that there's an unfortunate cost to switching to PNG, since it's not as widely supported as GIF. <p>
+
+2) RLE GIF. There's also a downside to using RLE GIF instead of LZW GIF, but I don't think that slightly bigger GIF files that anyone can read are as bad as smaller PNG files that only some people can read. <p>
+
+3) LZW GIF. There's a huge downside to using LZW GIF files, to the tune of thousands of dollars that you have to give to the hornet's nest of useless goons at Unisys. And what do they use the money for? Harrassing other people! <p>
+
+Paying any money to Unisys only reinforces the problem and makes it worse for the whole community, like chumming the beach to feed the sharks. <p>
+
+So option 3 is right out. Forget LZW gif code, at least until their patent runs out. (Anyone know when that is?) <p>
+
+Option 1 seems like knuckling under to me. I have nothing against PNG (other than the senseless fact that it lacks some of the features of GIF like animation.) If PNG was signifigantly better than GIF, I might feel better about taking the plunge and breaking compatibility with the ubiquitous GIF format, but its only virtue seems to be that it's not LZW. <p>
+
+That's why option 2, RLE GIF files, seems so satisfying. If word comes back from the patent lawyers that it's safe to use without paying Unisys, I would love to use it. <p>
+
+If it's safe, then it would be well worth the time to fix it up so it's industrial strength, and promote the free RLE GIF code as an alternative to licensing LZW from Unisys.<p>
+
+I like GD, and appreciate the work people have put into it. I would like to help improve it, too. I have a few problems with GD itself that I would like to address, that are independent of the file format.
+ 
+First of all, at least in the version 1.4 that I have, GD stores each scan line row in a separately allocated memory buffer! What gives with that??! What possible benefit could there be from such a wasteful approach? <p>
+
+Every other graphics library in the universe (well I might be exagerating slightly here, but you get my point) stores pixels in a contiguous frame buffer of memory, so you can navigate to the next and previous rows by adding and subtracting a constant offset rowBytes/stride/whatever it's called. Most processors have quite capable add and subtract instructions, so this technique is widely used, as long as there's enough memory to store the whole frame buffer. <p>
+
+The consequences of the way GD separately allocates each row are unfortunate: severe fragmentation, time and memory pointlessly wasted calling malloc and free once for each row. Blows the cache by scattering rows around in memory randomly instead of keeping them in a contiguous block. Slows down accessing pixels through the extra level of indirection. Makes it impossible to integrate other code that works in place on a normal contiguous frame buffer, so you have to allocate another whole frame buffer, copy each row in, perform the processing, and copy each row back out into GD's memory to write the gif file out again. <p>
+
+So the first thing I would do to GD, would be to thrash out all vestiges of separately allocated rows. Then it would be possible to start thinking about adding support for animated gifs. (Not that it would be hard, just that the present design makes it unwieldy.)<p>
+
+The other problem is that the GD API does not support streaming in a way that would make it possible to write out animated gifs, without computing every frame in memory beforehand. In other words, given the present style of API, you would have to allocate every frame of the animated gif, before writing it out. And since each frame separately allocates each row, you'd have a WHOLE LOT of tiny little chunks of memory allocated, and the fragmentation overhead would be immense. <p>
+
+I want to stream out thousands of frames of animated gifs at a time, and as it is, GD is simply not fit to support it. The API to write out a file is just one call to write the whole file at once. To support streaming, it would need to be broken up into a WriteHeader call, a WriteFrame call, and a WriteTrailer call. <p>
+
+I've got some other gif generation code that lets me stream out contiguous frames like that, but it uses LZW, and it does not have the other library functions that GD has. <p>
+
+I think that if GD were fixed to use a contiguous frame buffer instead of individually allocated rows, the graphics library included with it would run a lot faster, and it would be a lot easier for other people to incorporate their own graphics and image processing code into the library, so GD would evolve faster into a rich and useful graphics library.<p>
+
+-Don<p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg010207.html">Re: LibGd and LZW</a>, Eric Kidd, 8/29/1999; 3:07:10 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

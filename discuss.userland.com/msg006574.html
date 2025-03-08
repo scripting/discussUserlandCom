@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: Copy Address command in Table menu</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Copy Address command in Table menu</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td></td></tr>				<tr><td><b>Posted:</b></td><td>5/22/1999; 10:33:07 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006569.html">Copy Address command in Table menu</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6574 (In response to <a href="msg006572.html">6572</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006573.html">6573</a> / <a href="msg006575.html">6575</a></td></tr>				</table>			<br>A slightly improved version of a slighty improved version? :-) Heh.  With this version you can hold down the shift key to still get at the full address.<p>
+
+<pre>
+local (s = string (table.getCursor ()));
+if table.inGuestDatabase (s) and !kb.shiftKey () &#123;
+	local (ix = string.patternMatch ("].", s));
+	s = string.delete (s, 1, ix + 1)};
+clipboard.putValue (s)
+</pre><p>
+
+<pre>
+Toodle-loooooooo........
+Thomas
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:21 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

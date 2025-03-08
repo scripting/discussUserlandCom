@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: Asynchronous RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Asynchronous RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Farzad Pezeshkpour</td></tr>				<tr><td><b>Posted:</b></td><td>1/26/1999; 7:54:59 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002454.html">Search Engine XML-RPC Interface</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2480 (In response to <a href="msg002465.html">2465</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002479.html">2479</a> / <a href="msg002481.html">2481</a></td></tr>				</table>			<br>Eaton Messner wrote:
+<bold>
+The XML-RPC specification is silent on the issue of synchronous vs. asynchronous calls. Client software can choose to present either calling mechanism. <p>
+
+The question is, do any of the client software packages present an asynchronous calling mechanism? 
+</bold><p>
+
+some terms: sRPC == sync RPC     aRPC == async RPC
+XML-RPC explicitly requires a return packet to confirm the invocation. Your explanation suggests:
+. the server is aware of the a/synch nature of its procedure
+. provides an XML-RPC response packet before the call is actually 
+  evaluated.
+. That the a/sync nature of the server procedure is immutable.<p>
+
+I think this complicates the design of the server and constrains its potential uses. IMO a client ought to be capable of asking the XML-RPC mechanism for a function call to be treated essentially as a message, with an optional callback when completed. <p>
+
+This made life easier when building our system. One complication was the invocation of a sRPC on a server with outstanding aRPCs from the given client. I decided that the sRPC should wait for all outstanding aRPCs to complete, before being evaluated. I understand that this may be a bit complicated, but for our systems design, it was a comfortable decision. Any thoughts?
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

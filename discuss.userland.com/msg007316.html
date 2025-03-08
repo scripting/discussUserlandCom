@@ -1,0 +1,25 @@
+<html>	<head>		<title>Re: Console Can't find a sub-table named</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Console Can't find a sub-table named</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/13/1999; 1:37:48 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007296.html">Console Can't find a sub-table named "t"</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7316 (In response to <a href="msg007296.html">7296</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007315.html">7315</a> / <a href="msg007317.html">7317</a></td></tr>				</table>			<br><i>I get the error when addressing /console/consoleSite that it can't find a sub-table named "t"</i><p>
+
+Are you running news.root and console.root on the same machine? If so try replacing sampleNewsSite.["#newsSite"].preview with the following code:<p>
+
+<pre>local (oldpta = nil, s);
+try &#123;
+	oldpta = html.getPageTableAddress ()&#125;;
+try &#123;
+	local (t); new (tabletype, @t); local (pta = @t);
+	html.setPageTableAddress (pta);
+	html.buildPageTable (this, pta);
+	s = parentof(parentof(this^)^)^.default ()&#125;
+else &#123;
+	if oldpta != nil &#123;
+		html.setPageTableAddress (oldpta)&#125;;
+	scripterror (tryerror)&#125;;
+if oldpta != nil &#123;
+	html.setPageTableAddress (oldpta)&#125;;
+return (s)
+</pre><p>
+
+<i>I'm not sure where this table is supposed to be. Is it bad data in Discuss.root? News.root?</i><p>
+
+It's a local variable which is only defined in the above script.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007320.html">Re: Console Can't find a sub-table named</a>, Mark Gillingham, 6/13/1999; 4:13:51 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

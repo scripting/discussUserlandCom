@@ -1,0 +1,41 @@
+<html>	<head>		<title>Re: New Third Voice version out</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: New Third Voice version out</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>9/19/1999; 11:19:40 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011014.html">New Third Voice version out</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11269 (In response to <a href="msg011105.html">11105</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011268.html">11268</a> / <a href="msg011270.html">11270</a></td></tr>				</table>			<br>Jeremy Bowers wrote:<p>
+
+<I>No. I believe that the webmaster has the right to prevent his/her readers from offering their comments in direct and total connection with the site itself. <p>
+
+Comment on the Usenet.... heck, create a service where you type in a major site (URL turns out to be silly when you think about it) and enter a discussion board... but leave it off my site.</I><p>
+
+We've been over this enough times that I think we'll have to agree to disagree: Third Voice's discussion isn't on your site. No one who comes to your site without Third Voice will see the discussion. With an unauthenticated browser, this is as good as it gets, period.<p>
+
+<I>As for security issues, there have been two major flaws already reported. One allowed arbitrary scripts to be embedded in these messages... as those notes are in the same context as the page, they could play all sort of games. My favorite is to redirect all forms on a page to submit to your server, then pass through to the original server; you can use that to redirect all information you ever submit on a given page to your own server, so you can collect credit cards and passwords. The passwords one happened, on Hotmail and a few others.</I><p>
+
+This particular example is true of any proxy server that a) allows programmatic extension, and b) sits on an unauthenticated connection. So once again, the issue at hand is extensible proxies sitting on unauthenticated connections, rather than anything specific about Third Voice.<p>
+
+Note that you don't even need client authentication to solve this problem; you can get by with plain old SSL on the wire. That way the script in Third Voice would only see gobbledygook instead of nicely-laid-out HTTP POSTs containing cleartext credit card and password information.<p>
+
+<I>Then there was the issue where they were allowing anyone to connect to the proxy server and use it, not just the local machine... fixed, in theory, but I don't trust them right now (the hole was soooo simple). In that case, one could make it look as if some web activity was occuring from somebody else's machine, and it would be very difficult to trace.</I><p>
+
+Another example where all that's really happened is that Third Voice has made it apparent that it's not possible to know who's on your site without client-side authentication--and even then, all you can do with client-side authentication is ensure that the browser that first registered with your site is the browser that's returned... and even then that doesn't guarantee that someone hasn't copied the certificate from one browser to another...<p>
+
+My second reaction to this is, frankly: so what? Why do you care whether the web activity is coming from where you think it is or not? Why would you wish to trace where activity on your site is coming from? If the answer is "for personalization purposes," use cookies and/or login information sent through the URLs of your site (and read Philip Greenspun's wonderful "Philip and Alex's Guide to Web Publishing" for a thorough discussion of all of the issues related to personalization, user tracking, and the like). If, as you've asserted before, you *really* need to know that the user at the other end is who actually registered with your site, digital certificates and TLS is going to get you as close as you can get--the rest will depend upon the physical security of the browser machine, which is forever beyond your control.<p>
+
+<I>How can I guarentee security if it's not just me and the user communicating?</I><p>
+
+You can't. So make sure it's you and the user communicating.<p>
+
+<I>As for the scenario where someone not using the service could be affected, let me take the real password stealing occurance, but, instead of stealing Hotmail passwords, somebody steals your local Payroll Department's passwords and drop your salary by 5%. You never used Third Voice, but somebody else screwed up.</I><p>
+
+You're assuming a radically insecure company and payroll department. First of all, any organization that has its payroll processing on the web will have it on an intranet, which will, in this case, certainly be a totally distinct ethernet network from the Internet. Second, assuming the company allows Internet access from this network at all, the point of connection to the outside world will be across a firewall system of some kind. In organizations that I've been in, that point of connection literally consisted of two distinct ethernet cards being managed by a packet-filtering firewall (among other tricky things). The packet filtering kept allowable services (SMTP, POP3, WWW, etc.) to a bare minimum--neither side ever even saw packets related to other services. Secondly, even on the intranet, things like payroll passwords etc. would *never* be sent in the clear, *ever*. And to tell you the truth, I'd be extremely suspicious of any organization that put its payroll processing on the intranet and had *any* connectivity from that network to the outside.<p>
+
+<I>The most secure connection is the simplest (all else being equal), with the best defense possible on that simple connection. Ideally, then, we want to directly connect through as few servers as possible. In order to do this, we need to knock out every third party we can from the secure connection.</I><p>
+
+From a professional security point of view, this is incorrect: true security doesn't care how many hops the message goes through (an uncontrollable number on the Internet anyway; if you have "traceroute" on your machine, use it to see how packets go from you to your favorite site(s)). There is no such thing as security through obscurity. True security is when you can go up to every attendee at Defcon and say "My server is at IP address so-and-so on port such-and-such. Traffic is encrypted with 128-bit RC4. Knock yourself out."<p>
+
+<I>I want to be able to speak directly to my user without inturrutption/interception... for both our good.</I><p>
+
+Then you need something at *least* as good as Kerberos handling authentication, a certificate for your site, and certificates for all of your users. And you still have no control over the security of the certificates on your users' machines.<p>
+
+And none of this has even the first thing to do with Third Voice, apart from Third Voice being an early client-side proxy that's gotten lots of attention for other reasons, and that attention has brought a spotlight to a host of ancilliary issues that have always existed on the web.<p>
+
+Paul Snively<BR>
+<mailto:psnively@earthlink.net>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

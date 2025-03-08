@@ -1,0 +1,32 @@
+<html>	<head>		<title>Some thoughts on XML-RPC interface for my.userland.com</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Some thoughts on XML-RPC interface for my.userland.com</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Cameron Martin</td></tr>				<tr><td><b>Posted:</b></td><td>5/17/1999; 6:16:03 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006340.html">Some thoughts on XML-RPC interface for my.userland.com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6340</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006339.html">6339</a> / <a href="msg006341.html">6341</a></td></tr>				</table>			<br>Here are some of my thoughts on things I'd like to be able to request over XML-RPC:<p>
+
+<b>1. Contents of a specified subset of all sites's RSS files</b><p>
+
+I initially just wanted the existing ServiceList.xml file to contain site name + site URLs pairs. Then I thought that perhaps bringing back the channel descriptions would also be useful. Then maybe the URL for the graphics... then... well you can see where this is going.<p>
+
+Hence, some way to specify give me a specified subset of all registered site's RSS files would be nice.<p>
+
+Obvious pitfall: You might want to restrict this to just the contents of the <channel> and <image> nodes to prevent my.userland.com becoming not just a list of channels but also source for the actual channel contents themselves. I'm not sure that you really want to become the central serving point for everyone's RSS file (i.e. it would be really easy to just send a request saying "give me the whole contents of everyone's RSS files") -- although I guess that's your decision to make.<p>
+
+<b> 2. A way to request "changes since"</b><p>
+
+It would be nice to see what has changed in<p>
+
+(a) the list of RSS feeds
+(b) the individual channels<p>
+
+since a given date in time. (ala being notified of the new Usenet feeds since you last checked). This would no doubt require some interesting smarts on the server side. <p>
+
+One idea I had here was to produce a delta between what the client already knows (i.e. "here's the latest list of RSS site URLs I have, what's different) and what the server has (i.e. "here you go, these six sites are new, these two sites have been deleted, these four have been renamed").<p>
+
+Personally I think this is rather a chatty way to do that, perhaps some mechanism such as that used to mark versions of DNS records, which can only roll forward could be used. Hence, the client would request for changes since that version (i.e. "please send the changes to the RSS sites URLs since this version (or time stamp)"). I prefer this method, as it offloads a lot of the work/storage to the server, but then again, I'm only writing a client, not a server (at the moment).<p>
+
+<b>3. Some Mechanism to Report Client Reads</b><p>
+
+I quite like the current my.userland.com "times this channel has been read" number. If I'm building a client which reads the channel, perhaps you'd like to know that the channel has been read (note that we'd be loading from the remote server, not my.userland.com). I guess this idea opens a whole can of worms (e.g. privacy, accuracy) and might be one to put on the backburner for another time.<p>
+
+
+Of course in listing these three ideas, I guess you can see that I'm currently seeing the world through the eyes of a client (a fairly thin one at that) -- let me know what you think is possible & let's work together towards a middle ground.<p>
+
+CM
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

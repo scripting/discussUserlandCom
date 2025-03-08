@@ -1,0 +1,26 @@
+<html>	<head>		<title>Re: Apple vs Microsoft re Quicktime</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Apple vs Microsoft re Quicktime</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>tblanchard@uswest.net</td></tr>				<tr><td><b>Posted:</b></td><td>11/11/1998; 3:11:39 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000001.html">First message</a></td></tr>				<tr><td><b>Msg #:</b></td><td>314 (In response to <a href="msg000309.html">309</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000313.html">313</a> / <a href="msg000315.html">315</a></td></tr>				</table>			<br>Decide for yourself.  Its pretty clear to me. Download Tevanian's testimony.  Its a 53 page pdf file and I read the whole thing.  <p>
+
+Digest: Apple developed a Netscape type plugin because MSIE can host them and why do something twice?  This plugin worked correctly with Navigator versions and MSIE v3? (first to support plugins I think).  It stopped working correctly in MSIE 4 because of a number of undocumented changes in how MSIE uses the registry.  It has a bult-in bias towards ActiveX plugins (which can be disabled via an undocumented registry entry).<p>
+
+Tevanian contacted the MS product manager for MSIE (who's name eludes me just now) twice asking for help resolving this.  First suggestion - rewrite as ActiveX.  Apple's response - WTF for?  MSIE claims plugin compatibility.  <p>
+
+A second request for info about how MSIE was behaving went unanswered.  Seems like MS isn't too interested in helping Apple make QT work with their browser.  Is this just lousy support?  Also - whats with the error messages offering to remap the filetypes to VFW?<p>
+
+MindCraft's report tells more.  I took the rest of  this from an email sent to Macintouch by Thad Parker -<p>
+
+Take this passage from page 13 of their report: <p>
+
+"We can fix the deficiencies in the QuickTime plug-in by creating registry entries for each missing filename extension. However, Microsoft engineers told us that Internet Explorer would remove Registry keys for file extensions not listed in the FileExtents of the installed plug-ins. Therefore, the solution is to stop Internet Explorer from removing these additions. This can be accomplished by setting the following Registry key with the default value shown: <p>
+
+HKEY_LOCAL_MACHINESOFTWAREMicrosoftnternet ExplorerPluginsDisableRegistryInitOnStartup = "true"  <p>
+
+This registry key is not documented. However, a correct plug-in will not need to set it because the plug-in will specify all of its supported filename extensions in the FileExtents string of the plug-in version information." <p>
+
+And this passage from the same page: <p>
+
+"It is undocumented that Internet Explorer gives an ActiveX control precedence over a plug-in when both handle the same file extension or MIME type (below we will show you that Apple knows how to fix this behavior). If you want to disable ActiveX precedence for a given filename extension and MIME type, modify the Registry as follows: ..." <p>
+
+-- end of Parker's email<p>
+
+I'd say it looks to me like MS builds their software to give them advantage but also provides for a "fair" mode switchable via undocumented registry settings that they can fall back to when caught.  I call foul.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg000315.html">Re: Re: Apple vs Microsoft re Quicktime</a>, David Bakin, 11/11/1998; 3:42:48 PM<p><li>&nbsp;<a href="msg000316.html">Re: Re: Apple vs Microsoft re Quicktime</a>, ashebanow@earthlink.net, 11/11/1998; 3:45:17 PM<p><li>&nbsp;<a href="msg000317.html">Re: Re: Apple vs Microsoft re Quicktime</a>, Dave Winer, 11/11/1998; 3:52:48 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:45:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

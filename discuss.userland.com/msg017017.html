@@ -1,0 +1,23 @@
+<html>	<head>		<title>Re: Firewalls, Hooray</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Firewalls, Hooray</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>William Crim</td></tr>				<tr><td><b>Posted:</b></td><td>5/5/2000; 2:37:06 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016956.html">scriptingNews outline for 5/5/2000</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17017 (In response to <a href="msg017012.html">17012</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017016.html">17016</a> / <a href="msg017018.html">17018</a></td></tr>				</table>			<br><I>Pike generally will not work if you are using your computer from behind a "firewall" and trying to author for a site that is outside the firewall. This is the reason your organization runs firewall software, to prevent you from doing the kinds of things Pike does.</I><p>
+
+This seems a gross simplification of what a firewall is for.  Also the "prevent you from doing the kinds of things Pike does." doesn't say what it is that Pike is doing that violates most firewalls.  There are all sorts of reasons to restrict incomming http requests, and this statement(and the rest of the message) gives the user no clue as to why a sysadmin might want to restrict Pike, or why Pike falls into the same class as restricted programs.<p>
+
+<I>That does not mean that Pike is dangerous, we don't believe it is, but your server system administrator wants to know what you're doing, so by putting the firewall up, he or she makes sure to be in the loop as you start using your desktop computer for new things.</I><p>
+
+Or it could be that the sysadmin put up a firewall to screen out a whole range of attacks from script-kiddies.  It could also be that the sysadmin can't be sure that all the computers are patched against attack, so he limits outside access to those machines.  Or it could be they are using Network Address Translation(a VERY VERY common use for firewalls) because their site doesn't have the $$$ to pony up for more IP addresses.  There are many reasons to have a firewall, but few of them have to do with monitoring users.  <p>
+
+
+I would rewrite the text of the first portion as so...<p>
+
+<PRE>
+Pike generally will not work if you are using your computer from behind a "firewall" and trying to author for a site that is outside the firewall. Pike talks to your web server.  However, sometimes the server needs to talk to Pike, and this is the part of Pike firewalls usually block.  <p>
+
+That does not mean that Pike is dangerous, we don't believe it is, but firewalls often block incomming connections for security reasons, which may be happening in your case.  Sometimes network administrators can allow these requests to pass through if your network supports it. <p>
+
+So, if you're having trouble using Pike and you suspect it's because of a firewall (or if a UserLand person has told you it's a firewall issue), please ask your sysadmin to read this page. Thanks!
+</PRE><p>
+
+This gives the user more information, and doesn't make assumptions about the motivations of the admins, only the operation of the firewall.<p>
+
+In the case of Network Address Translation(one external IP for many internal IPs), there is nothing the firewall admin can do to fix it(unless there is only one possible Pike user on their network).  If the server response were to ride back along the same request that made it, it would work.  But from what I get in the Pike DG, the server attempts to connect to Pike, rather than keep the initial Pike connection open and replying down the same open connection.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg017018.html">Re: Firewalls, Hooray</a>, Dave Winer, 5/5/2000; 2:59:14 PM<p><li>&nbsp;<a href="msg017020.html">Re: Firewalls, Hooray</a>, Wesley Felter, 5/5/2000; 3:36:24 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:05 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

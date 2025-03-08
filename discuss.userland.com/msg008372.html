@@ -1,0 +1,10 @@
+<html>	<head>		<title>Thoughts on improving XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Thoughts on improving XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brendan Dixon</td></tr>				<tr><td><b>Posted:</b></td><td>7/9/1999; 4:48:15 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008372.html">Thoughts on improving XML-RPC</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8372</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008371.html">8371</a> / <a href="msg008373.html">8373</a></td></tr>				</table>			<br>Here's a couple of thoughts you might want to consider adding to XML-RPC:<p>
+
+First, given my experience parsing XML, it might be nice if the structure were a little less verbose. I'm not certain if XML-Data is the right way to go, but PARAM or VALUE seem unnecessary.<p>
+
+Second, have you considered piping commands? For example, it would be nice if XML-RPC supported, as input for a parameter, the output of another XML-RPC call. Such recursion could be infinitely deep and saves moving data unnecessarily. Also, the calls need not be to server on the same machine: They could target arbitrary URLs effectively turning the Web into a giant command-line processor. Consider calling a search engine through XML-RPC and piping that output to another site (such as a Frontier site) that understood how to format random arrays of data. The possibilities are endless.<p>
+
+Lastly, what's the status of XML-RPC and W3C? Is this being pushed forward or are you looking solely for grassroots supports to swell it into a standard?<p>
+
+Thanks.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008380.html">Re: Thoughts on improving XML-RPC</a>, Dave Winer, 7/9/1999; 11:38:10 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:21 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

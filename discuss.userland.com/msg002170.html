@@ -1,0 +1,30 @@
+<html>	<head>		<title>Fixed!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Fixed!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>1/16/1999; 7:13:12 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2170 (In response to <a href="msg002165.html">2165</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002169.html">2169</a> / <a href="msg002171.html">2171</a></td></tr>				</table>			<br>Thanks for the clue Jim.<p>
+
+I did a search for string.parseHttpArgs, unfortunately there's no <a href="http://docserver.userland.com/">DocServer</a> page for it, but I did find a sample call on <a href="http://www.scripting.com/frontier5/migrating/toysList.html">this page</a>. Here's the call:<p>
+
+<pre>dialog.alert (string.parseHTTPargs ("name=Mason+Hale&address=1801+Winsted"))</pre><p>
+
+I did some testing on my laptop, and sure enough string.parseHTTPargs is also doing a string.urlDecode. So your theory was correct, we were double-processing the POST args, and that's how we were losing the plusses. <p>
+
+
+<b>Fixed!</b><p>
+
+But it works now. Here's a bunch of plusses to prove the point:<p>
+
++ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + <p>
+
+I could program in C++ if I wanted to!<p>
+
+12 + 12 = 24<p>
+
++ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + <p>
+
+I think that about nails this one. The change was in mainResponder.respond, it's available to NS testers in the usual place. A virtual golden keychain from UserLand to Roepcke. As always, a pleasure doing business with you!<p>
+
+PS: I just did the DocServer page for <a href="http://docserver.userland.com/string/parsehttpargs">string.parseHttpArgs</a>.<p>
+
+<p>
+
+
+ 
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002172.html">Re: Fixed!</a>, Simeon Simeonov, 1/17/1999; 8:42:32 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:19 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

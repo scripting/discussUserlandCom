@@ -1,0 +1,11 @@
+<html>	<head>		<title>Re: log off problem in second discussion group</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: log off problem in second discussion group</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>9/22/1999; 9:19:49 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005101.html">Discussions for Multiple Membership Groups</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11368 (In response to <a href="msg005109.html">5109</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011367.html">11367</a> / <a href="msg011370.html">11370</a></td></tr>				</table>			<br><i>mainResponder.members.setCookie ("", "",members) </i><p>
+
+I needed a slight variation to this solution <p>
+
+pta = html.getPageTableAddress();
+mainResponder.members.setCookie ("", "", mainresponder.members.getMembershipTable (pta^.members) );<p>
+
+This works where the name of the membership group is not unique in the scope, for example when your discussion group is named the same as your membership table.<p>
+
+eric
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

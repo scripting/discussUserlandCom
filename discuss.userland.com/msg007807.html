@@ -1,0 +1,24 @@
+<html>	<head>		<title>JavaScript Trouble...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>JavaScript Trouble...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Michael C. Blasco</td></tr>				<tr><td><b>Posted:</b></td><td>6/24/1999; 9:07:34 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007807.html">JavaScript Trouble...</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7807</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007806.html">7806</a> / <a href="msg007808.html">7808</a></td></tr>				</table>			<br>I'm having a bit of trouble trying to incorporate Javascript rollovers into the redesign of our site. I'm using ImageStyler to create the javascript. I've created a "#javaScript" entry, and added the "&#123;javaScript}" into the #pageHeader in the Head section.<p>
+
+But, the image to be put on the page is actually inserted through a "#pageGraphic" Directive I've created, because this banner graphic changes depending on what section of the site your at. The directive is written:<p>
+
+#pageGraphic html.data.standardmacros.imageRef("homebanner")<p>
+
+which produces:<p>
+
+img src="images/homebanner.gif" height=100 width=500 border=0<p>
+
+(preceding "<" and ending ">" deleted.<p>
+
+In the ImageStyler produced html though, to work properly the image src file needs to say:<p>
+
+a Href="http://www.bishopmuseum.org" OnMouseOut="isimgact( 'homebanner_is',0)"  OnMouseOver="isimgact( 'homebanner_is',1)"<p>
+
+Img Src="images/homebanner.gif" Border="0" Height="100" Width="500" Name="homebanner_is" Alt="Home!"<p>
+
+/a<p>
+
+
+So... is there a way to get this to happen?
+Thanks for any light...
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:03 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

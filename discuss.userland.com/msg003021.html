@@ -1,0 +1,27 @@
+<html>	<head>		<title>Re: Mail to the Future Server Functionality</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Mail to the Future Server Functionality</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Shinpaugh</td></tr>				<tr><td><b>Posted:</b></td><td>2/18/1999; 2:34:20 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003019.html">Mail to the Future Server Functionality</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3021 (In response to <a href="msg003019.html">3019</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003020.html">3020</a> / <a href="msg003022.html">3022</a></td></tr>				</table>			<br>We really need Mail to the Future to be able to deliver an HTML formatted mail message.<p>
+
+There are 2 Parts to accomplishing this.<p>
+
+Part 1. Getting HTML to the Destination Mail Reader...<p>
+
+Currently if you place html tags inside a MTTF message,
+and receive that message in an HTML compliant mail reader
+such as Outlook 98 you get the tags.  <p>
+
+Although I don't know what's required for Outlook 98 to 
+know it's HTML - it obviously doesn't scan the body for tags to make it's determination.  Most likely the mail header needs a mime type declaration.  Sounds like a modification is needed to MTTF (or Frontier's) mail delivery functionality to make this happen.<p>
+
+Through the XML-RPC handler mailtothefuture.addMessage could then be used to add a message with a field inside (mime-format - or whatever) to signal the mail delivery engine to make this declaration on the mail header of the message.<p>
+
+
+Part 2.  What about images?  <p>
+
+Images in HTML emails are normally handled by ordinary image tags linked to images available from any http server on the net, and the mail reader downloads them just like a browser.<p>
+
+BUT...<p>
+
+What if the HTML mail message had user created images?  How can we upload those binary files up to space on the MTTF server and what could be the referencing model?  Could the images be placed in the users profile table?, or would the images have to reside in "website" space in Frontier? to enable them to be served up public HTTP?<p>
+
+
+David
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003027.html">MTTF messages and HTML</a>, Dave Winer, 2/18/1999; 11:12:12 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

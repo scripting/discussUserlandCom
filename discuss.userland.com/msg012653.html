@@ -1,0 +1,43 @@
+<html>	<head>		<title>Re: Help: How to make logbrowser show day's worth of hits?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Help: How to make logbrowser show day's worth of hits?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Carter-Tod</td></tr>				<tr><td><b>Posted:</b></td><td>11/3/1999; 7:03:17 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012610.html">Help: How to make logbrowser show day's worth of hits?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12653 (In response to <a href="msg012610.html">12610</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012652.html">12652</a> / <a href="msg012654.html">12654</a></td></tr>				</table>			<br>mainResponder.log.browser is a little complicated, but the relevant lines are:<p>
+
+<blockquote>
+<i>local (adrlog = log.getGuestSubTable ("mainResponder"));</i>
+</blockquote><p>
+
+This gets the address of the log table for mainresponder<p>
+
+<blockquote>
+<i>local (i, j, adrhourtable, adritem, sizelog = sizeof (adrlog^), ixlog, sizehourtable);</i>
+</blockquote><p>
+
+Notice that "sizelog" is the size of the log table for mainresponder, i.e. the number of hour tables in mainresponder log.  It's used to get the last one, i.e. the most recent.<p>
+
+<blockquote>
+<i>adrhourtable = @adrlog^ [sizelog] //generate for the most recent hour</i>
+</blockquote><p>
+
+Then the script gets the size of that most recent hour's table and subsequently iterates through it.<p>
+
+What you need to do is iterate through every hour table in the mainresponder log table and every item in every hour table.  <p>
+
+find this line<p>
+
+<blockquote>
+<i>adrhourtable = @adrlog^ [sizelog] //generate for the most recent hour</i>
+</blockquote><p>
+
+You're going to need a loop here, so replace it with<p>
+
+<pre>
+for x = 1 to sizeLog
+     local(adrhourtable=@adrlog^[x])
+</pre><p>
+
+then everything down to the bolded commented section should be indented with that (because it's being wrapped in the for loop).<p>
+
+I have this script if you need it.<p>
+
+Make sense?<p>
+
+David
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012678.html">Re: Help: How to make logbrowser show day's worth of hits?</a>, technosmurf, 11/3/1999; 4:31:20 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:19 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

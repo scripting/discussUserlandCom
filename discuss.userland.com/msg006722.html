@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: What is BizTalk?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: What is BizTalk?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Yoz Grahame</td></tr>				<tr><td><b>Posted:</b></td><td>5/26/1999; 7:00:17 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006613.html">What is BizTalk?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6722 (In response to <a href="msg006720.html">6720</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006721.html">6721</a> / <a href="msg006723.html">6723</a></td></tr>				</table>			<br><I>Sound hopelessly irrelevant, like other XMLisms that Microsoft has run press releases for. </I><p>
+
+I'm not so sure. The key points that BizTalk is founded on are:<p>
+
+1) People/businesses are much more likely to come up with different XML schemas to represent their data that settle on a single one, especially since most would prefer a simple high-level, narrow-domain schema that's easy to use and relevant to their task rather that a low-level, wide-domain schema that can be used for any data representation but looks complicated, especially since wide-domain schemas don't, most of the time, make translation and extraction easier but just push it further up the schema ladder.<p>
+
+2) Since 1) means it's unlikely that people are going to settle on a single complete data schema to use, it's probably better to come up with a system that accepts that, and gives people a way to a) access and publish the many available schemas and b) encourage ways to translate between those schemas.<p>
+
+3) XML developers want to deal with relevant data, not with transport or parsing.<p>
+
+While I think that the wrapper schema that BizTalk represents may, to a small degree, contradict point 1), I think it's a worthwhile tradeoff for point 3).<p>
+
+I also think that you shouldn't worry about BizTalk being a direct competitor to XML-RPC (at least, not as a spec or service - product lines are something else). If query-reponse is implemented in Biztalk (and looking even deeper into the docs they talk about something similar) then XML-RPC could be able sit on top of BizTalk quite happily, and BizTalk components could theoretically make XML-RPC more popular (since it could take away the burden of transport implementation from those needing to create XML-RPC services on a platform).<p>
+
+My main problem with BizTalk is not the idea but that it's meant to be an open standards body that acts as a hub for collection and publication of many different schemas from many different businesses - and we're meant to trust Microsoft with running it. Microsoft has talked in the past (most notably in the Halloween docs) about commoditisation of protocols - would you put your protocol in Microsoft's hands?<p>
+
+-- Yoz
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006731.html">Re: What is BizTalk?</a>, Dave Winer, 5/26/1999; 8:29:06 AM<p><li>&nbsp;<a href="msg007067.html">Re: What is BizTalk?</a>, Mark Woods, 6/7/1999; 8:48:20 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

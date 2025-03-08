@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: How is &lt;value>&lt;/value> to be interpreted?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: How is &lt;value>&lt;/value> to be interpreted?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Skip Montanaro</td></tr>				<tr><td><b>Posted:</b></td><td>2/13/1999; 6:41:37 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002862.html">How is &lt;value>&lt;/value> to be interpreted?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2878 (In response to <a href="msg002875.html">2875</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002877.html">2877</a> / <a href="msg002879.html">2879</a></td></tr>				</table>			<br><< As I said in a previous response, in this case the server is sending back an empty string. >><p>
+
+My understanding was that an empty string would be encoded as<p>
+
+<pre><value><string></string></value></pre><p>
+
+not<p>
+
+<pre><value></value></pre><p>
+
+In going back and re-reading the spec, I noticed the statement: "If no type is indicated, the type is string."  I will fix my decoder to match, but I think it's a false economy to not specify the types of all values.  In particular, since there are other places in the encoding where redundant information is given, like requiring <data> inside <array>, I see no reason to not be explicit in this case.  All it does is complicate XML-RPC decoders.<p>
+
+> What language are you working in?<p>
+
+I'm working in Python but writing an encoder/decoder in C.  Fredrik Lundh's works fine, but since it's based on an XML parser written entirely in Python, is too slow for my needs.  Fredrik has a faster parser available, but it seemed easier to me to rewrite a special-purpose coder since I already have similar C code available from a couple past efforts at serializing Python data structures. <p>
+
+Skip
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,35 @@
+<html>	<head>		<title>Re: Caching the home page</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Caching the home page</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Spahr</td></tr>				<tr><td><b>Posted:</b></td><td>12/15/1998; 10:37:29 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001300.html">Caching the home page</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1311 (In response to <a href="msg001300.html">1300</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001310.html">1310</a> / <a href="msg001312.html">1312</a></td></tr>				</table>			<br>You probably need one of these HTTP Headers:<p>
+
+Cache-Control: no-cache<p>
+
+-------------------------------------<hr size=2 width=100%><p><p><p>
+
+Also, the server is not giving out an expires date. Netscape reports:<p>
+
+Expires: No date given<p>
+
+
+Here's the scoop from O'Rielly's on the HTTP EXPIRES header (chapter 19 - Webmaster in a Nutshell): <p>
+
+-------------------------------------<hr size=2 width=100%><p><p><p>
+
+Expires<p>
+
+Expires: date <p>
+
+This header specifies the time when a document may change or its information becomes invalid. After that time, the document may
+or may not change or be deleted. The value is a date and time in a valid format as described for the Date header.<p>
+
+Date<p>
+
+Date: dateformat <p>
+
+Indicates the current date and time. The preferred date format is RFC 1123. For example: <p>
+
+Mon, 06 May 1996 04:57:00 GMT<p>
+
+For backwards compatibility, however, the RFC 850 and ANSI C asctime() formats are also acceptable: <p>
+
+Monday, 06-May-96 04:57:00 GMT
+Mon May 6 04:57:00 1996
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,9 @@
+<html>	<head>		<title>Re: Put config.root in user.databases?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Put config.root in user.databases?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brian V. Hughes</td></tr>				<tr><td><b>Posted:</b></td><td>6/21/1999; 4:16:22 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007634.html">Put config.root in user.databases?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7652 (In response to <a href="msg007635.html">7635</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007651.html">7651</a> / <a href="msg007653.html">7653</a></td></tr>				</table>			<br><i>I can't see any problem with doing it, but I let mainResponder open it for me. 
+</i><p>
+
+This is what I was doing for a while, but then I started writing apps whose database would open before mainResponder.root. So I placed a "#" in front of the mainResponder.root entry in user.databases so that it would ensure config.root being open for my other apps, and this worked great for me. But then someone else discovered that the name of the user.databases entry was used in the subscription system.<p>
+
+So, I then settled on making config.root an entry in user.databases, with a"#" in front of the entry name, so it's always the first database opened by the startup script.<p>
+
+Since there's effectively never a reason to sbscribe to config.root, this has been working great for me, and I don't have to resort to spawning new threads in my other apps #startup scripts to wait for the existence of the config.root window...
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:57 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

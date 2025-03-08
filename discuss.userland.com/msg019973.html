@@ -1,0 +1,7 @@
+<html>	<head>		<title>Re: HTTP 1.0</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: HTTP 1.0</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>8/23/2000; 10:10:55 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg019961.html">HTTP 1.0</a></td></tr>				<tr><td><b>Msg #:</b></td><td>19973 (In response to <a href="msg019970.html">19970</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg019972.html">19972</a> / <a href="msg019974.html">19974</a></td></tr>				</table>			<br>I think you need to provide a little more context. I just ran the following script on my machine and it worked as expected: temp.headers was empty and the call returned the request line.<p>
+
+<pre>local (s = "GET http://193.197.168.166/palm/getdata?name=Lydia+Lindner&header=Tachpost&frontpage=Y HTTP/1.0" + cr + lf + cr + lf);
+dialog.notify (webserver.util.parseHeaders (s, @temp.headers))</pre><p>
+
+How exactly is this verb failing for you? Which version of Frontier are you running?
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:56:10 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,43 @@
+<html>	<head>		<title>XML for Preferences</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML for Preferences</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>5/16/1999; 7:37:30 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006265.html">Source release of Prefs.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6317 (In response to <a href="msg006265.html">6265</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006316.html">6316</a> / <a href="msg006318.html">6318</a></td></tr>				</table>			<br><i>I posted this message on the XML-DEV list this morning.</i><p>
+
+We've come up with another excellent use for XML, to specify the interface for a web-based preference system.<p>
+
+There are a lot of reasons why XML is the right choice here. First, it's understandable to people who write documentation. That means that the preferences wizard has a hope of being understandable to newcomers, since the system developer doesn't have to write the help text, and the work doesn't even need to be coordinated. The interactive part is just software, interpreting the content which is specified in XML.<p>
+
+Also, you can render the same specification in a variety of different formats. For now, we're rendering as HTML, but it could just as easily be rendered in Flash, DHTML or as a Visual Basic "wizard". The concepts and the content are the same, but the engine running the content doesn't have to be.<p>
+
+Further, if there were an agreement on how to specify preferences systems we could switch our deployment from Frontier to PHP or Zope or Oracle or Vignette, or whatever, and a lot of our content would just move with us by moving the preferences spec. <p>
+
+In other words, this is an important place where a standard, defacto or standards-body-based, would enable growth and eliminate lock-in.<p>
+
+<b>Where we're at with this</b><p>
+
+We have a running system at <a href="http://prefs.userland.com/">http://prefs.userland.com/</a>. This is a live system, to access it you must be a member of userland.com, which is open to the public. <p>
+
+If you're not a member, go to this page: <a href="http://logon.userland.com/">http://logon.userland.com/</a>, go thru the logon sequence, get the password via email, it should be self-explanatory. <p>
+
+Sorry, there's no way to use this system without being a member. We won't do anything with your email address other than store it along with your password and preferences.<p>
+
+<b>Show me the XML!</b><p>
+
+Now, there are two ways to see the XML spec behind this system. First you can directly access the XML page, thru this URL:<p>
+
+<a href="http://prefs.userland.com/outline.xml">http://prefs.userland.com/outline.xml</a><p>
+
+Or you can see a screen shot of the editor:<p>
+
+<a href="http://discuss.userland.com/msgReader$6316">http://discuss.userland.com/msgReader$6316</a><p>
+
+Important point: Any XML editor can be used to edit this text. It does not have to be our outliner, which is a good XML editor. Any tool that can produce XML output will work fine.<p>
+
+<b>How to think of this</b><p>
+
+It's a very lightweight thing. Any HTML coder can learn how to do this. It's not as powerful as Mozilla's <a href="http://www.mozilla.org/xpfe/languageSpec.html">XUL</a>, but then it's a lot simpler than XUL. We looked at XUL before doing this, thinking perhaps that it would be a good starting point. We decided that it introduced a lot of unnecessary complexity for the people doing authoring, writers, explainers, users. <p>
+
+We're doing this in the open. Maybe someone else wants to build on this idea? If so, please let me know. The spirit of XML is building on each others' work, that's why I keep telling you guys what we're doing.<p>
+
+Keep diggin!<p>
+
+Dave Winer
+UserLand Software
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006318.html">It's just storage</a>, Dave Winer, 5/16/1999; 8:21:32 AM<p><li>&nbsp;<a href="msg006322.html">Re: XML for Preferences</a>, Jonathan Hendry, 5/16/1999; 11:13:03 AM<p><li>&nbsp;<a href="msg006323.html">Discrete, Finite Value Choices</a>, Bill Humphries, 5/16/1999; 11:48:20 AM<p><li>&nbsp;<a href="msg007469.html">Re: XML for Preferences</a>, Steve Ivy, 6/16/1999; 3:20:58 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

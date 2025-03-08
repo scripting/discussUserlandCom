@@ -1,0 +1,16 @@
+<html>	<head>		<title>Re: Microsoft retires COM: Oh yes they are!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Microsoft retires COM: Oh yes they are!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark Allerton</td></tr>				<tr><td><b>Posted:</b></td><td>8/2/2000; 3:09:04 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg019404.html">Microsoft retires COM: NOT</a></td></tr>				<tr><td><b>Msg #:</b></td><td>19412 (In response to <a href="msg019404.html">19404</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg019411.html">19411</a> / <a href="msg019413.html">19413</a></td></tr>				</table>			<br>They can deny it as many times as they like, but it won't make it any less true.<p>
+
+I've had quite a bit of first hand experience with C# and the CLR that stretches back over at least two name changes, and IMO Gartner are right on point with their analysis. The old vtable-style COM is dead, dead, dead. I was actually quite pleased to see that someone had finally managed to work this out.<p>
+
+Despite what it says in the Montgomery whitepaper, CLR objects are *not* COM objects in the traditional sense. Sure, you can export a typelibrary from a CLR class, using (currently) a command line tool. So CLR objects are no more COM objects than Java objects under Microsoft's JVM were.<p>
+
+What Microsoft are now calling COM in the context of .NET is not your father's IUnknown. Montgomery is deliberately misleading when he talks about the .NET infrastructure handling "reference counting". There is no reference counting in the "new COM" - these so called COM objects are CLR objects that are garbage collected using a generational GC.<p>
+
+OK, so you can with a little effort on the command line get a typelibrary from a CLR class that you could #import into a Visual C++ program. But you don't need to do that - you can use the new Managed C++ keywords to thunk straight from x86 into the CLR and call it direct, without a C++ vtable anywhere in sight. So what motivation is there to use the old/classic/legacy** COM? The only thing left for it is to call up existing classic COM objects - there's just no point in using classic COM to call into the CLR.<p>
+
+**I have heard all these words applied to it.<p>
+
+End of rant.<p>
+
+..Mark..
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

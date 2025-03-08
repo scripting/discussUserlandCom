@@ -1,0 +1,13 @@
+<html>	<head>		<title>The Way of IIS and Redirection</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>The Way of IIS and Redirection</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jason Domina</td></tr>				<tr><td><b>Posted:</b></td><td>7/26/1999; 2:31:44 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008755.html">Redirection thru file system for IIS?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8781 (In response to <a href="msg008755.html">8755</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008780.html">8780</a> / <a href="msg008782.html">8782</a></td></tr>				</table>			<br>Although this is not an issue for Dave anymore, (he has found a quick, workable solution) here is The Way of IIS and Redirection.  <b>Redirect Variables</b>.  <p>
+
+Reading the online help for this particular feature made my head spin and I'm not sure I can make it any more clear, but here goes.  Say for example I have a folder "foo1" containing the folder "foo2".  If I access this from my website it would be something like www.mysite.com/foo1/foo2/. Now, for whatever reason, I want the content to come from /foo2/foo2.  <p>
+
+<ul>
+<li>To accomplish this, I simply click on the properties tab of foo1 from within the IIS MMC and select "Directory".</li>
+<li>Find "When connecting to this resource..." and select "A redirection to URL".</li>
+<li>Simply type in your new url followed directly by the Redirect Variable "$S".  In my hypothetical case, the URL looks like "http://www.mysite.com/foo2$S", but it could just as easily be an URL on a different server like "http://www.myfancynewsite.com/foo2/somewhereelse$S"</li>
+<li>Make sure that you check the box labeled "The exact URL entered above" and if it is to be a permanant redirect, the appropriate box.</li>
+</ul><p>
+
+That shoud do it.  For more information on the Redirect variables, click on the Help button when you are in this tab of the MMC.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008783.html">Re: The Way of IIS and Redirection</a>, Dennis Peterson, 7/26/1999; 3:12:50 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:33 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

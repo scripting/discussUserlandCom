@@ -1,0 +1,50 @@
+<html>	<head>		<title>Re: Linux for Dummies?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Linux for Dummies?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mike Murry</td></tr>				<tr><td><b>Posted:</b></td><td>12/15/1998; 4:47:15 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000749.html">Linux for Dummies?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1294 (In response to <a href="msg001290.html">1290</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001293.html">1293</a> / <a href="msg001295.html">1295</a></td></tr>				</table>			<br>Brent,<p>
+
+I'm can't tell you why it changed, but you'll need to check you inittab file. This is where you can tell the system which runlevel to start at. <p>
+
+Here's what to do (logged in as root):<p>
+
+1. cd /etc
+2 vi inittab<p>
+
+The first un-commented line of that file should read something like<p>
+
+id:5:initdefault:<p>
+
+The number 5 in the above is the runlevel the system starts at. Runlevel 5 will start upon xdm, which gives you that X-Windows session login. The number should be changed to a 3.<p>
+
+id:3:initdefault:<p>
+
+I'm not sure if your familiar with using vi, so here's a real basic description of how to change and save the file. After you do step 2 above<p>
+
+3. Arrow down to the line that reads id:5:initdefault: and then arrow over to the 5.
+4. Hit the esc key to make sure your in command mode.
+5. Type the letter x. This should delete the 5.
+6. type the letter i. This will put you into edit mode.
+7. Type a 3. The number should appear. The complete should read
+id:3:initdefault:
+8. Hit the esc key to put you back in command mode.
+9. Type a : (That's a colon). The cursor should jump to the bottom of the screen and place a colon on the line.
+10. Type in the letter w and hit return. You should see something saying it was saved.
+11. repeat step 9
+12 Type in the letter w and hit return.
+13. reboot to see if it worked.<p>
+
+Xeyes will start up with KDE because it saves your state each time you quit and restart it. From an xterm in KDE (logged on as root)<p>
+
+1. type
+ps aux | grep xeyes<p>
+
+This will give a list of all running processes related to xeyes. Like this:
+root 8998 0.0 1.6 3452 1S   18:38  0:00 xeyes<p>
+
+2. the first line should end with xeyes. This is the one you want to stop.<p>
+
+3. the numbers after the user name ( 8998 in the above example is the PID.<p>
+
+4. type in 
+kill and the PID number to stop it.<p>
+
+
+Hope all this helps, and if you already knew the basics, I hope I did insult you.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001298.html">Re: Linux for Dummies?</a>, Brent Simmons, 12/15/1998; 5:22:34 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

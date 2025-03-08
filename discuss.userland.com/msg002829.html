@@ -1,0 +1,47 @@
+<html>	<head>		<title>XML-RPC introspection preliminary proposal</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML-RPC introspection preliminary proposal</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>michael j lawley</td></tr>				<tr><td><b>Posted:</b></td><td>2/11/1999; 6:05:03 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000947.html">www.xml-rpc.com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2829 (In response to <a href="msg002779.html">2779</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002828.html">2828</a> / <a href="msg002830.html">2830</a></td></tr>				</table>			<br>Do you mean something like the dictionary you get with Apple scripting?  If so, then I agree this would be a tremendous addition to XML-RPC.<p>
+
+More explicitly, I'd like to see an XML-RPC convention for querying a server as to what methods it supports, and what the argument formats for these methods are.  The guts of a response might look something like:<p>
+
+<pre>
+<xmlrpc>
+  <serverAddress>search.userland.com</serverAddress>
+  <serverPort><i4>80</i4></serverPort>
+  <interfaces>
+  <methodDescription>
+    <methodName>searchEngine.index</methodName>
+    <params>
+      <param type=string>
+        <description>The title of the page</description>
+      </param>
+      <param type=string>
+        <description>URL</description>
+      </param>
+      <param type=string>
+        <description>The text of the page, base64 encoded</description>
+      </param>
+      <param type=string>
+        <description>The name of the site that contains the page</description>
+      </param>
+      <param type=string>
+        <description>The URL of the home page of the site that contains the page</description>
+      </param>
+    </params>
+    <methodResponse>
+      <params>
+      <param type=boolean>
+        <description>true if page can be indexed</description>
+      </param>
+      </params>
+    </methodResponse>
+  </methodDescription>
+  <methodDescription>
+    ...
+  </methodDescription>
+  </interfaces>
+</xmlrpc>
+</pre><p>
+
+I imagine the <description> tags should be optional.<p>
+
+This is very off-the-top-of-my-head as you can see by the fact that the thing above is just XML and not a valid/complete XML-RPC response.  Neither have I suggested what the request should look like.  I'm sure others with more XML-RPC experience have ideas...
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002832.html">Re: XML-RPC introspection preliminary proposal</a>, Chuck Shotton, 2/11/1999; 6:21:27 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

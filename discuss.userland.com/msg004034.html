@@ -1,0 +1,28 @@
+<html>	<head>		<title>buttonRef macro</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>buttonRef macro</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brian Kelly</td></tr>				<tr><td><b>Posted:</b></td><td>3/12/1999; 11:42:29 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004034.html">buttonRef macro</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4034</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004033.html">4033</a> / <a href="msg004035.html">4035</a></td></tr>				</table>			<br>I'm basically posting this to see if anybody else likes it, has done their own version, or has suggestions/better answers<p>
+
+I added a tiny feature to the imageRef macro to handle the state of a button (on or off) and renamed it buttonRef.  Here is the additional script (placed right under the DW/PBS comments):<p>
+
+if defined (pagetable^.["#sectionid"]) &#123;<p>
+
+	local (sectionid = pagetable^.["#sectionid"]);<p>
+
+	if (imagespec == sectionid) &#123;<p>
+
+		imagespec = "b_" + imagespec + "_on";<p>
+
+		glossRef = ""}<p>
+
+	else &#123;<p>
+
+		imagespec = "b_" + imagespec + "_off"}}<p>
+
+So if the page you are rendering has a #sectionid that is equal to the imagespec then it changes it to b_imagespec_on.  Otherwise it's b_imagespec_off.<p>
+
+So within your template (or where ever) you make calls to the buttonRef and if the image you are calling has the same name as the sectionid it uses the _on version, otherwise it uses the _off version.  It also "shuts off" the glossRef (actually that's a bad idea).<p>
+
+-brian<p>
+
+PS  I just switched jobs (yea!) from Tech Support to Graphic/Web Design (double yea!) and am now I on a Mac (uhm, yea...).  I remember when Dave first got on Windows people gave him a bunch of tips/pointers/links.  I'm looking for the same thing.<p>
+
+PPS Macs are cool too.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004038.html">Re: Mac tips</a>, Ian Beatty, 3/12/1999; 12:52:46 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

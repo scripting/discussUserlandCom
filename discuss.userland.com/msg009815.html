@@ -1,0 +1,28 @@
+<html>	<head>		<title>Mozilla.org and XML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Mozilla.org and XML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Karl Dubost</td></tr>				<tr><td><b>Posted:</b></td><td>8/24/1999; 2:10:19 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009815.html">Mozilla.org and XML</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9815</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009814.html">9814</a> / <a href="msg009816.html">9816</a></td></tr>				</table>			<br><a href="http://www.mozilla.org/status/">http://www.mozilla.org/status/</a><p>
+
+XML & Layout August 21<br>
+Submitted by Nisheeth Ranjan <<a href="mailto:nisheeth@netscape.com">nisheeth@netscape.com</a>><p>
+
+<b>XML</b><p>
+
+Currently working on plugging in an XSL processor into Gecko. The processorwas recently contributed by Keith Visco (MITRE) to mozilla.org (I have beeninteracting with Keith for some time and he got the go ahead to MPL hissource just a week or so back). Gecko has hooks that let an external XSLT processor apply an XSL transformation to an XML document before it is displayed. I'll try to demo the plugged in processer at XML DevCon '99 in Canada this Friday. If I can't get it plugged in by then, I'll at least talk about the XSL hooks in Gecko. I really want to get the XSL processor hooked up by beta, though. <p>
+
+We use James Clark's expat parser for parsing XML documents. Till now,
+ almost all the bugs related to XML have been related to the layers above expat and the few that were expat related were killed by James Clark in no time. He is an ideal module owner. I'll be doing more XML bug fixing till beta. Most of the current bugs are related to the new external parameter entity support that went in recently to support localization of XUL files. <p>
+
+The xml, xul, rdf content sinks' code needs to be factored better by beta. Vidur and Peter Linss are owning this and I'll be helping out. <p>
+
+The error strings reported by expat need to be localized. - the xml
+ documentation on mozilla.org is badly in need of an update. I wanna get to do that after the upcoming XML conference. <p>
+
+It would be really cool to wrap expat with XPCOMified SAX interfaces. That would create an XP alternative to Microsoft's COMified XML parser
+component. <p>
+
+<b>Layout</b><p>
+
+ I'm transitioning into learning the block-inline code in core layout. Definitely need to do that by beta. <p>
+
+ I'll be working with others in the gecko team to implement document state storage for session history by beta. <p>
+
+ Hopefully, one of us in core layout will also be able to get rid of bug 10818, an RFE to implement batched reflows.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:03 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

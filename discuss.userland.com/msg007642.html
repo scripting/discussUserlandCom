@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: launch.application() under Windows</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: launch.application() under Windows</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>6/21/1999; 12:31:38 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007640.html">launch.application() under Windows</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7642 (In response to <a href="msg007640.html">7640</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007641.html">7641</a> / <a href="msg007643.html">7643</a></td></tr>				</table>			<br><i>As soon as the application is launched, the call to that verb returns and the script runs to completion on an old data set. Is there any way to know when this extra application has run to completionand terminated? Thanks for the help ahead of time. </i><p>
+
+How about have the app write out a file just before it quits?<p>
+
+Your script can watch for the existence of the file, and delete it.<p>
+
+You also might try looping over calls to <a href="http://docserver.userland.com/sys/appisrunning">sys.appIsRunning</a>.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:57 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

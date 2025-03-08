@@ -1,0 +1,38 @@
+<html>	<head>		<title>Re: What's going on with SOAP and XML-RPC lately?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: What's going on with SOAP and XML-RPC lately?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel A. Falvo II</td></tr>				<tr><td><b>Posted:</b></td><td>1/9/2000; 9:44:12 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg014166.html">What's going on with SOAP and XML-RPC lately?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>14289 (In response to <a href="msg014180.html">14180</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg014278.html">14278</a> / <a href="msg014290.html">14290</a></td></tr>				</table>			<br><p>
+ <blockquote>
+The XML-RPC spec is 3 pages long and clearly written.
+As a relatively inexperienced programmer, I was able to come up with my ASP implementation.
+ </blockquote>
+</p>
+<p>
+ While I agree mostly with your assessment, I find fault in the
+ existing XML-RPC standard document in the following areas:
+ <ol>
+  <li>
+   Is the <string> tag's contents considered PCDATA or just CDATA
+   according to the XML-RPC DTD?
+  </li>
+  <li>
+   Speaking of a DTD, where is it?  Or, better yet, how about writing
+   up an XML Schema file describing XML-RPC?  That would help greatly
+   in clearing up the ambiguities with respect to <string> and
+   <double> tags.
+  </li>
+  <li>
+   I'm grievously disappointed that the <double> tag doesn't
+   support scientific notation.  I feel sorry for the poor souls
+   who want to transfer large arrays of scientific data or other
+   extremely large/small numbers using the existing decimal notation
+   requirement.  Anyone know what 6023000000000000000000000
+   approximately represents?  Let alone the unnecessary network
+   bandwidth it consumes...
+  </li>
+ </ol>
+</p>
+<p>
+ There are a couple of things I'd <i>like</i> to see included in a
+ future version of XML-RPC as well, but which are not currently
+ required.  Things like a standard representation for the UUID/GUID
+ datatype, support for object references, etc.
+</p>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg014290.html">Re: What's going on with SOAP and XML-RPC lately?</a>, Dave Winer, 1/9/2000; 10:01:14 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:01 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

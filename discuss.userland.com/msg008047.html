@@ -1,0 +1,60 @@
+<html>	<head>		<title>A common syndication format?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>A common syndication format?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/2/1999; 6:21:58 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008044.html">Syndication formats mailing list</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8047 (In response to <a href="msg008044.html">8044</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008046.html">8046</a> / <a href="msg008048.html">8048</a></td></tr>				</table>			<br>OK, in the spirit of opening this up, a progress report.<p>
+
+I've spoken several times this week with people from Netscape on the next step with RSS and <scriptingNews>. I proposed that we agree on a single format, and a loose way of moving forward in the future. <p>
+
+To me, the single most important thing is to maintain a non-rigid attitude, to be focused on what I want, and not be overly concerned about stylistic issues at the XML level. The goal is to enable interesting apps, and to do it in an open way so no one feels the need to blaze their own trail.<p>
+
+Netscape isn't of one mind on the subject of ownership. Some people (apparently) believe that it has to be shared, and others are very clear that RSS is a Netscape creation.<p>
+
+Philosophically, if the "we own it" approach wins at Netscape, then there *will* be more than one format. I know this because there already is more than one format. As I said to Netscape people yesterday, "We are working with many other developers, it won't do to tell them to 'talk to Netscape' when they want us to accomodate their needs."<p>
+
+We renewed development of <scriptingNews> format because Netscape was going forward, against their stated intentions, without us in the loop. They were evolving RSS to meet their needs, but ignoring ours. Which is their choice, nothing wrong with this, but we have to respond accordingly if we care about this market, which we do.<p>
+
+So, without the direct involvement of Netscape, let me state what I have proposed to them publicly, so at least you know what I want to see happen with RSS. Your opinion may differ. However if you can get behind this as-is, this will allay a fear that Netscape has, that the spec will bloat and get uncontrollable and most important, be unimplementable on their server. These are legitimate concerns, we share them. We won't support creeping featuritis-type growth in either spec.<p>
+
+<b>Examples</b><p>
+
+For the purposes of this discussion, please refer to these two examples, <a href="http://news.userland.com/scriptingNewstorss.xml">one</a> in RSS format and the <a href="http://news.userland.com/scriptingNews2.xml">other</a> in <scriptingNews> format.<p>
+
+<b>Focus on <item>s</b><p>
+
+The key point of contention is the format of an <item>. The rest of it is easy. <p>
+
+In RSS an <item> can contain a <title> and a <link>.<p>
+
+In <scriptingNews> an <item> can contain a <text> and a set of <link>s. A <link> contains a <url> and a <linetext>.<p>
+
+<b>Proposal</b><p>
+
+We agree on a common format for an <item>. <p>
+
+<item>s may optionally contain any of the following:<p>
+
+<title>, <link>, <text><p>
+
+<title> is a the title of the story. Usually the headline displayed at the top of the page containing the story.<p>
+
+<link> is a URL, pointing to the story on the host website.<p>
+
+<text> is a string of characters, containing HTML markup limited to <a> and <i> tags.<p>
+
+<b>It's a compromise</b><p>
+
+We want to move beyond <link>s. They were the best we could do when XML was kind of hazy in late 1997, and no one else cared about this stuff. There are significant problems with the approach we took. Now is a good time to unwind that little loop.<p>
+
+With this new format for <item>s, people who wanted to produce channels for My.Netscape.Com could leave out the <text> part of the <item>s. Netscape's server would probably not have to change at all, they would just ignore the <text>s. I couldn't be sure because I don't know how their XML parser works.<p>
+
+But we'd encourage channel developers to go ahead and include a lead paragraph with links, so that aggregators like My.UserLand.Com could display them. We hope Netscape would join us in this recommendation, but they wouldn't have to.<p>
+
+<b>Why?</b><p>
+
+In <a href="http://davenet.userland.com/1999/06/aFaceoffWithNetscape">A Faceoff With Netscape</a>, 6/16/99, I said: "A channel is not a series of links pointing to articles, it's a set of paragraphs that point to one or more articles *per paragraph*."<p>
+
+As a content provider myself I feel quite strongly about this. If you look around the web at the news sites, you'll see that many of them agree. Each story, at the top-level, is a paragraph, allowing you to read a little to decide if you want to read more.<p>
+
+Netscape contends that this is a different application from the one that RSS supports. Maybe so! But I think with some creativity they don't <i>have</i> to be different applications.<p>
+
+<b>Other areas</b><p>
+
+Everything else is easy. <scriptingNews> has a more extensive <header> than RSS does. Many of the items in the <header> are optional, and some are used to provide hints to the server for optimizing channel scanning. If we can get agreement on <item>s, then I'm confident we can compromise on the format for header information.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008048.html">Re: A common syndication format?</a>, Ian Davis, 7/2/1999; 7:06:24 AM<p><li>&nbsp;<a href="msg008050.html">Re: A common syndication format?</a>, Mark Nottingham, 7/2/1999; 7:16:47 AM<p><li>&nbsp;<a href="msg008054.html">Re: A common syndication format?</a>, Jamie Scheinblum, 7/2/1999; 7:36:36 AM<p><li>&nbsp;<a href="msg008064.html">Re: A common syndication format?</a>, Matt Hamer, 7/2/1999; 8:35:42 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:11 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Firewalls, Hooray</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Firewalls, Hooray</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Valentine</td></tr>				<tr><td><b>Posted:</b></td><td>5/5/2000; 5:22:49 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016956.html">scriptingNews outline for 5/5/2000</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17041 (In response to <a href="msg017035.html">17035</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017040.html">17040</a> / <a href="msg017042.html">17042</a></td></tr>				</table>			<br>Dave, what part is wrong?<p>
+
+I think he got this part correct:
+  Pike needs to be able to connect from client to server, and keep and open connection.<p>
+
+The server to pike connection is broken out of the gate (personally):
+ 1) It does not work with a NAT. You can only dedicate on computer to pike (or one computer per incoming port)
+ 2) Sending the http request for pike over port 80, fails with my ISP's web cache.
+ 3) Firewalls don't like incoming connections.<p>
+
+<i>The only problem with Pike(more it is an XML-RPC problem) is that it uses a Web server as a communication method. </i> I think what he means is that xmlrpc should be running over it's own port, and not port 80. It uses the http standard as it's communication standard. It can run over port 80, but it's best that it has it's own little region. <p>
+
+One of the reasons for having it's own port is so that it does not get f&*#(d with by port 80 web caches. Another is that a port can be opened in the firewall for it.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg017042.html">Re: Firewalls, Hooray</a>, Dave Winer, 5/5/2000; 5:26:45 PM<p><li>&nbsp;<a href="msg017044.html">Re: Firewalls, Hooray</a>, William Crim, 5/5/2000; 5:33:26 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:06 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

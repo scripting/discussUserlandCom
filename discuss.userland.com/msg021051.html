@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Mac guys do it at runtime</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Mac guys do it at runtime</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>9/9/2000; 12:41:47 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg020977.html">Guido and Richard</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21051 (In response to <a href="msg021039.html">21039</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021050.html">21050</a> / <a href="msg021052.html">21052</a></td></tr>				</table>			<br><i>Eric, it might be possible to route around all this silliness in software by creating a DLL-type interface that allows apps to bind to scripting languages at runtime.</i><p>
+
+The Gnumeric developers plan to do exactly this, by the way.<p>
+
+Gnumeric is based on CORBA and <a href="http://developer.gnome.org/arch/component/bonobo.html">Bonobo</a>. These are roughly equivalent to COM and OLE. In fact, there's even a GNOME::Unknown interface, so COM developers will feel right at home. :-)<p>
+
+Here's the <a href="http://cvs.gnome.org/lxr/source/gnumeric/idl/Gnumeric.idl">scripting interface</a> to Gnumeric. This stuff is still pretty beta.<p>
+
+I wonder if it's possible to build an XML-RPC->CORBA gateway? Python is probably the best bet; it has good support for both protocols.<p>
+
+Cheers,<br>
+Eric
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:56:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

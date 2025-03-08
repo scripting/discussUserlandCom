@@ -1,0 +1,16 @@
+<html>	<head>		<title>Re: Using members logon form for non-DG</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Using members logon form for non-DG</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mike Murry</td></tr>				<tr><td><b>Posted:</b></td><td>4/8/1999; 12:37:44 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004853.html">Using members logon form for non-DG</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4891 (In response to <a href="msg004889.html">4889</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004890.html">4890</a> / <a href="msg004892.html">4892</a></td></tr>				</table>			<br>Erik,<p>
+
+I had the same problems you've had while working on a application I'm building. Through trail and error I got everything working. Here's my setup. It works for me, but I have no idea if it's the "right way" to do it.<p>
+
+1) Let's say you have a GDB named testpublish.root with a table named testpublish in it that contains your website.<p>
+
+2) With in your testpublish table put a new string type named #members and set it to the name of the table you have setup in members.root (I believe you said it was named employees).<p>
+
+3) Create a new table in testpublish named public and copy all the stuff that is in [htmlInterfaces.root].logon (except for the stuff that begins with a #) into this table. The logoff stuff should be moved somewhere else as well, it doesn't matter where.<p>
+
+4) setup the #urls table to point to all the right places.<p>
+
+This should work now. If any of this is confusing to you download mailtothefuture.root. This is what I used as a guide and it is setup exactly the way I've tried to explain it.<p>
+
+Let me know if you need any more help.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004905.html">Re: Using members logon form for non-DG</a>, erik, 4/8/1999; 4:44:34 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

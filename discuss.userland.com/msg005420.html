@@ -1,0 +1,10 @@
+<html>	<head>		<title>Cocoon and XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Cocoon and XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Josh Lucas</td></tr>				<tr><td><b>Posted:</b></td><td>4/29/1999; 9:09:30 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005373.html">scriptingNews outline for 4/28/99</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5420 (In response to <a href="msg005406.html">5406</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005419.html">5419</a> / <a href="msg005421.html">5421</a></td></tr>				</table>			<br>I've made some adjustments to the Cocoon servlet as a way of testing to see if dynamic content could be used.  The fruits of my labor can be found here... <a href="http://208.204.52.53:10000/test.xml?userName=josh">http://208.204.52.53:10000/test.xml?userName=josh</a><p>
+
+What happens is that the servlet checks to see if the physical file exists, if it doesn't, the servlet makes an xml-rpc request to an xml-rpc server(thanks Hannes!!).  This request currently retrieves this file, <a href="http://www.stonecottage.com/josh/blurbs.xml">http://www.stonecottage.com/josh/blurbs.xml</a> and then the servlet uses this xsl file, <a href="http://208.204.52.53:10000/xsl/headlines.xsl">http://208.204.52.53:10000/xsl/headlines.xsl</a> for the formatting.<p>
+
+Though the info isn't coming from a database, it could very easily be modified to do so.<p>
+
+This is pretty cool and serving xml from Frontier and formatting it with xsl would be really nice and powerful.<p>
+
+josh
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

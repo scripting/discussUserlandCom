@@ -1,0 +1,11 @@
+<html>	<head>		<title>frontier responders and dll's</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>frontier responders and dll's</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tom Fuerstner</td></tr>				<tr><td><b>Posted:</b></td><td>12/22/1998; 10:45:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001212.html">DaveNet comments</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1615 (In response to <a href="msg001612.html">1612</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001614.html">1614</a> / <a href="msg001616.html">1616</a></td></tr>				</table>			<br>Hi,<p>
+
+playing around with the libGD extension under WinNT i found a strange bug . i wrote a responder which calls first a libGD-routine to draw a gif with the parameters delivered via http within the searchArgs-variables and then returns a html-page that shows the gif that was just created a few milliseconds before. 
+the strange thing now is that the responder-call via http works just the first time. Every second time frontier crashes.
+when i call the responder without the libGD-call a thousand times there is no problem. when i call the libGD routine directly a thousand times there is also no problem.
+it just happeens when the libGD routine is called from inside the responder call.<p>
+
+for me there seems to be a serious problem using frontiers betty interface together with embeded dll-extension-calls.<p>
+
+maybe someone is able to help.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:54 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

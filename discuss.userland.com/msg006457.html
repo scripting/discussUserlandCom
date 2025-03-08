@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: Source release of Prefs.UserLand.Com</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Source release of Prefs.UserLand.Com</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>5/18/1999; 10:28:24 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006265.html">Source release of Prefs.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6457 (In response to <a href="msg006265.html">6265</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006456.html">6456</a> / <a href="msg006458.html">6458</a></td></tr>				</table>			<br>A couple of thoughts:
+<ol><p>
+
+<LI> It would be nice to be able to edit prefs anywhere in an odb. Perhaps it would be possible to have an optional parameter in the panel declaration. 
+<pre>
+<panel name="somepanel" nomad="@config.somewhere.something">
+or
+<panel name="somepanel" nomad="@[people.getUserDataTable(pta^.username)]^.something">
+</pre>
+</li><p>
+
+<li> It would also be nice (or necessary, depending on your answer to the first item) to verify the incoming post args against the addresses in the wizard panel list.  As it stands right now, I think I can create an arbitrary entry in my member table. It's not that much of a security hole right now, since all I can do is mess my own prefs up.<p>
+
+Looking at the code (prefsSite.default), it seems that you'd need to move the if method==post block inside the area that has adrWizzard in scope. Then if your partialAddress == one of the item./atts.address, process the directive.
+</li>
+</ol>
+eric
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:17 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

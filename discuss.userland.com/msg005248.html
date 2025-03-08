@@ -1,0 +1,28 @@
+<html>	<head>		<title>Help! (Re: consoleSuite.getMsgTable)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Help! (Re: consoleSuite.getMsgTable)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Theige</td></tr>				<tr><td><b>Posted:</b></td><td>4/23/1999; 9:45:04 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005087.html">Nirvana is getting closer...</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5248 (In response to <a href="msg005236.html">5236</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005247.html">5247</a> / <a href="msg005249.html">5249</a></td></tr>				</table>			<br><i>One problem solved! In consoleSuite.getMsgTable: change this:<p>
+
+
+<pre>with consoleData.servers.[consoleSite.["#newsServer"]] &#123;</pre><p>
+
+
+to this:<p>
+
+
+<pre>with consoleData.servers.[adrSiteRootTable^.["#newsServer"]] &#123;</pre><p>
+
+
+With this fix the "Update Today's News" form underneath the preview of today's news on the default page of a console site will contain the proper text. </i><p>
+
+Drat! I've exchanged one problem for another. Now, although the text in the form is correct, the submit button "Update Today's News" causes an error message:<p>
+
+"Sorry! There was an error: Can't evaluate the expression because the name "adrSiteRootTable" hasn't been defined."<p>
+
+The discussion group message, and thus the news page *are* actually updated, but something breaks in consoleSuite.editTodaysNews after that, so I'm not successfully redirected back to an updated console page.<p>
+
+I think (??) the problem is related to this line in consoleSuite.editTodaysNews:<p>
+
+<pre>add ("<form method=\"POST" action="" + "glue/newsPost" + "\">");</pre><p>
+
+I don't think (??) "adrSiteRootTable" is in the param table for glue/newsPost.<p>
+
+Any suggestions?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005250.html">Solved! (Re: consoleSuite.getMsgTable)</a>, David Theige, 4/23/1999; 11:01:08 AM<p><li>&nbsp;<a href="msg005251.html">Re: Help! (Re: consoleSuite.getMsgTable)</a>, André Radke, 4/23/1999; 11:06:58 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

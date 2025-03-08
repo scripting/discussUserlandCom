@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: InfoWorld's redesign: Linkrot heaven</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: InfoWorld's redesign: Linkrot heaven</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>J Grohol</td></tr>				<tr><td><b>Posted:</b></td><td>6/21/1999; 9:04:57 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007586.html">InfoWorld's redesign: Linkrot heaven</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7629 (In response to <a href="msg007611.html">7611</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007628.html">7628</a> / <a href="msg007630.html">7630</a></td></tr>				</table>			<br>Umm, this can be implemented rather seamlessly with a simple
+perl script like:<p>
+
+#!/usr/bin/perl<p>
+
+     $server = "archives.infoworld.com";
+<br>     print "Status: 301 Moved Permanently\r
+<br>     Location: <a href="http://$server$ENV&#123">http://$server$ENV&#123</a>'PATH_INFO'}\r\n\r\n";</br><p>
+
+Point the Web server's error response to this script.
+I can't help but wonder why this is being made so difficult...
+</br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007654.html">Re: InfoWorld's redesign: Linkrot heaven</a>, sandy_reed@infoworld.com, 6/21/1999; 7:43:30 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:57 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

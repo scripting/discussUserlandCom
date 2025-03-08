@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: I did the deed!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: I did the deed!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>5/11/1999; 10:28:47 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005924.html">Installing RedHat 6.0</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6064 (In response to <a href="msg006045.html">6045</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006063.html">6063</a> / <a href="msg006065.html">6065</a></td></tr>				</table>			<br>Welcome to Linux, Dave! You'll encounter some bumpy spots (contrary to the recent press coverage, Linux is far from perfect), but there's lots of people who are willing to help you.<p>
+
+<I>I don't know what all those things do. Can outsiders get into my system in any meaningful way thru those services?</I><p>
+
+Not really. RedHat's fairly careful about security, and none of these daemons should have known security holes. But the wisest security philosophy is simple--if you're not running something, nobody can figure out how to break in through it.<p>
+
+<I>Is this something I have to worry about right now?</I><p>
+
+Nope. All of these services have reasonable default settings, and nothing should be wide open. Experienced Unix admins usually turn things like <B>rsh</B> off out of paranoia.<p>
+
+For fun, pop open two terminal windows on one of your virtual desktops. Run the <B>su</B> command in each to become root (you'll need to enter your root password). In one terminal, type <B>tail -f /var/log/secure</B>. This will print out all the authentication messages for your system. In the second one, type in <B>tail -f /var/log/messages</B>. This will print out your system log and any errors from your servers.<p>
+
+Cheers,
+Eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006067.html">Re: I did the deed!</a>, Dave Winer, 5/12/1999; 4:28:01 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:03 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

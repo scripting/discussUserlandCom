@@ -1,0 +1,84 @@
+<html>	<head>		<title>HTTP Digest Authentication</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>HTTP Digest Authentication</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>10/29/1999; 3:27:27 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012483.html">HTTP Digest Authentication</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12483</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012482.html">12482</a> / <a href="msg012484.html">12484</a></td></tr>				</table>			<br><b>Why am I posting this...</b><p>
+
+As <a href="http://news.userland.com/discuss/msgReader$12477">Wes</a> apparently already guessed, I am trying to implement a security scheme based on HTTP Digest Authentication. In the process, I made a few surprising discoveries.<p>
+
+<b>Background</b><p>
+
+When using HTTP Basic Authentication, the username-password pair is effectively transmitted in the clear. An eavesdropper can easily obtain the password.<p>
+
+HTTP Digest Authentication defines a protocol that allows the client to prove to the server that it knows the correct password without having to send the password itself to the server. The client does an irreversible computation, using the password and a random value supplied by the server as input values. The result is transmitted to the server who does the same computation and authenticates the client if he arrives at the same value. Since the computation is irreversible, an eavesdropper can't obtain the password. (It's actually more complicated than that.)<p>
+
+Therefore, Digest Authentication is preferable over Basic Authentication for certain pages allowing you to perform certain actions on the server.<p>
+
+While implementing HTTP Digest Authentication in Frontier, I used the following browser versions for testing:
+<ul>
+<li>Windows: Internet Explorer 5 and Communicator 4.7</p></li>
+<li>Mac: Internet Explorer 4.5, Communicator 4.5, and iCab Preview 1.7</p></li>
+</ul><p>
+
+<b>Example 1: Allow Basic Authentication Only</b><p>
+
+Frontier's response to the initial request:
+<pre>	HTTP/1.1 401 Unauthorized
+	Connection: close
+	Content-Length: 157
+	Content-Type: text/html
+	Date: Fri, 29 Oct 1999 09:24:10 GMT
+	Server: UserLand Frontier/6.1b12-WinNT
+	WWW-Authenticate: Basic realm="Control Panel"
+</pre><p>
+
+This works fine with all five browser. No surprises here.<p>
+
+<b>Example 2: Allow Digest Authentication Only</b><p>
+
+Frontier's response to the initial request:
+<pre>	HTTP/1.1 401 Unauthorized
+	Connection: close
+	Content-Length: 157
+	Content-Type: text/html
+	Date: Fri, 29 Oct 1999 09:11:14 GMT
+	Server: UserLand Frontier/6.1b12-WinNT
+	WWW-Authenticate: Digest realm="Control Panel", domain="/controlPanel", nonce="84e0a095cfd25153b2e4014ea87a0980", algorithm=MD5, qop="auth,auth-int"
+</pre><p>
+
+MSIE 5 for Windows sends the correct Authentication header and makes use of the "auth" option. Yeah!<p>
+
+MSIE 4.5 for MacOS sends the correct Authentication header but ignores the "auth" option. Okay.<p>
+
+Both versions of Communicator and iCab send an Authentication header for Basic authentication, transmitting the password in the clear, totally defeating the purpose of requiring Digest Authentication. Apparently, they don't support Digest authentication. But instead of sending the password in the clear, I had expected them to fail right away.<p>
+
+<b>Example 3: Allow Basic and Digest Authentication</b><p>
+
+Frontier's response to the initial request:
+<pre>	HTTP/1.1 401 Unauthorized
+	Connection: close
+	Content-Length: 157
+	Content-Type: text/html
+	Date: Fri, 29 Oct 1999 09:24:10 GMT
+	Server: UserLand Frontier/6.1b12-WinNT
+	WWW-Authenticate: Basic realm="Control Panel"
+	WWW-Authenticate: Digest realm="Control Panel", domain="/controlPanel", nonce="15bb54af506016d4414a025d4c84e34c", algorithm=MD5, qop="auth,auth-int"
+</pre><p>
+
+As expected, both versions of Communicator and iCab send an Authentication header for Basic authentication which is the only option they seem to support.<p>
+
+Both versions of MSIE seemingly get confused about two authentication schemes being offered and choose Basic Authentication, the weaker of the two, even though RFC 2617 says they "MUST" choose the strongest option they support -- which is Digest Authentication as proven by the previous example.<p>
+
+<b>Conclusion</b><p>
+
+Unless I am missing something, my options are either to require Digest Authentication exclusively, knowing that security is compromised if a user accidentally tries to authenticate with Communicator or iCab, or to offer both Basic and Digest Authentication, knowing that none of the browsers I tested is actually going to use the latter.<p>
+
+Based on these observations, I am tempted to conclude that HTTP Digest Authentication is currently useless for practical purposes.<p>
+
+<b>Pointers</b><p>
+
+<ul>
+<li><a href="ftp://ftp.isi.edu/in-notes/rfc2617.txt">RFC 2617</a>: HTTP Basic and Digest Access Authentication</li><p>
+
+<li><a href="ftp://ftp.isi.edu/in-notes/rfc2246.txt">RFC 2246</a>: Transport Layer Security (TLS) Protocol 1.0</li><p>
+
+<li><a href="http://home.netscape.com/eng/ssl3/ssl-toc.html">Secure Sockets Layer (SSL) Protocol 3.0</a></li>
+</ul><p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012522.html">Re: HTTP Digest Authentication</a>, larry curtin, 10/29/1999; 11:25:06 AM<p><li>&nbsp;<a href="msg012526.html">Re: HTTP Digest Authentication</a>, Wesley Felter, 10/29/1999; 1:24:49 PM<p><li>&nbsp;<a href="msg016083.html">Re: HTTP Digest Authentication</a>, Pat Breitenbach, 4/11/2000; 9:54:27 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

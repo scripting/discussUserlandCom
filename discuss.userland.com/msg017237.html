@@ -1,0 +1,10 @@
+<html>	<head>		<title>Web App Security</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Web App Security</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Edd Dumbill</td></tr>				<tr><td><b>Posted:</b></td><td>5/12/2000; 7:01:45 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg017229.html">scriptingNews outline for 5/12/2000</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17237 (In response to <a href="msg017229.html">17229</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017236.html">17236</a> / <a href="msg017238.html">17238</a></td></tr>				</table>			<br>My assertion that there is no 100% solution for the general case with current web technology.<p>
+
+As you noted the other day, the referrer solution doesn't work for browsers that send no referrer, or people who don't have referrer sending enabled.<p>
+
+So, while Manila has a fix, the larger problem remains, particularly on web sites where trusted and untrusted users both have write permissions, and a mix of GET/POST administrative effects.<p>
+
+The future needs a better web security model than the one we've got at the moment. Browsers need to have a feature where they'll only send session information when referred to from the same "zone" (however you end up defining a zone...), in the same way that encoding session info in the URL currently works as a solution to this issue.<p>
+
+I certainly don't have all the answers, but I hope people who create the browser technology can work together on this one.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg017238.html">Re: Web App Security</a>, Dave Winer, 5/12/2000; 7:05:35 AM<p><li>&nbsp;<a href="msg017256.html">Re: Web App Security</a>, Brent Simmons, 5/12/2000; 10:59:50 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:10 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

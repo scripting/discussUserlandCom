@@ -1,0 +1,36 @@
+<html>	<head>		<title>Re: Xanadu--some initial reactions</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Xanadu--some initial reactions</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Don Hopkins</td></tr>				<tr><td><b>Posted:</b></td><td>8/27/1999; 9:57:05 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009959.html">Xanadu--some initial reactions</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10166 (In response to <a href="msg010165.html">10165</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010165.html">10165</a> / <a href="msg010167.html">10167</a></td></tr>				</table>			<br>[Continued from previous message...]<p>
+
+I would be much more interested in reading about why Xanadu failed, and how it was found to be inadequate, than how great it would have been if only it had taken over the world. <p>
+
+I've done a lot of work that's been flushed down the toilet of history, but I think it would be more interesting and respectful of other peoples time for me to simply describe what it did and what I think was interesting about it, than to distribute the now-useless source code. <p>
+
+Several years ago, I went out to Glasgow to work on HyperLook with Arthur van Hoff at the Turing Institute. 
+(Arthur later went on to write the Java compiler in Java, AWT, Hot Java, Bongo, and founded Marimba.) 
+We developed a product for NeWS called "HyperLook", which was a totally user configurable GUI system, that I used to port SimCity to Unix. 
+There's some stuff on the web about it at <a href="http://www.catalog.com/hopkins/hyperlook/index.html">http://www.catalog.com/hopkins/hyperlook/index.html</a><p>
+
+HyperLook was inspired by HyperCard, but based on PostScript graphics and scripting, instead of bitmaps and HyperTalk.
+At the same time we were developing HyperLook, I also ported SimCity to Unix and rewrote the GUI in PostScript, to prove that HyperLook was robust enough to support a real game. 
+Actually, it wasn't when we started, but having an application like SimCity to push the development of the GUI made it possible to release them both at the same time!<p>
+
+I wrote an audio server that mixed sounds dynamically and allowed multiple networked applications to share and control the sound hardware.
+And a fast shared memory client-side image animation library, with a server-side component that supported zooming and panning multiple views.
+I also integrated Open Look components from The NeWS Toolkit, designed a plug-in user interface editor component that could be removed to build a non-editable runtime, constructed property sheets and wrote scripts to allow users to configure and customize the components, and stocked object warehouses with user-customizable sample components.<p>
+
+You could think of the NeWS window server as the web browser, the remote application as the web server, PostScript as JavaScript, and HyperLook as HTML. 
+A HyperLook "stack" was a window whose shape, contents and behavior were defined by PostScript, that could be connected over the network to a remote application. 
+Stacks were downloaded into the NeWS server, drew themselves and interacted with the user locally, but could send messages over the network to remote applications written in C, Prolog, or other languages. 
+There was a library that application programmers could use to send and receive messages and data between the remote application on the network and the local HyperLook stacks in the window server. <p>
+
+The HyperLook user (as well as the application developer) could flip a stack into edit mode, then rearrange, cut, copy, paste, and edit components, properties, graphics and scripts of any component on the stack, insert new pre-configured components from object warehouses, print the stack as color PostScript, copy its image as structured graphics onto the clipboard, paste it into the graphics editor, iconify any stack to a miniature dynamically updated icon, etc. <p>
+
+For example, you could close the SimCity window into an icon, and still see the live city view surrounded by tiny user interface components, animating in the icon.<p>
+
+HyperLook also had a help system, class browser, documentation browser, stack manager, print spooler, customizable clock components you could paste into your window frames, and all kinds of other desktop tools and utilities. <p>
+
+HyperLook could be distributed as a run-time GUI framework (without the dynamic user interface editing capabilities), which I included with SimCity. 
+The run-time included a fully functional PostScript graphics editor, that we used to create all the graphics in the user interface, and was even useful for editing and annotating pictures of your city before you print them. 
+The free graphics editor also gave people a reason to download the HyperLook demo, because there weren't any comparable graphics editors for the Sun at the time. <p>
+
+[Continued in next message...]
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg010167.html">Re: Xanadu--some initial reactions</a>, Don Hopkins, 8/27/1999; 9:59:16 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

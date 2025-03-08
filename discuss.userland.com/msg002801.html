@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: XML-RPC vs. Corba</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC vs. Corba</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Fredrik Lundh</td></tr>				<tr><td><b>Posted:</b></td><td>2/10/1999; 7:21:52 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002774.html">XML-RPC Spec Update</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2801 (In response to <a href="msg002798.html">2798</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002800.html">2800</a> / <a href="msg002802.html">2802</a></td></tr>				</table>			<br>With the current design, there's usually no need
+to add explicit type information to the server and
+client ends; you can simply rely on Python's strong
+dynamic typing system to do the right thing.  No
+need to add custom proxies or type conversion layers;
+<i>the standard interface just works right out of
+the box!</i><p>
+
+But if you drop the type info from the wire protocol,
+you suddenly have to add type maps to the server and
+client ends to get things working.  That's also true
+for the various Corba implementations available to
+Python folks, like ILU and Fnorb, and these protocols
+give you other advantages over XML-RPC.<p>
+
+So if you're doing something that initially seems to
+be Python-to-Python only, it's about as easy to use
+Corba instead.  And my spontaneous reaction is that
+would be a bad thing...
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002803.html">Re: XML-RPC vs. Corba</a>, Dave Winer, 2/10/1999; 7:31:32 AM<p><li>&nbsp;<a href="msg002807.html">Re: XML-RPC vs. Corba</a>, Ken MacLeod, 2/10/1999; 10:19:53 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:50 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

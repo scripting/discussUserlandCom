@@ -1,0 +1,67 @@
+<html>	<head>		<title>An RSS categorization proposal</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>An RSS categorization proposal</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jon Udell</td></tr>				<tr><td><b>Posted:</b></td><td>9/9/1999; 1:59:06 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010698.html">rss channels via email</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10830 (In response to <a href="msg010803.html">10803</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010828.html">10828</a> / <a href="msg010831.html">10831</a></td></tr>				</table>			<br>Today Dave Winer and I were kicking around some ideas for merging the flow of RSS channel items into some kind of directory scheme.<p>
+
+My first thought was to leverage the Open Directory project, but some discussion at UserLand.com (<<a href="http://discuss.userland.com/msgReader$10814">http://discuss.userland.com/msgReader$10814</a>>) of two approaches -- Dewey decimal and DMOZ -- made me realize that neither of these feels like the right thing.<p>
+
+So here's what we came up with. Currently, my channel has items like this:<p>
+
+<pre>
+<item>
+<title>Talk | A discussion about Zope</title>
+<link><a href="http://www.byte.com/nntp/programming?comment_id=1876#thread&lt">http://www.byte.com/nntp/programming?comment_id=1876#thread&lt</a>;/link>
+<description>Michel Pelletier, a developer of Zope, responds to my 8/30/1999 column. Enlightening discussion ensues.</description>
+</item>
+</pre><p>
+
+Suppose we allowed this:<p>
+
+<pre>
+<item>
+<title>...</title>
+<link>...</link>
+<category>OpenSource</category>
+<category>Programming/Python</category>
+<category>WebApplicationServers/Zope</category>
+<category>Databases/OODB</category>
+<description>...</description>
+</item>
+</pre><p>
+
+The <category> tag requests that the given item be added to the named category, and that the named category (or subtree) be created if it does not exist. You get to include as many as you want, and they can be any alphanumeric pathlike expressions that you want.<p>
+
+
+A service that aggregates and publishes RSS channels, such as my.userland.com or my.netscape.com (or your own channel host) can ignore these requests, or honor them. If it honors them, it can do so on any terms it likes. For example, Dave and I discussed a model in which my.userland.com will provide a tree-viewing service for the namespace that is the union of all requests. <p>
+
+Won't this get messy? <p>
+
+Perhaps, but Dave suggests that (unlike Yahoo or DMOZ) the nodes of this network will go away if not reinforced.<p>
+
+Example: I propose Databases/OODB. You notice that the category exists, and request to add your item to it. The node is reinforced, and stays in the directory.<p>
+
+Example: I propose Databases/OODB. Nobody else cares about that category, however I continue to publish items into, so it is reinforced, and stays in the directory.<p>
+
+Example: I propose Databases/OODB. Nobody else cares. Even I lose interest after a while. When I cease publishing items into the category, it goes away.<p>
+
+I'm thinking of this like a nervous system. Signals need to be reinforced in order to propagate, else they die out. The dying-out is a natural process, the absence of which seems to plague many Web-based information systems.<p>
+
+
+What about namespace conflicts?<p>
+
+Suppose I propose XML/Syndication, and you propose Syndication/XML. How will this be handled? Our idea is that there is no central authority, which means that these two nodes could coexist. Various possibilities ensue:<p>
+
+Example: Both achieve critical mass. Publishers of items in this space choose to support both nodes.<p>
+
+Example: One achieves critical mass, one does not. Publishers of items in the "losing" node may decide to switch to the "winning" node. They don't have to, but they might want to. <p>
+
+
+Who will want to view this crazy patchwork quilt?<p>
+
+Probably nobody, at least not in its raw form. The idea here is that unlike Yahoo and DMOZ, which present canonical views that have difficulty in evolving along with the world they describe, there really is no canonical view. <p>
+
+Suppose there were, instead, a mechanism for extracting views of the directory from many perspectives. One set of default perspectives would be the namespaces submitted by each channel publisher. <p>
+
+Especially powerful here would be the ability for a channel publisher, by referencing existing "foreign" directory subtrees in its category requests, to "transclude" those subtrees into the views of the directory that are attributed to that publisher. I guess a little more syntax would be needed here, if we want channel publishers to be able to transclude not just entire subtrees, but rather subtrees filtered by provider.<p>
+
+This could expand the set of roles for a channel publisher. Some might specialize in providing new stuff. In this realm, the measure of success is the volume of referrals generated by your channel. Some might specialize in categorization and classification of existing stuff. In this realm, the measure of success is several things -- referrals, the degree to which other channel publishers like and adopt your schema, and the level of interaction with the pages that represent your schema.<p>
+
+Who thinks this will work, and why? Who thinks it won't, and why not?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg010831.html">Re: An RSS categorization proposal</a>, Dave Winer, 9/9/1999; 2:17:54 PM<p><li>&nbsp;<a href="msg010836.html">Catagories + Type of Content ?</a>, Scott Sweeney, 9/9/1999; 3:16:55 PM<p><li>&nbsp;<a href="msg010839.html">Re: An RSS categorization proposal</a>, David A. Mundie, 9/9/1999; 5:00:12 PM<p><li>&nbsp;<a href="msg010840.html">Re: An RSS categorization proposal</a>, David A. Mundie, 9/9/1999; 5:12:46 PM<p><li>&nbsp;<a href="msg010849.html">Re: An RSS categorization proposal</a>, Thomas A. Creedon, 9/9/1999; 8:00:28 PM<p><li>&nbsp;<a href="msg010855.html">Why not have a patchwork quilt?</a>, James Carlyle, 9/10/1999; 1:06:34 AM<p><li>&nbsp;<a href="msg010869.html">XML/Syndication vs Syndication/XML</a>, Andrew Duncan, 9/10/1999; 7:30:21 AM<p><li>&nbsp;<a href="msg010895.html">Mark Wilcox's recommendation: generate and select</a>, Jon Udell, 9/10/1999; 11:19:14 AM<p><li>&nbsp;<a href="msg010896.html">Re: An RSS categorization proposal</a>, Samuel Reynolds, 9/10/1999; 11:48:33 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

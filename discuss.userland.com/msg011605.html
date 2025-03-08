@@ -1,0 +1,25 @@
+<html>	<head>		<title>Re: any servers for testing xml-rpc?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: any servers for testing xml-rpc?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel Reynolds</td></tr>				<tr><td><b>Posted:</b></td><td>9/29/1999; 10:54:28 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011601.html">any servers for testing xml-rpc?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11605 (In response to <a href="msg011601.html">11601</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011604.html">11604</a> / <a href="msg011606.html">11606</a></td></tr>				</table>			<br>You can do a loop-back test on a single machine. That's what I'm doing for my Software Directory web app. This is abstracted from one of my tests:<p>
+
+<pre>
+on TestMyRPC()
+   local
+      params = {}
+   new( tableType, @argsTable )
+   
+   << set up parameters in params
+   . . .
+   
+   local
+      myIPAddress = tcp.addressDecode( tcp.myAddress() )
+      myPort = user.inetd.config.http.port
+      replyTable = betty.rpc.client( myIPAddress, myPort, "myRPC", @params )
+   
+   system.temp.TestMyRPC_replyTable = replyTable
+   edit( @system.temp.TestMyRPC_replyTable )
+TestMyRPC()
+</pre><p>
+
+This is, of course, only an example. You can make the script as complex as you like. The original from which this was abstracted, for example, took parameters, to make it more flexible. Also, in order to automate the test (for regression testing), you could compare the replyTable with the expected value (for example).<p>
+
+- Sam
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

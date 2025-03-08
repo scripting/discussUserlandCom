@@ -1,0 +1,30 @@
+<html>	<head>		<title>Changes to currentStories.xml</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Changes to currentStories.xml</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/16/1999; 8:29:15 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008530.html">Changes to currentStories.xml</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8530</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008529.html">8529</a> / <a href="msg008531.html">8531</a></td></tr>				</table>			<br>Please refer to <a href="http://linux2.userland.com/users/admin/static/myUserLandMisc/currentStories.xml">currentStories.xml</a>. <p>
+
+Here are the changes I made this morning:<p>
+
+<ol>
+<li>Added version attribute to storyList. Set to 1.0.</li><p>
+
+<li>Corrected channelUrl, it was pointing to a non-existent page.</li><p>
+
+<li>Added userLandChannelId to each story, so there can be a link between the story and the channel that's not based on parsing the URL, which could change.</li>
+</ol><p>
+
+<b>linux2.userland.com</b><p>
+
+Re the location of the file, my intention is that all statically allocated files from My.UserLand.Com will go into that directory, and when they move, we'll work out a way to automatically redirect. I'd say the URLs are good for at least six months. We need to offload some of the serving, and that's a nice quiet Linux box that's going to do nothing but store static stuff for our NT machines.<p>
+
+<b>Frontier programming trick</b><p>
+
+I wrote a single bottleneck routine, finally, that handles all static storage for applications running on UserLand.Com servers. This means that when and if we should move this sub-site, we'll just have to change it in this one place. For Frontier developers, here's the source for the script:<p>
+
+<pre>
+on staticFileWrite (filetext, path) &#123; //returns the URL for the file
+	local (basefolder = "L:\\static\\");
+	local (baseurl = "http://linux2.userland.com/users/admin/static/");
+	local (f = basefolder + string.replaceall (path, "/", "\\"));
+	file.sureFilePath (f);
+	file.writeWholeFile (f, filetext);
+	return (baseurl + path)&#125;
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008531.html">Re: Changes to currentStories.xml</a>, Josh Lucas, 7/16/1999; 8:37:05 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

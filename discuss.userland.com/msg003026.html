@@ -1,0 +1,37 @@
+<html>	<head>		<title>mainResponder.members.setProfilePart</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>mainResponder.members.setProfilePart</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>2/18/1999; 10:50:15 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002757.html">Membership RPC handlers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3026 (In response to <a href="msg003017.html">3017</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003025.html">3025</a> / <a href="msg003027.html">3027</a></td></tr>				</table>			<br>To balance "mainResponder.members.getProfilePart", this call allows you to set part of a member's profile via XML-RPC.<p>
+
+You can use it to set an existing part of the profile, or, if the part doesn't exist, the call will create it. (Note to people in other environments, this is a free net storage system accessible only thru XML-RPC. I'll write more about this soon.)<p>
+
+<b>Params<ol></b>
+<li>membershipGroupName -- the name of the membership group that the next two parameters apply to<p>
+
+<li>memberKey -- the email address of the member whose storage area you want to access.<p>
+
+<li>memberPassword -- the password for that member.<p>
+
+<li>storagePath -- the path, dot-separated, to the storage location you want to store to.<p>
+
+<li>value -- the data you want to store at storagePath. It can be any valid XML-RPC value, a <struct>, <array> or just a string.
+</ol><p>
+
+<b>Simple example</b><p>
+
+This example sets my hitcount to 1020:<p>
+
+<pre>
+local (params = &#123;"mailToTheFutureMembers", "dave@userland.com", user.prefs.mttfPassword, "hitcount", 1020});
+betty.rpc.client ("www.mailtothefuture.com", 80, "mainResponder.members.setProfilePart", @params)
+</pre><p>
+
+<b>Storing bookmarks</b><p>
+
+This example creates a new list in my default member record, the one used for all userland.com sites (but not mailtothefuture.com).<p>
+
+<pre>
+local (bookmarks = &#123;"http://biz.yahoo.com/", "http://biz.yahoo.com/", "http://nt.excite.com/", "http://www.builder.com/", "http://www.macintouch.com/", "http://www.nytimes.com/", "http://www.paweekly.com/", "http://www.sjmercury.com/"});
+local (params = &#123;"default", "dave@userland.com", user.prefs.nirvanaPassword, "myBookmarks", bookmarks});
+betty.rpc.client ("nirvana.userland.com", 80, "mainResponder.members.setProfilePart", @params)
+</pre><p>
+
+Note that I didn't need any special permission set to be able to create this, I just needed a member name and a password. So if you can respond to this message in the DG, you already have a place to store stuff that fits into a Frontier application, or an app written in any other environment that supports XML-RPC.</li></li></li></li></li>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

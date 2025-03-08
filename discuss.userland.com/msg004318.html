@@ -1,0 +1,17 @@
+<html>	<head>		<title>Registry Hack for IE5's "Edit with..."</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Registry Hack for IE5's "Edit with..."</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jason Domina</td></tr>				<tr><td><b>Posted:</b></td><td>3/19/1999; 4:56:57 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004318.html">Registry Hack for IE5's "Edit with..."</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4318</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004317.html">4317</a> / <a href="msg004319.html">4319</a></td></tr>				</table>			<br>One of the neato features of IE5 is the "Edit with..." button.  It pulls the current page you're viewing out of the cache and opens it in the selected program. But there are only two options, Word97 <blecho! for html editing> and Notepad.  While this is somewhat useful, I really wanted to use a different editor.  If you look under Tools|Internet Options|Programs, you will find these two programs without any apparent way to add anything else.<p>
+
+If you fire up regedit and go to:<p>
+
+HKey_Classes_Root/.htm/OpenWithList/<p>
+
+you will see two keys, one for notepad and one for word.  To add another program for editing:
+<ol>
+<li>Right click OpenWithList and add a New Key.  Give it the name you want to show up in your "Edit With" list.
+<li>Right click the newly created key and add a new key named shell.
+<li>Right click shell and add a new key named edit.
+<li>Right click edit and add a new key named command.
+<li>Open the Default String for command and edit it's value.  You will want to put in quotes the path to the executable you desire to edit with followed by %1.  That should do it.  I used "c:\program files\allaire\homesite.exe" %1  YMMV.
+</ol> <p>
+
+I've only done this with HomeSite, but I would guess you should be able to do it with just about any windows program. I had to fiddle around with the String Value to get it just right.  I also tried to add a Perl Script into the Edit With, but always got back an error stating that "c:/the/path/to/my/cached/file.htm" wasn't a valid NT application :(  Wouldn't that be a cool thing, though?</li></li></li></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004329.html">Textarea editing in desktop text tools</a>, Dave Winer, 3/19/1999; 8:33:07 PM<p><li>&nbsp;<a href="msg004350.html">Re: Registry Hack for IE5's</a>, pete@clearlyonline.com, 3/20/1999; 6:02:00 PM<p><li>&nbsp;<a href="msg004364.html">Re: Hacking Frontier into IE5</a>, Sean Lindsay, 3/21/1999; 6:32:24 PM<p><li>&nbsp;<a href="msg005286.html">IE 4, too. Re: Registry Hack for IE5's</a>, Jonathan Hendry, 4/24/1999; 4:51:45 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:55 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

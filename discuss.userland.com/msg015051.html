@@ -1,0 +1,35 @@
+<html>	<head>		<title>Re: Forms and links</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Forms and links</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel Reynolds</td></tr>				<tr><td><b>Posted:</b></td><td>2/16/2000; 4:00:19 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg015019.html">Forms and links</a></td></tr>				<tr><td><b>Msg #:</b></td><td>15051 (In response to <a href="msg015019.html">15019</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg015050.html">15050</a> / <a href="msg015052.html">15052</a></td></tr>				</table>			<br><i><font color='blue'>I'd like a user to be able to add a url to a text box on the form that would be a live link when the text is returned.</font></i><p>
+
+Unless I'm not understanding what you're doing, it should
+be pretty simple. In your form handler (script), you'd
+build the link like this:
+<pre>
+   newLink = "<a href='http://static.userland.com/userLandDiscussArchive/&quot;&#32;+&#32;argTable.linkUrl&#32;+&#32;&quot;'&gt;" 
+      + argTable.linkText + "</a&gt;"
+</pre>
+Either that, or add the linkUrl/linkText to a table, and call
+a macro from your form page that would build multiple links from
+the table:
+<pre>
+   pta^.userLinks^.[ argTable.linkUrl ] = argTable.linkText
+</pre>
+and
+<pre>
+   on UserLinks(linksTbl=html.getPageTable()^.userLinks)
+      local ( outText = "" )
+      on Add( s )
+         outText = outText + s
+      on AddLink( entryAdr )
+         Add( "<a href='http://static.userland.com/userLandDiscussArchive/&quot;&#32;+&#32;nameOf(entryAdr^)&#32;+&#32;&quot;'&gt;" 
+            + entryAdr^ + "</a&gt;\r" )
+      local ( idx, numLinks = sizeOf( linksTbl^ ), entryAdr )
+      for idx = 1 to numLinks
+         entryAdr = @linksTbl^[idx]
+         AddLink( entryAdr )
+      return ( outText )
+</pre><p>
+
+Hope this helps.<p>
+
+- Sam</pre></pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:54:20 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

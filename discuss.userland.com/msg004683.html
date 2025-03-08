@@ -1,0 +1,60 @@
+<html>	<head>		<title>Re: Beware of Microsoft's XML</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Beware of Microsoft's XML</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>3/29/1999; 9:58:59 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004683.html">Re: Beware of Microsoft's XML</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4683</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004682.html">4682</a> / <a href="msg004684.html">4684</a></td></tr>				</table>			<br>Well, folks, remember that you read it here first: Paul Snively feels compelled to defend Microsoft.<p>
+
+In his WebInformant article entitled "Beware Microsoft's XML," David Strom wrote:<p>
+
+>One of the most interesting innovations in Microsoft's latest beta of >its Office 2000 suite is the way it uses XML, or Extensible Markup >Language, as its common file format.
+>This has important implications to those of us who create and >exchange documents, and it will affect what we use to author web >pages in the future. <p>
+
+This is already potentially misleading, if Mr. Strom intends to suggest that we may _have_ to use Office 2000 to author web pages. One of the advantages of using XML is that it is, in effect, impossible to "hide" the DTD used to generate a given document. So even if (as is quite likely) Microsoft were to create their own DTD for web-based documents, there's nothing they could do to prevent that same DTD from being used in other tools.<p>
+
+>But to truly make documents interchangeable, one burning issue >remains issue: file compatibility. When Office 97 came out, people >using Office 95 or earlier versions
+>couldn't read the newer document formats. On the one hand, this >incompatibility encourages people to switch to the new version. But >it makes upgrading painful for
+>corporations that want to exchange information easily, seamlessly. <p>
+
+I'd argue with this, at least in the sense that this paragraph conflates multiple issues: to upgrade an entire company's PC's from Office 95 to Office 97 _could_ be as simple as having an intranet-based software installing and tracking system capable of upgrading an entire network's PC's overnight. Marimba is an example of such a system. This has little to do with the evolution of the Office file formats.<p>
+
+>To get around the problem this time, Microsoft has chosen a >standards-based format, XML, for all its Office applications. (Yes, >Internet Explorer 5 also supports XML, but
+>that isn't really the point of my discussions here.) Let's call this >support MS-XML, to distinguish it from the standards effort. <p>
+
+The use of XML as a metalanguage to describe Office 2000 documents by no means guarantees that future versions of Office will be backward compatible any more than Office 97 was backward compatible with Office 95. It's still very likely to remain a one-way street.<p>
+
+>...
+>The downside is that I must make a pact with the devil. Once I go >down the route of saving my pages as MS-XML, the naked code may >become unintelligible. The pages
+>also take up more room and so take a bit longer to download and view. <p>
+
+Unintelligible to whom? The "naked code" presumably means that the text itself is unintelligible to human beings. So were the Word 95 and Word 97 and Excel 95 and Excel 97 and Powerpoint 95 and Powerpoint 97 file formats. Only HTML has had any pretensions of being human-readable, and as Mr. Strom himself has indirectly pointed out, one major reason for this is that it doesn't encode much information: it has historically been extremely difficult to present HTML across platforms (however you define the term) with any level of visual fidelity beyond getting the words, images, etc. of the content itself in the right order (for some loose definition of "right.")<p>
+
+Mr. Strom is making the persistent, pernicious error of viewing XML as just HTML that sufficiently savvy developers can add their own tags to. As I've written before, this is a poor lens through which to look at XML. XML is a metalanguage for creating custom markup languages. One such markup language is HTML, but there is a literally infinite number of others that can be defined within the confines of XML. In fact, a good approach to constructing a web site--as more people are becoming aware--is to represent the data in some other XML-instantiated markup language such as RDF, and to use a tool such as XSL to generate HTML from the RDF upon request. That way you can have a wide variety of software processes--some interactive, some not--operating upon the data itself, and have a different layer that generates a human-oriented presentation language such as HTML from the data.<p>
+
+>Now, I am not an XML programmer, or even any kind of programmer. I >have purposely kept my web pages sparse and relatively devoid of >"advanced" features, in the
+>name of being browser agnostic and universally viewable. I fear that >the more people use Word 2000, the more that MS-XML will replace >ordinary HTML code on the
+>web. <p>
+
+It's not at all clear why this would be a bad thing--on the contrary, my overwhelming reaction to this idea is "it's about time!"<p>
+
+>...
+>If you buy this, then the idea of using Microsoft for putting IE into >the operating system becomes a minor sideshow. With Office 2000, >something bigger is at stake, to capture
+>all the current non-MS Office users, those few hardy holdouts who use >Lotus and Corel tools to create their documents, spreadsheets and >presentations. <p>
+
+Again, it's far from clear how this follows from using Microsoft's XML DTD's--I would expect to see WordPerfect supporting Microsoft's DTD's just as surely as they support reading and writing Word 95/97 files.<p>
+
+>And while they are at it, Microsoft also wants to capture those who >use non-MS tools for writing web pages. The underlying effort is to >be the single document
+>interchange vendor for everyone, even for folks who don't run Windows >on their desktop. And MS-XML will be the Trojan Horse to pull this >off. <p>
+
+Once again, this is only a problem if the other tools can't use Microsoft's DTD. Microsoft has already done a remarkably good job of becoming "the single document interchange vendor for everyone," as Mr. Strom notes earlier in his article. So what changes with their XML DTD? Nothing--except, in fact, that it makes it _easier_ to develop tools to manipulate Microsoft-format documents--unless, that is, the tools you're using are your human eyes.<p>
+
+>Microsoft is trying to move people away from ordinary HTML v3 >documents and make Office 2000 the standard tool for web authoring. >And while earlier efforts (Front
+>Page most memorable) haven't really caught on, I think this time >Office 2000 has a solid chance. <p>
+
+The industry needs to move away from "ordinary HTML v3 documents" on the web as the web continues to evolve to become less and less like a very poor broadcast medium and more and more a set of interconnected pieces of software. Human beings need a door to come in through, yes, but once past that door, machine interchange of data becomes a paramount concern--one that HTML can't address.<p>
+
+>And while I welcome the advances in file compatibility that Office >2000 brings to the party, it has a price in terms of page readability >and size that you might not want to pay. <p>
+
+Again, the irony here is that Office 2000 doesn't bring any advances in file compatibility--XML, in and of itself, doesn't bring any advances in file compatibility. Only to the extent that there is a consensus as to DTD's are there compatibility benefits, and it's obviously too early to say there's a consensus to use Microsoft's DTD's. (I'm not naive--I have no doubts that once Office 2000 ships, that consensus will evolve almost instantly.)<p>
+
+But Mr. Strom's concern ultimately seems to stem from the fact that HTML doesn't encode data; it only encodes some very vague presentation guidelines and is thus all but trivially human-understandable. That's obviously been a strength in terms of the promotion and explosive growth of the World-Wide Web: anyone with a text editor can be a publisher. While XML-instantiated documents do lean towards changing the "text editor" to "document processor," it will remain the case that anyone with a decent XML-based document processor can be a publisher _and_ we'll have derived the additional benefit that Internet-based sites (Web-based or otherwise) will have a means for expressing their _information_ in a fashion that other Internet-based sites (human-based or otherwise) can profitably manipulate.<p>
+
+If there's anything that we need to beware of, it's the insistence that we never allow a computer to elevate its approach to some process that was initially in human hands beyond our complexity horizon. The fact that we could, in the beginning, understand HTML doesn't mean that we should forbid the use of XML, XSL, CSS, DSSSL, DHTML, and whatever else allows us to create a longer lever online and gives us a place to stand.<p>
+
+Paul Snively
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:09 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

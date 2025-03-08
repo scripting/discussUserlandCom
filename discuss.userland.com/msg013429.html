@@ -1,0 +1,28 @@
+<html>	<head>		<title>Re: prompting an animation with a mouseclick</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: prompting an animation with a mouseclick</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jeremy Bowers</td></tr>				<tr><td><b>Posted:</b></td><td>12/3/1999; 8:32:38 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013428.html">prompting an animation with a mouseclick</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13429 (In response to <a href="msg013428.html">13428</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013428.html">13428</a> / <a href="msg013430.html">13430</a></td></tr>				</table>			<br><I>. it's as if my browser is loading both the animated & the non-animated gifs at the same time & running the animated gif in the background immediately.</I><p>
+
+From the sounds of it, that's exactly what is happening.  When you instantiate the Image object, the browser loads it and "executes" it, and browsers try to keep identical animated gifs in sync with each other, so when you set the real image's source to that image it is put in sync with the hidden one.<p>
+
+Which browser are you using?  I've done this before (although I used it as a mouseover effect), but I don't recall if I was pre-loading (on the LAN it didn't matter).  Let me play around here for a bit.    (Do you have the gif in question available on the web?)<p>
+
+-- <p>
+
+Here's the most portable solution I've been able to come up with.<p>
+
+I'll use [ and ] for HTML tags.<p>
+
+<B>[SCRIPT]
+  flagLoaded = false;
+[/SCRIPT]<p>
+
+[IMG SRC="to_preload.gif" HEIGHT=1 WIDTH=1 onload="if ( !flagLoaded ) &#123; this.src=''; flagLoaded=true&#125;" style="display:none"]</B><p>
+
+And then use the src change as you were before.<p>
+
+Caveats and bugaboos:
+<UL>
+<LI>Tested (quickly) on IE 4 and Netscape 4, both for PC, but should work in general.</LI>
+<LI>The 'style="display:none"' will cause 4+ browsers to totally hide the image, but earlier browsers will have a one pixel abberration at the location of the IMG tag.  I haven't figured out how to do away with this.  You could tell the image to set itself to a one-pixel transparent gif (which I did not do in the above), which would make it disappear when the image loads (put it last in the document, or very first if you can get away with it), but there will be that one pixel changing colors while the image is loading.</LI>
+<LI>You will need a flag for each image you are preloading. Consider an array.  The reason you need a flag is if you simply say 'onload="this.src='somethingelse.gif'"', the onload handler will be called when the src changes, which calls the onload handler, which calls the onload handler... which will eventually cause a stack overflow.  My IE4 sure knows how to handle stack overflows... crash all explorer instances.</LI>
+<LI>I have no clue how this will work with Opera or any other "fringe" browser.  You may need to consider some other solution, like Flash, if that is importent to you.</LI>
+</UL>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: How to push Perl hash through XML RPC?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: How to push Perl hash through XML RPC?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ken MacLeod</td></tr>				<tr><td><b>Posted:</b></td><td>1/19/1999; 10:18:22 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2248 (In response to <a href="msg002227.html">2227</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002247.html">2247</a> / <a href="msg002249.html">2249</a></td></tr>				</table>			<br>What you need to do is create a hash reference instead of a hash.  Use<p>
+
+
+my $hash = &#123; 'state1' => 18, 'state2' => 27, 'state3' => 4 };<p>
+
+my @args = ($hash);<p>
+
+
+While testing this I realized that Frontier::RPC wasn't updated for newer versions of XML::Parser (>2.16, I think).  I will have a new version of Frontier::RPC available shortly.<p>
+
+In the new version of Frontier::RPC, Frontier::Client->new will take a `url' argument, instead of a 'host' and 'port'.<p>
+
+my $url = '<a href="http://dolphin.calendar.com:8000/RPC2">http://dolphin.calendar.com:8000/RPC2</a>';<p>
+
+my $server = Frontier::Client->new(url => $url);<p>
+
+Also while testing, dolphin.calendar.com:8000 is not returning valid XML-RPC results, the <params> in the reponse is not contained in a <methodResponse> element.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002250.html">Invalid XML-RPC responses</a>, Fredrik Lundh, 1/19/1999; 10:32:14 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:23 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

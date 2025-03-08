@@ -1,0 +1,20 @@
+<html>	<head>		<title>scriptError (</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>scriptError (</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>larry curtin</td></tr>				<tr><td><b>Posted:</b></td><td>9/22/1999; 10:09:17 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006186.html">DG security Check</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11346 (In response to <a href="msg006246.html">6246</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011345.html">11345</a> / <a href="msg011347.html">11347</a></td></tr>				</table>			<br>The script below produces a [Macro error: !redirect <a href="http://someurl">http://someurl</a>].  I'm using 6.1b2 on an NT box<br><br><p>
+
+local (pta = html.getPageTableAddress ());<br>
+referer = pta^.requestHeaders.referer;<br>
+if referer != "http://someurl/index"&#123; <br>
+               scriptError ("!redirect http://someurl/")&#125;;<br>
+local (adrForm = @pta^.postArgs); <a href="http://get/">//get</a> the address of the form data<br>
+password = adrform^.password;<br>
+mailaddress = adrform^.mailaddress;<br>
+<br>
+if password != "tires99" &#123;<br>
+		scriptError ("!redirect http://someurl/")&#125;;<br>
+if not (mailaddress contains "@") &#123;<br>
+	scriptError ("!redirect http://someurl/")&#125;;<br>
+local (domain = string.nthfield (mailaddress, '@', 2));<br>
+if not (domain contains ".") &#123;<br>
+	scriptError ("!redirect http://someurl/")&#125;;<br>
+htmltext="<h3> Secure Site</h3>";<br>
+return(htmltext)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011354.html">Re: scriptError (</a>, larry curtin, 9/22/1999; 11:40:45 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,21 @@
+<html>	<head>		<title>Re: The Quake Guy Talks</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: The Quake Guy Talks</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Bruce Hoult</td></tr>				<tr><td><b>Posted:</b></td><td>1/11/1999; 4:02:25 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001968.html">The Quake Guy Talks</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2004 (In response to <a href="msg002000.html">2000</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002003.html">2003</a> / <a href="msg002005.html">2005</a></td></tr>				</table>			<br><b>The only other OS that I can think of that requires the user to <b>statically allocate the amount of memory a task will be given was</b></b>
+<b>developed in the 1950's by IBM.</b><p>
+
+You obviously never used Quantel's business systems.  I had the misfortune to have my employer decide to get one in 1992, replacing a  modern Data General AOS/VS system (well, as modern as Unix anyway, and very similar).<p>
+
+The Quantel was a multi user system supporting (in our installation) about 30 interactive users on RS232 multi-drop polled screen mode terminals.  It had an 8 bit processor and no FP.  It had a statically configured number of fixed (and equal) sized application partitions (of 32 K each), statically partitioned into interactive and batch.  It had no memory protection.  It had no preemptive multitasking.  The standard compilers (for BASIC and COBOL) inserted a "yield" instruction at every backwards branch instruction.  Access to assembler was tightly controlled because any assembler programer could read and write anything and could hog all the CPU time.<p>
+
+Why did management get this horor?  Because the yearly fee for the 3rd party stockbroking accounting system was slightly cheaper than the software on the DG.<p>
+
+They asked me to reimplement my financial software -- such as option valuation, bond calculations etc -- on this abortion of a machine.  No  FP and I had to do exponentiation and log and trig functions?  happy happy joy joy.<p>
+
+
+<b>Tasks should be able to increase (and decrease) the amount</b>
+<b>of memory allocated to the program, based on the needs of that</b>
+<b>program at runtime. Ironically MacOS 6 w/MultiFinder did</b>
+<b>this correctly. </b><p>
+
+Can you substantiate that?  It certainly doesn't square with my memories of programming on System 6.<p>
+
+There has been "MultiFinder Temporary Memory" for a long time.  At first you were supposed to release any memory you used before calling WaitNextEvent() (e.g. less than a 60th of a second), but each release since 7.0 has freed up the restrictions on using "Temporary" memory to the point that now about the only things you have to have in your fixed partition are your code, globals and system data structures such  as windows -- which is pretty much statically known and fixed anyway.  Better written applications including BBEdit and CodeWarrior today actually ship with fairly small application partitions and get almost all their memory needs from "Temporary" memory.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002005.html">Re: The Quake Guy Talks</a>, Jock Murphy, 1/11/1999; 4:36:07 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:11 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

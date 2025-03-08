@@ -1,0 +1,28 @@
+<html>	<head>		<title>Re: serviceList.xml</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: serviceList.xml</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Fredrik Lundh</td></tr>				<tr><td><b>Posted:</b></td><td>5/11/1999; 8:49:42 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005830.html">Update on My.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6000 (In response to <a href="msg005993.html">5993</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005999.html">5999</a> / <a href="msg006001.html">6001</a></td></tr>				</table>			<br>I don't get this.  the <i>protocol</i> already includes a
+mechanism that allows a server to say "this resource has
+moved".  all clients already support this (if they don't,
+they're seriously broken).  smart clients even update their
+caches and other configuration tables if they get a permanent
+redirect.<p>
+
+duplicating this in the <i>document</i> seems like a very
+strange thing to do...<p>
+
+<hr size=2 width=100%><p><p><p>
+
+<i>How could we write a HOWTO for that?</i><p>
+
+Here's one for Apache:<p>
+
+if you move a file, add a line like this to the
+<i>.htaccess</i> file in the original directory (create
+one if necessary).<p>
+
+RedirectPermanent /old.xml <a href="http://my.server.com/new.xml">http://my.server.com/new.xml</a><p>
+
+make sure you've written it all on one line, and that
+the second URL is a full URL (including the host part).<p>
+
+if this doesn't work, ask your local server administrator
+for help, and/or check the apache FAQ at <a href="http://www.apache.org">http://www.apache.org</a>.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:01 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

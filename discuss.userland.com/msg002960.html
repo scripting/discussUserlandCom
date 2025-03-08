@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Ad Server in Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Ad Server in Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Seth Dillingham</td></tr>				<tr><td><b>Posted:</b></td><td>2/17/1999; 9:12:31 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002958.html">Ad Server in Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2960 (In response to <a href="msg002959.html">2959</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002959.html">2959</a> / <a href="msg002961.html">2961</a></td></tr>				</table>			<br>We're using WebTEN on a Macintosh G3/350, and it can handle 100,000 ad hits per day without breaking a sweat.<p>
+
+Use Frontier for the brains, but don't use it for the brawn. In other words, it's ok to have Frontier run the script to pick which ad to serve (if that's how your system is going to work), but use your regular webserver to actually serve the ads.<p>
+
+It's not clear to me how you're setting up your system. The one I'm working with has a number of high traffic dynamic pages, each of which contain STATIC images. The processing is handled by Frontier, the networking is handled by WebTEN (ie, Frontier's http server is turned off), and all of the dynamic images are served directly from the file system by WebTEN.<p>
+
+To keep things running speedy, I keep the image properties in Frontier tables. When a dynamic page needs to use an image, it calls a script with the name of the image it wants. What's returned is an image tag with the height and width included, WITHOUT Frontier ever having to read the image from disk. It's similar to Frontier's imageRef()'s image cache, but it's permanent.<p>
+
+Make sense?<p>
+
+You could do all of these same things with IIS on NT, if that's what you'd prefer to use for any reason.<p>
+
+Seth
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002972.html">Re: Ad Server in Frontier</a>, Kurt J. Egger, 2/17/1999; 2:21:09 PM<p><li>&nbsp;<a href="msg002980.html">Re: Ad Server in Frontier</a>, Michael Johnston, 2/18/1999; 5:48:35 AM<p><li>&nbsp;<a href="msg003183.html">Re: Ad Server in Frontier</a>, Mike Rogers, 2/23/1999; 2:58:34 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:56 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,12 @@
+<html>	<head>		<title>A question about searchArgs</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>A question about searchArgs</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mike Murry</td></tr>				<tr><td><b>Posted:</b></td><td>8/31/1999; 2:39:42 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010342.html">A question about searchArgs</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10342</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010341.html">10341</a> / <a href="msg010343.html">10343</a></td></tr>				</table>			<br>I'm building a MR app that needs to parse searchArgs on a certain page. I read <a href="http://discuss.userland.com/msgReader$5205">Sam's How-to</a> and the docserver stuff on webserver.parseargs and got something working, but I was wondering if there is a better way.<p>
+
+Here's what my script is doing:<p>
+
+webserver.parseArgs(adrPageTable^<a href="mailto:.searchArgs,@scratchpad.argTable">.searchArgs,@scratchpad.argTable</a>)<br>
+local (projectnum = @scratchpad.argtable.project)<br>
+local (issuenum = @scratchpad.argtable.issue)<br><p>
+
+The only minor problem is that I have to delete @scratchpad.argtable.project and @scratchpad.argtable.issue at the end of my script or they turn from strings to lists. Is there any easier way?<p>
+
+Thanks.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg010348.html">Re: A question about searchArgs</a>, Thomas A. Creedon, 8/31/1999; 3:33:32 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

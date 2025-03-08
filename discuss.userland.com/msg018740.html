@@ -1,0 +1,53 @@
+<html>	<head>		<title>Re: Dartmouth College - new Frontier web site!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Dartmouth College - new Frontier web site!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel Reynolds</td></tr>				<tr><td><b>Posted:</b></td><td>7/17/2000; 2:51:50 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018589.html">Dartmouth College - new Frontier web site!</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18740 (In response to <a href="msg018728.html">18728</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018739.html">18739</a> / <a href="msg018741.html">18741</a></td></tr>				</table>			<br>I think you're right--it probably does have to do with the CSS specification.<p>
+
+Try the following, which eliminates absolute character sizes in favor of the user's setting (100%) and sizes relative to it. (Repeat after me: the percent is your friend.) BTW: The style sheet appears to be truncated on the first page (it was in my browser); I copied it from the 'about' page and modified it.
+<pre>
+<style type="text/css"&gt;
+<!--
+A:link &#123;
+	 color: #006633;
+	 text-decoration: none&#125;
+A:visited &#123;
+	 color: #006633;
+	 text-decoration: none&#125;
+A:hover &#123;
+	 color: #F98600&#125;
+p, dl, li &#123;
+	 font-size: 100%;
+	 font-family: Georgia,  Times New Roman, Serif&#125;
+.mainhead &#123;
+	 font-family: Arial, Helvetica, Verdana, Sans;
+	 font-size: 145%;
+	 font-weight: bold&#125;
+.subhead &#123;
+	 font-family: Arial, Helvetica, Verdana, Sans;
+	 font-size: 127%;
+	 font-weight: bold&#125;
+.mainlink &#123;
+	 font-size: 109%;
+	 font-family: Georgia,  Times New Roman, Serif;
+	 font-weight: bold&#125;
+.maintext &#123;
+	 font-size: 109%;
+	 font-family: Georgia,  Times New Roman, Serif;
+	 font-weight: normal&#125;
+.sublink &#123;
+	 font-weight: bold;
+	 font-size: 100%;
+	 font-family: Georgia,  Times New Roman, Serif&#125;
+.footer &#123;
+	 color: #666666;
+	 font-family: Georgia,  Times New Roman, Serif;
+	 font-size: 81%&#125;
+td.bgimage &#123;
+	 background-color: white;
+	 background-repeat: no-repeat;
+	 background-image: url(../images/about.bg.jpg)&#125;
+--&gt;
+</style&gt;
+</pre><p>
+
+Hope this helps.<p>
+
+- Sam
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

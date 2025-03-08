@@ -1,0 +1,17 @@
+<html>	<head>		<title>JAffiliate</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>JAffiliate</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Josh Lucas</td></tr>				<tr><td><b>Posted:</b></td><td>12/20/1999; 3:18:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013652.html">Catching the My.UserLand story flow</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13771 (In response to <a href="msg013652.html">13652</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013770.html">13770</a> / <a href="msg013772.html">13772</a></td></tr>				</table>			<br>I've just released the first version of JAffiliate which is a java implementation of the affiliate2.root.  This release does not require a database as each channel has its own XML file.<p>
+
+More info and download info can be found <a href="http://barista.editthispage.com/stories/storyReader$17">here</a>.<p>
+
+JAffiliate is basically broken down into two parts.  The first is the harvester which goes and gets the currentStories.xml file at UserLand every minute.  The file is checked to see if anything is new.  Once something new is found, the channel XML file is looked for and is either updated or created.<p>
+
+The second part is the accessor to this info.  Currently, there is not a GUI for this.  You will need to implement this as part of your own GUI.  I plan on eventually releasing a full system but I'm not there yet.  There is a Test file which shows some examples of how to use this.<p>
+
+The only real requirement is IBM's XML4J parser.  It can be found at <a href="http://www.alphaworks.ibm.com">http://www.alphaworks.ibm.com</a>.  In the future, you won't need this specific parser but for now you do.<p>
+
+Feel free to ask any questions.<p>
+
+Have fun!<p>
+
+
+josh
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013772.html">Re: JAffiliate</a>, Dave Winer, 12/20/1999; 3:34:14 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:48 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

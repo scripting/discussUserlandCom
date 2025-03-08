@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: JavaScript -based client-side includes</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: JavaScript -based client-side includes</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>thowland@excite.com</td></tr>				<tr><td><b>Posted:</b></td><td>12/21/1999; 8:06:44 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013807.html">JavaScript -based client-side includes</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13816 (In response to <a href="msg013807.html">13807</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013815.html">13815</a> / <a href="msg013817.html">13817</a></td></tr>				</table>			<br>I just ran into something similar with our server- we had to launch a big new site, but AOL wasn't showing the new version- turned out we were stuck in their cache. We added a "Cache-control:no-store" http header, which should have kept us out of their cache.<p>
+
+What was weird was that it broke video playback (realserver) on our site- we would send down a RAM file, which is basically a pointer to the actual media we wanted to play. IE was deleting these pointer files before handing them off to realplayer... <p>
+
+This suggests it may be the answer to your problem with IE. YOu may be able to do the same thing with an HTML META HTTP-Equiv tag- your mileage may vary.<p>
+
+Hope this helps,<p>
+
+Tim<p>
+
+PS Mahir is on the daily show tonight, Comedy Central at 11PM....
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:50 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: suites.bannerAds</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: suites.bannerAds</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Lawrence Lee</td></tr>				<tr><td><b>Posted:</b></td><td>12/10/1998; 9:51:32 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="http://static.userland.com/userLandDiscussArchive/msg001057.html">suites.bannerAds</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1095 (In response to <a href="msg001094.html">1094</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001094.html">1094</a> / <a href="msg001096.html">1096</a></td></tr>				</table>			<br>From an XML FAQ:
+<a href="http://www.ucc.ie/xml/">http://www.ucc.ie/xml/</a> <p>
+
+C.15 How do I use graphics in XML?
+&#182; Bob DuCharme adds: All the data in an XML document entity must be parseable XML. You can define an external entity as either a parsed entity (parseable XML) or an unparsed entity (anything else). Unparsed entities can be used for picture files, sound files, movie files, or whatever you like. They can only be referenced from within a document as the value of an attribute (much like a bitmap picture on an HTML Web page is the value of the <img> element's src attribute) and not part of the actual document. In an XML document, this attribute must be declared to be of type ENTITY, and the entity's declaration must specify a declared NOTATION, because if the entity isn't XML, the XML processor needs to know what it is. For example, in the following document, the colliepic entity is declared to have a JPEG notation, and it's used as the value of the empty dog element's picfile attribute.<p>
+
+<?xml version="1.0"?> 
+<!DOCTYPE dog [
+<!NOTATION JPEG SYSTEM "Joint Photographic Experts Group">
+<!ENTITY colliepic SYSTEM "lassie.jpg" NDATA JPEG>
+<!ELEMENT dog EMPTY>
+<!ATTLIST dog picfile ENTITY #REQUIRED>
+]>
+<dog picfile="colliepic"/>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:27 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

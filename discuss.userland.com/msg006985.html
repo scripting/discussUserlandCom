@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: Console.root, creating a new story</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Console.root, creating a new story</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/3/1999; 12:02:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006984.html">Console.root, creating a new story</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6985 (In response to <a href="msg006984.html">6984</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006984.html">6984</a> / <a href="msg006986.html">6986</a></td></tr>				</table>			<br>Are you running console.root and news.root on the same machine?<p>
+
+For some reason, you are probably getting an HTML error message returned from the server instead of a proper XML-RPC response.<p>
+
+To debug this problem, you could temporarily add "fldebug:true" to the calls to betty.rpc.client in consoleSite.glue.newStoryPost and consoleSite.glue.editStoryPost (on the client machine).<p>
+
+Then post or edit a story. Two windows will open displaying the XML-RPC request and the result obtained from the server. What does the XML-RPC response look like?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006987.html">Re: Console.root, creating a new story</a>, Robert Brook, 6/3/1999; 12:32:29 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

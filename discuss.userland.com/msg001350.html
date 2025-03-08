@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: user.webserver new feature list</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: user.webserver new feature list</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/16/1998; 1:27:48 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001330.html">user.webserver discussion</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1350 (In response to <a href="msg001334.html">1334</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001349.html">1349</a> / <a href="msg001351.html">1351</a></td></tr>				</table>			<br>Dave Winer wrote:<p>
+
+"You will be able to specify a set of guest databases that are automatically opened when the web server is initialized, before the server starts taking hits."<p>
+
+I think this is an important feature.<p>
+
+One issue: if Frontier is running behind IIS, WebSTAR, or similar, then the hits may be coming in through COM or Apple events.<p>
+
+I'm not sure what the right thing to do is -- if the server is still being initialized, and a COM or Apple event message is received, perhaps a simple page stating that Frontier is starting up should be returned. The user could be asked to try the request again.<p>
+
+The IIS-Frontier DLL could perhaps be made smart enough to watch for this page, and re-try the COM call after a short delay.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001362.html">user.webserver.prefs.flStartingUp?</a>, Dave Winer, 12/16/1998; 2:55:25 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

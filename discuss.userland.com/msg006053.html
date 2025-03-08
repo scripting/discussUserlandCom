@@ -1,0 +1,28 @@
+<html>	<head>		<title>Re: I did the deed!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: I did the deed!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>5/11/1999; 6:01:43 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005924.html">Installing RedHat 6.0</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6053 (In response to <a href="msg006045.html">6045</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006052.html">6052</a> / <a href="msg006054.html">6054</a></td></tr>				</table>			<br>They are insecure services. The model of trust that they use is based on a secure network. I don't think that they are truly dangerous right now, but they are a great advantage for someone wanting to break into your system. <p>
+
+Lpr would let people print to your printer.  The Xwindows port is where xwindows connects to the network to broadcast your screen about. <p>
+
+The two that are most dangerous are probably rlogin and rsh, which allow people to login remotely using a protocol different than telnet. You won't have much use for it, since you only have one unix box.<p>
+
+To get rid of those two, look in your /etc/inetd.conf file and comment out the following lines with a # sign.<p>
+
+shell stream tcp nowait root /usr/sbin/tcpd in.rshd
+login stream tcp nowait root /usr/sbin/tcpd in.rlogind<p>
+
+save the file, then find the inetd process number using<p>
+
+ps x | grep inetd<p>
+
+You should see two lines, the first number on the line is the process id, the last entry is the name of the process. One will be named inetd, one should be grep inetd.<p>
+
+as root, <p>
+
+kill -HUP (insert process number here) <p>
+
+This tells inetd to reread its config file with the new information.<p>
+
+As for worrying right now?  I am the only one in my office who worries about security, it's sort of how I think. (Just because you're paranoid doesn't mean they're not out to get you) These are the sorts of things that I would do to a machine before I let it outside a firewall. But in all likelyhood you could leave this machine up for a month and not have anyone try to break it. But why make their jobs easier? At least do it in the near future.<p>
+
+
+eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006058.html">Re: I did the deed!</a>, Dave Winer, 5/11/1999; 6:45:55 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:03 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

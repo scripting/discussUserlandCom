@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Weblog-XML... plus regexps?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Weblog-XML... plus regexps?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Michal Wallace</td></tr>				<tr><td><b>Posted:</b></td><td>2/13/1999; 7:10:16 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002836.html">XML for weblogs</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2892 (In response to <a href="msg002869.html">2869</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002891.html">2891</a> / <a href="msg002893.html">2893</a></td></tr>				</table>			<br>Jorn said:
+<i>
+This means regexps, though, yes? And XML hadn't ventured into
+that territory, last I looked, so I'd expect the URL needs to
+be embedded in an <a href= "http://static.userland.com/userLandDiscussArchive/&gt;"
+</i><p>
+
+Not at all. With this kind of XML document, the data is all represented as a tree. So if one little branch of that tree is called "url", and it contains a URL, you can just say, 'go get me the contents of that branch and stick in in an HTML <A HREF="msg002892.html"&gt; tag.'<p>
+
+(You COULD do it with a regexp, but that defeats the whole purpose of using XML)<p>
+
+-michal
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

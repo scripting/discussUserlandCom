@@ -1,0 +1,39 @@
+<html>	<head>		<title>Re: Tricky Problem!</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Tricky Problem!</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>William Crim</td></tr>				<tr><td><b>Posted:</b></td><td>11/23/1998; 4:49:28 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000001.html">First message</a></td></tr>				<tr><td><b>Msg #:</b></td><td>417 (In response to <a href="msg000415.html">415</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000416.html">416</a> / <a href="msg000418.html">418</a></td></tr>				</table>			<br>Then I think you can.<p>
+
+Leeme recap and see if I got it.  <p>
+
+You want the cookie to be for userland.com, not just for nirvana.userland.com or discuss.userland.com.  <p>
+
+If that is the case, then this is from Netscape's developer's homepage about cookies.<p>
+
+=====<p>
+
+A CGI program uses the following syntax to add cookie information to the HTTP header:<p>
+
+Set-Cookie:
+   name=value
+   [;EXPIRES=dateValue]
+   [;DOMAIN=domainName]
+   [;PATH=pathName]
+   [;SECURE]<p>
+
+[snip- clipped some mundane stuff]<p>
+
+DOMAIN=domainName specifies the domain attributes for a valid cookie. See "Determining a Valid Cookie". If you do not specify a value for domainName, Navigator uses the host name of the server which generated the cookie response.<p>
+
+[snip- Here is the text of "Determining a Valid Cookie"]<p>
+
+Determining a Valid Cookie<p>
+
+When searching the cookie list for valid cookies, a comparison of the domain attributes of the cookie is made with the domain name of the host from which the URL is retrieved.<p>
+
+If the domain attribute matches the end of the fully qualified domain name of the host, then path matching is performed to determine if the cookie should be sent. For example, a domain attribute of royalairways.com matches hostnames anvil.royalairways.com and ship.crate.royalairways.com.<p>
+
+Only hosts within the specified domain can set a cookie for a domain. In addition, domain names must use at least two or three periods. Any domain in the COM, EDU, NET, ORG, GOV, MIL, and INT categories requires only two periods; all other domains require at least three periods.<p>
+
+==============<p>
+
+I am not sure if this is what you are looking for.  Hope it helps.  The URL of the whole file is <a href="http://developer1.netscape.com:80/docs/manuals/communicator/jsguide4/cookies.htm">http://developer1.netscape.com:80/docs/manuals/communicator/jsguide4/cookies.htm</a><p>
+
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg000422.html">Re: Tricky Problem!</a>, Dave Winer, 11/23/1998; 5:33:35 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:45:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

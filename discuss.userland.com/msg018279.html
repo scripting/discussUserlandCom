@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: xml namespaces</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: xml namespaces</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark Baker</td></tr>				<tr><td><b>Posted:</b></td><td>6/29/2000; 7:39:32 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018263.html">xml namespaces</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18279 (In response to <a href="msg018263.html">18263</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018278.html">18278</a> / <a href="msg018280.html">18280</a></td></tr>				</table>			<br>Why are you trying to *read* a complex XML document?  Can you envision another syntax that would make that complexity legible?<p>
+
+Simple XML documents - those with just one namespace, or with one "main" one plus one or two adjunct namespaces - are very legible thanks to "xmlns", the default namespace that all elements in the document bind to except those specifically belonging to another namespace.<p>
+
+Namespaces make distributed coordination a little easier.  If you've got data that you don't need to pass around outside your world, you don't need them.  But if you do want to pass it around, you'd be better off making sure your "a" element isn't confused for my "a" element.<p>
+
+MB
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:33 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

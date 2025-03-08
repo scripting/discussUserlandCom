@@ -1,0 +1,34 @@
+<html>	<head>		<title>Re: domains vs doctree in mainresponder</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: domains vs doctree in mainresponder</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brian V. Hughes</td></tr>				<tr><td><b>Posted:</b></td><td>3/18/1999; 12:37:31 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002974.html">domains vs doctree in mainresponder</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4248 (In response to <a href="msg004228.html">4228</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004247.html">4247</a> / <a href="msg004249.html">4249</a></td></tr>				</table>			<br><i>I don't get it. <p>
+
+I'm trying to figure out what you want to do.<p>
+
+Here's what it sounds like to me.<p>
+
+You want one name to be either a table or a folder.<p>
+
+So the responder would behave like this.<p>
+
+First it would look in the table.<p>
+
+If it doesn't find it there, it would look in the folder.<p>
+
+Is this correct?</i><p>
+
+I know I came into this late, but I would like to try and help out.<p>
+
+I think I have a handle on what Clay is asking for, and it may be helpful to think about this from the other end...<p>
+
+Looking at the code in mainResponder.respond, it appears that Clay is seeing the result of his table entry, which is a filespec, being served via serveObject, when what he wants is for it to be served via serveFile.<p>
+
+In serveObject, if he's not using flRender=true at this stage, then the objects has it's type evaluated. If it's not a script, mainResponder.respond then checks to see if it should send the text of this object out raw text, but formatted for nice web display. If not, it just coerces the object to a string, get's its moddate and then sends it back to the browser.<p>
+
+But since the object in the table is a filespec, pointing to a folder, it would seem that logical that mainResponder.respond would realize that as it progressed to serve this object, and then would hand off the serving to serveFile, which would read in the static file, set the correct mime type and then ship that off to the browser.<p>
+
+Of course, the real trick here is, at what point does it make sense for mainResponder.respond to realize that it should serve the <i>default</i> file for the referenced folder (ala config.mainResponder.globals.defaultDirectoryItems), and not try to instead serveFolder...<p>
+
+Actually, after looking at serveFolder, this is actually what Clay really wants to have happen when address being pointed to by the HTTP URL is actually points to a filespec. Unfortunately, since Clay is looking to have the <i>default</i> item for the table point to a folder that also has a <i>default</i> item, this isn't happening. It's also possible that this might not be able to happen.<p>
+
+And so now I've typed in this really long explanation, when it appears that Dave does have the basics of what Clay is looking for. So I hope this lengthy explanation was helpful to someone. ;-><p>
+
+Hey, Clay, what happens if you directly reference the default item in your docTree table rather than allow Frontier to choose that item for you as it's default? In other words, point directly at <a href="http://yoursite/default">http://yoursite/default</a> rather than <a href="http://yoursite/">http://yoursite/</a>.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004260.html">Re: domains vs doctree in mainresponder</a>, Christopher Short, 3/18/1999; 3:53:13 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

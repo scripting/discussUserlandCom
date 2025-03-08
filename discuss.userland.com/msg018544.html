@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Collaborative filtering</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Collaborative filtering</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tom Fuerstner</td></tr>				<tr><td><b>Posted:</b></td><td>7/13/2000; 4:21:08 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018541.html">Collaborative filtering</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18544 (In response to <a href="msg018541.html">18541</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018543.html">18543</a> / <a href="msg018545.html">18545</a></td></tr>				</table>			<br>Even more interesting is ACTIVE COLLABORATING FILTERING, where algorithms inside your CMS generate userprofiles on the fly and help to find other people, ideas and knowledge. This becomes possible by collecting all the METAINFORMATION users create when the partizipate in an online community.<p>
+
+What kind of METAINFORMATION do i mean ? E.G.: Many people are posting messages regularly on scripting.com. In Frontiers case every single message is stored together with several informations about the author, posttime, how this specific message is connected (related) to other messages and so on. At the same time every word of every message is indexed and stored again inside of index.root.<p>
+
+Beeing aware of this it is easy to build something that is called WEIGHTED TERM ANALYZER (WTA). With the WTA you build a term-array where textobjects are related to keywords. To put it more simple : with the WTA you produce some kind of literal fingerprint for each message and for each author.<p>
+
+The next step is to create a similarity-space. The similarity-space tells you which are the most similar messages to a given one. Exploring this similarities further leads to interesting conclusions. If two messages are very similar it will be reasonable that the two messages authors share common interests. So the machine can start to introduce users to each other.<p>
+
+Or another possibility: you start to make a WTA for alle messages of a specific authors and then you compare authors WTA of a disccussiongroup to each other. Or you compare the WTA of different discussiongroups for a whole day. <p>
+
+Whatever you decide to do the results will very encouraging. WTA gives you a much better understanding of the inner structures of online communities.<p>
+
+by, tom
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg018596.html">Re: Collaborative filtering</a>, Chris Langreiter, 7/14/2000; 4:32:26 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

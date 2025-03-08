@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: redirection: new anchor attribute?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: redirection: new anchor attribute?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Polaschek</td></tr>				<tr><td><b>Posted:</b></td><td>11/14/1999; 3:43:02 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013041.html">redirection: new anchor attribute?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13042 (In response to <a href="msg013041.html">13041</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013041.html">13041</a> / <a href="msg013043.html">13043</a></td></tr>				</table>			<br><i>if the redirection server is down, then the link breaks</i><p>
+
+One answer to this is server-mirroring or load-balancing. Have multiple servers handling the same request. If one goes down, things keep working.<p>
+
+On the other hand, it might be simpler to do it just by using JavaScript with an onError event. I'm not positive you could make this work (I haven't tried it yet), but you may be able to do it if you open the link in a new window (you can't attach onError handlers to links, but you can attach 'em to windows).<p>
+
+Something to experiment with, at least....<p>
+
+I don't think the odds of getting a protocol and browser change pushed through anytime soon are very good. That's why I'm trying to think of ways to implement it using what's available today.<p>
+
+-DaveP
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

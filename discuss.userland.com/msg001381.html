@@ -1,0 +1,12 @@
+<html>	<head>		<title>user.databases (a change in plan)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>user.databases (a change in plan)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>12/16/1998; 8:13:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001330.html">user.webserver discussion</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1381 (In response to <a href="msg001330.html">1330</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001380.html">1380</a> / <a href="msg001382.html">1382</a></td></tr>				</table>			<br>I had trouble making user.webserver.databases fit, but it made more sense to have user.databases, one level up, and to open the databases from system.startup.startupScript. <p>
+
+It seems you might want to pre-open databases for applications that aren't web servers.<p>
+
+Now I have a beach-head right at the beginning of the startup process. That's a very interesting place to put code.<p>
+
+The new startup code is running on nirvana.userland.com now. <p>
+
+I figure that stats will fit in fine in user.webserver, not sure about domains, for now.<p>
+
+Dave
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001382.html">Changes to system.startup.startupScript</a>, Dave Winer, 12/16/1998; 8:22:17 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:41 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,50 @@
+<html>	<head>		<title>DreamWeaver, XML-RPC, and Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>DreamWeaver, XML-RPC, and Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Philip Suh</td></tr>				<tr><td><b>Posted:</b></td><td>1/20/1999; 12:42:30 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2326 (In response to <a href="msg002309.html">2309</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002325.html">2325</a> / <a href="msg002327.html">2327</a></td></tr>				</table>			<br>This is a message I'm posting to the Dreamweaver-extending list.
+--<hr size=2 width=100%><p><p><p>
+
+<delurk><p>
+
+Hi, my name is Phil Suh, I do a lot of website automation development with a piece of software called Frontier (<a href="http://www.scripting.com/frontier5/">http://www.scripting.com/frontier5/</a>). I've been lurking on this list because I'm interested in getting Frontier and Dreamweaver to work well together.<p>
+
+Frontier is a content management system that handles all portions of a web site in it's internal database, and then can 'cook' out static HTML files. (It does lots of other stuff as well). It has a bunch of great features that make it a no-brainer for large sites with lots of authors.<p>
+
+Frontier is a development environment--it's a great sandbox for geeks. However, it doesn't have a user-friendly GUI.  Realizing this, the philosophy with Frontier has always been to integrate with the tools web builders use.  For example, Frontier had a really tight integration w/ BBEdit 3.5 back in early 1997.<p>
+
+Anyway, the folks in Frontierland have long dreamed (!) of a great connection with Dreamweaver.  Now with version 2.0, we're trying to explore ways to make that connection happen. We'd like Dreamweaver and Frontier to work together in a couple ways:<p>
+
+1. Use Dreamweaver to create/edit Frontier templates.  Designers could go into Dreamweaver, use a menu to request a template from Frontier, edit it, and using the menu, send it back to Frontier.<p>
+
+2. You know how DW 2.0 can 'lock' certain parts of a page? We'd like to have a locked template that people could enter content into, and this time, from a menu command, send not the template, but the content.  Basically using Dreamweaver as the pretty GUI to enter content into Frontier.<p>
+
+If you're still with me, let me explain how Frontier could talk to Dreamweaver. Frontier contains an HTTP server, and can parse and understand XML.  It uses a very simple, easy protocol called XML-RPC (XML Remote Procedure Calls), which is really useful for cross-platform interapp communication.  If there was a way for DW to do this, that would be really cool. (Frontier also supports AppleEvents and COM/WSH stuff, but a cross platform solution is preferred.)<p>
+
+Some questions:<p>
+
+1. Do Dreamweaver have an HTTP server or client builtin? (I know it does FTP.)<p>
+
+2. Could a HTTP DLL be written to get Dreamweaver to handle HTTP calls?<p>
+
+3. How hard would that be?<p>
+
+4. In what other ways could Dreamweaver send/receive data from other applications? ODBC, SQL, etc?<p>
+
+If you have any random ideas, I'd love to hear them.  Thanks for reading.<p>
+
+Cheers- Phil
+</delurk><p>
+
+
+Interesting URLS:<p>
+
+Discussion group on Dreamweaver & Frontier:
+<a href="http://discuss.userland.com/msgReader$2309">http://discuss.userland.com/msgReader$2309</a><p>
+
+XML-RPC spec:
+<a href="http://www.xmlrpc.com/">http://www.xmlrpc.com/</a><p>
+
+James Spahr's suites.dream for Frontier:
+(important first experiments w/ DW & Frontier integration)
+<a href="http://www.panix.com/~jspahr/frontier/dream.html">http://www.panix.com/~jspahr/frontier/dream.html</a><p>
+
+What is Frontier?
+<a href="http://www.scripting.com/frontier5/whatIsFrontier.html">http://www.scripting.com/frontier5/whatIsFrontier.html</a>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002329.html">Re: DreamWeaver, XML-RPC, and Frontier</a>, Bruce Hoult, 1/20/1999; 2:50:51 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:28 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,38 @@
+<html>	<head>		<title>Re: GOXML.COM: Context-based Searching</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: GOXML.COM: Context-based Searching</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>duane@goxml.com</td></tr>				<tr><td><b>Posted:</b></td><td>7/22/1999; 12:01:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008654.html">GOXML.COM: Context-based Searching</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8664 (In response to <a href="msg008659.html">8659</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008663.html">8663</a> / <a href="msg008665.html">8665</a></td></tr>				</table>			<br>Hello James:<p>
+
+(Sorry all for the previous incomplete message - bumped keyboard ;-p)<p>
+
+We agree that it is a little early for this kind of SE on the web (actually,  we prefer to call it a search vehicle).  We originally saw the need for this SE to allow future XMLer's the ability to find actual XML content on the web to view.  In the midst of our plan, we realized that it would be possible to create a context based engine that can find content within certain XML tags.  <p>
+
+Here's a brief run down:<p>
+
+If you are an author writing documents for the web,  you would mark up *KEY* words in your document.  For instance, I might write a bio and use the html syntax:<p>
+
+<body>Hello - my name is Duane Nickull.  I design XML/Perl modules for  GoXML.com<body><p>
+
+I can then go back and change my doctype to XML and mark it up as follows:<p>
+
+<body>
+  <greeting>Hello - my name is</greeting> 
+    <person>
+       <name>
+         <first>Duane</first>
+        <last>Nickull.</last>
+       </name>
+    </person>  
+  <text>I design <lanuage>XML</language>/<language>Perl</language>    modules for  
+<company>GoXML.com</company></text><body><p>
+
+I have now marked up my data with XML syntax to provide meaning.  I could now have my XML document indexed and chose a category like "Internet".<p>
+
+Once the spider program has visited my site and indexed it, I would come up if someone searched for the word "Duane" as a "Name" or a "person" (Note - case is not important)<p>
+
+It will not return results of "Duane" in the context of "poetry", "mineral" or anything other than what I searched for.<p>
+
+In the future,  we will include the meta category as well.  This will allow me to find "Duane", the "Person" in the category of "Internet" and weed out "Duane", the "Person" in the category of "Entertainment" (if I chose to do this).  The latter reference could be to Duane Eddy, the musician.<p>
+
+BTW - thanks for the support so far.  We got over 12,000 hits on day one.   We desperately need more XML data for our index.<p>
+
+Duane Nickull
+goxml.com
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

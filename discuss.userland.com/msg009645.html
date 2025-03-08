@@ -1,0 +1,94 @@
+<html>	<head>		<title>Applescript XML-RPC Client v1.4d1</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Applescript XML-RPC Client v1.4d1</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Spahr</td></tr>				<tr><td><b>Posted:</b></td><td>8/18/1999; 1:21:00 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009612.html">Applescript XML-RPC Client</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9645 (In response to <a href="msg009612.html">9612</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009644.html">9644</a> / <a href="msg009646.html">9646</a></td></tr>				</table>			<br><a href="ftp://ftp2.designframe.com/tools/AppleScript-XML-RPC-v1.4.sit">ftp://ftp2.designframe.com/tools/AppleScript-XML-RPC-v1.4.sit</a><p>
+
+The client now fully supports the xml-rpc spec, including base64. Here is the new read me:<p>
+
+<p>
+
+<b>Applescript XML-RPC Client</b><br>
+version 1.4d1, 8.18.99<br>
+by James Spahr, <a href="mailto:james@designframe.com">james@designframe.com</a><br><p>
+
+
+In order to use this script you need the XML Tools osax from<br>
+Late Night Software. You can download it here:<br>
+<a href="http://www.latenightsw.com/freeware/XMLTools/index.html">http://www.latenightsw.com/freeware/XMLTools/index.html</a><br><p>
+
+You will also need Tanaka's osax, downloadable here:<br>
+<a href="http://mtlab.ecn.fpu.ac.jp/scripting/Jcode_osax.html">http://mtlab.ecn.fpu.ac.jp/scripting/Jcode_osax.html</a><br><p>
+
+You also need to be running Mac OS 8.6 or higher<br><p>
+
+
+<b>How to use:</b><br><p>
+
+After you place the "xmlrpc.lib" file into you scripts folder, within<br> your system folder, you can call the xml-rpc client from <br>any script like this:<p>
+
+<pre>
+tell application "Finder"
+  set pathToxmlrpcLib to path to system folder as string
+end tell<p>
+
+set pathToxmlrpcLib to pathToxmlrpcLib & "Scripts:xmlrpc.lib"
+set xmlrpc_client to (load script file pathToxmlrpcLib)<p>
+
+set serverURL to "http://www.scripting.com:81/RPC2"
+set serverScript to "examples.getStateList"
+set serverParams to &#123;&#123;1, 4, 45, 6&#125;&#125;<p>
+
+tell xmlrpc_client
+  set s to xmlrpc (serverURL, serverScript, serverParams)
+end tell<p>
+
+return s
+</pre><p>
+
+The important aspects of this example are the use of the load script<br> command, and the xmlrpc api. The xmlrpc api looks like this:<p>
+
+ xmlrpc (serverURL, serverScript, serverParams)
+ 
+server URL is a complete URL, beginning with <a href="http://">http://</a>, or <a href="https://">https://</a> and <br> ending with the path to the xml-rpc server<p>
+
+serverScript is the name of the script to call on the remote machine<p>
+
+serverParams is a list of parameters to send to the server.<p>
+
+all arguments are required.<p>
+
+
+<b>Using Base64</b><p>
+
+To send base64 data, pass a record type that looks like this:<p>
+
+&#123;base64 : "Mary had a little lamb"&#125;<p>
+
+by default the client will base64 encode the string and send the <br>encoded data. You can turn this feature off by using this line:<p>
+
+tell xmlrpc_client
+		turnOffAutoBase64()
+end tell<p>
+
+and turn it back on with:<p>
+
+tell xmlrpc_client
+		turnOnAutoBase64()
+end tell<p>
+
+Auto base64 will also decode incoming base64 data into a string data <br>type, again this is easy to disable with the above verbs.<p>
+
+
+<b>Using Structs</b><p>
+
+To send struct data (ie records), pass a record type that looks like this:<p>
+
+&#123;&#123;structName:"number", structValue:12&#125;, &#123;structName:"str", structValue:"Hello!"&#125;&#125;<p>
+
+<p>
+
+Please let me know about any problems, or success stories.<p>
+
+James
+<a href="mailto:james@designframe.com">james@designframe.com</a><p>
+
+
+THIS SOFTWARE IS PROVIDED AS-IS, WITHOUT WARRANTY OF ANY KIND. THE AUTHOR DISCLAIMS ANY DAMAGES RESULTING FROM THE USE OR MISUSE OF THIS SOFTWARE. THIS SOFTWARE IS NOT A PRODUCT OF DESIGNFRAME INCORPORATED.</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009651.html">Re: Applescript XML-RPC Client v1.4d1</a>, Sam DeVore, 8/18/1999; 7:01:02 PM<p><li>&nbsp;<a href="msg009745.html">Re: Applescript XML-RPC Client v1.4d1</a>, Steve Ivy, 8/20/1999; 1:48:36 PM<p><li>&nbsp;<a href="msg010616.html">Applescript XML-RPC Client v1.5</a>, James Spahr, 9/5/1999; 9:04:12 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

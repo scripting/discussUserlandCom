@@ -1,0 +1,11 @@
+<html>	<head>		<title>Re: Frontier web svr error on dynamic pages???</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Frontier web svr error on dynamic pages???</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>William Haynes</td></tr>				<tr><td><b>Posted:</b></td><td>5/20/1999; 10:01:55 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006480.html">Frontier web svr error on dynamic pages???</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6515 (In response to <a href="msg006480.html">6480</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006514.html">6514</a> / <a href="msg006516.html">6516</a></td></tr>				</table>			<br>Are you running behind webstar?<p>
+
+There was a thread on ScriptMeridian last year on this. The upshot was:<p>
+
+<blockquote>
+One of the parameters to system.verbs.traps.WWW[Omega].sdoc is called "user". This causes grief with html.processMacros when it tries to 
+render &#123;user.prefs.name}, because it says [Macro error: Can't 
+find a sub-table named "user".].
+</blockquote>
+If you change the macro call to &#123;root.user.prefs.name} it will work.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:19 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

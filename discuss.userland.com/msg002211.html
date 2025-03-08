@@ -1,0 +1,70 @@
+<html>	<head>		<title>Re: WDDX Annotated DTD</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: WDDX Annotated DTD</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>joubin</td></tr>				<tr><td><b>Posted:</b></td><td>1/18/1999; 12:06:51 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2211 (In response to <a href="msg002210.html">2210</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002210.html">2210</a> / <a href="msg002212.html">2212</a></td></tr>				</table>			<br>I am not sure I understand the installed base issue.  Note that I am NOT necessarily advocating this change, but I would like to know if I missing something about XML-RPC mechanism, since I am using it myself.<p>
+
+The issues:<p>
+
+1) First there is the issue of the betty responders:  On my root, there are:
+<pre>
+	admin
+	CGI
+	default
+	echo
+	helloWorld
+	RPC2
+	server
+	websiteFramework
+</pre><p>
+
+Couldn't a new responder (e.g. RPC_XE) be added through the net-update feature of Frontier 5?<p>
+
+2) Then there is the issue of <I>clients</I> using XML-RPC(2).  <p>
+
+a - On non-Frontier systems (i.e. Java RPC client, Perl, etc.) the code would have to change, but this would (rather, should) only be in the body of the object preparing the HTTP request -- i.e. the interfaces to these clients will be unchanged.<p>
+
+b - On Frontier systems, the standard way of making xml-rpc calls is through <i>system.verbs.builtins.betty.rpc.client</i> which has this interface:<p>
+
+<pre>
+   on client (                          
+   rpcServer="localhost",               
+   rpcPort=user.inetd.config.http.port, 
+   procedureName="",                    
+   adrparamlist=nil,                    
+   fldebug=false,                       
+   ticksToTimeOut=60*30,                
+   flShowMessages=true)
+</PRE><p>
+
+Now, unless frontier users have been building XML-RPC applications which <I>DO NOT</I> use the above script (are they? and why would they?) any changes to 'client' would be transparent to any 3rd party frontier application which utilizes XML-RPC through this interface.  I.e. a one-time update of <i>system.verbs.builtins.betty.rpc.client</i> through network-update feature should not affect the installed base of these applications.  <p>
+
+If the frontier root is NOT updated, <i>system.verbs.builtins.betty.rpc.client</i> will be making "RPC2" calls.  If it is, <i>system.verbs.builtins.betty.rpc.client</i> would be making "RPC_XE" calls.<p>
+
+
+The RPC(2) client itself contains the following line:<p>
+
+<pre>
+   s = tcp.httpClient (             
+	   method:"POST",               
+	   server:rpcServer,            
+	   port:rpcPort,                
+	   path:"/RPC2",                
+	   data:xmltext,                
+	   datatype:"text/xml",          
+	   debug:fldebug,               
+	   timeOutTicks:ticksToTimeOut, 
+	   flMessages:flShowMessages)
+</pre><p>
+
+where "RPC2" is the default value for the 'path' parameter.  Changing this (and updating the installed base to replace <i>system.verbs.builtins.betty.rpc.client</i> through the network-update feature would also be transparent.<p>
+
+--<p>
+
+Obviously the assumption here is that developers/users using XML-PRC features are 'power users' and presumabely are paying attention to notices by UserLand regarding important root updates.  And if they are, it is a trivial matter to update their roots to include RPC_XE (and related changes) to their root.<p>
+
+Even at an extreme case where an updated XML-RPC client is sending RPC_XE POSTS to a server, any error from server saying, in effect, "say what?" could trigger a re-send using good old RPC2 post (which still available to the updated client!).<p>
+
+
+So the real installed base issues (imho) are:<p>
+
+1 - non-frontier XML-RPC clients, which would entail a one-time patch by the developers of these clients (which I assume are literally a handful?), and<p>
+
+2- Frontier XML-RPC applications which for some reason ARE NOT USING <i>system.verbs.builtins.betty.rpc.client</i>.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:21 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

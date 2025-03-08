@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: RSS Issues: Comments requested</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: RSS Issues: Comments requested</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>11/15/1999; 7:58:08 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012932.html">RSS Issues: Comments requested</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13055 (In response to <a href="msg013048.html">13048</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013054.html">13054</a> / <a href="msg013056.html">13056</a></td></tr>				</table>			<br>Dan, thanks for getting in the loop here. Let's keep the conversation going. A few comments:<p>
+
+<ul>
+<li><i>The other problem to think about, is what does this Date field actually represent? Presumably, it is the publish date of the article. But it could also be the creation date or the last modified date (or others I can't think of right now). One solution is to create an element for each; another is use an attribute.</i><p>
+
+I think it could be all those dates, but the one that means something in this context is the publication date. About adding the format as an attribute, I'd like to see if we can try to keep RSS attribute-free for now.<p>
+
+<li>Also, for some applications that are coming up, there's a need for a <category> tag. We've done some experimentation with this.<p>
+
+<li>This one is thorny: multiple links per <item>. This is the one thing we do in SN format that isn't in RSS. It's a pervasive problem, it won't go away. Look at the new Cluetrain <a href="http://weblogs.userland.com/cluetrain/">weblog</a>, see how Doc links to multiple pages in many of his items. Look at today's "Scripting News". Lots of items with multiple links. For this reason, my site and many others can't fit into the RSS model. <p>
+
+<li>Another idea that's been floating around has been a <uniqueId> for every <item>. To really work this would have to be in the RSS file itself, assigned by the CMS used to produce the file (assuming one was used, not a good assumption to make). I'm not in favor of this feature, unless it's broadly supported by content people it's worthless. I can't add it at the aggregator level, so. I just mention it because it comes up in conversation.
+</ul>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013056.html">Re: RSS Issues: Comments requested</a>, Edd Dumbill, 11/15/1999; 8:34:30 AM<p><li>&nbsp;<a href="msg013077.html">Re: RSS Issues: Comments requested</a>, Dan Libby, 11/15/1999; 3:03:33 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:30 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: Scalability of F6</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scalability of F6</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>erik</td></tr>				<tr><td><b>Posted:</b></td><td>4/30/1999; 11:23:50 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005263.html">Scalability of F6</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5472 (In response to <a href="msg005263.html">5263</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005471.html">5471</a> / <a href="msg005473.html">5473</a></td></tr>				</table>			<br>Since no information is forthcoming on Frontier v6 performance, I'm going to make some wild guesses. Hopefully that will prompt some useful discussion or more information. <p>
+
+I assume my.userland.com is provided dynamically to each user and not from a static file that is written out. That's how my personalized portal demo is served. <p>
+
+My guess based on what I am seeing is that Frontier on an old Pentium 150/128MB/NT4.0 with a fabulously great network connection (I'm not far from the Palo Alto Internet eXchange), is that it can only handle a dozen users of a service like my.userland.com (and the same machine is also scavenging through news sources looking for updates every hour).<p>
+
+I see that many my.userland.com sources are updated around the turn of the hour. Many of them seem to have a timestamp of :01 past the hour. I infer from this that the update process runs through most of the info sources within a few minutes. If so, then this is excellent performance and much better than I am seeing. You guys probably have a much faster machine than I do. One other explanation might be that most of the my.userland services do not have lots of updates every hour so perhaps you are looking at a last-updated timestamp and skipping by the source when there are no changes. (What is that column named "reads" in the select my news page of my.userland.com anyhow?)
+Do you guys compare every new story against your existing inventory of stories?<p>
+
+I find that the process of parsing pages for news stories chews up 100% of available CPU time on my Pentium 150. Typically it takes this system 15 minutes to run through 40 news services and add say 50 new stories. However they are not all RDF based, only a few are, so perhaps using the tagExtractionKit to examine headlines causes greater CPU utilization than doing a compileXML. <p>
+
+Is there a big performance hit from running IIS side by side with Frontier? I typically have no activity on the IIS side, but don't want to disable serving up static documents with ASP. <p>
+
+thanks--erik goetze
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

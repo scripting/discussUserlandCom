@@ -1,0 +1,30 @@
+<html>	<head>		<title>Re: tail -f in a web page</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: tail -f in a web page</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dan Lyke</td></tr>				<tr><td><b>Posted:</b></td><td>11/5/1999; 3:43:03 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012705.html">A question for Apache gurus</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12765 (In response to <a href="msg012764.html">12764</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012764.html">12764</a> / <a href="msg012766.html">12766</a></td></tr>				</table>			<br>Brent, memory is cheap (or at least cheap enough that caching the last few lines in it rather than rereading the document is probably a good idea). I'm not a Perl god, and there's probably some obscure primitive or idiom that does this in a line and a half, and with three extra punctuation characters will floss your cat and put away your ironed clothing too, but why not:<p>
+
+<PRE>
+#!/usr/bin/perl -w
+use strict;<p>
+
+my (@lines, $currline, $linecount, $i);<p>
+
+$linecount = 4;
+$currline = 0;<p>
+
+while (<>)
+&#123;
+    $lines[$currline] = $_;
+    $currline = ($currline + 1) % $linecount;
+&#125;<p>
+
+for ($i = 0; $i < $linecount; $i++)
+&#123;
+    print $lines[($i + $currline) % $linecount]."\n";
+&#125;
+</PRE><p>
+
+Or, if you've got huge lines and buffering the line is too expensive for you, you could use "seek" and "tell" in a ring buffer in conjunction with your reads.<p>
+
+Another possibility would be to use that seek and tell in the refresh URL so that you don't have to reread the file every time through. Be sure to timestamp your refresh URLs so that if someone truncates the file and it grows over the size it was when it was truncated in between refreshes you have a chance of detecting this and dealing with it appropriately.<p>
+
+Also, (at this point Dave is groaning and saying "No, not the protocol rant again!") telnet is a perfectly acceptable and much lower overhead protocol with which to do <tt>tail -f</tt>. Any particular reason you're not just using that? Or even server push HTTP?<p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012766.html">Re: tail -f in a web page</a>, Brent Simmons, 11/5/1999; 5:25:22 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

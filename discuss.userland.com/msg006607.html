@@ -1,0 +1,56 @@
+<html>	<head>		<title>[Utility] Removing breakpoints 0.1</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>[Utility] Removing breakpoints 0.1</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>5/24/1999; 1:13:14 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006607.html">[Utility] Removing breakpoints 0.1</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6607</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006606.html">6606</a> / <a href="msg006608.html">6608</a></td></tr>				</table>			<br>After debugging there usally is a number of breakpoints left in the scripts, causing irritation next time you try to debug it.<p>
+
+This script will clean them out. It can be copied into a menu or be runned as a script (please change the last line accordingly)<p>
+
+<hr size=2 width=100%><p><p>
+<pre>
+&#171;Removes the breakpoints from all scripts of the table where the cursor is located.
+	&#171;If the cursor is in a script it will clean out breakpoints also from other scripts located in the same table.
+	&#171;If the shift key is down and the cursor is on a table, it will clean out the breakpoints of the parent table (useful for cleaning an entire gdb)
+	&#171;
+	&#171;It will expand the scripts.
+	&#171;Warning! If it encounters breakpoints in an uncompiled script (like an agent that you've uncompiled to prevent it from running) it will compile it. <p>
+
+on breakpointRemover(adrStart = table.getCursorAddress ()) &#123;
+	local (shiftStatus = kb.shiftKey ());
+	case typeOf(adrStart^) &#123;
+		tableType &#123;
+			if shiftStatus &#123;
+				adrStart = parentOf(adrStart^)};
+			};<a href="//">//</a> (else do nothing)
+		scriptType &#123;
+			<a href="//">//</a> (plan: run visitor on this script only)
+			adrStart = parentOf(adrStart^)}}
+	else &#123;
+		adrStart = parentOf(adrStart^)};
+	local (ct = 0);
+	
+	on visitor(adr) &#123;
+		if typeOf(adr^) == scriptType &#123;
+			local (flChanged = false);
+			msg("Removing breakpoints from @" + adr + " (Total removed: " + ct + ")");
+			target.set(adr);
+			op.firstSummit();
+			op.fullExpand();
+			loop &#123;
+				if op.go(flatdown, 1) &#123;
+					if script.clearBreakpoint () &#123;
+						ct++;
+						flChanged = true}}
+				else &#123;
+					break}};
+			if flChanged &#123;
+				script.compile(adr)};
+			return(true)}};
+	
+	&#171;fileMenu.saveMyRoot (adrStart) <a href="//">//</a> saves the database, to make rollback possible if anything goes wrong.
+	table.visit(adrStart, @visitor);
+	msg("Removed " + ct + " breakpoints from @" + adrStart)};<p>
+
+breakpointRemover(); <a href="//">//</a> Use this when running from a menu
+&#171;breakpointRemover(@root) <a href="//">//</a> Use this when running as a script. 
+<a href="//">//</a> @root will clean out every bookmark in every open odb (please read the warning in the beginning of the script)
+<a href="//">//</a> You can change the address to make the script run quicker on a smaller selection<p>
+
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006616.html">DG heats up // (comments) in messages...</a>, , 5/24/1999; 9:34:51 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:23 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

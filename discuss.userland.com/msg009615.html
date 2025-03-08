@@ -1,0 +1,86 @@
+<html>	<head>		<title>static/dynamic differences</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>static/dynamic differences</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Oliver Wrede</td></tr>				<tr><td><b>Posted:</b></td><td>8/18/1999; 3:09:03 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009615.html">static/dynamic differences</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9615</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009614.html">9614</a> / <a href="msg009616.html">9616</a></td></tr>				</table>			<br>I wish Frontier 6.1 would be able to serve dynamic content in the same way as it does static rendering -- but there are things open which are not included in the description for converting websites to mainResponder (<a href="http://frontier.userland.com/tree$3.2.13">http://frontier.userland.com/tree$3.2.13</a>)<p>
+
+My current problem: linked StyleSheets<p>
+
+I have a rather complex set of stylesheets. I need to be able to exchange the stylesheets by setting the HREF of a <LINK...>-Reference via JavaScript (this does not work with embedded ones). The linking seems to be much faster as well.<p>
+
+In my static website the stylesheets are Outlines in the #styleSheets subtable. I use the linkStyleSheet() macro to link those in. This creates references to URIs like "/css/default.css".<p>
+
+When converting to a mainResponder site this does not work. I have to do the following steps:<p>
+
+<ul>
+<li>rename "#styleSheets" table to "css"
+<li>add within that table:<br>
+#processMacros false<br>
+#renderOutlineWith cssRenderer<br>
+#template rawHTML<br>
+<li>in table "#templates" add a wptext or outline with just "{bodytext}" and following additional line<br>
+<pre>
+&#123;responseHeaders.["Content-Type"] = "text/css"; ""&#125;
+</pre>
+<li>copy the macro from html.utilities.renderStyleSheet() to "cssRenderer" in the "#tools" subtable and
+<li>change the first line to<br>
+<pre>on cssRenderer (adrOutline=adrObject, adrPageTable=nil)</pre>
+<li>in the pageHeader I have to use a different script than linkStyleSheets (e.g. "linkCss()") which looks like this:<br>
+<pre>
+on linkCss ( name, id="", path=mySite.["#ftpSite"].url+"css/" ) &#123;
+    if not defined ( cssExtension ) &#123;
+       local ( cssExtension = "" )&#125;;
+    if id=="" &#123;
+       id=name&#125;;
+    return ( "<link ref=\"stylesheet" type="text/css" href="msg009615.html"+path+name+cssExtension+"\">" )&#125;
+</pre>
+</ul><p>
+
+So far so good.<p>
+
+<b>Now the last problem:</b><p>
+
+My browser (IE5) doesn't eat that Content-Type! While my Apache server seems to deliver the Content-Type correctly. Without the right Content-Type the linked StyleSheets don't work.<p>
+
+I did some tests by telnetting to port 80 on each server. See here:<p>
+
+<pre>
+<b>Test with Frontier 6.0:</b>
+------------------------------------------------------<hr size=2 width=100%><p><p>
+GET /test/css/typo<p>
+
+
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 126
+Content-Type: text/css
+Date: Tue, 17 Aug 1999 13:31:58 GMT
+Server: UserLand Frontier/6.0-Win95<p>
+
+<p>
+
+.box, .boxtitle, .boxbody, .btitle, .bsubtitle, .chooserbox, .choosertext &#123;<p>
+
+
+        font-family: Verdana, MS Sans Serif, Arial&#125;
+Connection closed by foreign host.
+------------------------------------------------------<hr size=2 width=100%><p><p>
+</pre><p>
+
+<pre>
+<b>Test with Apache:</b>
+------------------------------------------------------<hr size=2 width=100%><p><p>
+GET /test/css/typo1.css<p>
+
+
+.box,.boxtitle,.boxbody,.btitle,.bsubtitle,.chooserbox,.choosertext &#123;
+font-family: Verdana, MS Sans Serif, Arial &#125;<p>
+
+<p>
+
+Connection closed by foreign host.
+------------------------------------------------------<hr size=2 width=100%><p><p>
+</pre><p>
+
+Although I can't the the Content-Type-Header in the Apache response, it seems Frontiers responses are not interpreted correctly by my browser!<p>
+
+Disregarding this problem: It would be nice if the linkStyleSheet()-Script could deal with mainResponder sites alone - so I can switch more easily and even mix static and dynamic content in the same Guest database....<p>
+
+Oliver</br></br></br></br></br></br></br></li></li></li></li></li></li>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:57 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

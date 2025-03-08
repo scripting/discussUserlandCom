@@ -1,0 +1,14 @@
+<html>	<head>		<title>How to do long processing in mR?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>How to do long processing in mR?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Gewirtz</td></tr>				<tr><td><b>Posted:</b></td><td>9/29/1999; 8:52:49 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011628.html">How to do long processing in mR?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11628</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011627.html">11627</a> / <a href="msg011629.html">11629</a></td></tr>				</table>			<br>I need to run a long import (20 mins or so) as a result of a web page click. This is a long import process (think of it as similar to Analog crunching a log analysis). The problem is, I'm not sure how to accomplish the following goals:<p>
+
+* Be sure that mainResponder can continue to handle other user sessions. I have sys.systemTask() scattered throughout the import loop, but it doesn't seem to be helping.<p>
+
+* Be able to tell the user who initiated (and any other authorized users who visit the initiating page) the status of the import (i.e., have the page update to say "processing record 92922...")<p>
+
+* Be able to be sure that users can't go to older pages (like the typical notice you get browsing that says "that page has expired".<p>
+
+* Ideally, I'd like the user to be able to go to a page, and when on that page, if the data changes, to have the page automatically refresh.<p>
+
+So how do I do all of this, and make it work and play well together with mainResponder?<p>
+
+Thanks!
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

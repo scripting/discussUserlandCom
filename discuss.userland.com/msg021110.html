@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: XML-RPC System for User Log In</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC System for User Log In</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>9/10/2000; 9:48:04 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg021044.html">Biggest barrier to building a community in Manila</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21110 (In response to <a href="msg021108.html">21108</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021109.html">21109</a> / <a href="msg021111.html">21111</a></td></tr>				</table>			<br>No.<p>
+
+You are still going to have to login to every site that is in a different cookie domain. <p>
+
+e.g. Editthispage.com and weblogs.com could not share login. They could share backend data, but not the actual cookie that you have logged in under. innessential.com, spicynoodles.com, and wiredfool.com would all require seperate user action to login. <p>
+
+There is a way around this, and it's similar to what passport does.<p>
+
+You log in ->  site.<p>
+
+You are redirected to the central login server. Once you have authenticated there (or if you're already authenticated), there is a redirect back to the original site, using a password equivalent in the url (negating the need for a cookie in this step.)  Your site notices this password equivalent and issues you a conventiional login cookie.  <p>
+
+eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg021111.html">Re: XML-RPC System for User Log In</a>, Aaron Swartz, 9/10/2000; 9:57:44 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

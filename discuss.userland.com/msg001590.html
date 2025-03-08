@@ -1,0 +1,28 @@
+<html>	<head>		<title>Re: Brent's Screenshot-Scripting Windows</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Brent's Screenshot-Scripting Windows</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/21/1998; 12:34:58 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001548.html">Brent's Screenshot-Scripting Windows</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1590 (In response to <a href="msg001548.html">1548</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001589.html">1589</a> / <a href="msg001591.html">1591</a></td></tr>				</table>			<br>Here's an explanation of the screen shot:<p>
+
+<a href="http://madrid.userland.com/images/envScreenShot.gif">http://madrid.userland.com/images/envScreenShot.gif</a><p>
+
+Explanation:<p>
+
+There are three windows. The upper left window is an outline containing a VBScript script that's run from Frontier.<p>
+
+To the right of that window is a Frontier script that calls that VBScript script. Look at the line that begins:<p>
+
+result = com.callScript ...<p>
+
+That's the operative line -- that's what executes the VBScript script. Though not shown here, you can send parameters to the VBScript script. (This example has an empty parameter list.)<p>
+
+The bottom window shows the result. What's going on here is a Frontier script calls a VBScript script to get a tab-delimited list of environment variables. The VBScript script uses a COM connection to the Windows Scripting Host (WScript.Shell) to get that list. Then the Frontier script parses the returned list, turning into a table.<p>
+
+As I expected, it's nice to be able to edit VBScript in an outline. Sure beats Notepad -- which, if you follow the newsgroups, you realize lots of people use.<p>
+
+Though I've been concentrating on learning VB, you can also call JScript (aka MS JavaScript) and PerlScript scripts the same way. You can use any language that supports Active Scripting.<p>
+
+I've so far been writing glue for the Windows Scripting Host shell. (It's the analog of the Scriptable Finder.) Lots of it is boring -- like getting environment variables, reading from the registry, mapping network drives, creating shortcuts -- but it's exactly the kind of boring stuff that Frontier should just be able to do and not worry about. (And, anyway, I'm having fun doing it.) (And yes, I've been writing DocServer source at the same time as I'm creating the verbs.)<p>
+
+The important thing is: if you the Windows Frontier user want to map a network drive, you don't care how it's done behind the scenes. You'll just call a Frontier script like this: shell.mapNetworkDrive ("Z:", "\\Server\Share"). You don't need to know VBScript, the glue takes care of all this. In the same way, most Mac Frontier scripters don't spend their time crafting AppleEvent calls to drive other apps, they just call glue scripts. Mac glue could all be in AppleScript, the net effect is the same for most scripters.<p>
+
+But for people who want to automate apps without existing glue, or who know VBScript (etc.) and want to do some powerful things, the capability will be there.<p>
+
+Also: scripts can call back to Frontier, they can execute any scripts in the user.com table and get a result. So it's possible to have a conversation between a VBScript (JScript, etc.) script and Frontier.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001595.html">Re: Brent's Screenshot-Scripting Windows</a>, Wesley Felter, 12/21/1998; 1:20:24 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

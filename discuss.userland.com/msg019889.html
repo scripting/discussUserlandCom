@@ -1,0 +1,85 @@
+<html>	<head>		<title>Open Source Agreements</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Open Source Agreements</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>8/21/2000; 3:59:51 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg019844.html">A History of "Open Source"</a></td></tr>				<tr><td><b>Msg #:</b></td><td>19889 (In response to <a href="msg019861.html">19861</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg019888.html">19888</a> / <a href="msg019890.html">19890</a></td></tr>				</table>			<br><i>Another issue. The GNU agreement is impossible for an honorable developer who does both commercial and open source software to use. This is also a rider. It hurts open source, because it keeps out people who don't fully subscribe to the Stallman philosophy, but still want to make a contribution.</i><p>
+
+The BSD developers have been making this exact argument for years. They never bought into Stallman's beliefs. They did their own work, and used their own licenses.<p>
+
+Someday, I want to write a third <a href="http://discuss.userland.com/msgReader$19844">history</a> of open source software, told from the perspective of the BSD developers. They're certainly no less important than the GNU Project, or the Minix hackers who came to the aid of Linus.<p>
+
+<b>Open Source Agreements</b><p>
+
+There are <i>way</i> too many <a href="http://www.opensource.org/licenses/">open source licenses</a> out there. I'm going to divide them into three categories:<p>
+
+<ul>
+<li>"Do anything you want with my code, just don't sue me."</li>
+<li>"I shared this code with you, and I expect you to share my code with others. If you don't like these terms, please write your own code."</li>
+<li>"Before sharing my code with anybody, please consult subsection 3(c) and hire a good lawyer."</li>
+</ul><p>
+
+<p>I discuss each category below.</p><p>
+
+<b>"Do Anything You Want"</b><p>
+
+This is the approach favored by <a href="http://www.freebsd.org/">FreeBSD</a> and the <a href="http://www.xfree86.org/">XFree86 Project</a>. This code can be used by anybody, for any purpose.<p>
+
+If you use the <a href="http://www.xfree86.org/4.0.1/LICENSE1.html">XFree86 license</a>, you won't create outages for anybody.<p>
+
+(The BSD license works the same way, but there are some <a href="http://www.fsf.org/philosophy/bsd.html">buggy versions</a> floating around. It's easier just to recommend the XFree86 license, and avoid the risk of using an obsolete version of the BSD license.)<p>
+
+These licenses provide a wonderful common ground, because everybody can use this code, and everybody can contribute to it. Such code could become part of anything from <a href="http://radio.userland.com/">Radio Userland</a> to the <a href="http://www.gnu.org/">GNU Project</a>.<p>
+
+<b>Unscrupulous Middlemen</b><p>
+
+But sometimes a developer decides to give away a <a href="http://www.gimp.org/">major application</a>, one which represents many years of work.<p>
+
+There's a big risk here. The world is <i>full</i> of unscrupulous middlemen. And more than a few folks would be happy to exploit such generosity to earn a quick buck.<p>
+
+This is what happened to the first generation of BSD developers, by the way. Back in the 80's, they released some wonderful code under a BSD license. They invited the Unix vendors to build on top of this code, and to contribute something back.<p>
+
+The Unix vendors thanked the BSD developers profusely. And then, without a flicker in their smiles, the Unix vendors knifed the BSD developers in the back. They took the BSD code, made it gratuitously incompatible in a thousand different ways, and sold it as their own products. (Out of a dozen companies, only Sun Microsystems and Digital contributed anything significant in return.) AT&T's lawyers, though, were the ones who twisted the knife--they snarfed the BSD code into System V Unix, and then promptly filed a lawsuit against the BSD developers.<p>
+
+Such gratitude. This event was probably the greatest tragedy of the Unix wars.<p>
+
+<b>"I Expect You to Share My Code with Others"</b><p>
+
+This sort of tragedy is why Stallman wrote the <a href="http://www.gnu.org/copyleft/gpl.html">General Public License</a>. The GPL is about ten pages long, but the basic request is simple:<p>
+
+"I shared this code with you. If you give my code to other people, I expect you to give them the same rights I gave you."<p>
+
+The GPL protects the Linux kernel. This time around, EvilScumCorp can't knife Linus Torvalds and the other kernel hackers in the back.<p>
+
+But the GPL causes serious outages, too. The FreeBSD developers can't just borrow several pages of code from the Linux kernel--they need to locate a few dozen developers and get their permission first. The Linux developers, on the other hand, can easily use code from FreeBSD. For example, the Linux TCP/IP stack is based on BSD code. [Update: Well, not quite. Mr. Felter and I discuss this topic below.]<p>
+
+So the GPL is a decidedly mixed blessing: It protects developers against dishonest middlemen, but it also makes life hard for honest developers working on other projects.<p>
+
+If you ever want permission to use GPL'd code in your own project (under different terms), ask the author. If you're honest--and you're not talking to Stallman himself--you'll probably get permission. If you look like a slimeball middleman, you'll get run out of town.<p>
+
+<b>"Please Consult Subsection 3(c)"</b><p>
+
+Certain coporations want to join the open source community, but they employ too many lawyers to ever co-operate with <i>anyone</i>. These companies write their own licenses, even <i>longer</i> than the GPL, and throw in all sorts of <a href="http://www.mozilla.org/MPL/">incomprehensible legalese</a>.<p>
+
+I was once negotiating with a lawyer to release some wonderful code as open source. She was using a modified version of the Mozilla Public License, with lots of sections entirely missing. I asked her why she had cut stuff out. She said that the MPL was utterly incomprehensible and "gave lawyers a bad name."<p>
+
+We eventually agreed to a no-outage compromise. Her company would release the code under <i>two</i> licenses: a simplified version of the MPL, and the standard GPL. In turn, our project would release our enhancements under both licenses as well.<p>
+
+This way, Stallman could use the code in the GNU project, but the lawyer's company would be able to use their own licensing terms as well. This was a very awkward bit of legal gymnastics, and I don't recommend trying it unless <i>absolutely</i> necessary.<p>
+
+The Mozilla project is currently going through the same process. If you try to use a license like the MPL, you'll probably encounter the same headaches.<p>
+
+So please try to keep things simple, if you can.<p>
+
+<b>What I Do</b><p>
+
+I hate outages. So most of the time, I use the XFree86 license.<p>
+
+But I also hate lying, thieving middlemen. So if I'm expecting to get ripped off in a big way, I use the GPL. In this case, the rules are simple--you can use my code, but you have to match my generosity measure for measure. If you don't like my terms, you can contact me personally. If you want to screw me over, we can see each other in court.<p>
+
+<b>Why Certain Investors Like the GPL</b><p>
+
+<a href="http://nautilus.eazel.com/">Nautilus</a> uses the GPL, by the way. This is how Eazel protects their investors from EvilScumCorp. And if you don't think that EvilScumCorp has joined the Linux community, read the <a href="http://www.upside.com/texis/mvm/story?id=399dc2a90">following article</a> in Upside:<p>
+
+<blockquote><i>In short, this week's LinuxWorld was a tale of two conferences. On the one hand, you still had the same old hackers discussing the best way to improve the Linux kernel. On the other, you had the high-tech business community playing its usual game of 32-dimension chess.</i></blockquote><p>
+
+I don't really mind the chess game--I just don't want to see the Linux community be the biggest loser of all.<p>
+
+Cheers,<br>
+Eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg019909.html">Re: Open Source Agreements</a>, Wesley Felter, 8/21/2000; 8:58:11 PM<p><li>&nbsp;<a href="msg019948.html">Re: Open Source Agreements</a>, Todd Blanchard, 8/22/2000; 1:52:56 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:08 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,34 @@
+<html>	<head>		<title>Re: What's the most reliable Whois out there?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: What's the most reliable Whois out there?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>11/2/1999; 3:56:21 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012626.html">What's the most reliable Whois out there?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12636 (In response to <a href="msg012635.html">12635</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012635.html">12635</a> / <a href="msg012637.html">12637</a></td></tr>				</table>			<br>The server to talk to is:<p>
+
+whois.crsnic.net<p>
+
+This was in a PDF document on the site you pointed to, www.nsiregistry.com.<p>
+
+From there it's pretty clear how to proceed. It tells you which WhoIs server to talk to, on the third line in the response:<p>
+
+<pre>
+   Domain Name: USERLAND.COM
+   Registrar: NETWORK SOLUTIONS, INC.
+   Whois Server: rs.internic.net
+   Referral URL: www.networksolutions.com
+   Name Server: NS3.CONXION.NET
+   Name Server: NS4.CONXION.NET
+   Name Server: NS1.CONXION.NET
+</pre><p>
+
+<b>Updated whois.userland.com</b><p>
+
+I updated our WhoIs interface to use this information, and now it can <a href="http://whois.userland.com/$joker.com">find joker.com</a>, which is registered by CORE, not NSI. <p>
+
+The relevant bit of (new) code follows:<p>
+
+<pre>
+local (nicserver = tcp.examples.whois (domainName, "whois.crsnic.net"));
+local (pat = "Whois Server: ");
+local (ix = string.patternmatch (pat, nicserver));
+if ix != 0 &#123;
+	nicserver = string.delete (nicserver, 1, ix + sizeof (pat) - 1);
+	nicserver = string.nthfield (nicserver, "\n", 1)&#125;;
+whoResult = string.replaceAll (tcp.examples.whois (domainName, nicserver), "\n", "\r\n")
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:19 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

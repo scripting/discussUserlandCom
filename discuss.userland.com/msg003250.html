@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Teaching mailserver New Tricks.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Teaching mailserver New Tricks.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>2/25/1999; 12:47:28 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003228.html">A dream: Posting to a DG via email</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3250 (In response to <a href="msg003228.html">3228</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003249.html">3249</a> / <a href="msg003251.html">3251</a></td></tr>				</table>			<br>This has been something that I've been thinking about.  I've also been thinking about flowing the discussion group through other means, (mailing list, digest, and nntp (usenet protocol).)<p>
+
+To get my mailserver to flow to the discussion group the following things need to happen. <p>
+
+1) Write a filter that does security on incoming messages. This should probably be site dependent.<p>
+
+2) Write a filter that stores in the discussion group then returns false.  This should be nearly trivial.  <i>Done!</i><p>
+
+3) Modify the parse message function to do mime multipart.  This is not quite trivial, but shouldn't be that hard to do. It's been on my list for a long time. Mainly because I'm sick of seeing base64 encoded stuff in my web browser... <i>Hacked, but done!</i><p>
+
+If you're interested, I'm almost to a release point on a GDB contained version of the mail server. I just need to figure out the read side security and I'll be releasing it. If you want to work on this sort of project, it's going to be easier with some of the changes that are included in the soon to be release.<p>
+
+
+<b> Update</b><p>
+
+1) I've got the first go at mailserver saving into the discussion group done.<p>
+
+2) I've got a rough mime splitter going. It knows about multipart/mixed and text/plain, everything else is just thrown into a table.
+ 
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003261.html">Discuss enclosure documentation</a>, Eric Soroos, 2/25/1999; 9:52:24 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:08 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

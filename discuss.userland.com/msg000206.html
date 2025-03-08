@@ -1,0 +1,20 @@
+<html>	<head>		<title>ISAPI Programming: Returning Headers</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>ISAPI Programming: Returning Headers</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>10/12/1998; 1:16:13 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000206.html">ISAPI Programming: Returning Headers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>206</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000205.html">205</a> / <a href="msg000207.html">207</a></td></tr>				</table>			<br>I'm writing an ISAPI MFC DLL. Here's the problem:<p>
+
+The DLL calls an external function to get the HTTP response. This response includes the HTTP header followed by HTML text (or an error message, or image data, or whatever).<p>
+
+The header may indicate 200 OK, 404 NOT FOUND, whatever. It may specify any MIME type.<p>
+
+I want to return the entire response -- as-is -- to the client. But -- IIS insists on adding its own 200 OK header to either the beginning or end.<p>
+
+If I use the << operator, then IIS adds its 200 OK header before my header.<p>
+
+If I use WriteClient, then IIS adds its header after my return string.<p>
+
+I've tried calling ServerSupportFunction (HSE_REQ_DONE_WITH_SESSION...) but that doesn't help.<p>
+
+I want to just return a string containing the response header and content body -- and have IIS keep its hands off it.<p>
+
+I don't want to parse and strip the header I'm getting from my return string, then re-build it using ServerSupportFunction.<p>
+
+How can I stop IIS from adding its own header? Is there a method besides WriteClient or the << operator I should use? Or: where is the header being added, and how can I over-ride that?
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:45:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

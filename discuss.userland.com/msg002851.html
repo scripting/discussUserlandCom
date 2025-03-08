@@ -1,0 +1,21 @@
+<html>	<head>		<title>Re: Security of MTTF and BBS passwords</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Security of MTTF and BBS passwords</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>2/11/1999; 3:30:58 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002691.html">A new toy!</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2851 (In response to <a href="msg002820.html">2820</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002842.html">2842</a> / <a href="msg002852.html">2852</a></td></tr>				</table>			<br>How about something that tied the password to a specific IP?<p>
+
+Add together ipaddress+user+password(+possibly some server side secret) and hash that.  If you add in the ip address, it can't be replayed from some other computer.  If there is a time of original cookie creation, then the same computer can have different passwords at different times. (such as a shared computer, where the user logs off for a while and someone else can't come in and try a replay attack.)<p>
+
+Basically what needs to happen for this sort of password setup to be secure is <p>
+
+1) a good hash.<p>
+
+2) anti replay devices i.e. make it a one time token or a location specific token<p>
+
+3) easily calculated if you know the correct information and procedure. (i.e. not too much server load)<p>
+
+
+As a point of reference, APOP for pop3 mail retrieval uses something similar to this. In the banner of the server, there is a string that contains the current time, server name, or some other one time unique ID in <>'s.  The pop client then sends authentication back in the form of apop username md5(uniqueID+password).  The server can calculate the md5 of the id+correct password and compare it to the one that is passed in by the client.  <p>
+
+This method is obviously a little different than what you'd want for a http based method, since this exact method would requre logging in at every hit.  But something similar would improve the security of cookie based passwords.<p>
+
+
+eric<p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

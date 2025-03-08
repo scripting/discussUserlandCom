@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Frontier v6 crashes on NTsp4 & 5 -- ideas?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Frontier v6 crashes on NTsp4 & 5 -- ideas?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>8/3/1999; 12:23:50 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009073.html">Frontier v6 crashes on NTsp4 & 5 -- ideas?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9086 (In response to <a href="msg009073.html">9073</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009085.html">9085</a> / <a href="msg009087.html">9087</a></td></tr>				</table>			<br><i>I'm looking for ideas on how I could make changes to reduce the probability of crashes.</i><p>
+
+Make sure you're not logging to outlines. Try fewer threads, or try offloading the news trolling onto another machine, a machine that's not a server. Also make sure your root is up-to-date -- tcp.httpClient was updated to be more thread-friendly. (I assume you're using tcp.httpClient.) I'd recommend updating mainResponder.root, too.<p>
+
+I run a server very similar to yours -- two of the gdbs (large search engine indexes) regularly approach 200MB on disk. I then save a copy, and the size goes down. It's cool to have large gdbs, but saving a copy now and again is a good idea. Save a copy of your Frontier.root, too.<p>
+
+Also: try re-coding to not use TEK and Regex and other extensions. In isolating the cause of crashes, I would start by eliminating things outside of Frontier. Though I don't suspect either of these of being unstable, it will help to pinpoint where the problem really is.<p>
+
+Also -- what else is your server running? Overall server health is important. (I speak from experience.)<p>
+
+The main thing is to use the scientific method. Review your code, make changes, see what the effect is. If you can get to the point where you're asking more specific questions, that's progress.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009094.html">Re: Frontier v6 crashes on NTsp4 & 5 -- ideas?</a>, erik, 8/3/1999; 2:03:32 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:42 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

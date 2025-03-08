@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Scenario?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scenario?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>A.M. Kuchling</td></tr>				<tr><td><b>Posted:</b></td><td>1/22/1999; 9:00:01 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002368.html">XML-RPC Spec Revised</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2387 (In response to <a href="msg002381.html">2381</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002386.html">2386</a> / <a href="msg002388.html">2388</a></td></tr>				</table>			<br>Jim's posting is archived here:
+	<a href="http://www.egroups.com/list/zope/1362.html">http://www.egroups.com/list/zope/1362.html</a><p>
+
+He suggests that the publishing component of Zope could recognize 
+an XML-RPC request and handle it.  In other words, the server 
+could handle both mysite.com/object/method?parameter=1&otherparameter=name
+as it does now, or an HTTP POST operation to 
+mysite.com/object/method, with the parameters marshalled as XML.
+But you wouldn't want this to misfire if someone uploads an XML file to a method, in which case you're doing a POST and the type is text/xml, but it's not actually an XML-RPC operation.<p>
+
+I don't think it's correct to say that the type should be text/xml just because the body is in an XML-based format.  It's in a specific format, not any random DTD.  Web servers may serve up MathML, PGML, and SMIL files, yet they shouldn't all be indicated as text/xml.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002389.html">Re: Scenario?</a>, Dave Winer, 1/22/1999; 9:23:52 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,16 @@
+<html>	<head>		<title>discussionGroupInfo.discuss.highestMessageRead</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>discussionGroupInfo.discuss.highestMessageRead</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/17/1999; 6:57:47 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008540.html">How I read the discussion group</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8541 (In response to <a href="msg008540.html">8540</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008540.html">8540</a> / <a href="msg008542.html">8542</a></td></tr>				</table>			<br>Excellent! Now, I can help you improve that script..<p>
+
+We store, in your member prefs, the highest message you've read in the discussion group. You can send an XML-RPC message to the server to find out what that is.<p>
+
+<pre>
+local (username = "you@yourDomain.org", password = "xxx");
+local (params = &#123;"default", username, password, "discussionGroupInfo.discuss.highestMessageRead"&#125;);
+dialog.alert (betty.rpc.client ("news.userland.com", 80, "mainResponder.members.getProfilePart", @params))
+</pre><p>
+
+No need to leave a browser window open..<p>
+
+<b>Part 2</b><p>
+
+The second part is <a href="http://static.userland.com/userLandDiscussArchive/msgReader$8542">here</a>.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008542.html">mainResponder.discuss.getMessage</a>, Dave Winer, 7/17/1999; 7:29:52 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

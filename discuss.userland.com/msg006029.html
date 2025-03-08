@@ -1,0 +1,26 @@
+<html>	<head>		<title>Redirect in RDF</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Redirect in RDF</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>5/11/1999; 3:21:08 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005830.html">Update on My.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6029 (In response to <a href="msg006027.html">6027</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006028.html">6028</a> / <a href="msg006030.html">6030</a></td></tr>				</table>			<br>Here's an RDF fragment which could be used to describe relocation:<p>
+
+<BLOCKQUOTE><PRE>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:UL="http://www.userland.com/rdf/"><p>
+
+  <rdf:Description about="http://www.bar.com/oldpath/news.rss">
+    <UL:RelocatedTo rdf:resource="http://www.bar.com/news.rss"/>
+  </rdf:Description><p>
+
+</rdf:RDF>
+</PRE></BLOCKQUOTE><p>
+
+<B>How it Works</B><p>
+
+This chunk of RDF translates into the following English:<p>
+
+<BLOCKQUOTE><I>
+The resource <B><a href="http://www.bar.com/oldpath/news.rss">http://www.bar.com/oldpath/news.rss</a></B> has been <B>RelocatedTo</B> the resource <B><a href="http://www.bar.com/news.rss">http://www.bar.com/news.rss</a></B>.
+</I></BLOCKQUOTE><p>
+
+RDF is used to represent statements about resources. You can read more about it at the <A HREF="http://www.w3.org/Metadata/RDF">W3C</A> if you need a good remedy for insomnia.<p>
+
+Cheers,
+Eric
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:02 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

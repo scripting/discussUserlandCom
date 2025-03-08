@@ -1,0 +1,27 @@
+<html>	<head>		<title>WebCrossing, Tim Lundeen, and XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>WebCrossing, Tim Lundeen, and XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Snively</td></tr>				<tr><td><b>Posted:</b></td><td>12/5/1999; 6:07:10 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013439.html">Today's scriptingNews Outline</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13443 (In response to <a href="msg013439.html">13439</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013442.html">13442</a> / <a href="msg013444.html">13444</a></td></tr>				</table>			<br>Dave Winer wrote:<p>
+
+<I>Boy when it rains it pours. Tim Lundeen has deployed a test XML-RPC server for Web-Crossing that supports the DG interface we spec'd last summer. I hope someone good works with Tim and company to verify that their interfaces work compatibly.</I><p>
+
+I've had the pleasure of working pretty extensively with Tim on the XML-RPC support in WebCrossing 3.1, as it's crucial to a site I'm working on that was expected to have discussions going as part of its alpha. We didn't make that goal, but I can't honestly say that it's due to a failure of effort on Tim's part--he's answered tons of questions, some good, some not-so-good, and has even turned around new builds on a dime for us when that proved necessary.<p>
+
+Tim has also been extremely gracious when I've taken him to task on certain aspects of WebCrossing 3.1's implementation of the DG API, and I suspect there's still work to be done to ensure that WebCrossing's functionality represents a proper superset of Frontier's. It's worth mentioning that WebCrossing's approach to the whole issue is pretty cool: they support server-side JavaScript, and any server-side JavaScript functions you write can be exposed to XML-RPC just by setting their rpcEnable property to "true."<p>
+
+The hiccups I've encountered so far have been:<p>
+
+<ol><p>
+
+<li>The implementation of mainResponder.discuss.newMessage that Tim provided expects a WebCrossing-style path ("/DiscussionName") or uniqueID for the discussion group name. I imagine a good workaround would be to rewrite the function to check to see if the discussion group name started with a "/" and, if it did not, to add one. This would have the effect of placing unadorned discussion group names at the "root" level of discussions, which seems like a reasonable default that would have the intuitive result for someone coming from the Frontier DG world.<p>
+
+<li>The JavaScript functions Tim provided use JavaScript "Folder" objects for discussion groups and JavaScript "Discussion" objects for messages, even though there are JavaScript "Message" objects and the more natural mapping would seem to be Discussion Group -> JavaScript "Discussion" object and Message -> JavaScript "Message" object. However, I was unable to get a rewrite in those terms to work due to a lack of implementation of the nodeChildren property on the JavaScript "Message" object. This wouldn't be a problem, but apparently the JavaScript "Discussion" object that's pressed into service doesn't store author information. At least with Discussion Groups implemented as JavaScript "Folder" objects I can enumerate their contents, though.<p>
+
+<li>There's something weird about WebCrossing's mapping of JavaScript to XML-RPC: it's apparently necessary to construct a new Object, copy properties of some existing object (one returned from an internal JavaScript function, say) to the new object, and then return the NEW object if you want it to be marshalled as a <struct> in XML-RPC. Returning an object returned from a JavaScript function not written by you does <I>not</I> result in the object being marshalled. This flummoxed me for some time, and I've told Tim that this should be fixed; there's no good reason for it and it rather badly reduces the value proposition of XML-RPC in WebCrossing for its implementation in practice to be so counterintuitive, error-prone, and labor-intensive with respect to other implementations.<p>
+
+</ol><p>
+
+I should also point out that my client-side programming is in Java, using the wonderful XML-RPC client/server library by Hannes Walln&ouml;fer, which has handled everything I've thrown at it with aplomb.<p>
+
+I'm glad to hear that Tim has put a test server up; I'm quite certain that we'll work out the minor difficulties I've run into thus far.<p>
+
+Happy Channukah!<br>
+Paul
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013445.html">Re: WebCrossing, Tim Lundeen, and XML-RPC</a>, Dave Winer, 12/5/1999; 8:38:39 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

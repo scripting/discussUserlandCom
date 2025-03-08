@@ -1,0 +1,22 @@
+<html>	<head>		<title>DG, calendar.draw and string.urlEncode</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>DG, calendar.draw and string.urlEncode</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Andrew Duncan</td></tr>				<tr><td><b>Posted:</b></td><td>6/15/1999; 5:27:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007410.html">DG, calendar.draw and string.urlEncode</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7410</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007409.html">7409</a> / <a href="msg007411.html">7411</a></td></tr>				</table>			<br>I've been preparing for the arrival of a new server box, setting up a discussion group for a new site. I have a page here:<p>
+
+< <a href="http://myserver.com/discussionGroup/$1999/06/12">http://myserver.com/discussionGroup/$1999/06/12</a>><p>
+
+I noticed that imageRefs in the site template broke in the browser, because the URLs resolved to some thing like:<p>
+
+<<a href="http://myserver.com/discussionGroup/$1999/images/blank">http://myserver.com/discussionGroup/$1999/images/blank</a>><p>
+
+In the HTML source, it's a relative URL:<p>
+
+<../images/blank><p>
+
+Not what I expected! I've checked this in Netscape 4.6 Mac, MSIE 4.5 Mac and the latest version of iCab (gotta love that syntax checking) -- they all have the same problem.<p>
+
+Has anyone else struck this?<p>
+
+It appears that the calendar date needs to be string.urlEncoded and decoded. I've found the two places where the change needs to be made (discussionGroup.index and calendar.draw), and I've tested it and it seems to work fine.<p>
+
+Is it a bug? Any comments?<p>
+
+Andrew Duncan
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,36 @@
+<html>	<head>		<title>Solution for Visible Windows-based HTTP apps</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Solution for Visible Windows-based HTTP apps</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/14/1998; 12:49:56 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001153.html">Visible Windows-based HTTP apps</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1166 (In response to <a href="msg001153.html">1153</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001165.html">1165</a> / <a href="msg001167.html">1167</a></td></tr>				</table>			<br>I have a solution that works so far on two machines, one running IIS 4 on NT Server and the other running PWS on NT Workstation. This solution allows Frontier's UI to be visible when running behind IIS using the iisFrontier.dll. (Untested with .asp pages, but should work the same.)<p>
+
+I'd like to hear any comments from IIS and COM experts about my solution: if there are potential problems with it, I'd like to know.<p>
+
+If you're willing to try a not thoroughly tested solution, here's what you do. After making sure IIS and Frontier are not currently running:<p>
+
+1) From the Start Menu, click Run.<p>
+
+2) Type dcomcnfg and click OK.<p>
+
+3) The Distributed COM Configuration Properties dialog box appears. Scroll to the bottom of the Applications tab window.<p>
+
+4) Select the line that reads: UserLand, Frontier, Server<p>
+
+5) Click Properties.<p>
+
+6) Click the Identity tab.<p>
+
+7) To the question:<p>
+
+"Which user account do you want to use to run this application?"<p>
+
+Click the radio button labelled:<p>
+
+"The interactive user."<p>
+
+This means that when Frontier is launched by IIS, it will be launched in the currently logged-in user's space, not in the invisible IIS desktop.<p>
+
+This also probably means that you'll always have to log into a machine running Frontier, unless you switch back to:<p>
+
+"The launching user."<p>
+
+8) Click OK.<p>
+
+9) Click OK again.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001175.html">Re: Solution for Visible Windows-based HTTP apps</a>, Jason Levine, 12/14/1998; 8:35:19 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

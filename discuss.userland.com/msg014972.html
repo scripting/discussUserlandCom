@@ -1,0 +1,28 @@
+<html>	<head>		<title>ie's non-support of white-space [a solution]</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>ie's non-support of white-space [a solution]</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Thomas A. Creedon</td></tr>				<tr><td><b>Posted:</b></td><td>2/8/2000; 4:14:55 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg014969.html">ie doesn't support css whitespace? :-(</a></td></tr>				<tr><td><b>Msg #:</b></td><td>14972 (In response to <a href="msg014969.html">14969</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg014971.html">14971</a> / <a href="msg014973.html">14973</a></td></tr>				</table>			<br>Hello all,<p>
+
+Lawrence Lee was kind enough to send me this snippet.<p>
+
+<blockquote>
+Internet Explorer and Standards
+<br>
+Feb 7
+<br>
+Michael Wallent is Microsoft's product unit manager for Internet Explorer<p>
+
+<a href="http://msdn.microsoft.com/voices/dude.asp">http://msdn.microsoft.com/voices/dude.asp</a><p>
+
+&quot;An example of a feature that we didn't implement (and probably won't ever) is the white-space property. This determines whether the extra spaces in the content are shown or collapsed. It's meant to have the same effect as the <PRE> tag. One of the central notions we have is that if you can set a property, you can set it dynamically. Any property can change over time. The white-space property turns out to have some really bad effects on performance and predictability if you can change it over time, because of its interaction with HTML compatibility and parsing rules. We decided that it was lower priority than other work that we needed to do.&quot;<p>
+
+Later,
+<br>
+Lawrence
+<br>
+Editor, Tomalak's Realm <<a href="http://www.tomalak.org/">http://www.tomalak.org/</a>>
+</blockquote ><p>
+
+I've come up with a solution that I think will work.  It's more work but should suffice.  I'm dropping the white-space property all together and replacing space runs with &amp;nbsp; entity runs.
+<pre>
+Toodle-loooooooo..........
+Thomas
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg014973.html">Re: ie's non-support of white-space [a solution]</a>, Andrew Wooldridge, 2/8/2000; 5:10:14 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

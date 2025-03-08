@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: Multiplatform WebEdit setup</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Multiplatform WebEdit setup</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>4/7/1999; 11:27:03 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004816.html">Multiplatform WebEdit setup</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4870 (In response to <a href="msg004868.html">4868</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004869.html">4869</a> / <a href="msg004871.html">4871</a></td></tr>				</table>			<br><i>Could some callbacks be added to the client side of WebEdit ?</i><p>
+
+Perhaps. But here's why character conversion is not the straightforward issue you might think.<p>
+
+A little background: WebEdit works by packing a Frontier object and sending it to the server. The server then unpacks the object in the proper location.<p>
+
+WebEdit does <i>not</i> send plain text. If it did, a client-side callback might be appropriate: you could convert the text before sending it.<p>
+
+The better way to convert text is on the server side, right after unpacking the object. With the new version of WebEdit, you already have a callback that will let you do this.<p>
+
+But note -- there are times when you want to convert text and times when you don't. For instance, if you send a gif stored in the odb via WebEdit, you obviously don't want its data converted at the other end. But what if you're sending a string? It's easy to imagine times when conversion is appropriate, and times when it's not.<p>
+
+The same goes for scripts: I might have a line in a script that reads "if ch < '&Egrave;'" on one platform and "if ch < '&eacute;'" on another -- but I don't want the character conversion, because the meaning is supposed to be "if ch < 233" in both places.<p>
+
+Granted, much of the use of WebEdit is checking in and out wp-texts and outlines -- web page source -- but just because that's what most people do most of the time doesn't make the issue easier.<p>
+
+I'm not ruling out client callbacks, but I'll need to hear more compelling reasons. Character conversion is do-able (in the new version) via server callbacks. And you can write a customized client that talks to a WebEdit server without much difficulty -- the client side of WebEdit is small and straightforward, there's not much code there.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004872.html">Re: Multiplatform WebEdit setup</a>, Benoit Cazenave, 4/8/1999; 12:03:30 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

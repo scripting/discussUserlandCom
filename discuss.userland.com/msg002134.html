@@ -1,0 +1,31 @@
+<html>	<head>		<title>Mr. Nitpicker looks at the XML RPC specification...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Mr. Nitpicker looks at the XML RPC specification...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Fredrik Lundh</td></tr>				<tr><td><b>Posted:</b></td><td>1/14/1999; 3:46:39 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002017.html">Scripting on Windows</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2134 (In response to <a href="msg002086.html">2086</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002133.html">2133</a> / <a href="msg002135.html">2135</a></td></tr>				</table>			<br>(or: "And now for something completely different")<p>
+
+A few things that struck me while hacking on xmlrpclib.py.  To be answered when and if anyone finds the time...<p>
+
+1. Is "boolean" a distinct data type, or can boolean values be
+interchanged with integers (e.g. zero=false, non-zero=true)?<p>
+
+2. What is the legal syntax (and range) for integers?  How to deal with leading zeros?  Is a leading plus sign allowed?  How to deal with whitespace?<p>
+
+3. What is the legal syntax (and range) for floating point values
+(doubles)?  How is the exponent represented?  How to deal with
+whitespace?  Can infinity and "not a number" be represented?<p>
+
+4. What characters are allowed in strings?  Non-printable
+characters?  Null characters?  Can a "string" be used to hold an
+arbitrary chunk of binary data?<p>
+
+5. Does the "struct" element keep the order of keys.  Or in other
+words, is the struct "foo=1, bar=2" equivalent to "bar=2, foo=1" or
+not?<p>
+
+6. Can the "fault" struct contain other members than faultCode and
+faultString?  Is there a global list of faultCodes? (so they
+can be mapped to distinct exceptions for languages like Python and
+Java)?<p>
+
+7. What timezone should be assumed for the dateTime.iso8601 type?
+UTC?  localtime?<p>
+
+(that's all for now)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002135.html">Answers to Mr. Nitpicker</a>, Dave Winer, 1/14/1999; 4:40:18 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:17 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

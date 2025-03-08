@@ -1,0 +1,20 @@
+<html>	<head>		<title>Vignette CURLs: The Mystery Revealed</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Vignette CURLs: The Mystery Revealed</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Charlie Wood</td></tr>				<tr><td><b>Posted:</b></td><td>3/10/1999; 9:53:50 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003891.html">Vignette CURLs: The Mystery Revealed</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3891</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003890.html">3890</a> / <a href="msg003892.html">3892</a></td></tr>				</table>			<br>In response to a question on scripting.com a few days ago:<p>
+
+Vignette StoryServer sites use custom URLs, or CURLs, to identify pages. The format usually looks something like this:<p>
+
+<a href="http://hostname.com/path/to/file/">http://hostname.com/path/to/file/</a><I>forceDynamic</I>,<I>templateID</I>,<I>OID</I>,<I>bCaps</I>.<I>ext</I><p>
+
+The filename consists of four parameters to StoryServer.<p>
+
+<I>forceDynamic</I> gives a hint as to whether a cached version of the page can be used or if dynamic generation is to be forced. <p>
+
+<I>templateID</I> specifies the ID of the StoryServer template to be used to genrate the page.<p>
+
+<I>OID</I> is a generic parameter for passing information to the template. Often the OID is a unique identifier pointing to the content item to be displayed. Fortune.com uses a date-encoding scheme (602YYMMDD) to identify daily news articles. Many sites overload the OID by passing multiple parameters seperated by some URL-friendly delimiter.<p>
+
+<I>bCaps</I> tells the site whether a browser-capability-specific version of the page is requested. In the past, browser capabilities (tables, frames, Java, etc) were encoded in a 16-bit value. Since more than 16 capabilities are now supprted, this parameter is now a boolean value (00|FF) and more processing is done by the web server plugin to determine browser caps.<p>
+
+<I>ext</I> can be any extension, but defaults to html.<p>
+
+-Charlie
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003963.html">Re: Vignette CURLs: Bad for readers</a>, Victor Lombardi, 3/11/1999; 10:48:33 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

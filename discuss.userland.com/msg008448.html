@@ -1,0 +1,25 @@
+<html>	<head>		<title>Bug with POST method</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Bug with POST method</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Hubrich@hempseed.com</td></tr>				<tr><td><b>Posted:</b></td><td>7/13/1999; 10:37:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008448.html">Bug with POST method</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8448</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008447.html">8447</a> / <a href="msg008449.html">8449</a></td></tr>				</table>			<br>We are using the Frontier 5.0.1 for Windows and have programmed an HTTP server and the necessary FCGI's for user access control.<p>
+
+The server works ok under the GET method.<p>
+
+The problem arise when I want to receive the data filled by the user and those data are sent by the POST method.<p>
+
+We have tested several browsers (Netscape and IE in different versions and platforms --wintel and mac).  It seems the problem cames from the fact that these browsers send the data in two parts.  Firstly they send the commom GET data and then the data related to "Content-Type", "Content-Length" and the data filled in by the user.<p>
+
+The error is produced because Frontier only read the data firstly sent leaving the rest there.<p>
+
+I have resolve this bug (?) modifying the script:<p>
+
+	system.verbs.builtins.inetd.supervisor<p>
+
+When this script makes the reading of data coming from the browser it assumes that the data will came in a whole complete package, and then I wrapped another  reading after the first one in a loop until all the data are read.<p>
+
+Another funny thing is that when I run the Frontier server in the same computer where the browser is, the data are received all at the same time without errors :-?<p>
+
+	Does someone have get similar problems?<p>
+
+Please answer to this to addresses:
+<a href="mailto:mailto:JESUSS@santandersupernet.com">mailto:JESUSS@santandersupernet.com</a><p>
+
+<a href="mailto:mailto:juanfc@lcc.uma.es">mailto:juanfc@lcc.uma.es</a>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:23 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

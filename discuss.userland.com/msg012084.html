@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: Microsoft Will Transform into Services Firm</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Microsoft Will Transform into Services Firm</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Nicholas Riley</td></tr>				<tr><td><b>Posted:</b></td><td>10/15/1999; 4:42:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012036.html">Microsoft Will Transform into Services Firm</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12084 (In response to <a href="msg012083.html">12083</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012083.html">12083</a> / <a href="msg012085.html">12085</a></td></tr>				</table>			<br>Yeah, it's funny, that's the thing that grabs people about Debian. My first demo of Debian is always doing a "apt-get update; apt-get upgrade" and explaining what happens behind the scenes, because I've found it very successful in gaining many a convert.<p>
+
+Debian's auto-updating process has always worked seamlessly for me, and I am constantly impressed (being very much an outsider to the Debian Project) by the large number of people who work to make sure it does. It really is a sensible model to only declare an OS upgrade complete if ALL the software available for the OS (officially, at least) functions properly. But very open-source dependent, of course.<p>
+
+I think an Internet protocol for software updates, plus freely available implementations, embeddable into software for every platform, would be great. How about implementing it over XML-RPC? It'd probably be too inefficient to send the actual patches via XML-RPC, but a free system that would make it trivial to:<p>
+
+<UL><LI>automatically 'diff' files and directories, with the possibility of adding support for arbitrary data structures like Frontier's object databases
+<LI>post the diffs on a Web or FTP site for download
+<LI>publish the above information
+<LI>run a small daemon or CGI to answer XML-RPC requests that include the current version of the software the user is running, possibly some authentication information like a serial number, and to return the location of the patcher to get the user to the newest version
+<LI>download the patch, or pass the location to something like 'wget' on UNIX or URL Access on the Mac
+<LI>apply the patch, and have reasonable defaults if patching fails (like offering to get the full version of the program from the same site, or suggesting a reinstall first if it's commercial software)
+<LI>provide embeddable support for applications to do all this themselves, or a separate component/application that they can call on
+<LI>provide a system-wide UI for users to schedule update checking and retrieval
+</UL><p>
+
+It'd be great to have such a facility as a system service, to avoid baking FTP/HTTP download code and checking facilities into every application. I could also imagine it'd cut down on network traffic - I know lots of people who post full versions upgrades of software upgrades because it's too difficult, too expensive, or too hard to support to create a patcher. On the Mac at least, it's worked for Internet Config as a third-party model that worked so well that it was eventually made a part of the system, why not this?<p>
+
+Something like Apple's online update model for QuickTime 4 and Mac OS 9 (using MindVision's technology) would be great. I'm sure Windows Update works similarly.<p>
+
+--Nicholas
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:04 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

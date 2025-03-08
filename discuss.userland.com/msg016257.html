@@ -1,0 +1,18 @@
+<html>	<head>		<title>XML-RPC Spell Checker</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML-RPC Spell Checker</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jason Levine</td></tr>				<tr><td><b>Posted:</b></td><td>4/14/2000; 9:40:45 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016257.html">XML-RPC Spell Checker</a></td></tr>				<tr><td><b>Msg #:</b></td><td>16257</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg016256.html">16256</a> / <a href="msg016258.html">16258</a></td></tr>				</table>			<br>Dave:<p>
+
+I was actually close to writing a Manila plug-in spell checker (I even threw the entire spell dictionary from my linux ispell app into a GDB as a starting point), but I couldn't grok how I could get Manila to use an intermediary step when posting a message.<p>
+
+In other words, if I implemented it, I'd want the following functionality:<p>
+
+<ol>
+<li>User creates a new topic, or types in a reply to an existing topic;</li>
+<li>User clicks on the "Post" button;</li>
+<li>Spelling suite checks the spelling, and throws up a page that has the entire message, and any words that it doesn't know are highlighted, with a pulldown menu of possible replacements;</li>
+<li>User goes through and makes all the changes that he or she wants to, and then clicks on the "Post" button;</li>
+<li>Message is posted.</li>
+</ol><p>
+
+Right now, the Manila flow is 1 -> 2 -> 5 (in the above list); I couldn't figure out how to interpose 3 and 4.  Is it possible?  If so, I can whip something together soon...<p>
+
+/jason
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg016258.html">Re: XML-RPC Spell Checker</a>, Dave Winer, 4/14/2000; 9:50:58 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:47 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: Linux RDBMS Info</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Linux RDBMS Info</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>6/29/1999; 8:36:53 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007875.html">NT Licensing is worse than you fear.</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7908 (In response to <a href="msg007907.html">7907</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007907.html">7907</a> / <a href="msg007909.html">7909</a></td></tr>				</table>			<br>(Once again, I'm speaking for myself, not UserLand.)<p>
+
+<I>Thanks all for the pointers to Postgresql. Now if it were just multithreaded... </i><p>
+
+Yeah, that's the downside. :-(<p>
+
+If you need concurrent queries <i>and</i> transaction support, you'll have to start spending money. This is moot on a single processor machine, but it matters on a multiprocessor machine.<p>
+
+But if Oracle costs too much for your budget, look at Sybase, DB/2, Informix and the other usual suspects. All of these are available for Linux, and I could swear that at least one of them has very good pricing.<p>
+
+My recommendation: start with PostgreSQL (or MySQL, under certain circumstances) and see what happens. If your traffic outgrows the free databases, call your vendor, get a license for the database of your choice, and drop it into your site. This way, you don't have to pay the database licensing fees until you start thinking about hits/second. Once you've got several hits/second, any database becomes relatively cheap. It's the big checks up front which hurt. :-)<p>
+
+Cheers,<br>
+Eric</br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007914.html">Re: Linux RDBMS Info</a>, Dave Winer, 6/29/1999; 8:50:41 AM<p><li>&nbsp;<a href="msg007944.html">Re: Linux RDBMS Info</a>, Dennis Peterson, 6/29/1999; 2:04:42 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:06 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

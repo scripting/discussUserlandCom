@@ -1,0 +1,16 @@
+<html>	<head>		<title>Re: RSS Issues: Comments requested</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: RSS Issues: Comments requested</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jonathan Eisenzopf</td></tr>				<tr><td><b>Posted:</b></td><td>11/17/1999; 2:15:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012932.html">RSS Issues: Comments requested</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13164 (In response to <a href="msg013049.html">13049</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013163.html">13163</a> / <a href="msg013165.html">13165</a></td></tr>				</table>			<br><i>Again, I hate to limit what people can do, but I would also hate to see RSS fragment to the point of uselessness. Agree? Disagree? </i><BR><p>
+
+I definately agree. I am very concerned about this very issue. There are some inclusions that seem to make sense, like a date element for each item, but some others, like a stock symbol, that don't apply as much.<p>
+
+However, there are several issues that I'm concerned about:<BR>
+<li>That the RSS spec continue to evolve in a useful manner.
+<li>That the RSS spec remain simple
+<li>That a concensus is reached on a recommended method of extending the format, while maintaining backward compatibility.<p>
+
+I'm really concerned about the last item. I agree that adding arbitrary elements could be a very bad thing for the wide acceptance of the format. <p>
+
+While you can't validate the elements you import via a namespace with a regular validating parser (as Ken noted), it is a good way to sematically separate the core RSS elements from the ones that are local to a particular use. Another advantage to using namespaces is that it reduces the possibility of namespace clashes if everyone starts extending RSS. So, as Ken mentioned, you could have:<BR>
+<userland:category><BR>
+<motleyfool:category><BR>
+in the same file and the RSS core still remains intact.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:33 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

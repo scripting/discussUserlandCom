@@ -1,0 +1,41 @@
+<html>	<head>		<title>textToXml script for Frontier 6</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>textToXml script for Frontier 6</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>6/17/1999; 9:36:34 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007483.html">Scripts to produce Channel files?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7516 (In response to <a href="msg007483.html">7483</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007515.html">7515</a> / <a href="msg007517.html">7517</a></td></tr>				</table>			<br>OK, I have the example script ready to go.<p>
+
+<b>Input file</b><p>
+
+First, here's a link to the input file. Please do a View Source on the file, since it's a text file, your web browser may wrap it in a funny way. The formatting of the text is important.<p>
+
+<a href="http://nirvana.userland.com/misc/myUserLandDemo/inputFile.txt">http://nirvana.userland.com/misc/myUserLandDemo/inputFile.txt</a><p>
+
+<b>Output file</b><p>
+
+Next, here's the XML file the script produces. Again it might be necessary to View Source to get an accurate representation of the file.<p>
+
+<a href="http://nirvana.userland.com/misc/myUserLandDemo/outputFile.xml">http://nirvana.userland.com/misc/myUserLandDemo/outputFile.xml</a><p>
+
+<b>The script</b><p>
+
+Here's the source code of the script that converts the .txt file into the .xml file:<p>
+
+<a href="http://pointers.userland.com/textToXmlScript">http://pointers.userland.com/textToXmlScript</a><p>
+
+<b>Format of the text</b><p>
+
+A few comments on the formatting of the text. <p>
+
+Each section is separated by a pair carriage-return-linefeeds. <p>
+
+The text can contain markup, but it will be neutered on processing<p>
+
+<table border="1" cellspacing="0" cellpadding="5">
+<tr><td><b>Character</td><td><b>Is replaced with</td></tr>
+<tr><td>&amp;</td><td>&amp;amp;</td></tr>
+<tr><td><</td><td>&amp;lt;</td></tr>
+<tr><td>&gt;</td><td>&amp;gt;</td></tr>
+</table><p>
+
+<a "http://static.userland.com/userLandDiscussArchive/href">s are treated specially, they are stripped out and used to build the <link> part of the <item>.</b></b><p>
+
+<b>Groundrules</b><p>
+
+If you're going to convert this script to another language or environment, please put a copy of the script on your server and post a pointer in the DG. Don't try to paste the text of the script into a DG message, it'll mangle it for sure. Thanks!
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007526.html">Re: textToXml script for Frontier 6 (perl version)</a>, Jamie Scheinblum, 6/17/1999; 10:22:08 AM<p><li>&nbsp;<a href="msg007538.html">Re: textToXml script for Frontier 6</a>, Steve Zellers, 6/17/1999; 2:46:11 PM<p><li>&nbsp;<a href="msg007546.html">PHP textToXml script</a>, Adam Trachtenberg, 6/17/1999; 8:13:11 PM<p><li>&nbsp;<a href="msg007558.html">Java textToXml Class</a>, Josh Lucas, 6/18/1999; 11:17:04 AM<p><li>&nbsp;<a href="msg007901.html">Re: textToXml script for Frontier 6</a>, Lindsay Marshall, 6/29/1999; 6:06:26 AM<p><li>&nbsp;<a href="msg008786.html">Re: textToXml script for Frontier 6</a>, Mark Nottingham, 7/26/1999; 6:50:44 PM<p><li>&nbsp;<a href="msg010710.html">Re: textToXml script for Frontier 6</a>, David A. Mundie, 9/7/1999; 6:34:46 PM<p><li>&nbsp;<a href="msg011967.html">Re: textToXml script for Frontier 6</a>, David Theige, 10/12/1999; 2:12:47 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

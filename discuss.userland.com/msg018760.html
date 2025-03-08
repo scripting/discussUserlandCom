@@ -1,0 +1,24 @@
+<html>	<head>		<title>Re: Email Virus - SANS News Flash about it.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Email Virus - SANS News Flash about it.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark Alexander</td></tr>				<tr><td><b>Posted:</b></td><td>7/18/2000; 8:22:47 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg018754.html">Outlook Express and the virus</a></td></tr>				<tr><td><b>Msg #:</b></td><td>18760 (In response to <a href="msg018757.html">18757</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg018759.html">18759</a> / <a href="msg018761.html">18761</a></td></tr>				</table>			<br>The announcement discusses 2 different security holes.<p>
+
+
+1) IE - Access Issue: The first one is that IE will open an Access DB attachment if called from within a web page.  It incorrectly prompts you about opening the document after it has already opened the DB and executed the script.  <p>
+
+
+This hole can be closed by changing the security settings within Access<p>
+
+
+2) IE - Office Issue: The second one is that IE can cause excel or powerpoint to save a file in any embedded scripts in any location that the user reading the email has write access to.  This includes things like the startup directory.<p>
+
+
+This hole can be closed by updating office with patches.<p>
+
+
+I personally think that if the user only has write access to non-system directories that will also minimize the risk, but this approach is much harder to setup and maintain. ( I have a secured NT setup in my office with a huge amount of access control limits set for each and every user and directory.  It was a large effort to setup and its security is only as good as my ability to explicitly limit access to important directories.  I would not reccommend this approach, I setup this system to experiment with NT access controls and compare them to Unix.  I am much more comfortable with my efforts to harden and lock down my Unix systems)<p>
+
+
+To directly answer your questions, I think that removing office would close these holes, but I think changing the default security settings in Access and patching the rest of Office would close these holes as well.<p>
+
+
+Note: I am not a Windows security expert.  I have a large amount of experience playing with NT and Win2K security, but I do not consider myself an expert in this area.  I am much more comfortable with Unix, Macintosh and network security issues.<p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

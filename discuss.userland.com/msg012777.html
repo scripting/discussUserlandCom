@@ -1,0 +1,22 @@
+<html>	<head>		<title>Problem with XML-RPC and Active Server Pages</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Problem with XML-RPC and Active Server Pages</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jason Levine</td></tr>				<tr><td><b>Posted:</b></td><td>11/6/1999; 1:56:50 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012777.html">Problem with XML-RPC and Active Server Pages</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12777</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012776.html">12776</a> / <a href="msg012778.html">12778</a></td></tr>				</table>			<br>Hello everyone -- I'm trying to implement a few little things using David Carter-Todd's XML-RPC in ASP, and am running into a problem.<p>
+
+I want to implement an XML-RPC server in ASP, with the client running in Frontier.  The problem is that the Frontier XML-RPC client doesn't seem to support the server/procedure addressing method that I have to use with the ASP XML-RPC server.<p>
+
+The way that the server side is set up in ASP is that you have a single script, Server.asp (or whatever you name it), that implements all of the XML-RPC procedures (say, it contains two procedures, helloWorld and goodbyeWorld).<p>
+
+In Frontier, though, I can't figure out how to call a single procedure (say, helloWorld).  The betty.rpc.client() syntax is:<p>
+
+<i>betty.rpc.client(server, port, procedure, adrParams)</i><p>
+
+<b>server</b> is meant to be an IP address, though, not a URL; this means that I can only put in the IP address of my IIS server, not the whole URL to the XML-RPC server ASP.  Thus, the following line is meaningless once it gets to IIS:<p>
+
+betty.rpc.client("12.34.56.78", 81, "helloWorld", @paramTable)<p>
+
+The server has no clue what to do with it -- it has no idea that it's intended for the XML-RPC server page (which is located somewhere in the IIS wwwroot structure, say at dir1/dir2/Server.asp) to handle.<p>
+
+Does anyone know how to do this?<p>
+
+Thanks a ton in advance.<p>
+
+/jason
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012778.html">Re: Problem with XML-RPC and Active Server Pages</a>, André Radke, 11/6/1999; 2:07:40 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

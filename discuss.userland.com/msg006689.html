@@ -1,0 +1,23 @@
+<html>	<head>		<title>Making Frontier faster by caching html code</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Making Frontier faster by caching html code</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>5/25/1999; 3:23:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006689.html">Making Frontier faster by caching html code</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6689</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006688.html">6688</a> / <a href="msg006690.html">6690</a></td></tr>				</table>			<br>I just got this idea on how to make Frontier dynamic rendering run faster. <p>
+
+There's a lot of work done <i>every</i> time a page is accessed. Height & width is pulled out of images, macros i patching together the template framework, <head> is created etc etc. A large part of this is recreating exactly the same code over and over again.<p>
+
+It should be possible to cache this code, and gain speed.<p>
+
+For this to work, we need a way to cache parts of a page (if the entire page remains the same we already has a caching scheeme: render to static pages).<p>
+
+<b>Maybe it can be done like this:</b>
+<ul>
+<li>We tag every part that we want to cache with something like <cache cacheid = someName>...</cache> <br>(the cached part must contain macros, otherwise there is nothing gained)
+<li>In pageFilter we check every cacheid and see if we have anything stored for it. <br>If we have, we substitute that for the <cache>...</cache>. <br>We save a list of the id:s that did not have anything cached.
+<li>In finalFilder we take that list and extracts the <cache>...</cache>-contents for those chacheid:s and store them.
+</ul><p>
+
+<b>Things needed:</b>
+<ul>
+<li>Extract and substitute rutines that are fast (Regex?)
+<li>Verbs to delete the cache & the removes items from the 'put in cache with finalFilter'-list (to be used by macros and scripts that wants to make a change to the contents of a <cache>...</cache>)
+<li>Maybe we also need verbs to handle caching on a more fine-grained level than that of pageFilter/finalFilter.
+</ul>
+</br></br></br></li></li></li></li></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006698.html">Re: Making Frontier faster by caching html code</a>, Oliver Wrede, 5/25/1999; 5:10:33 PM<p><li>&nbsp;<a href="msg006699.html">Re: Making Frontier faster by caching html code</a>, Oliver Wrede, 5/25/1999; 5:10:46 PM<p><li>&nbsp;<a href="msg006725.html">Re: Making Frontier faster by caching html code</a>, Lixian B. Chiu, 5/26/1999; 7:36:09 AM<p><li>&nbsp;<a href="msg006727.html">Re: Making Frontier faster by caching html code</a>, James Spahr, 5/26/1999; 7:44:16 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:25 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

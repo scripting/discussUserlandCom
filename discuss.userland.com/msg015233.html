@@ -1,0 +1,57 @@
+<html>	<head>		<title>betty error - POST malformed</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>betty error - POST malformed</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>johnlim@natsoft.com.my</td></tr>				<tr><td><b>Posted:</b></td><td>2/25/2000; 1:30:55 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg015233.html">betty error - POST malformed</a></td></tr>				<tr><td><b>Msg #:</b></td><td>15233</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg015232.html">15232</a> / <a href="msg015234.html">15234</a></td></tr>				</table>			<br>I just tried the betty helloWorld example and it didn't work.<p>
+
+I noticed that the POST uses a header that betty cannot understand. Am I missing something?<p>
+
+Here is the request and response from scratchpad.<p>
+
+<code><pre>
+POST <a href="http://flipper/RC2">http://flipper/RC2</a> HTTP/1.0
+User-Agent: Frontier/6.1.1 (Win95)
+Host: flipper
+Content-Type: text/xml
+Content-length: 163<p>
+
+
+<?xml version="1.0"?>
+<methodCall><p>
+
+	<methodName>helloWorld</methodName>
+	<params>
+		<param>
+			<value>John</value>
+			</param>
+		</params>
+	</methodCall><p>
+
+
+<hr><p>
+
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 601
+Content-Type: text/html
+Date: Fri, 25 Feb 2000 09:21:04 GMT
+Server: UserLand Frontier/6.1.1-Win95<p>
+
+<html>
+	<head>
+		<title>UserLand Frontier Server Error</title>
+		</head>
+	<body>
+		<blockquote>
+			<blockquote>
+				<font size="+2" face="helvetica,arial">
+					<br><b><i>Sorry!</i> There was an error: </b>There is no folder or object database named "flipper.root" in the folder "E:\FRONTIER\Guest Databases\www\".
+					</font>
+				<font size="+0" face="helvetica,arial">
+					<p>The error was detected by Frontier 6.1.1
+					 in mainResponder.respond.
+					 Webmaster: <a href="mailto:jlim@natsoft.com.my">jlim@natsoft.com.my</a>.
+					 Time: Fri, 25 Feb 2000 09:21:04 GMT.
+					</font>
+				</blockquote>
+			</blockquote>
+		</body>
+	</html>1
+</code></pre></p></blockquote></blockquote>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg015236.html">Re: betty error - POST malformed</a>, Dave Winer, 2/25/2000; 4:52:56 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:24 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

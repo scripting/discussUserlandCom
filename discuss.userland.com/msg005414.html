@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: OS upgrades (was: WINE ~= Carbon?)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: OS upgrades (was: WINE ~= Carbon?)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Nicholas Riley</td></tr>				<tr><td><b>Posted:</b></td><td>4/29/1999; 7:41:20 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005307.html">Linux' wide open spaces</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5414 (In response to <a href="msg005405.html">5405</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005413.html">5413</a> / <a href="msg005415.html">5415</a></td></tr>				</table>			<br>You're right about the 7.0 upgrade, of course, the same thing happened to everyone.<p>
+
+In OS X, Apple is taking the same approach Microsoft did with the 3.x -> 95/NT transition. The Blue Box works like Windows' 16-bit compatibility system, proving a virtual machine for old apps to run in, more or less at full speed, protected from the new ones, but not as much from each other. For writing new apps or porting them to run under OS X natively, you have four choices, more or less attractive depending on where you're coming from:<p>
+
+<UL>
+<li>If you have a unix/linux source base, do a straightforward port/recompile, it'll probably run, not pretty, but quite compatible. Add a GUI if you want via any of the other methods.
+<li>Carbonize your Mac OS source base, requiring some small or large changes depending on how you wrote your program. It'll still run on "classic" Mac OS this way, via CarbonLib.
+<li>Write it with the Yellow Box frameworks under Objective C, Java, or several other languages, you get a Windows runtime for free.
+<li>Write in 100% Java. It's slow and memory-hogging but it might work for your program, and it'll run on almost every modern platform with a certain amount of debugging.
+</ul><p>
+
+This is just complicated enough that it's hard for a lot of people to get. When I try to explain it to non-programmers, it takes too long. The message definitely needs to be simpler.<p>
+
+--Nicholas</li></li></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005416.html">Re: OS upgrades (was: WINE ~= Carbon?)</a>, Dave Winer, 4/29/1999; 8:44:36 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

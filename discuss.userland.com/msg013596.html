@@ -1,0 +1,41 @@
+<html>	<head>		<title>Getting currency rates</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Getting currency rates</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Emmanuel M. Décarie</td></tr>				<tr><td><b>Posted:</b></td><td>12/13/1999; 10:55:24 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013596.html">Getting currency rates</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13596</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013595.html">13595</a> / <a href="msg013597.html">13597</a></td></tr>				</table>			<br>Anyone know the FXP/1.1 protocol?<p>
+
+<a href="http://america.oanda.com/site/fxp/protocol.html">http://america.oanda.com/site/fxp/protocol.html</a><p>
+
+<a href="http://www.oanda.com/site/fxp/index.shtml">http://www.oanda.com/site/fxp/index.shtml</a><p>
+
+It look like a very simple protocol to query currency rates, and if I understand it well, its free, but you have to provide a link telling you are using their service.
+<a href="http://www.oanda.com/cgi-bin/fxp_client">http://www.oanda.com/cgi-bin/fxp_client</a><p>
+
+I have a hell of a time to make a query from Frontier.<p>
+
+I used a patched version of tcp.httpClient because the server will not allow any lines in the header other than what its accepted by the protocol. So I had to get rid in tcp.httpClient of code adding the host, user-agent, http 1.0... in the header. Maybe I'm not using the appropriate verb.<p>
+
+<pre>
+local (s);
+s = workspace.httpClient (method: "fxp/1.1\r\nQuotecurrency: CAD\r\nBasecurrency: EUR", server: "america.oanda.com", port: 5011, debug: true);
+dialog.notify (s)
+</pre><p>
+
+But Frontier hang there (Can't read stream because TCP/IP error code 60 - Connection timed out), even if I receive the result (using OT Watcher on my Mac I get this).<p>
+
+<pre>
+send 51 octets.
+<00000000< fxp/1.1  
+<00000009< Quotecurrency: CAD  
+<0000001D< Basecurrency: EUR   
+<00000031<   <p>
+
+receive 46 octets.
+>00000000> fxp/1.1 200 ok  
+>00000010> Content-lines: 1  
+>00000022>   
+>00000024> 0.6677  
+>0000002C>   <p>
+
+</pre><p>
+
+Anyone know a similar service where I can get the result in XML instead?<p>
+
+TIA
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013599.html">Re: Getting currency rates</a>, Paul Snively, 12/13/1999; 11:58:25 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,70 @@
+<html>	<head>		<title>#security Script Supports Realms</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>#security Script Supports Realms</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Alan German</td></tr>				<tr><td><b>Posted:</b></td><td>4/10/1999; 3:58:41 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004941.html">#security Script Supports Realms</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4941</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004940.html">4940</a> / <a href="msg004942.html">4942</a></td></tr>				</table>			<br>I like the idea of membership that Frontier provides. I also like the cookie approach once authentication with a username and password has been established. But I had a situation where I needed to manage user accounts without the need or desire for users to "sign-up" to a website. I define the accounts/passwords and hand them out to users as they are "authorized."<p>
+
+With the help of the Frontier Users list participants, I came up with a #security script that performs basic http authentication for a "realm" (as is typical in most web servers) without the email loop, yet it takes full advantage of the membership stuff.<p>
+
+The version reprinted here <b>was revised 4.12.99, 9.25am ET</b>. The local assignment to members (the first line of the script) is now wrapped in a try. This allows the script to exist in the website with or without the #members item. If the #members item is not present, no authentication is required for access. This makes it easy to start and top authentication on a site.<p>
+
+This script has not been tested in any environment other than the one it was developed for. This "environment" consists of a website GDB in the WWW folder in the Guest Databases folder. The name of the GDB, the name of the user group in members.root, the name of the cookie, and the name of the "realm" (or match string in the path) are all the same.<p>
+
+That is, if I have a GDB named "foo.root", the #members item in that database is "foo". There is a group table in members.root named "foo", and the name of the cookie for that group is "foo". The path to the GDB also must contain "foo". I don't know how virtual hosting or monkeying with #urls tables will affect this.<p>
+
+This script is not warranted in any way. If it breaks, you get to keep both pieces. ;-)<p>
+
+Install this script in a script object named #security at the root of your GDB website:<p>
+
+<pre>
+local (members);
+try &#123;
+	members = address(parentOf (this^)+".[\"#members"]")^}
+else &#123;
+	return (true)};
+on unauthorized () &#123;
+	code = 401;
+	responseHeaders.["WWW-Authenticate"] = "Basic realm=\"" + string.urlEncode (members) + """;
+	responseBody = webserver.util.buildErrorPage ("401 UNAUTHORIZED", "You must be authenticated before accessing this service");
+	scriptError ("!return")};
+on hasGoodCookie () &#123; //modified copy from mR.members.checkMembership
+	if not defined (requestHeaders.cookies) &#123;
+		return (false)};
+	local (myCookieName = adrmembers^.cookieName);
+	local (innerCaseCookieName = string.innerCaseName (myCookieName));
+	if defined (requestHeaders.cookies.[innerCaseCookieName]) &#123;
+		myCookieName = innerCaseCookieName}
+	else &#123;
+		if not defined (requestHeaders.cookies.[myCookieName]) &#123;
+			return (false)}};
+	local (s = string.urlDecode (requestHeaders.cookies.[myCookieName]));
+	local (mailaddress = string.nthField (s, "\t", 1));
+	local (password = string.nthField (s, "\t", 2));
+	local (adrmember = @adrmembers^.users.[mailaddress]);
+	bundle &#123; //set adrmember thru callback, if it's defined
+		try &#123;
+			local (adrcallback = @adrmembers^.callbacks.getMemberTableAddress);
+			if defined (adrcallback^) &#123;
+				adrmember = adrcallback^ (mailaddress)}}};
+	if not defined (adrmember^) &#123;
+		return (false)};
+	if defined (adrmember^.blocked) &#123;
+		if adrmember^.blocked &#123;
+			scriptError ("The account, \"" + mailaddress + "" has been blocked from access to this service.")}};
+	if not defined (adrmember^.password) &#123;
+		return (false)};
+	return (string.upper (adrmember^.password) == string.upper (password))};
+local (adrMembers = mainResponder.members.getMembershipTable (members));
+if not hasGoodCookie () &#123;
+	if not webserver.util.parseAuth (parentOf (client)) &#123;
+		unauthorized ()};
+	try &#123;
+		mainResponder.members.getMemberTableWithPassword (members, username, password)}
+	else &#123;
+		unauthorized ()};
+	mainResponder.members.setCookie (username, password, adrmembers, parentOf (client));
+	if not defined (requestHeaders.cookies) &#123;
+		new (tableType, @requestHeaders.cookies)};
+	local (myCookieName = adrmembers^.cookieName);
+	local (innerCaseCookieName = string.innerCaseName (myCookieName));
+	with adrmembers^ &#123;
+		requestHeaders.cookies.[innerCaseCookieName] = string.urlEncode (username + "\t" + password)}};
+return (true)
+</pre></b></b>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

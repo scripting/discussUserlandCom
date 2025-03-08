@@ -1,0 +1,21 @@
+<html>	<head>		<title>Re: Scripting on Linux (And general Unix)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Scripting on Linux (And general Unix)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Emmanuel M. Décarie</td></tr>				<tr><td><b>Posted:</b></td><td>5/17/1999; 9:22:35 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006341.html">Scripting on Linux</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6385 (In response to <a href="msg006383.html">6383</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006384.html">6384</a> / <a href="msg006386.html">6386</a></td></tr>				</table>			<br>Ok, thanks everybody for the answers. I think I get the picture now.
+And the reference to Netscape doc help a lot.<p>
+
+There is something funny that I noted. Some of the answers are saying that there is a bazillion ways to do what I was asking. But nobody posted sample code.<p>
+
+
+<pre>
+// With Frontier<p>
+
+// Getting the URL of the frontmost window of Netscape
+local(url);
+url = netscape.getFrontWindowUrl();
+msg(url)<p>
+
+// Getting a Web page and display it in Netscape
+local(htmlText);
+htmlText = tcp.httpClient(server:"www.scripting.com");
+htmlText = string.httpResultSplit(htmlText);
+netscape.displayText(htmlText)
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006387.html">Re: Scripting on Linux (And general Unix)</a>, Dave Winer, 5/17/1999; 9:26:33 PM<p><li>&nbsp;<a href="msg006408.html">Re: Scripting on Linux (And general Unix)</a>, Geoff Allen, 5/18/1999; 8:06:31 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

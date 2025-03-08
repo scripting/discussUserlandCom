@@ -1,0 +1,63 @@
+<html>	<head>		<title>This HTML Kills (Designing Accessible Websites)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>This HTML Kills (Designing Accessible Websites)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Byrne</td></tr>				<tr><td><b>Posted:</b></td><td>5/27/1999; 3:56:23 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005715.html">Designing Accessible Websites</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6780 (In response to <a href="msg005715.html">5715</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006779.html">6779</a> / <a href="msg006781.html">6781</a></td></tr>				</table>			<br>Here are my ramblings about the past present and future of accessibility on the web.<p>
+
+  
+When I started out accessibility seemed quite a simple and achievable goal; provide alternative descriptions for all your graphics and make sure the background colour and text color have good contrast. Accessibility was easy, didn’t take much extra work and the resulting page didn’t look any different to the million other first generation web pages out there, i.e dull, gray and unattractive.<p>
+
+Things have moved on since then and accessibility on the web is no longer simple. From being a largely text based medium which was easily accessible by people using a variety of high and low tech devices it has now become a rich multi-media environment. As a result much of it is now inaccessible to a large section of the community. To illustrate just how serious the problem has become try this little exercise; go to the web page for ‘Bobby’ at <a href="http://www.cast.org/bobby/">http://www.cast.org/bobby/</a>, the on-line accessibility checker. In the web form provided type in the address of your favourite web site - and stand back. <p>
+
+What you will get is a stream of accessibility errors, a slew of  recommendations and a bucketful of techniques to help make the site conform to the recently released World Wide Webs accessibility guidelines published by the World Wide Web Consortium (W3c) <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>. These guidelines consists of two main documents; the accessibility guidelines and a techniques manual. <p>
+
+What the  W3c team have produced is a set of good and useful documents telling you all you need to know; alternative text for graphics, tab orders on you input forms, keyboard shortcuts for hyperlinks, key combinations to make a form input easier, summaries at the tops of tables and more. However it is, dare I say, a lot of work to make your web site conform fully to these guidelines.  <p>
+
+And that’s fine for me - I’ve got some motivation and a reputation to protect. The important question is how do you persuade other web site designers to use the guidelines to make their web sites accessible? And is that a realistic goal? It is my belief that, in the short term at least, it is not - it’s almost impossible. ‘We’ can campaign all we like to raise the issues but given the current tools (i.e. WYSIWYG web editors), current web browsers and current batch of HTML writers we are fighting a losing battle.<p>
+
+From Cynthia Waddel in ‘The Growing Digital Divide in Access for People with Disabilities: Overcoming Barriers to Participation’ (<a href="http://aware.hwg.org/contrib/waddell-ecommerce.html">http://aware.hwg.org/contrib/waddell-ecommerce.html</a>)<p>
+
+<blockquote>
+The digital divide in web page transactions and the Internet environment has bred a host of additional problems for people with disabilities. For example, commercial web-authoring applications lack access tool kits for webmasters to correct accessible web design problems. In fact, many current web-authoring tools on the market make it extremely difficult to even design an accessible web page.<p>
+
+The scarcity of tools also contributes to the lack of education among programmers and web authors on why and how to code an accessible web page.
+</blockquote><p>
+
+<b>It’s about Communication</b><p>
+
+Even when the need for accessible design is understood many web page authors regard it as a constraint on their ability to design attractive web pages for their clients. David Siegal a design ‘guru’ of the web has written a  provocative and entertaining article which everyone should read, "The Web is Ruined and I Ruined It": <a href="http://webreview.com/wr/pub/97/04/11/feature/part2.html">http://webreview.com/wr/pub/97/04/11/feature/part2.html</a><p>
+
+<blockquote>
+The Web is a visual medium -- not to design is to design. Personally, I'd rather leave the design up to professional designers than programmers, but hey -- that's me. It's easy to be proud of your Web site. It's another thing to have people say it was visually appealing and easy to find everything.
+</blockquote><p>
+
+David Siagal is a smart man, knows the issues and, if I read him right, is in favour of a Web which divorces content from presentation (which would lead to a more accessible web), but he also see the problems which make this a difficult goal to achieve in the short term,<p>
+
+<blockquote>
+We will have to wait before the tools catch up...HTML isn't PostScript. It's hard to build tools that don't suck on top of a set of standards being used in a giant tug-of-war between big companies with millions at stake.Until good tools exist, web designers will continue to be used as human shields in the browser wars, with our customers being the big losers as they pay us to make two separate versions of everything and serve HTML out of custom databases.
+</blockquote><p>
+
+Web pages are about communication, design is about communication. Over many years the publishing world has developed a 'visual language' which encapsulates sets of unspoken rules, e.g serif fonts for blocks of text, san-serif for headlines, short line length, the importance of white space, different styles for different functions, techniques for drawing the readers eye into a story.<p>
+
+It took a while for web designers to realise that all the accumulated knowledge of ‘physical’ publishing wasn't obsolete once the web came along. Web pages are after all still about communication. As a result many of todays web sites are now starting to have elements common to the look of their printed brothers and sisters.<p>
+
+Designing web pages which look similar to printed publication have all the their trademark elements; multi-column text, in-line graphics, Drop Caps, horizontal and vertical rules, background images. This can all be done with a bit of html trickery. <p>
+
+And that’s all to the good. Publishers use these techniques because they work. It’s easier for the reader to get the information from the document into the brain via the eyes. But every trick used can make the resulting page more inaccessible.<p>
+
+HTML as we know was never meant to be a tool for page design. Right from the start Web content and graphics have been shoe-horned between ill fitting and re-purposed tags. All tags become ‘layout’ rather than structure; blockquote to give a right and left margin to your paragraphs, invisible tables with invisible graphics in their cells to ensure exact alignment of page elements. The table has become ubiquitous for laying out pages. It is these very workarounds which will - when you put your site through bobby  - throw up a rash of accessibility errors.<p>
+
+Styles sheets came along to solve all this and point towards the holy grail of content being divorced from formatting. In theory style sheets can do it all and do it better but browser support is so inconsistent that only a fool would put his/her total trust in them without another page full of extra code to determine which one of the hundreds of browser versions the user is viewing the page on. <p>
+
+<b>The Future and XML</b><p>
+
+Having said all that I am not pessimistic about the future. There are some exciting development on the horizon that will make all this confusion and difficulty a distant memory. Todays problems are just the necessary precursor to future clarity. It’s all part of the development from a crude and immature way of exchanging information to a more ‘obvious’, simpler, cleaner model.<p>
+
+‘We’ can win ( and I mean everybody ), but not in the short term - not until we get the point where the idea of writing HTML is a thing of the past. In my ideal future nobody will write HTML document they will just write documents. These documents will be multi-purpose. you want it in audio, you get it in audio, you want the pdf version, you get the pdf version, you want the web version have the web version. (Although now that I think about every version will be the web version.) <p>
+
+The notion that I am marginalising a certain group of people by providing a ‘text’ alternative rather than going out of my way to make sure the ‘main’ web page is accessible to everyone will be meaningless. There will be no ‘main’ version just the version that suits you.<p>
+
+The key to this change lies in the growth XML as a way of storing and transporting information. With XML we can keep content and layout separate. With XML content is becomes ‘intelligent’; we no longer have headers and paragraphs - we have a way of describing what those headers and paragraphs contain.  Now you can display and ‘repurpose’ that content in whatever way you like; braille, audio, pdf, html read or whatever you need.    <p>
+
+In the not to distant future it is my belief that a significant amount of content will be stored as XMl. Whatever document creation tool you use, whether it be Microsoft Word, Pagemaker or Quark Express the resulting data will be stored internally and invisibly as XML. This is already happening. Microsoft’s next version of Word will use XML as it’s internal storage method.<p>
+
+And then the style sheet will be king. We’ll all be happy.<p>
+
+Jim
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006796.html">Re: This HTML Kills (Designing Accessible Websites)</a>, Joseph Palmer, 5/27/1999; 9:12:37 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:28 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

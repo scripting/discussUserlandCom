@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: Search Engine XML-RPC Interface</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Search Engine XML-RPC Interface</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Stephen Judd</td></tr>				<tr><td><b>Posted:</b></td><td>1/28/1999; 12:20:31 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002454.html">Search Engine XML-RPC Interface</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2548 (In response to <a href="msg002546.html">2546</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002547.html">2547</a> / <a href="msg002549.html">2549</a></td></tr>				</table>			<br>I set up Apache so that any request for "/RPC2" went to a cgi script called xmladd.cgi . I also had to use the Apache ScriptAlias directive to allow posting.<p>
+
+The xmladd CGI parses the XML - (Ok, it picks it apart with regex) - and stuffs the data into a mySQL database.<p>
+
+The query form is driven by another Perl CGI. (Mod_perl script, to be precise).<p>
+
+In the longer term, I'd imagine that I'd define an "XML-RPCHandler" that would pass any XML-RPC request to a named script, which in turn would redirect it appropriately.<p>
+
+The database is MySQL - I'm already doing a lot with MySQL and mod_perl, so it was "lying around" already.<p>
+
+It's just an experiment, but I'm pretty excited.<p>
+
+I have a big mental investment in Apache, CGI and Perl, so I like the idea of building on top of what I'm familiar with.<p>
+
+We (Campus Media, the web design unit of my University) use Frontier 5.0.1  for building static sites here, but for lots of (mainly historical) reasons we're wedded to Apache/Unix/Perl for serving. We're currently working on the first major overhaul to the University of Waikato's website since we got a webserver, and I want to build in features like logging requests and referrers to a MySQL db. Clearly, having a search engine tied into the same technology would be good. (we've got Harvest, but it's a beast to drive...) Also, there are lots of authos with their own desktops all over campus, and lots of subunits with their own webservers. We're not authoritarian, we don't want to impose control on them, but we can bring them in by offering useful service - eg register your page with us...<p>
+
+I don't know what hoop I'm shooting through either - I just had a compulsion to do it :-)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002550.html">Re: Search Engine XML-RPC Interface</a>, Ken MacLeod, 1/28/1999; 3:27:50 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

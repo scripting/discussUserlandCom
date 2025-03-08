@@ -1,0 +1,46 @@
+<html>	<head>		<title>Netscape on next rev of RSS</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Netscape on next rev of RSS</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>6/15/1999; 4:49:27 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007407.html">Netscape on next rev of RSS</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7407</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007406.html">7406</a> / <a href="msg007408.html">7408</a></td></tr>				</table>			<br><b>An email from an engineer at Netscape:</b><p>
+
+Thanks for your message.  FYI, we are very soon going to release an updated RSS spec that has a few new things:<p>
+
+<ol>
+<li>a language tag
+<li>an optional rating tag
+<li>an optional description tag for items
+<li>optional width, height, and caption tags for images.
+<li>a required !DOCTYPE  tag, and yes, an actual public DTD.  ;-)
+<li>also, The channel tag surrounds the sub-elements now.  (Which means it doesn't
+make much sense according to the RDF data model, but hey, we're really just
+using it as XML anyway, and the initial (0.9) version was just a dumbed-down
+subset of the original RDF-centric spec besides).
+</ol><p>
+
+This newer version is currently in testing, and it is unlikely I can hold up the
+release (I'm just a lowly engineer).  However, for the following iteration of My
+Netscape Network / RSS, I would like to work with you all, possibly on this OCS
+format.  Mostly, I am concerned that if we don't, the RSS / OCS format(s) will
+fragment, and I don't believe that anyone wants that.<p>
+
+
+Further, I am aware that there is a need in the document exchange community for
+things such as dates, authors, contact info, etc.  Unfortunately, those have not
+been a requirement for the My Netscape Network, and therefore were not added,
+mostly because we had specific requirements/features to implement, and partly
+for fear of adding unneeded complexity to the format (and possibly confusing
+people more) when we would really be throwing that data away regardless.  That
+said, I think what would be best is if we can find a way to extend the format as
+needed to make it useful for folks like yourself who want to use it outside of
+the My Netscape environment, and also to publish only a subset of that for
+publishers on My Netscape (eg, the fields that we are actually going to
+use/display).  This is mostly something that we need to work out internally, but
+I would appreciate any input you might have.<p>
+
+
+The good news is that we also have in testing an xml validator that
+(theoretically) should enable us to accomodate format modifications pretty
+easily/quickly.  Previously, it was a big pain to change the format.<p>
+
+
+I am forwarding your message to others on the team.  I'd also like to thank you
+for your part in promoting the adoption of RSS by so many publishers.
+</li></li></li></li></li></li>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007408.html">UserLand's response</a>, Dave Winer, 6/15/1999; 4:53:14 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

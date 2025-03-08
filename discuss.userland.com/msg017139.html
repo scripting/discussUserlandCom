@@ -1,0 +1,10 @@
+<html>	<head>		<title>zope security alert</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>zope security alert</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jamie Scheinblum</td></tr>				<tr><td><b>Posted:</b></td><td>5/9/2000; 8:16:16 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg017139.html">zope security alert</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17139</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017138.html">17138</a> / <a href="msg017140.html">17140</a></td></tr>				</table>			<br>It seems that this problem has been solved, in two ways...<p>
+
+1) if the server only performs content changes with a POST request, it becomes significantly more difficult to force damaging changes in the url query string<p>
+
+2) unique session identifiers in the url would keep outsiders from sending the links to make damaging changes.  This would require the hostle link to know the current seesion id, which is unlikely.<p>
+
+At least a combonation of the two would make it more difficult to pull of that trick, and be easier/eloquent to implement than refer checks.<p>
+
+-js
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg017141.html">Re: zope security alert</a>, Brent Simmons, 5/9/2000; 8:54:19 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:08 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

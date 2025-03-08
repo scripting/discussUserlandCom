@@ -1,0 +1,74 @@
+<html>	<head>		<title>Static page rendering from DG</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Static page rendering from DG</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>9/1/1999; 8:00:29 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010384.html">Static page rendering from DG</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10384</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010382.html">10382</a> / <a href="msg010385.html">10385</a></td></tr>				</table>			<br>For reliability and speed I need to render my pages to static pages and ftp it over to a server.<p>
+
+Now they are stored (and managed) in a discussion group. <p>
+
+I have a script by Matt Neuburg, that will switch from static to dynamic rendering or vice verse, from one of the mailing lists in may.<p>
+
+Now I wounder if this is the "state of the art" on this subject, or if there is other scripts/texts that I should know of before starting to adopt my site. I'm greateful for pointers.<p>
+
+Here is Matts mail:<p>
+
+<blockquote><blockquote>
+>>I have one site that I want to use dynamicly while editing, but then render
+>>to files and serve in traditional maner.<p>
+
+Amazingly, you can't - not without changing the site rather drastically
+each time you switch rendering methods. Unless, that is, you are willing
+to
+tinker with UserLand's scripts. I am, of course. This is what the whole
+"Rendering a site both ways" argument was about, over on Frontier-Users
+last month. I repeat my conclusions, i.e., this is what you need to do in
+order for the identical self-same site to render both ways:<p>
+
+--<p>
+
+All right then: let me summarize what I've discovered so far. In the
+site's
+prefs, add flrender and spaceGif. To your site's firstFilter, add these
+lines:<p>
+
+try &#123;
+	if adrpagetable^.responder == "default" &#123;
+		adrpagetable^.imageextensions = false;
+		adrpagetable^.fileextension = ""&#125;&#125;<p>
+
+Now, in html.refglossary, where it says:<p>
+
+if html.inResponder (adrPageTable) &#123;
+	path = string.popSuffix (path) + ".wsf"&#125;;<p>
+
+add this:<p>
+
+try
+	if adrpagetable^.responder == "default" &#123;
+		path = string.popsuffix(path)&#125;&#125;<p>
+
+Then, in html.getPath, where it says:<p>
+
+if html.inResponder (adrPageTable) &#123;
+	return (fname + ".wsf")&#125;<p>
+
+*before* that, add this:<p>
+
+try &#123;
+	if adrpagetable^.responder == "default" &#123;
+		return fname&#125;&#125;<p>
+
+Finally, in html.getPath again, where it says:<p>
+
+if fileExtension == "" &#123;
+	fileExtension = html.getPagePref ("fileExtension", adrDest,
+adrPageTable)&#125;<p>
+
+add this:<p>
+
+try &#123;
+	if adrpagetable^.responder == "default" &#123;
+		fileExtension = ""&#125;&#125;<p>
+
+There may be other changes needed as well, but for the sites I've
+experimented with so far, that suffices to make them work both ways. If I
+learn more, I'll let you know. m.<p>
+
+</blockquote></blockquote>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:20 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

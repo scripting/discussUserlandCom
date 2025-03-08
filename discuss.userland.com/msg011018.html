@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: New Third Voice version out</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: New Third Voice version out</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>9/14/1999; 10:24:10 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011014.html">New Third Voice version out</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11018 (In response to <a href="msg011014.html">11014</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011017.html">11017</a> / <a href="msg011019.html">11019</a></td></tr>				</table>			<br><i>Referencing my earlier post about how I've been taking to thinking of these issues... the ultimate in interfering with communications is a proxy server, either on their end or offerring one for the user.</i><p>
+
+I'm not sure I follow you on the proxy server thing. AOL has been using them for forever and a half to conserve bandwidth on their outbound links. (Yeah they've caused a few problemsn, but noting too major). I'm using (at various locations) 2 proxy servers, one on the webserver end and one on the local end of the connection. <p>
+
+They (mine) do a couple of things, none of which seem inherently evil.<p>
+
+1) Bridge a firewall/provide caching for images that I don't want to repeatedly serve from the interior machine. This one is set up to relay all incoming connections to a (frontier) webserver behind a firewall. It could do some checking and filtering, with additional virtual domain support if I really wanted to do it. It's also caching images so that they don't have to be served off of the mainresponder. Not that that is really necessary, given the loads. <p>
+
+2) Reduce bandwidth over a clogged link. This is at another site, where the critical link is the outside connection. I've got a machine serving as a caching proxy there, so for instance I don't have to end up reloading stuff that other people in the office have done. In the future, this one may do content/firewall style filtering if the internet climate deteriorates any further. There is one other effect. This one rewrites the Agent headers to Nutscrape/1.0 (CPM 8 bit).  But that's my own little contribution to widening the bell curve. <p>
+
+I can see some further uses of proxy servers for anonymization. One that sticks in my mind is AT&T's clouds project, where requests get bounced between a bunch of peering proxies that rewrite all of the personalized header information and don't keep logs. They grow by people agreeing to host nodes of the network.<p>
+
+
+So I guess I'm asking...<p>
+
+If I visit your website, do you see it as objectionable that I'm accessing it through a proxy?  What if you can't determine my real IP #?  (and I'd bet that this is the case. Give me a webpage and I'll hit it. Hint, it starts with 192.168)  What if you don't know who I am?  What if I'm browsing with Javascript and Java off, or they are filtered by a proxy?  What if I'm browsing with images off?  What if it's not just by my choice, but that of my IS department and their security policies?<p>
+
+eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011020.html">Re: New Third Voice version out</a>, Jeremy Bowers, 9/14/1999; 10:35:11 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

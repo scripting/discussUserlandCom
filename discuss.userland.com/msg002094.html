@@ -1,0 +1,41 @@
+<html>	<head>		<title>Re: XML-RPC, Object serialization, Perl</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC, Object serialization, Perl</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Emmanuel M. Décarie</td></tr>				<tr><td><b>Posted:</b></td><td>1/13/1999; 9:32:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002081.html">XML-RPC, Object serialization, Perl</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2094 (In response to <a href="msg002087.html">2087</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002093.html">2093</a> / <a href="msg002095.html">2095</a></td></tr>				</table>			<br><i>it might be a good place to start if your goal is call Perl procedures from Frontier.</i><p>
+
+I guess using CGIs to talk to Perl and get the result back to Frontier is easily doable. <p>
+
+For example I tested this yesterday and it worked like a charm (but its not very useful and can be dangerous also). Its a Perl script that will do a little bit what is doing fileloop. You have to put it somewhere in in your public_html directory.<p>
+
+The Perl script goes like this:<p>
+
+<pre>
+#!/local/bin/perl5 -w<p>
+
+$dir = "$ENV\{'QUERY_STRING'}";<p>
+
+print "Content-type: text/html\n\n";
+print "HTTP/1.0 200 OK\n";<p>
+
+opendir(DIR, "$dir") or die "Erreur : $!";
+while (defined ($f = readdir(DIR)) ) {
+        if (-f "$dir$f") {
+                print "$f\n";
+        }
+}
+closedir(DIR);
+</pre><p>
+
+Then you can call this script from Frontier like this:<p>
+
+<pre>
+local(url = "http://www.nowhere.org/cgi-bin/perlScript?/home/me/public_html/images/");
+tcpcmd.getUrl(url, saveas: @temp.unixDir)
+</pre><p>
+
+Perl will return a string with the files in the directorie "/images/".<p>
+
+So provided somebody have some time to do this, it could be possible to write a suite that can glue some part of Perl to Frontier. <p>
+
+
+Cheers<p>
+
+-Emmanuel
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002097.html">Re: XML-RPC, Object serialization, Perl</a>, Michael Myers, 1/13/1999; 10:24:11 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

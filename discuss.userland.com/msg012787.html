@@ -1,0 +1,49 @@
+<html>	<head>		<title>Re: tail -f in a web page</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: tail -f in a web page</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Emmanuel M. Décarie</td></tr>				<tr><td><b>Posted:</b></td><td>11/6/1999; 8:53:38 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012705.html">A question for Apache gurus</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12787 (In response to <a href="msg012785.html">12785</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012786.html">12786</a> / <a href="msg012788.html">12788</a></td></tr>				</table>			<br>Sorry, Brent, I was responding to <a href="http://discuss.userland.com/msgReader$12780">Aaron Straup Cope</a>. <p>
+
+I posted a script that I though could help you. Its a CGI but I didn't put any comments in it. Sorry for that too. So here's it is again with some explanations.<p>
+
+Just replace "thePathToTheApacheLog" with the path to your Apache Log, save the file as readable and executable by others in your cgi-bin repertory and then go with your browser to www.mydomain.com/cgi-bin/thisScript.cgi.<p>
+
+<pre>
+#!/usr/bin/perl -T<p>
+
+# On the shebang line (the line above) I use the -T check.
+# This let Perl check that the script will not do anything dangerous.
+# Using backticks can be very dangerous but not here AFAIK.
+# I had the following line because of -T check.
+# For more details, see: <a href="http://www.w3.org/Security/Faq/wwwsf5.html">http://www.w3.org/Security/Faq/wwwsf5.html</a> 
+$ENV&#123;'PATH'&#125; = '/bin:/usr/bin:/usr/local/bin';<p>
+
+# I'm using here the CGI.pm module
+# For more details see: <a href="http://stein.cshl.org/WWW/software/CGI/">http://stein.cshl.org/WWW/software/CGI/</a>
+use CGI ':standard';<p>
+
+# If there is an error in the script, it will be logged in the browser window.
+use CGI::Carp(fatalsToBrowser);<p>
+
+# Ensure that you declare each variable and use safe construction.
+use strict;<p>
+
+# Each declaration of a variable have to start with "my" the first time it appears
+# in the script.
+# To make a system call and get the result in a variable you use backticks.
+# Perl provide que <a href="http://static.userland.com/userLandDiscussArchive/qx//">qx//</a> shortcut that you can use instead of the backticks.
+# Here, the result is read in the array @s
+my @s = qx/tail thePathToTheApacheLog/;<p>
+
+# HTML stuff that CGI.pm do for you.
+print header;
+print start_html (-title=>'Tail', -bgcolor=> 'white');
+print h1("This a the tail of ...");<p>
+
+# We print every line in the array @s using the magic variable $_ (its the default
+# input or output).
+foreach (@s) &#123;
+	print "$_<br>";
+&#125;<p>
+
+# Close the HTML file
+print end_html;<p>
+
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

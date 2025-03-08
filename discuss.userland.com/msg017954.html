@@ -1,0 +1,8 @@
+<html>	<head>		<title>Re: Rules for agents and their messages</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Rules for agents and their messages</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/20/2000; 9:23:29 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg017950.html">Rules for agents and their messages</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17954 (In response to <a href="msg017950.html">17950</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017953.html">17953</a> / <a href="msg017955.html">17955</a></td></tr>				</table>			<br><i>What are the conditions for getting messages to the about window to show up from an agent script?</i><p>
+
+The agent script must be selected in the about window popup. When you use thread.callScript to display a message, the msg verb is called from a different thread that is not an agent, so the message will show up.<p>
+
+<i>What are the conditions under which an agent may fail?</i><p>
+
+An agent should only stop running if it throws a scripterror. However, there was at least one kernel bug affecting the reliability of agents. Frontier 6.2 will be much more stable in this regard.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

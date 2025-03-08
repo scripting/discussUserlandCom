@@ -1,0 +1,33 @@
+<html>	<head>		<title>Re: mainresponder.respond: Proposal or Callback?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: mainresponder.respond: Proposal or Callback?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>1/15/1999; 9:56:02 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002144.html">mainresponder.respond: Proposal or Callback?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2156 (In response to <a href="msg002154.html">2154</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002155.html">2155</a> / <a href="msg002157.html">2157</a></td></tr>				</table>			<br>The respond modification goes into mainresponder.respond where it parses the post args. The place of parseMultipart can be everywhere but I think if parsemultipart will be included in the standard release it should be in the mainresponder table.<p>
+
+Here is the code for mainresponder.respond:<p>
+
+<pre>
+"POST" &#123;
+	local (adrtable = @adrparamtable^.postArgs, i, paramTable);
+	new (tabletype, adrtable);
+	if string.lower (adrparamtable^.requestHeaders.["Content-type"]) beginsWith "multipart/form-data" &#123;
+		mainresponder.parseMultiPart (adrparamtable)}
+	else &#123;
+		webserver.parseArgs (adrparamtable^.requestBody, adrtable);
+		for i = 1 to sizeof (adrtable^) &#123;
+			adrtable^ [i] = string.urldecode (adrtable^ [i]);
+			}};
+	&#171;local (adrtable = @adrparamtable^.postArgs, i, paramTable)
+	&#171;new (tabletype, adrtable)
+	&#171;webserver.parseArgs (adrparamtable^.requestBody, adrtable)
+	&#171;for i = 1 to sizeof (adrtable^)
+		&#171;adrtable^ [i] = string.urldecode (adrtable^ [i])
+		&#171;
+	}
+</pre><p>
+
+mainresponder.parseMultipart can be found at:
+<a href="http://bjckm.egger-lerch.at/parsemultipart.html">http://bjckm.egger-lerch.at/parsemultipart.html</a><p>
+
+Any optimization of the code is welcome.<p>
+
+Thanks for listening<p>
+
+Kurt
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002382.html">parseMultipart (was Re: mainresponder.respond ...)</a>, Robert Brook, 1/22/1999; 8:38:38 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

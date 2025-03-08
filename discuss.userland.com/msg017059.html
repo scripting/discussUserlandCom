@@ -1,0 +1,25 @@
+<html>	<head>		<title>Re: Firewalls, Hooray</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Firewalls, Hooray</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Wesley Felter</td></tr>				<tr><td><b>Posted:</b></td><td>5/5/2000; 8:26:03 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016956.html">scriptingNews outline for 5/5/2000</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17059 (In response to <a href="msg017058.html">17058</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017058.html">17058</a> / <a href="msg017060.html">17060</a></td></tr>				</table>			<br>No, I wasn't talking about requests. I was talking about the response that the server sends when the user clicks on the Pike button. Let's look at an example:<p>
+
+The user clicks the Pike button, and his browser sends this to the server:
+<pre>
+GET /something/editInPike$1234 HTTP/1.0
+Host: discuss.whatever.com
+User-Agent: Mozilla/4.7 (whatever)
+</pre><p>
+
+Then the server sends back to the browser:
+<pre>
+HTTP/1.1 200 OK
+Server: UserLand Frontier/whatever
+Connection: close
+Content-Type: text/vnd.userland-pike
+Content-Length: xxx<p>
+
+#server discuss.whatever.com
+#msgNumber 1234<p>
+
+This is the contents of message 1234 on the DG of discuss.whatever.com.
+</pre><p>
+
+The browser would save the above contents to a file and then send that file to Pike (using AppleEvents on MacOS; I forget how it works on Windows). Pike would read the contents of the file into a new window, stripping out the #directives that tell it where to send the modified content to.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg017060.html">Re: Firewalls, Hooray</a>, Dave Winer, 5/5/2000; 8:31:29 PM<p><li>&nbsp;<a href="msg017099.html">Alternate approach (was Re: Firewalls, Hooray)</a>, Sam Yates, 5/8/2000; 10:28:01 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:06 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: XML markup of large text file</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML markup of large text file</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Edd Dumbill</td></tr>				<tr><td><b>Posted:</b></td><td>6/17/1999; 3:54:24 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007433.html">XML markup of large text file</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7543 (In response to <a href="msg007433.html">7433</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007542.html">7542</a> / <a href="msg007544.html">7544</a></td></tr>				</table>			<br>The format you suggest doesn't quite exploit the expressiveness that XML can give you.  For instance, why not create something like:<p>
+
+<pre>
+<category&gt;
+  <name&gt;Europe</name&gt;
+  <category&gt;
+    <name&gt;UK</name&gt;
+    <category&gt;
+      <name&gt;England</name&gt;
+    </category&gt;
+    <category&gt;
+      <name&gt;Wales</name&gt;
+    </category&gt;
+    <category&gt;
+      <name&gt;Scotland</name&gt;
+    </category&gt;
+  </category&gt;
+</category&gt;
+</pre><p>
+
+This will probably give you a smaller file and you also then get a file format which you can extend with properties other than 'name' if you should wish at other points.  In addition you don't have to alot a number to each entry, which'll mean (among other things) that if you ever take this data file to something like an XSL style sheet then processing it will be a <I>lot</I> easier.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:54 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

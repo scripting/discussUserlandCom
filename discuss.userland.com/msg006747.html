@@ -1,0 +1,17 @@
+<html>	<head>		<title>Re: Log analysis tools for Frontier-based webservers</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Log analysis tools for Frontier-based webservers</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>5/26/1999; 11:21:33 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005157.html">Log analysis tools for Frontier-based webservers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6747 (In response to <a href="msg006742.html">6742</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006746.html">6746</a> / <a href="msg006748.html">6748</a></td></tr>				</table>			<br><i>Sorry! There was an error: Can't process the request because there is no object named "serverstats".</i><p>
+
+It's probably looking for that table in scratchpad. I am not sure whether we ever released that, but do you have the config.mainresponder.callbacks.nightlyBackup.gatherLogStats script?<p>
+
+<i>The memavail log shows nothing.</i><p>
+
+It should start to show something if you set config.mainresponder.prefs.flLogMemavail to true.<p>
+
+<i>[Macro error: Can't call the script because the name "hierarchicTableDisplayer" hasn't been defined.]</i><p>
+
+Oops, that's a bug. Look in mainResponder.log.schedulerBrowser for the following line:<p>
+
+<pre>add (td (user.html.macros.hierarchicTableDisplayer (adritem)))
+</pre><p>
+
+Replace user.html.macros.hierarchicTableDisplayer with  html.data.standardMacros.hierarchicTableDisplayer.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006752.html">Re: Log analysis tools for Frontier-based webservers</a>, erik, 5/26/1999; 11:38:00 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:27 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

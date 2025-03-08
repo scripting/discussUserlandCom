@@ -1,0 +1,32 @@
+<html>	<head>		<title>Re: Working XML-RPC servers</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Working XML-RPC servers</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Carlyle</td></tr>				<tr><td><b>Posted:</b></td><td>6/24/1999; 6:24:07 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007722.html">Working XML-RPC servers</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7771 (In response to <a href="msg007739.html">7739</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007770.html">7770</a> / <a href="msg007772.html">7772</a></td></tr>				</table>			<br>I am attempting to describe the application that a RPC server provides using the following RDF format (sample from Mail to the Future).  The RDF format uses the Dublin Core to describe as much of the interface as possible (because it's widely understood), with some extensions to describe the output dtd and input parameters / POSTed  content.<p>
+
+The problem of describing XML-PRC in this way is that XML-RPC is very flexible - for example, because parameters are not specified by simple (and fixed) name/value pairs, or even a fixed schema for each function, the comments describing the input and output are very important.<p>
+
+
+This is RDF interface description is generated at <a href="http://www.xmltree.com/resource/dbRdf.cfm/ResourceID/224">http://www.xmltree.com/resource/dbRdf.cfm/ResourceID/224</a> - please excuse the formatting:
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns:dc="http://www.w3.org/TR/1999/PR-rdf-schema-19990303/dublin-core#"
+		xmlns:tree="http://www.xmltree.com/meta/#">
+		<rdf:Description xml:lang="en" about="http://www.mailtothefuture.com/RPC2">
+			<dc:Title>Mail to the Future</dc:Title>
+			<dc:Creator><a href="mailto:info@userland.coasdm/&lt">info@userland.coasdm/&lt</a>;/dc:Creator>
+			<dc:Subject>email, frontier, future, mail, send</dc:Subject>
+			<dc:Description>The Mail to the Future app is a hybrid website/application that runs from a Frontier 6 guest database. It supports three ways to connect, the HTML interface, a limited dynamic XML interface and a full-featured XML-RPC interface. The XML-RPC interface is key because it will allow developers working in other environments to build customized interfaces for this service, and will serve as a prototype for similar multiple-interface web applications.</dc:Description>
+			<dc:Publisher>UserLand Software</dc:Publisher>
+		<dc:Source><a href="http://www.userland.com/&lt">http://www.userland.com/&lt</a>;/dc:Source>
+			<dc:Type>text/xml</dc:Type>
+	<dc:Identifier><a href="http://www.mailtothefuture.com/RPC2&lt">http://www.mailtothefuture.com/RPC2&lt</a>;/dc:Identifier>
+			<dc:Language>english</dc:Language>
+			<tree:RequestType>HTTP POST</tree:RequestType>
+	<tree:OutputType><a href="http://betty.userland.com/xmlrpc.dtd&lt">http://betty.userland.com/xmlrpc.dtd&lt</a>;/tree:OutputType>
+			<tree:PricingPolicy>Free</tree:PricingPolicy>
+			<tree:IdentificationReqd>None
+		</tree:IdentificationReqd>
+	<tree:UrlParameterExpression><a href="http://betty.userland.com/xmlrpc.dtd&lt">http://betty.userland.com/xmlrpc.dtd&lt</a>;/tree:UrlParameterExpression>
+			<tree:UrlParameterComments>There are five procedures you can call thru the XML-RPC interface. mailToTheFuture.addMessage (username, password, msgstruct) Adds a message to usernames queue. username must be the email address of a registered user. password must be that users password. msgstruct is a XML-RPC <struct> containing the following elements: dateTime, messageBody, receiverMailAddress, subject. A new message is created in the user's queue. It returns the size of the users queue, encoded as a string. mailToTheFuture.deleteMessage (username, password, n) Deletes the nth message in the users queue. Returns the empty string. If the users queue doesnt have an nth element, it <fault>s. mailToTheFuture.getAllMessages (username, password) Returns the entire queue for the user in a single <struct>. mailToTheFuture.getMessage (username, password, msgnum) Returns a single message as a <struct>. mailToTheFuture.setMessage (username, password, msgnum, msgstruct) Takes a <struct> and assigns it to the indicated message. This call allows a remote script to edit a MTTF message. mailToTheFuture.getMessageCount (username, password) Returns a number encoded as a string saying how many messages there are in the users queue.</tree:UrlParameterComments>
+	<tree:UrlParameterReqd>Yes</tree:UrlParameterReqd>
+			<tree:URLParameterType>XML snippet specified by DTD/Schema</tree:URLParameterType>
+		</rdf:Description>
+</rdf:RDF>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:02 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,32 @@
+<html>	<head>		<title>Re: Content tools and XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Content tools and XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Steve Ivy</td></tr>				<tr><td><b>Posted:</b></td><td>1/20/1999; 9:24:04 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2310 (In response to <a href="msg002309.html">2309</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002309.html">2309</a> / <a href="msg002311.html">2311</a></td></tr>				</table>			<br><i>I'd like to develop a template slot in Frontier and connect it to an XML-RPC call, and that would connect to a command in DreamWeaver's menu bar.</i><p>
+
+What would that template slot do, and what would the Dreamweaver command do? Dreamweaver objects written in Javascript (I so want to do this now) can define 1) a menu item, 2) a form to be used to accept user parameters, 3) perform the Javascript logic on the parameters (plug in the xml-rpc client here), and 4) return the text to be inserted into the document.<p>
+
+OK, I'm seeing this now, as an example:
+<ol>
+<li> "From Frontier Template" object w/ associated "insert" menu item</li>
+<li> The Javascript xml-rpc client requests a list of available templates from Frontier</li>
+<li> Object builds a popup list for the UI form</li>
+<li> User selects a template from the popup</li>
+<li> Object requests the template text from frontier, encoding it in Dreamweaver library code perhaps. Content blocks defined in the template are turned into editable html regions</li>
+</ol><p>
+
+So we've got the text into Dreamweaver. How does it send it back?<p>
+
+<ol>
+<li> template library items are ignored</li>
+<li> editable, defined content regions (title, metas, bodytext, etc.) are written to a text stream in Frontier "#directive" format.</li>
+<li> text stream is returned to Frontier, encoded in xml-rpc</li>
+<li> Frontier method builds a new page and inserts into the structure</li>
+</ol><p>
+
+This is only for a "new" page type command. The same idea could be used for editing pages, etc.<p>
+
+Of course, the ideal would be for application vendors to be doing this, building it into the apps themselves at the root level. But, we can do this *now* in Dreamweaver. Heck- we've got developers out there, we can do this with Photoshop plug-ins or whatever app's plugin architecture.<p>
+
+XML-RPC EVERYWHERE.<p>
+
+--Steve<p>
+
+p.s. - OK, I'd forgotten about the http part of this equation. I'm not sure what the solution is for this, as most of the apps we want to hook up to this mechanism are not http-aware. Thoughts?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002311.html">Re: Content tools and XML-RPC</a>, Dave Winer, 1/20/1999; 9:58:50 AM<p><li>&nbsp;<a href="msg002312.html">Re: Content tools and XML-RPC</a>, Ian Beatty, 1/20/1999; 10:04:52 AM<p><li>&nbsp;<a href="msg002319.html">Re: Content tools and XML-RPC</a>, Philip Suh, 1/20/1999; 11:58:23 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:26 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

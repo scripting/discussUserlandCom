@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: For review: tcp.getMail</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: For review: tcp.getMail</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>4/20/2000; 3:22:00 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016447.html">For review: tcp.getMail</a></td></tr>				<tr><td><b>Msg #:</b></td><td>16471 (In response to <a href="msg016468.html">16468</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg016470.html">16470</a> / <a href="msg016473.html">16473</a></td></tr>				</table>			<br><i>Also, I was wondering about the parseMsg2() subroutine. In the script, the call to webserver.util.parseHeaders is commented out and replaced with a call to string.httpResultSplit. </i><p>
+
+That would be my contribution to the code.  Not necessarily a defense, but an explanation.<p>
+
+There was a reason for that at one point, although the reason may be lost to the ages. I suppose that's what comments are for....<p>
+
+<i>yet you don't set any variable to the returned value of the call</i><p>
+
+That's because the body will be empty. Note that what is being passed in is the headers, + enough blank lines for the match to know that there are a valid set of headers, and extra info.  I did this to reduce the amount of text slinging around in the case where the message was large. (since the headers are limited to < 1k or so)<p>
+
+eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg016481.html">Re: For review: tcp.getMail</a>, Brian V. Hughes, 4/20/2000; 7:28:41 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

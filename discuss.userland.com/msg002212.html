@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Public XML-RPC services?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Public XML-RPC services?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Skip Montanaro</td></tr>				<tr><td><b>Posted:</b></td><td>1/18/1999; 1:19:36 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2212 (In response to <a href="msg002204.html">2204</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002211.html">2211</a> / <a href="msg002213.html">2213</a></td></tr>				</table>			<br>It's not a whole lot more exciting than mapping numbers to state names, but you're welcome to look up lat/long coordinates at:<p>
+
+<pre>
+   import xmlrpclib
+   dolphin = xmlrpclib.Server("http://dolphin.calendar.com:8000")
+   print dolphin.latlong("San Francisco", "CA")
+   print dolphin.latlong("Stockholm", "", "Sweden")
+</pre><p>
+
+as long as it's up.  (It's just my development machine.)<p>
+
+Thanks to Fredrik for the Pythonic XML RPC server.  It works great...
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002216.html">Amen!</a>, Dave Winer, 1/18/1999; 2:41:45 PM<p><li>&nbsp;<a href="msg002219.html">Connection timed out</a>, Dave Winer, 1/18/1999; 4:05:34 PM<p><li>&nbsp;<a href="msg002226.html">Re: Public XML-RPC services?</a>, Fredrik Lundh, 1/19/1999; 2:41:43 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:21 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

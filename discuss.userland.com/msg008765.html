@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Redirection thru file system for IIS?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Redirection thru file system for IIS?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Carter-Tod</td></tr>				<tr><td><b>Posted:</b></td><td>7/26/1999; 11:43:14 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008755.html">Redirection thru file system for IIS?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8765 (In response to <a href="msg008755.html">8755</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008764.html">8764</a> / <a href="msg008766.html">8766</a></td></tr>				</table>			<br>This is written in VBScript (the default for most installations)<p>
+
+<% response.buffer=true %>
+Must be the very first thing in the file, before absolutely anything else (except the language declaration if you have one, which would be <%@ Language = VBScript %>)<p>
+
+<% 
+urlToGo="http://www.wc.cc.va.us/" <BR>
+response.redirect(urlToGo)
+%><p>
+
+Technically, you shouldn't need any HTML at all in the file.  It just needs to be a ".asp" file, which is a problem for ".html" files, but you can add file extension mappings under the Home Directory tab -- the configuration button.<p>
+
+Alternatively, but much more involvedly, IIS is completely scriptable via ADSI.  After much searching, this is about the best article on the subject (Microsoft's documentation on ADSI is <i>really</i> bad)<p>
+
+<a href="http://www.15seconds.com/Issue/980304.htm">http://www.15seconds.com/Issue/980304.htm</a><p>
+
+It's worth your understanding ADSI, because you can use it to control and access all kinds of directories and object stores.  I use it to access and authenticate against LDAP directories for example.<p>
+
+David</br>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:33 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

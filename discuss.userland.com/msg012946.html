@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: RSS Issues: Comments requested</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: RSS Issues: Comments requested</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Carlyle</td></tr>				<tr><td><b>Posted:</b></td><td>11/10/1999; 12:18:44 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012932.html">RSS Issues: Comments requested</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12946 (In response to <a href="msg012932.html">12932</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012945.html">12945</a> / <a href="msg012947.html">12947</a></td></tr>				</table>			<br>RSS is an exceptionally successful format because of it's simplicity (which made publishing easy), the large initial audience size (My.Netscape), the growing infrastructure of tools, portals, aggregators and so on, and the increasing number of publishers.  These factors together create a virtuous circle which further fuels growth.  Do we know how many publishers are using XMLNews?  I assume that a few mainstream newspapers are, but they don't have these factors in place to drive adoption.
+<p>
+What I like about RSS is it's modularity.  Someone builds a portal. From the portal's viewpoint, every RSS channel has the same footprint. Any RSS publisher can have their content delivered through this infrastructure, and the cost of supporting additional publishers is zero.
+<p>
+But the <description> element of RSS can only contain human-readable text, which makes RSS unsuitable for more expressive data. What I would like to see is a format (perhaps RSS) which shares a common base (i.e. channel, item, description), but which can then be extended within the <description> element.  This would allow infrastructure builders to support the common structure (channel, item, title, description) and use the modularity of RSS, and to ignore any further structure within the description element if they didn't understand it. Or they could just display what they didn't understand as text. So, for example, a Financial Reports RSS channel could contain the following elements:
+<p>
+<item><br>
+<title>Microsoft share price soars</title><br>
+<link><a href="http://wherever&lt">http://wherever&lt</a>;/link><br>
+<description><br>
+<symbol>MSFT</symbol><br>
+<closingPrice>98.5</closingPrice><br>
+<summary>Today, upon announcement of increased profitability</summary><br>
+</description>
+<p>
+A financial news portal would know what <symbol> and <closingPrice> meant, and could work with those, whereas a general portal like My.Userland could either ignore them, or transform them to text within the item description i.e. symbol=MSFT; closingPrice=98.5 when delivering the item to readers.
+<p>
+James</p></p></p></p></p>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012947.html">Re: RSS Issues: Comments requested</a>, Dave Winer, 11/10/1999; 12:24:28 PM<p><li>&nbsp;<a href="msg012963.html">Re: RSS Issues: Comments requested</a>, Andrew Wooldridge, 11/10/1999; 3:05:38 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:28 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,45 @@
+<html>	<head>		<title>FirstFilter, PageFilter, FinalFilter</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>FirstFilter, PageFilter, FinalFilter</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Philip Suh</td></tr>				<tr><td><b>Posted:</b></td><td>12/18/1998; 4:36:12 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001452.html">FirstFilter, PageFilter, FinalFilter</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1452</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001451.html">1451</a> / <a href="msg001453.html">1453</a></td></tr>				</table>			<br>At 1:59 PM -0600 12/18/98, John VanDyk wrote:<p>
+
+> If pageFilter acts on bodytext, and finalFilter acts on renderedtext, what
+> is the equivalent for FirstFilter to act on?
+> 
+> The docs mention the first two but not the latter.<p>
+
+At that point the data in the page that is about to be rendered is still in your webpage.  It's accessible at adrPageTable^.adrObject^.  <p>
+
+> I would like to do some work with the text of my page before it's touched
+> by the renderer.<p>
+
+Actually, pagefilter would be appropriate.  In pagefilter, adrPageTable^.bodytext is the body of your page, minus directives.  No process has been done.<p>
+
+This all happens in html.buildObject (). 
+Here's a summary of what happens:<p>
+
+build pagetable<p>
+
+handle binary objects<p>
+
+*firstfilter<p>
+
+render Object (this runs all directives and returns the page text minus directives)<p>
+
+double-check file path related directives<p>
+
+*pagefilter<p>
+
+insert pagetext into the template<p>
+
+process macros<p>
+
+handle relative addresses<p>
+
+add the #pageheader template<p>
+
+add fatpage comment<p>
+
+*finalfilter<p>
+
+HTH<p>
+
+Phil
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:45 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

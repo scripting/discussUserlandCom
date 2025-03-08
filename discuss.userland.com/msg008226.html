@@ -1,0 +1,23 @@
+<html>	<head>		<title>XML RPC and multi-part mime</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML RPC and multi-part mime</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>nmanson@livepage.com</td></tr>				<tr><td><b>Posted:</b></td><td>7/6/1999; 7:28:07 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008226.html">XML RPC and multi-part mime</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8226</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008225.html">8225</a> / <a href="msg008227.html">8227</a></td></tr>				</table>			<br>Please excuse me if this topic has been discussed before.  I 
+performed a search and didn't come up with any obvious hits.<p>
+
+Has anyone considered expanding the XML-RPC spec to support 
+multipart mime?<p>
+
+Motivation:<p>
+
+Sometimes it is necessary to send or receive something large
+and sufficiently XML-ish that it won't fit inline into XML.
+Base64 encoding is an option.  However, it is an extra step
+on both the client and the server that is not required by the underlying protocol.  In addition, XML-RPC is based on HTTP 
+POST and POSTing multi-part mime files is a widely accepted
+practise.<p>
+
+It occurs to me that an extension to XML-RPC would save
+implementors from having to base64 large objects (like, say,
+a MPEG movie).  Instead one could allow multi-part mime with
+the first part being XML-RPC and the parameters or response
+containing an XLink to the subsequent mime parts.<p>
+
+Any thoughts?
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

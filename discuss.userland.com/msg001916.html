@@ -1,0 +1,38 @@
+<html>	<head>		<title>Re: Frontier 6 Outliner</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Frontier 6 Outliner</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Nicholas Riley</td></tr>				<tr><td><b>Posted:</b></td><td>1/8/1999; 11:33:16 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001909.html">Frontier 6 Outliner</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1916 (In response to <a href="msg001909.html">1909</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001915.html">1915</a> / <a href="msg001917.html">1917</a></td></tr>				</table>			<br>Yes! This is a really powerful and useful feature. As a coworker has been away, I've been doing more HTML-oriented Java servlet development and wishing for this there. Being able to do a multi-line quote certainly beats something like:<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.println("<A HREF="http://static.userland.com/userLandDiscussArchive/\&quot;pageName&quot;...">");<p>
+
+not to mention you don't have to escape quotes and the like.<p>
+
+But there are two things that make me not quite understand how it would work in Frontier.<p>
+
+First, what would you allow in a "here document"? How would you delimit it? Would it be limited to sticking carriage returns in the statement? Would it work like notes in MORE with a resizable text box inside the window? Could you embed a sub-outline as a string?<p>
+
+Second, as you mentioned, there's variable substitution. The closest thing I can think of that works in Frontier is macros and the glossary. So how about a function or special syntax that will allow you to embed an outline or multiline statement with macro and/or glossary processing right within your code? Something like<p>
+
+local (s, name = getName (), x = someCalculation (values))<p>
+
+s = s   html.renderEmbeddedOutline ("<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#renderOutlineWith "myTableRenderer"<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calculation<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OtherCalculation<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{x}<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{otherCalculation (name, x)}<p>
+
+")<p>
+
+would use the context (local variables, etc.) of the script that is running it in order to evaluate the macros. That's just one idea but the overhead of processing something like this may really outweigh the benefit.<p>
+
+This seems more natural than embedding large amounts of code in HTML (like you might with ASP or JSP).<p>
+
+[P.S. It is a real uphill battle to get code to be pasted into this discussion group. I would really like something like <PRE> to be available, or the ability to insert line breaks, or something! The only way I can indent is with &amp;nbsp; and even then it disappears when I go back to edit the page. Also my "calls" to macros get escaped twice, like \\{.]
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001921.html">Re: Frontier 6 Outliner</a>, Michael Myers, 1/8/1999; 2:43:36 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:07 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

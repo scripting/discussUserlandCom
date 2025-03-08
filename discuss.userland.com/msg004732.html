@@ -1,0 +1,76 @@
+<html>	<head>		<title>Re: XML-RPC for WebObjects/Objective-C?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC for WebObjects/Objective-C?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jonathan Hendry</td></tr>				<tr><td><b>Posted:</b></td><td>4/1/1999; 8:56:48 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004716.html">XML-RPC for WebObjects/Objective-C?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4732 (In response to <a href="msg004722.html">4722</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004731.html">4731</a> / <a href="msg004733.html">4733</a></td></tr>				</table>			<br>
+N.B.: Please pardon the formatting horrors. Thanks.<p>
+
+"PropertyLists might do it, although I would think you'd want to parse the xml into an actual object graph"<p><p><p><p>
+<p><p>
+To do this, first create an NSString instance containing the converted XML. Then call the string's -propertyList method. You'll get back objects, probably an NSDictionary at the top level.<p><p><p><p>
+<p><p>
+("PropertyList" is kind of an overloaded term. In one sense it applies to the ASCII format in which PropertyLists are stored. In another sense it applies to the object graph created from the ASCII.)<p><p><p><p>
+<p><p><p><p>
+The catch would be that the objects would all be FoundationKit primitives - NSArray, NSDictionary, and NSString. However, once you've got that it wouldn't be difficult to convert them to less generic objects.<p><p><p><p>
+<p><p><p><p>
+The actual conversion of an XML message to propertyList format may be pretty straightforward. Here's an example propertyList:<p><p><p><p>
+<p><p>
+<pre><p><p>
+<p><p><p><p>
+&#123;<p><p><p><p>
+	SuiteName = TimeApps;<p><p><p><p>
+	HideOnStartup = NO;<p><p><p><p>
+	ConnectionData = (<p><p><p><p>
+		&#123;<p><p>
+			databaseName = Time; <p><p><p><p>
+			hostName = foo; <p><p><p><p>
+			password = "bar";<p><p><p><p>
+			userName = jabba; <p><p><p><p>
+		}<p><p><p><p>
+	);<p><p><p><p>
+}<p><p><p><p>
+<p><p>
+</pre><p><p>
+<p><p><p><p>
+A dictionary is marked by the enclosing &#123;}, and contains<p><p> semicolon separated key-value pairs. An Array is<p><p> marked by enclosing parenthesis, and the elements<p><p> are separated by commas; there's a one-element array<p><p> in this dictionary. If an element isn't an array or<p><p> a dictionary, it's either a string (which can be converted<p><p> to a number) or an NSData, which stores binary data in an<p><p> ASCII-friendly format.<p><p><p><p>
+<p><p><p><p>
+(These just apply to ASCII format. When dealing with objects,<p><p> you can use any class.)<p><p><p><p>
+<p><p><p><p>
+Using an example from <a href="http://www.scripting.com/Frontier5/xml/code/rpc.html">http://www.scripting.com/Frontier5/xml/code/rpc.html</a>, a<p><p> conversion might look like this:<p><p><p><p>
+<p><p>
+<pre><p><p><p><p>
+XML:<p><p><p><p>
+POST /RPC2 HTTP/1.0<p><p><p><p>
+User-Agent: Frontier/5.1.2 (WinNT)<p><p><p><p>
+Host: betty.userland.com<p><p><p><p>
+Content-Type: text/xml<p><p><p><p>
+Content-length: 181<p><p><p><p>
+<p><p><p><p>
+<?xml version="1.0"?><p><p><p><p>
+<methodCall><p><p><p><p>
+   <methodName>examples.getStateName</methodName><p><p><p><p>
+   <params><p><p><p><p>
+      <param><p><p><p><p>
+         <value><i4>41</i4></value><p><p><p><p>
+         </param><p><p><p><p>
+      </params><p><p><p><p>
+   </methodCall><p><p><p><p>
+<p><p><p><p>
+PropertyList:<p><p><p><p>
+&#123;<p><p><p><p>
+	Request = "POST /RPC2 HTTP/1.0";<p><p><p><p>
+	User-Agent = "Frontier/5.1.2 (WinNT)";<p><p><p><p>
+	Host = betty.userland.com;<p><p><p><p>
+	Content-Type = "text/xml";<p><p><p><p>
+	Content-length = 181;<p><p><p><p>
+	"XML Version" = "1.0";<p><p><p><p>
+	methodCall = &#123;<p><p><p><p>
+		methodName = examples.getStateName;<p><p><p><p>
+		params = (<p><p><p><p>
+			&#123;<p><p><p><p>
+				value = 41;<p><p><p><p>
+				format = int;<p><p><p><p>
+			}<p><p><p><p>
+		)<p><p><p><p>
+	};<p><p><p><p>
+}<p><p><p><p>
+<p><p></pre><p><p>
+<p><p>
+The Property List is a Dictionary. The value of the<p><p> methodCall key is another dictionary. That dictionary<p><p> has a params key, whose value is an array of dictionaries.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:10 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

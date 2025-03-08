@@ -1,0 +1,20 @@
+<html>	<head>		<title>News.UserLand.Com</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>News.UserLand.Com</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/4/1999; 5:32:24 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008149.html">News.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8149</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008148.html">8148</a> / <a href="msg008150.html">8150</a></td></tr>				</table>			<br>If this works, this will be the place where I edit the Scripting News home page. It also contains the main UserLand.Com discussion group. <p>
+
+Here's a list of the steps I did to make this work:<ol><p>
+
+<li>I copied the calendar structure for June and July 1999 into the discuss branch of news.root. It worked. I copied the calendar structures for 1997 and 1998.<p>
+
+<li>It renders DG-stored scriptingNews outlines reasonably if they are stored in the DG, but mangles them if they are stored in the older format. This was solved by providing a custom outline renderer in discuss.["#tools"].snRenderer. It handles the old outlines. Works fine. Here's an <a href="http://nirvana.userland.com/news/discuss/1998/06/30/">example</a>.<p>
+
+<li>I added a callback in manilaSuite.renderNewsPage that allows a site to customize the rendering. This was a bit of a blind alley, it turns out I didn't need it, but I left it in. I may use it later to provide a more beautiful rendering of the archived text, but I'm really liking the clean and simple presentation. (The new home page will look a lot like the Buck's <a href="http://www.buckswoodside.com/">home page</a>.)<p>
+
+<li>The callback turned out to be useful. I use it to set the title of the archive page, it now says the date, that's the right thing to say. Works goood.<p>
+
+</ol></li><p>
+
+<b>To discuss.userland.com readers</b><p>
+
+I'm working on the very top level of UserLand.Com today. I didn't realize when I started this list that it would show up in the main DG, but of course now that I see it there, I fully understand why it is, and it's the right place for it to be, believe it or not. <p>
+
+I guess I'm now committed to the sweeping changes I thought I was just trying out. Real-time Internet development without a staging server is really interesting! <i>Pedal to the metal.</i></li></li></li>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:14 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

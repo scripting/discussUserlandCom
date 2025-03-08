@@ -1,0 +1,17 @@
+<html>	<head>		<title>Re: Server Attributes</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Server Attributes</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>12/30/1998; 6:54:40 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001772.html">Server Attributes</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1785 (In response to <a href="msg001773.html">1773</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001784.html">1784</a> / <a href="msg001786.html">1786</a></td></tr>				</table>			<br>I played a bit with the flRenderingCache flag. It works down to table level (global true, gdb root false, table true and so on). Great.<p>
+
+But how do I turn off caching on page level, e.g. setting a #flRenderingCache directive inside the page? I tried "#flRenderingCache false" but it came out at website directives level, "#responderAttributes.flRenderingCache false" did not work.<p>
+
+Harmonizing the locations of the website directives and responder attributes will get us:<p>
+
+- scalable rendering (setting the #template directive from the URL/domain side, e.g. /web or /print or /cellphone)<p>
+
+- dynamic permissions for members (a page is not accessible via one path, but readable via a different domain, just by "jumping" directly to one page, which leaves out a #member attribute)<p>
+
+- member dependent template rendering<p>
+
+
+Just thinking<p>
+
+Kurt
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:01 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,31 @@
+<html>	<head>		<title>Re: New release of Prefs.root</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: New release of Prefs.root</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>erik</td></tr>				<tr><td><b>Posted:</b></td><td>6/7/1999; 11:59:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006265.html">Source release of Prefs.UserLand.Com</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7084 (In response to <a href="msg007003.html">7003</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007083.html">7083</a> / <a href="msg007085.html">7085</a></td></tr>				</table>			<br>I have a lot of questions on prefs.root. Someday it will be documented. In the meantime, I will post updates as I discover more for anyone else who needs background info on prefs.root. <p>
+
+|What configuration URLs are used by prefs, if any? I see a <BR> |"storyReader" URL attribute in the code.<p>
+
+To answer my own question, it appears that prefs.root/prefsSite/ uses memberLogon in your config URLs to find out what page to go to if you don't have the membership cookie defined in your browser.<br><br>
+|I'm not sure why it didn't use the cookie already defined by the previous membership prefs setup. <br>
+You have to remember to change #members inside prefs.root to match whatever default membership group you use.<p>
+
+|Is it probably better practice to copy prefsSite into your own root, or try to reference prefs.root from whereever your code lives? If you<br> |do copy prefs.root components into your own gdb, how many parts do you need to copy? <p>
+
+So far it looks like you only need prefsSite and prefsSuite. <p>
+
+|What if you want to have more than one custom datatype per prefs area?<br>
+|Now there is just one callback called customRenderer? <p>
+
+Looks like you have to use the case statement inside the this procedure to differentiate between custom datatypes.<p>
+
+|I don't see where the equivalent to Postcatcher is (an area to post-process form results). <p>
+
+It appears that the equivalent to postcatcher for post-processing arbitrary form data is in wizard.callbacks.setValue. Not sure how that works, especially for forms that result in multiple data items (postargs). It appears to use a similar case logic to customRenderer. Now we're passed a "adrval" as a parameter where before Postcatcher pulled values out using getPageTableAddress. <p>
+
+What is the execution order between customRenderer, setValue, and getValue?<p>
+
+How do you put HTML markup (essentially style info like < b >) inside a prefs wizard outline? When I put < b > in a description, it generates an error. I see in the change notes that HTML markup and likes were removed from descriptions. <p>
+
+Lastly, I don't see how you specify the default value for preference items such as radio buttons, popups, etc. <p>
+
+BTW, I get a window on my Frontier screen with scratchpad.postargs everytime I press submit on a web form using this prefs.root stuff. <p>
+
+   erik</br></br></br></br></br></br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007127.html">Re: New release of Prefs.root</a>, erik, 6/8/1999; 3:55:09 PM<p><li>&nbsp;<a href="msg007727.html">Re: New release of Prefs.root</a>, erik, 6/23/1999; 12:50:09 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

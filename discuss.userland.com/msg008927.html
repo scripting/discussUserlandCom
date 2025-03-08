@@ -1,0 +1,25 @@
+<html>	<head>		<title>Fixed. Re: Dave: userland's mail is broken</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Fixed. Re: Dave: userland's mail is broken</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>7/30/1999; 8:19:51 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008922.html">Dave: userland's mail is broken</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8927 (In response to <a href="msg008922.html">8922</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008926.html">8926</a> / <a href="msg008928.html">8928</a></td></tr>				</table>			<br><i>Dave: tried to mail eric and it bounced. same problems with your address. the "permanent fatal error" in there doesn't really look good...</i><p>
+
+That was my mistake, and you have my humble apologies.<p>
+
+Yesterday, we moved our primary DNS in-house. But I made a mistake in setting up the zone files. I wrote the following:<p>
+
+<pre>
+                        IN MX   10 mail.userland.com
+                        IN MX   50 mailspool.conxion.net
+</pre><p>
+
+..when I should have written this (notice the trailing periods):<p>
+
+<pre>
+                        IN MX   10 mail.userland.com.
+                        IN MX   50 mailspool.conxion.net.
+</pre><p>
+
+This is a fairly common error, but it slipped past my eyes and the eyes of the DNS administrator at Conxion, our ISP. (They reviewed the zone file before the switchover.) I've asked Conxion to retransfer our updated zone file, which will fix the problem. Unless they have a very strange setup, this should happen within the hour.<p>
+
+If for some reason you continue to see this error, then your local DNS server has cached bad data and you should speak to your sysadmin. Once again, you have my humble apologies.<p>
+
+Cheers,<br>
+Eric</br>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008928.html">Re: Fixed. Re: Dave: userland's mail is broken</a>, Fredrik Lundh, 7/30/1999; 8:27:07 AM<p><li>&nbsp;<a href="msg008949.html">Re: Fixed. Re: Dave: userland's mail is broken</a>, Wesley Felter, 7/30/1999; 11:56:10 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:37 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

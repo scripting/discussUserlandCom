@@ -1,0 +1,8 @@
+<html>	<head>		<title>Fail from a callback?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Fail from a callback?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Matt Daw</td></tr>				<tr><td><b>Posted:</b></td><td>8/16/1999; 11:43:51 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009566.html">Fail from a callback?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9566</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009565.html">9565</a> / <a href="msg009567.html">9567</a></td></tr>				</table>			<br>I'm running into trouble where members of my Frontier site-content team do a "WebEdit->Get From Server" on the root of the website GDB. This GDB is 40M after a "Save A Copy", so when they do this the server freezes for 5-10 minutes while the huge base64 encoding process happens.<p>
+
+I'd like to put a preGetFromServer callback in there to stop this from happening. What kind of result do I need to return from such a callback to tell "Get From Server" not to encode the data? <p>
+
+Or alternately, is there an easier way of accomplishing the same thing?<p>
+
+Matt
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009569.html">Re: Fail from a callback?</a>, Brent Simmons, 8/16/1999; 11:58:46 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:56 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

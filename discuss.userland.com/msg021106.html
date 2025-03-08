@@ -1,0 +1,33 @@
+<html>	<head>		<title>Re: gotrieve agents xml rpc soap rss</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: gotrieve agents xml rpc soap rss</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tom Fuerstner</td></tr>				<tr><td><b>Posted:</b></td><td>9/10/2000; 8:26:49 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg020861.html">gotrieve agents xml rpc soap rss</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21106 (In response to <a href="msg020888.html">20888</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021105.html">21105</a> / <a href="msg021107.html">21107</a></td></tr>				</table>			<br>chuck,<p>
+
+you've asked how i would like to see Radio Userland (RU) and go'trieve (GT) integrated .<p>
+
+it took me some days to reflect about your question but finally i decided to propose three ways to interconnect RU and GT.<p>
+
+1.) Cause both environments are delivered with integrated xml-RPC client-server capabilities it will be the most efficient way to implement an manila-xml-RPC suite in GT and and an agent-suite ( to remotely control and define preprogrammed agents inside of GT) into RU. <p>
+
+From inside RU this would lool like this usertalk code-fragment which would remotely start a predefined agent within GT:
+e.g.: an xml-RPC command to activate an GT-Agent<p>
+
+<i>on startAgent (agentName);
+&#123;
+  local (adrSitePrefs = @scratchpad.gotrieveRpcSettings, params =   
+   &#123;agentName&#125;);
+  with adrSitePrefs^
+  &#123;
+      betty.rpc.client (host, port, "startAgent", @params, 
+      rpcPath:rpcPath);
+  &#125;
+&#125;</i><p>
+
+cause frontiers xml-RPC interface is that simple i am convinced that a prototypical connection between GT and RU would be established within an hour. what i 've done in this case concerning the activation of an agent works very similar for every other agent-control-command inside of GT.<p>
+
+2.) way number one just offers us the possibility to control certain aspects of GT out of RU and vice versa. but nothing else. imagine we would like to use RU to create agent that don't already exists inside of GT's agent-engine or odb. how could we accomblish this task too ?
+i assume that all agents inside of GT share the possibilty to be  described with xml-based structures. given that this is really the case we can implement a special outline-structure inside of RU's odb ( Radio.root) which we combine with a special outline -renderer that turns the frontier outline-description of an agent into a real GT-agent. either by using xml or by directly generating native GT-odb-code ( whatever this code will look like). this could go pretty far if it's possible to define not alone the structure of an agent using a xml-interchange format but also a basic set of agent-commands and -functions which are also expressable in xml. i am talking about a parser which uses xml-serialization to exchange standard-coded agents. combine RU's outliner capabilities with the outliner editor of Tango and you know which direction i'm heading.<p>
+
+3.) way number two leads directly to my final third proposal. the foundations of agent-classes and methods don't have to be based on a complete computer-language. very often it is more than sufficiant to implement a basic set of commands and control-structures to make more possible than you might think. if now mr. dave winer and mr. chuck shotton could agree how to define agents in a standardized way we could build agents either inside of GT or inside of RU and the agents code could be executed in both environments and further on code-fragments could even float from GT into RU and back again.<p>
+
+this would be pretty cool, indeed !<p>
+
+by, by, tom
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:56:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

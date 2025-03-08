@@ -1,0 +1,54 @@
+<html>	<head>		<title>Re: WDDX Annotated DTD</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: WDDX Annotated DTD</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Simeon Simeonov</td></tr>				<tr><td><b>Posted:</b></td><td>1/13/1999; 12:49:22 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2103 (In response to <a href="msg002089.html">2089</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002102.html">2102</a> / <a href="msg002104.html">2104</a></td></tr>				</table>			<br>How about:
+<pre>
+<?xml version="1.0"?>
+<methodCall encoding='WDDX'>
+   <methodName>examples.getStateName</methodName>   
+   <wddxPacket version='0.9'>...</wddxPacket>
+</methodCall></pre><p>
+
+or, perhaps,
+<pre>
+<?xml version="1.0"?>
+<wddxPacket version='0.9'>
+   <header/>
+   <data>
+      <struct>
+         <var name='methodName'>
+             <string>MyObj.MyMethod</string>
+         </var>
+         <var name='args'>
+            ...
+         </var>
+      </struct>
+   </data>
+</wddxPacket>
+</pre><p><p>
+I'm partial to the second version of the syntax. Let me explain why.<p>
+
+The making of an RPC call involves making decisions about a number of things:<p>
+
+- The information you want to provide, e.g., protocol version, object name, method name, arguments.<p>
+
+- The way you will marshal (encode) this information for transport.<p>
+
+- The way in which the information will be transported. <p>
+
+XML-RPC gains simplicity by not separating these issues but it does loose some flexibility. For example, why postulate that "An XML-RPC message is an HTTP-POST request"? Why not allow an XML-RPC request to be received other a named pipe or a socket? (I'm thinking about the benefits of XML-RPC outside the immediate context of the Web here...)<p>
+
+If one takes the view of focusing on the important _information_ about an XML-RPC request one ends up with two pieces of data: a method name and an array of arguments for the method. How they are encoded is sort-of incidental. In fact one would want to choose an encoding that is about as plug'n'play as possible.<p>
+
+My first proposal above combines some of the existing elements of XML-RPC with a WDDX packet containing the method arguments. The problem with this approach is that one would have to change existing XML-RPC implementations to work with a WDDX serialization/deserialization module. <p>
+
+The second proposal is simpler in my opinion because it allows an XML-RPC implementation to determine by looking at the beginning of the packet whether the _information_ about the RPC call is encoded using WDDX or using the traditional XML-RPC syntax. In the former case it can leverage an out-of-the-box WDDX "module" (available for ColdFusion, COM [Active Server Pages, VB(script), JS, C/C  , Delphi], Perl, Python, PHP, and hopefully soon--Frontier) to get the data from within the request and then pass it on to the piece of code that actually satisfies the request.<p>
+
+To me, looking at the beginning of the packet and choosing a "decoder" based on this is a lot simpler than extending existing implementations to plug in WDDX processing at some point. <p>
+
+Also, it will essentially allow s.o. to send and receive XML-RPC requests and responses w/o actually having an XML-RPC implementation on the client, just knowing WDDX. That takes one layer of custom software off! I think this is a good thing.<p>
+
+Let me reiterate: I think the core value of XML-RPC lies in the model of request-response processing it provides and in the server implementations that execute the requests. The actual encoding of the request and response data and the transport protocols are of practically no importance except for the fact that they should be simple, widely available, and flexible.<p>
+
+I'll be interested in hearing your comments!<p>
+
+Sim
+Allaire
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002107.html">Thanks!</a>, Dave Winer, 1/13/1999; 2:15:43 PM<p><li>&nbsp;<a href="msg002119.html">Three options</a>, Dave Winer, 1/14/1999; 4:39:32 AM<p><li>&nbsp;<a href="msg002196.html">Re: WDDX Annotated DTD</a>, joubin, 1/17/1999; 10:52:32 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

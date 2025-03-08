@@ -1,0 +1,46 @@
+<html>	<head>		<title>Re: JavaScript HTML entity encoding/decoding functions</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: JavaScript HTML entity encoding/decoding functions</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Samuel Reynolds</td></tr>				<tr><td><b>Posted:</b></td><td>10/8/1999; 12:55:57 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011860.html">JavaScript HTML entity encoding/decoding functions</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11874 (In response to <a href="msg011860.html">11860</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011873.html">11873</a> / <a href="msg011875.html">11875</a></td></tr>				</table>			<br>I put this together a while back (it's from my JavaScript Suite, <a href="http://www.spinwardstars.com/frontier/suites/js.html">http://www.spinwardstars.com/frontier/suites/js.html</a>). Maybe it'll do what you need.
+<hr size=2 width=100%><p><p>
+<pre>
+<a href="//">//</a>	Find and replace a string in another string, with optional case-sensitivity.
+function ReplaceAll( inText, inFindStr, inReplStr, inCaseSensitive ) &#123;
+   <a href="//">//</a>	inText is the text in which to do the search;
+   <a href="//">//</a>	inFindStr is the string to find;
+   <a href="//">//</a>	inReplStr is the string to substitute into inText in place of inFindStr; and
+   <a href="//">//</a>	inCaseSensitive is a boolean value (defaults to false).
+   
+   var searchFrom = 0;
+   var offset = 0;
+   var outText = "";
+   var searchText = "";
+   if ( inCaseSensitive == null ) &#123;
+      inCaseSensitive = false;
+   &#125;
+   if ( inCaseSensitive ) &#123;
+      searchText = inText.toLowerCase();
+      inFindStr = inFindStr.toLowerCase();
+   &#125; else &#123;
+      searchText = inText;
+   &#125;
+   offset = searchText.indexOf( inFindStr, searchFrom );
+   while ( offset != -1 ) &#123;
+      outText += inText.substring( searchFrom, offset );
+      outText += inReplStr;
+      searchFrom = offset + inFindStr.length;
+      offset = searchText.indexOf( inFindStr, searchFrom );
+   &#125;
+   outText += inText.substring( searchFrom, inText.length );
+   
+   return ( outText );
+&#125;;<p>
+
+function QuoteHtml( inText ) &#123;
+   outText = ReplaceAll( inText, "&", "&amp;" );
+   outText = ReplaceAll( outText, "<", "<" );
+   outText = ReplaceAll( outText, ">", "&gt;" );
+   return ( outText );
+&#125;
+</pre>
+<hr size=2 width=100%><p><p><p>
+
+- Sam
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:52:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

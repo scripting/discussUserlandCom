@@ -1,0 +1,28 @@
+<html>	<head>		<title>Re: Getting the URL of the Front IE Window w/ VBScript</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Getting the URL of the Front IE Window w/ VBScript</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>12/21/1998; 1:01:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001453.html">Getting the URL of the Front IE Window w/ VBScript</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1593 (In response to <a href="msg001592.html">1592</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001592.html">1592</a> / <a href="msg001594.html">1594</a></td></tr>				</table>			<br><b>Brent said:</b><p>
+
+"Each thread gets its own instance -- or else it wouldn't be multi-threaded. Each instance of the Script Control can only execute one script at a time."<p>
+
+<hr size=2 width=100%><p><p><p>
+
+Good point, I hadn't thought of that.  So you couldn't only have one ScriptControl, period, or you wouldn't be multi-threaded.<p>
+
+In <a href="http://discuss.userland.com/msgReader$1591">http://discuss.userland.com/msgReader$1591</a> I recommend being able to create multiple namespaces.  The default callScript verb could do what it does now, create a new namespace, run the script and then tear down the namespace.  This way, the default would be that VBScripts were executed multi-threaded.<p>
+
+However, a developer could choose to share a namespace between multiple threads if that was adventageous.<p>
+
+<hr size=2 width=100%><p><p><p>
+
+<b>Brent said:</b><p>
+
+"Sharing objects sounds nice, but I think in practice you'd get subtle, hard-to-track-down bugs due to collision and interference."<p>
+
+<hr size=2 width=100%><p><p><p>
+
+I'd suggest you leave implementation issues up to the developer, and not decide the developer couldn't handle them.  Personally, I could.<p>
+
+Also, it's great to be able to store a value back into Frontier, but you can only store primitive types and arrays -- not objects.<p>
+
+Re: ASP stuff... you'd have to be able to have a persistent namespace so that you'd be able to implement the ASP Application Object, which exists for each ASP application, and isn't torn down after each page is executed.<p>
+
+I'm not sure if you're suggesting ASP-like tagging syntax for UserTalk or ASP application compatibility inside Frontier.  If you're suggesting the latter, you'd need to implement the Application, Request, and Server objects, among others.  This would be quite a formidable challenge.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001596.html">Re: Getting the URL of the Front IE Window w/ VBScript</a>, Brent Simmons, 12/21/1998; 1:24:57 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

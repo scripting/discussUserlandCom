@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: Rendering to PDF</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Rendering to PDF</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Paul Howson</td></tr>				<tr><td><b>Posted:</b></td><td>2/9/1999; 10:02:47 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002781.html">Rendering to PDF</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2794 (In response to <a href="msg002789.html">2789</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002793.html">2793</a> / <a href="msg002795.html">2795</a></td></tr>				</table>			<br>Ian,<p>
+
+Hi. I'm the author of xmltr. If you read the PDF spec, you'll see that it's just a kind of "assembler language" for describing the arrangement of things on a page. A sanitised, predictable descendent of PostScript if you like.<p>
+
+It deals directly with objects such as lines of text and images and bezier curves at a particular position on a page.<p>
+
+PDF does not deal with high level abstractions such as paragraphs or stories or layout concepts or rules. That's why you need a layout engine. Don't expect to generate pdf out of Frontier.<p>
+
+PageFlex is a new one (one of a new breed of automatic layout engines). There are the stalwarts such as Pagemaker, FrameMaker and QuarkExpress.<p>
+
+And then there's the grand-daddy of them all, TEX. And if you're in a university environment, that may be your best bet. Its usually free and readily available. What xmltr WILL do for you is translate your high level xml abstract document structure into TEX macros (such as LaTex or your own ones). You'll need to script the tool chain: xml->tex->postscript->pdf(via Distiller).<p>
+
+-- Paul Howson.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002795.html">Re: Rendering to PDF</a>, Mark Staben, 2/9/1999; 10:50:18 PM<p><li>&nbsp;<a href="msg002797.html">Re: Rendering to PDF</a>, Ian Beatty, 2/10/1999; 6:27:29 AM<p><li>&nbsp;<a href="msg002988.html">Re: Rendering to PDF</a>, David Boroditsky, 2/18/1999; 8:20:15 AM<p><li>&nbsp;<a href="msg004283.html">Re: Rendering to PDF via Framemaker</a>, Philip Suh, 3/19/1999; 7:12:26 AM<p><li>&nbsp;<a href="msg004290.html">Distiller is not Needed</a>, Mark A. Hershberger, 3/19/1999; 9:32:37 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

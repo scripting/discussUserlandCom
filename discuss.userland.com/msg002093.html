@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: XML-RPC, Object serialization, Perl</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC, Object serialization, Perl</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Ken MacLeod</td></tr>				<tr><td><b>Posted:</b></td><td>1/13/1999; 8:54:32 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002081.html">XML-RPC, Object serialization, Perl</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2093 (In response to <a href="msg002081.html">2081</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002092.html">2092</a> / <a href="msg002094.html">2094</a></td></tr>				</table>			<br>Frontier::RPC converts <struct>s to Perl hashes, <array>s to Perl arrays, and all others to Perl scalars.<p>
+
+To call an RPC server, use Frontier::Client:<p>
+
+  use Frontier::Client;<p>
+
+  $server = Frontier::Client->new(url => $url);<p>
+
+  $result = $server->call($method, @args);<p>
+
+$url is the URL of the XML-RPC server, like `<a href="http://betty.userland.com/RPC2">http://betty.userland.com/RPC2</a>', $method is the XML-RPC procedure name to call, and @args is a list of hashes, arrays, or scalars to pass to the procedure.<p>
+
+To create an XML-RPC server, use Frontier::Daemon.  Frontier::Daemon is a subclass of HTTP::Daemon, so takes all the options that HTTP::Daemon takes for setting up a server, such as the port number.  In addition, Frontier::Daemon takes a `methods' option that is a hash containing the RPC procedure names and references to Perl subroutines:<p>
+
+  use Frontier::Daemon;<p>
+
+  Frontier::Daemon->new(methods => {
+    'rpcName' => &sub_name,
+    });<p>
+
+The subroutines get called with the XML-RPC parameters as hashes, arrays, and scalars.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:15 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

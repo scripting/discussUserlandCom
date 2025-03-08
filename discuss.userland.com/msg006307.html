@@ -1,0 +1,17 @@
+<html>	<head>		<title>Linux kernel info and updates.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Linux kernel info and updates.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>William Crim</td></tr>				<tr><td><b>Posted:</b></td><td>5/15/1999; 6:44:23 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006277.html">Hint to Apple</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6307 (In response to <a href="msg006304.html">6304</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006306.html">6306</a> / <a href="msg006308.html">6308</a></td></tr>				</table>			<br>Ummm I don't know about your experience with Linux, but the Kernel modules(at least the ones included with the kernel source) are almost always updated.  If bugs are discovered, patches are issued quickly.  Linus includes most major kernel modules in source form with the kernel source.  It is rare to find a kernel module that isn't included with the kernel source.(Because Linus is fairly accepting of kernel modules, as opposed to kernel interface changes)  The kernel interfaces(APIs) almost never change during a major dev cycle.  Each module has an owner(s) responsible for development and bugfixes.  <p>
+
+When you install from a distribution, usually when you install the kernel, it has all the modules already compiled(with a few exceptions).  It reads the module.rc(or similar script) to determine what modules to install(Usually based on your answers to setup questions).  You don't have to compile the kernel if you don't want to.  <p>
+
+Linux always has 2 Kernel development tracks.  One for release, and one for experimental.  All the Release kernels are nembered evenly, and experimentals are numbered odd.  For instance...<p>
+
+2.0.x kernels are release
+2.1.x kernels are experimental
+2.2.x release
+2.3.x experimental<p>
+
+The release kernels typically don't add new functionality.  They are just optimizations, recoding, new modules, and bug fixes.  The experimental kernels add new things, new interfaces.  When the experimental track becomes stable enough, it becomes the release track.  For instance, the very last 2.1.x kernel(2.1.123 or something ;-) ) became the 2.2.0 kernel.  At that point that the paths converged, they divide again.  There is now a 2.2.7 kernel(for release) and a 2.3.1 kernel for experimental.  <p>
+
+Every so often, the kernel is declared "stable".  This means that they fixed most of the bugs they could find and that it is safe to use.  Most distriutions use a "stable" kernel, even if it isn't the newest.  If major bugs are found, the various distributions will make precompiled modules and kernels for you to update.  <p>
+
+Some may find it annoying to have to recompile a kernel to get a patch, but it is less annoying than waiting 6-18 months for a new OS release.  When it comes right down to it, if a Mac extension breaks, it is up to the vendor to fix it.  Apple, like Linux, tries not to change the APIs too often, so things don't break.  But Linux, unlike Apple, always gives you the means to get a fix if they do.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

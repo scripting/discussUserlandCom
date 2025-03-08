@@ -1,0 +1,45 @@
+<html>	<head>		<title>inetd events gone bad...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>inetd events gone bad...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td></td></tr>				<tr><td><b>Posted:</b></td><td>4/29/1999; 4:30:31 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005429.html">inetd events gone bad...</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5429</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005428.html">5428</a> / <a href="msg005430.html">5430</a></td></tr>				</table>			<br>Any idea on what's happening here?
+<pre>
+           4:11:49PM  client = 206.173.113.140
+                      port = 80
+                      stream = 6
+                      whatWentWrong = The connection timed out before the pattern was found.
+                      whatWereWeDoing = Calling the daemon<p>
+
+           4:09:51PM  client = 206.173.113.140
+                      port = 80
+                      stream = 7
+                      whatWentWrong = Can't write stream because TCP/IP error code 57 - Socket is not connected.
+                      whatWereWeDoing = Returning data<p>
+
+           4:09:20PM  client = 206.173.113.140
+                      port = 80
+                      stream = 6
+                      whatWentWrong = Can't write stream because TCP/IP error code 57 - Socket is not connected.
+                      whatWereWeDoing = Returning data<p>
+
+           2:15:44PM  client = 205.188.209.74
+                      port = 80
+                      stream = 6
+                      whatWentWrong = The connection timed out before the pattern was found.
+                      whatWereWeDoing = Calling the daemon<p>
+
+           2:15:13PM  client = 205.188.209.74
+                      port = 80
+                      stream = 6
+                      whatWentWrong = The connection timed out before the pattern was found.
+                      whatWereWeDoing = Calling the daemon
+</pre>
+My server is a PowerMac G3 300 MHz.
+Frontier v6
+Mac OS v8.1<p>
+
+I've noticed these errors in the inetd log.  One person told me they couldn't connect to my server.  I can see evidence that others are able to connect so it's not that no one can connect.<p>
+
+If there is something I can tweak on my end, please let me know.  I can attempt to get more details if needed.  Point me in the right direction and I'll dig! :-)<p>
+
+Thanks for any pointers...<p>
+
+Toodle-looooooo.....
+Thomas
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005430.html">Re: inetd events gone bad...</a>, Dave Winer, 4/29/1999; 4:38:50 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

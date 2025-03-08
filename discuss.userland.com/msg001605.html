@@ -1,0 +1,22 @@
+<html>	<head>		<title>Script Control Threading and Performance</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Script Control Threading and Performance</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/22/1998; 2:37:53 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001548.html">Brent's Screenshot-Scripting Windows</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1605 (In response to <a href="msg001548.html">1548</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001601.html">1601</a> / <a href="msg001606.html">1606</a></td></tr>				</table>			<br>I had a question posed to me by Jim Roepcke -- how will Frontier COM scripting hold up on a server?<p>
+
+Excellent question. There are three main issues here: stability, performance, and threading.<p>
+
+I set up a test that spawns 10 threads repeatedly, in a tight loop. The com.callScript verb gets called 1000 times in this test, from multiple threads. I've run the test over and over and over -- no crashes.<p>
+
+So stability seems to be covered. More testing on more machines is in order, of course, but so far indications are that it's solid.<p>
+
+Each thread runs a simple VB script that takes one parameter, a number, multiplies it by 3, and returns the result. The number passed to the VB script is a random number, and Frontier checks the return value to make sure it's correct. It's always correct. If the Script Control were getting crossed-up by handling many threads, the value would be incorrect, and a scriptError would be generated.<p>
+
+There is also a check to ensure that silent failures aren't occurring. They're not. Each thread increments a value in the odb as the last thing it does. At the end of the test, there's a check to make sure this value is 1000. It always is.<p>
+
+So threading seems to be covered.<p>
+
+About performance -- I'm running this on the Honker, a dual-450 Mhz Pentium II running NT Server. Everything's fast on this machine. And I'm pleased to report that this connection is no exception: Frontier takes .887 of a tick -- or less than one-sixtieth of a second -- to build the script code, create an instance of the Script Control, run the script inside the Script Control, get back a result, check the result, and increment a counter in the odb. Much of this is probably overhead -- the VB script goes from Frontier app to DLL to Script Control and back. It's a long trip, but it takes almost no time.<p>
+
+The exact same test, but with com.callScript and the result check commented out, yields a .205 tick average. So the COM portion of this test takes an average .682 (.887 - .205 = .682) of a tick per call. Roughly one-onehundredth of a second.<p>
+
+So: performance seems to be covered. Less fast machines won't show the same performance, but even if it takes a few ticks to run a script, that's good performance.<p>
+
+My answer to the question -- how will this hold up on a server? -- is that, so far, it looks like it will do very well. More testing, including real-world testing, is in order. But these early results are terrific. It performs better with less errors (none!) than I expected.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001610.html">Re: Script Control Threading and Performance</a>, Doug Baron, 12/22/1998; 9:40:46 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:53 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

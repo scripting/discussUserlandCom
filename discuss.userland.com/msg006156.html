@@ -1,0 +1,14 @@
+<html>	<head>		<title>Indexing in Frontier database - vs sql</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Indexing in Frontier database - vs sql</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>5/13/1999; 4:59:12 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006156.html">Indexing in Frontier database - vs sql</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6156</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006155.html">6155</a> / <a href="msg006157.html">6157</a></td></tr>				</table>			<br>Dave Winer wrote (in <a href="http://discuss.userland.com/msgReader$6105">Re: Jumping to the topic message</a>:<p>
+
+<i>the odb is ideal for things like DGs. It's hard to imagine how a relational database could be better suited to the job. </i><p>
+
+While the odb works just as fine as, or better than, an sql database for storing data, it's a bit behind most sql databases when it comes to indexing it. <p>
+
+Every discussion message is for example indexed according to date, in the calendar table. If you manipulate discussion data it's up to you to keep this index in synch. While this is quite possible, and works fine most of the time, it opens up a field of great complexity.<p>
+
+For example: if you happens to delete all the messages for a particular day (by adding a fldeleted = true to them), that day will still be active in the calendar - but there will be no messages to see.<p>
+
+This in itself is not a big problem - but it gives a hint on the problems that will face you if you build a more mission critical indexing, for example on keywords. <p>
+
+Maintaining correct indexes is the key to effective databases, but it's also on of the most complex areas to get right. And at present there is not much support for it in Frontier. (Reservation: I haven't looked into the search engine, obviusly there is a lot of indexing related thinking there, and maybe it can be used to make the odb a realy useful database.)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006157.html">Re: Indexing in Frontier database - vs sql</a>, Dave Winer, 5/13/1999; 5:03:39 AM<p><li>&nbsp;<a href="msg006163.html">Re: Indexing in Frontier database - vs sql</a>, Sam DeVore, 5/13/1999; 7:15:54 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:07 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: Dynamic pages and IIS</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Dynamic pages and IIS</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Rothgery</td></tr>				<tr><td><b>Posted:</b></td><td>7/3/1999; 7:29:29 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008046.html">scriptingNews outline for 7/2/99</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8142 (In response to <a href="msg008139.html">8139</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008141.html">8141</a> / <a href="msg008143.html">8143</a></td></tr>				</table>			<br>There was another line of CGI on IIS.  Which was still faster than Apache (though not by much, and almost exactly in line with everyone else), though this probably was strongly related to the poor state of Linux/Apache multi-CPU support at the time...<p>
+
+If we're talking similar technologies, it'd be PerlEx vs. mod_Perl or ASP v. PHP.  Indeed, probably be the most 'fair' thing to do would be PerlEx/IIS v. mod_Perl/Apache, as you'd be testing fairly similar strategies with nearly identical code (assuming no non-portable Perl -- or at least no non-portable to Win32).  ActiveState says that Perl for ISAPI is somewhat faster (because it eliminates the process-creation overhead) than Perl/CGI on IIS, and that PerlEx (which they charge for) is anywhere from twice to sixty times as fast as Perl for ISAPI (which they don't charge for).<p>
+
+Is there a Linux web server that multi-threads well yet?  Apache (and to a lesser extent Linux itself) doesn't, which is why IIS (and the other commercial servers) kill it under high-demand tests on a single, multi-CPU server.  Indeed, the Apache people recommend using multiple servers instead of a single multi-CPU server.  Nobody seems to to compare two single-CPU servers to a single dual-CPU server.
+On the other hand, NT has a very high overhead and IIS doesn't help, so a really low-end server (say, a midrange Pentium with 48 meg of RAM) is a workable Linux server, but hopeless as an NT server.<p>
+
+Is anyone willing to do a really comprehensive and thorough (read: expensive) comparison test?  Go up to 4 CPUs, because there just aren't that many businesses that need more than 4 CPUs worth of servers (heck, as of early Fall, '98 MS claimed that all of microsoft.com ran on 6 CPUs).  Test two CPUs as one server or two.  Test four CPUs as one, two, or four servers.  Use a 'same application on similar technologies' test (probably Perl/CGI and Perl/mod_Perl | Perl/PerlEx ) on as close to identical Perl as you can get in a realistic application.  Also do a 'fastest execution technology'  and 'fastest development technology' on each web server, to the same specs.  And do Dave Winer's test (I can't call it Dave's test for obvious reasons), of giving each team $X for hardware and software, and telling them to build the best system they could for that amount of cash in X amount of time.<p>
+
+Until someone does so, all we have are vague generalities to work with; something like...
+<ul>
+<li>Apache and Linux are free.  IIS is part of NT Server, which is relatively expensive.</li>
+<li>Apache and Linux work well with (many) single-CPU small servers.
+NT and IIS work well with (few) multi-CPU large servers.</li>
+<li>NT is probably easier to develop for.</li>
+<li>Linux is probably more stable.</li>
+<li>If you want to run a secure server on Unix, you're probably using Netscape.</li>
+<li>If you want to scale beyond 4 CPUs in one machine, you're probably using a commercial Unix and Netscape.</li>
+</ul><p>
+
+All in all, not much to go on...
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008144.html">Linux don't blink</a>, Dave Winer, 7/3/1999; 8:20:10 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:14 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

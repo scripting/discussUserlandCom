@@ -1,0 +1,49 @@
+<html>	<head>		<title>Keeping a background Frontier 6/Mac server running smoothly</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Keeping a background Frontier 6/Mac server running smoothly</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>6/19/1999; 1:25:54 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007581.html">Keeping a background Frontier 6/Mac server running smoothly</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7581</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007580.html">7580</a> / <a href="msg007582.html">7582</a></td></tr>				</table>			<br>A couple of weeks ago I installed a virgin copy of Frontier 6 on a Mac system running an old version of Mac System 7. I use the Mac to offload tasks from the NT server, things like batch-loading of the RSS files for My.UserLand.Com and sending Scripting News bulletins. <p>
+
+This server is doing all its work in response to XML-RPC messages, and in timed processes running under the scheduler. Frontier has trouble doing this 7-by-24. It runs out of sockets, or crashes in a "GUSI" routine. Whatever. I'm not sure if the problem is in the TCP routines in the Mac, or in Frontier, and to a major extent it doesn't matter. I just want the server to run smoothly and now I think I have a formula that works, and want to share it.<p>
+
+<b>An AppleScript</b><p>
+
+First, I wrote an AppleScript that watches to see if Frontier is running, and if not it launches it.<p>
+
+<pre>
+on idle
+	tell application "Finder"
+		if not (exists application process "UserLand Frontier™") then
+			try  
+				open application "UserLand Frontier™"
+			on error
+			end try
+		end if
+	end tell
+	return 10 --run once every 10 seconds
+end idle<p>
+
+on run
+	idle &#123;&#125;
+end run</pre><p>
+
+This script is saved as a runnable application, with an alias in the Startup Items folder so it launches when the system boots. Every ten seconds it checks if Frontier is running and relaunches it.<p>
+
+<b>A Frontier agent that runs every hour</b><p>
+
+Second, I wrote a Frontier agent that quits every five hours.<p>
+
+<pre>
+if not defined (scratchpad.cthoursrunning)
+	scratchpad.cthoursrunning = 0
+if scratchpad.cthoursrunning == 5 
+	delete (@scratchpad.cthoursrunning) //signal to reset
+	filemenu.save ()
+	filemenu.quit ()
+msg ((5 - scratchpad.cthoursrunning) + " hours till we quit.")
+scratchpad.cthoursrunning++
+clock.sleepfor (60 * 60) //sleep for an hour
+</pre><p>
+
+I put the agent at system.agents.quitter.<p>
+
+<b>It works!</b><p>
+
+You can see that it works from the log on the home page of <a href="http://my.userland.com/">My.UserLand.Com</a>. It's updating every hour. Now I can move on to tackle other problems.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007582.html">Re: Keeping a background Frontier 6/Mac server running smoothly</a>, Chris Hanson, 6/19/1999; 3:08:49 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:55 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,32 @@
+<html>	<head>		<title>What does Vignette do? Was Re: Today's scriptingNews Outline</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>What does Vignette do? Was Re: Today's scriptingNews Outline</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Stephen Judd</td></tr>				<tr><td><b>Posted:</b></td><td>12/13/1999; 5:17:01 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013594.html">Today's scriptingNews Outline</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13607 (In response to <a href="msg013594.html">13594</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013606.html">13606</a> / <a href="msg013608.html">13608</a></td></tr>				</table>			<br>What does Vignette do?<p>
+
+My bullet point list:
+<ul>
+<li> Story Server can run on stonking great Solaris boxen for very high load sites
+<li> SS provides an API for personalisation
+<li> SS provides an API for workflow and content management, including launch, expiry, ownership and versioning
+<li> SS processes embedded TCL a la Cold Fusion or ASP or any other server-parsed markup.
+<li> SS has some nice builtin functions that are the equivalent to, say, the CGI.pm perl module, or the cgi Python library.
+</ul><p>
+
+It looks to me like Story Server is fundamentally a series of hacks to build a content management system out of server side includes and server-parsed Tcl in HTML. It's what the thoughtful Unix person would have done. Working with Story Server requires careful thought, care and feeding, it's an engineer's system. <p>
+
+Things that really annoy me:
+<ul>
+<li>it uses an older Tcl - 7.6 - instead of the latest Tcl
+<li>Tcl is hard to grok at first for people used to C-like languages
+<li>the coding tools suck
+<li>the server-parsing isn't that hot, leading to performance issues and really weird name-space issues.
+<li>the price is incredible. SS is good, but it's not THAT good. OTOH, the telco I'm contracting at at the moment simply doesn't care.
+</ul><p>
+
+Things I like:<p>
+
+<ul>
+<li>a really sophisticated caching strategy. Templates can include components which can include components , and so on, and these can all have their own independant caching strategies
+<li>different parts of a Story Server instance - the database, the Application Server, the caching manager, whatever - can all run on different boxen.
+<li> lots of great hand-holding from the vendor.
+</ul><p>
+
+Why are they so different to Userland in their approach and philosophy? My guess is that they see themselves in a whole different market and problem space. BIG corporates, big hardware, big licensing fees. They're after the top 5%.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013609.html">Re: What does Vignette do? Was Re: Today's scriptingNews Outline</a>, David Valentine, 12/13/1999; 6:10:56 PM<p><li>&nbsp;<a href="msg013623.html">You could also check out..</a>, Michael Yacavone, 12/14/1999; 6:47:21 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: critic on bad documentation</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: critic on bad documentation</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/13/1999; 2:00:35 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007294.html">critic on bad documentation</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7319 (In response to <a href="msg007310.html">7310</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007318.html">7318</a> / <a href="msg007320.html">7320</a></td></tr>				</table>			<br><i>How does an HTTP request get handled by Frontier (a) when it is running behind a webserver such as Webstar (say with the Nirvana plug-in) and (b) when Frontier itself is the server. It would be really useful to have a map or description of how Frontier handles the call from the lowest level through to sending back a response.</i><p>
+
+I acually have <a href="http://developers.userland.com/inprogress/narrative">draft version</a> of such a document.<p>
+
+There's really not much of a difference between case (a) and (b). Both will be handled by webserver.server, and when that script is called, not much has really happened yet.<p>
+
+In case (b), the Frontier kernel calls inetd.supervisor whenever a client connects to the http port. This script then calls webserver.server, the daemon associated with that port.<p>
+
+As for case (a), I am not really sure what happens before webserver.server is called (not much, obviously). Brent is our expert on this.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007328.html">How Frontier Handles Requests from Mac Servers</a>, Brent Simmons, 6/14/1999; 1:11:09 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

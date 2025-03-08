@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Problem with IE5 and RSS?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Problem with IE5 and RSS?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Joe Beda</td></tr>				<tr><td><b>Posted:</b></td><td>8/28/1999; 7:49:57 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010144.html">Problem with IE5 and RSS?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>10194 (In response to <a href="msg010144.html">10144</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg010193.html">10193</a> / <a href="msg010195.html">10195</a></td></tr>				</table>			<br>Okay, I've figured this out enough to describe what was going on.<p>
+
+Basically, this comes down to the funky way mime-types are handled.  Keep in mind that I don't have anything to do with this area so I'm not really talking with authority here.  I just wanted to dig into this code and see what was up.<p>
+
+Your server is returning "application/octet-stream" for the mime-type.  IE is grabbing the stream and running our content analyzer on it.  The content analyzer thinks that this is a cdf file and tries to instantiate the object for handling that.  The "<CHANNEL" string in the beginning of the source makes the content analyzer sure that this is a channel definition file.  This fails at some point (didn't dig into why) and the navigation fails silently -- but doesn't pop up a dialog to ask if you want to download.  Strange.<p>
+
+Now, when you are reading this file off of the hard drive, there is no server to ask about the content-type so we defer to the registry based on the file extension and come up with "text/xml".<p>
+
+So, change the server to return "text/xml" for the mime type and clear the page out of your cache (I think you may have to check "delete offline content" when clearing) and you should start seeing the default XML view.  You might also want to return "text/xml" for XSL.<p>
+
+BTW, my test server (IIS 5.0) has both of these mime type set already.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg010237.html">Re: Problem with IE5 and RSS?</a>, Mark Kennedy, 8/30/1999; 9:08:32 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:14 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

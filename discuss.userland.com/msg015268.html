@@ -1,0 +1,50 @@
+<html>	<head>		<title>Re: betty error - POST malformed</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: betty error - POST malformed</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>johnlim@natsoft.com.my</td></tr>				<tr><td><b>Posted:</b></td><td>2/26/2000; 1:34:11 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg015233.html">betty error - POST malformed</a></td></tr>				<tr><td><b>Msg #:</b></td><td>15268 (In response to <a href="msg015240.html">15240</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg015267.html">15267</a> / <a href="msg015269.html">15269</a></td></tr>				</table>			<br>Good morning in California (afternoon in M'sia)<p>
+
+I tried many things to get XML-RPC working without success till I got fed up and did a clean install of frontier 6.1.1 again. I did not connect to userland.com because the remote configuration doesn't work from behind the firewall.<p>
+
+Then I tested the following code and it <b>worked correctly</b>:<p>
+
+<pre>
+ local (params = &#123;18, 31, 2, 44&#125;);
+ s=betty.rpc.client( procedureName:"examples.getStateNames",  <a href="mailto:adrparamlist:@params">adrparamlist:@params</a>, fldebug:true); <a href="http://runs/">//runs</a> on localhost
+msg(s)
+</pre><p>
+
+Great, XML-RPC works in a plain vanilla install with NO guest databases. Then I followed the README.html instructions to add the following commands to frontierStartupCommands.txt. (The following proxy commands are correct - because I can update my root from updates.userland.com thru the firewall)<p>
+
+<pre>
+new (tableType, @user.webBrowser.proxy);
+user.webBrowser.proxy.domain = "192.168.0.1";
+user.webBrowser.proxy.port = 8080;
+user.webBrowser.proxy.username = "";
+user.webBrowser.proxy.password = "";
+</pre><p>
+
+I run the same betty.rpc.client() script above. This time I get an error info dialog stating:<p>
+
+<pre>
+Can't get the address of "methodResponse" 
+because the table doesn't have an object with that name.
+</pre><p>
+
+The html returned by frontier to the XML-RPC request is:<p>
+
+<pre>
+HTTP/1.1 500 Server Error
+Connection: close
+Content-Length: 177
+Date: Sat, 26 Feb 2000 09:14:42 GMT
+Server: UserLand Frontier/6.1.1-Win95<p>
+
+500 Server Error
+Can't call the script because the name "mainResponder" hasn't been defined<p>
+
+</pre><p>
+
+<h3>Reason</h3>
+My guess is that the proxy server code needs some debugging, and there are dependencies requiring mainResponder.root (which I had not opened). The problem is probably somewhere deep down in webserver.server(); incidentally, manila is working fine, only XML-RPC is giving problems.<p>
+
+Another possible cause is that the install instructions for operation behind a proxy server have missed out something.<p>
+
+That's about all I can find out. I hope userland can fix this problem. Temporarily, I can run Frontier outside the firewall as a workaround, but not for long.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg015273.html">Re: betty error - POST malformed</a>, André Radke, 2/26/2000; 5:17:08 AM<p><li>&nbsp;<a href="msg015275.html">Re: betty error - POST malformed</a>, André Radke, 2/26/2000; 3:13:05 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:25 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

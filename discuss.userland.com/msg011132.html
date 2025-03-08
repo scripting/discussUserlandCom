@@ -1,0 +1,16 @@
+<html>	<head>		<title>Re: IETF & XML-RPC</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: IETF & XML-RPC</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Mark Nottingham</td></tr>				<tr><td><b>Posted:</b></td><td>9/16/1999; 8:34:11 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011122.html">IETF & XML-RPC</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11132 (In response to <a href="msg011126.html">11126</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011131.html">11131</a> / <a href="msg011133.html">11133</a></td></tr>				</table>			<br>Ah. Thought that might come up.<p>
+
+Firewalling content is a tricky business; it's impossible to do more than keep tabs on general trends, and do keyword searches with copious logging. I spent the past year and a half babysitting just two of many at a Fortune 25 company, and it's not fun.<p>
+
+HTTP presents its own problems. Sure, you can use filters, but there are plenty of reports about how ineffective they are. Logfiles are absurdly copious; analysing the traffic is difficult and big-brother-ish. <p>
+
+A competent user can get ANYTHING through a firewall that allows HTTP access; filtering is easy to overcome with anonymisers and URL scrambling proxies. <p>
+
+The real kicker is that if your firewall allows secure connections, you have the ability to create a two-way tunnel to the outside world (with CONNECT); at the most, it'll be restricted to just port 443. Since SSL is resistant to man-in-the-middle attacks, it's a gaping hole with no oversight (there is acutally a theoretical way to stop this, but it's not pretty).<p>
+
+Looking at it from the other side, you'll never stop a determined user from getting to the outside, but you can open up content and get the most popular ones (like XML-RPC, if desired). All that's required is that it is readily identifiable in a standard way.<p>
+
+These are the issues that corporations need to come to terms with very quickly. Already, big companies are finding that a significant portion of their employees are using services like Hotmail to do company business, because they're so easy to use. They can block most of this type of use with a large investment in software and staff to manage the firewall, but not all of it.<p>
+
+It all begs the question-- when did the firewall become a means of keeping people in, rather than out? A company certainly needs to keep tabs on it, but controlling external access at a fine-grained level is asking for trouble, IMHO.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011135.html">Re: IETF & XML-RPC</a>, Dave Winer, 9/16/1999; 8:51:42 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

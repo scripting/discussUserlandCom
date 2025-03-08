@@ -1,0 +1,16 @@
+<html>	<head>		<title>Re: A common syndication format?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: A common syndication format?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Matt Hamer</td></tr>				<tr><td><b>Posted:</b></td><td>7/2/1999; 8:35:42 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008044.html">Syndication formats mailing list</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8064 (In response to <a href="msg008047.html">8047</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008063.html">8063</a> / <a href="msg008065.html">8065</a></td></tr>				</table>			<br>Dave wrote:<p>
+
+"To me, the single most important thing is to maintain a non-rigid attitude, to be focused on what I want, and not be overly concerned about stylistic issues at the XML level."<p>
+
+I agree.  I've had some experience working with other groups that are trying to agree on a common "XML protocol" for exchange of financial information (OFX and FIXML). The technical issues about how a particular element should be represented and formally defined in XML are much easier to solve than reaching agreement (in words) on what the elements contain and what they mean.<p>
+
+With that said, I think it is extremely important that what is defined (formally or not) is compatible with <em>any</em> standard non-validating XML parser.  In many cases RSS and, yes, Scripting News resources, are being generated that are incompatible with these parsers (without some "fixing up" before handing off the XML to the parser).  Being incompatible with standard parsers means that they aren't really valid XML!<p>
+
+I'm very interested in formal definitions like DTDs and (someday) XML-Schema, but like Dave, I'd hate to see the process get hung up on technical XML details.  So...I'll volunteer to take a "word" definition of the format and turn it into a formal definition (a DTD).<p>
+
+These are the two issues I've raised before that need to be resolved to make sure that everything works correctly with standard XML parsers.<p>
+
+1.  Should HTML contained within items be represented as markup or as unparsed (escaped or in CDATA) text?  If HTML is considered to be markup, what HTML tags are allowed?<p>
+
+2.  Are HTML entities like &amp;copy; allowed?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008299.html">Re: A common syndication format?</a>, Dan Libby, 7/7/1999; 1:20:37 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:11 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

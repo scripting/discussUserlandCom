@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Linux has Kernel Modules...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Linux has Kernel Modules...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>5/16/1999; 9:23:02 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006277.html">Hint to Apple</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6319 (In response to <a href="msg006304.html">6304</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006318.html">6318</a> / <a href="msg006320.html">6320</a></td></tr>				</table>			<br><I>Modules are great, but there's no guarantee from Linus that modules compiled against one version of the kernel will work with a later version.</I><p>
+
+This is a long-term warning, not a short term warning. Linus tries to maintain strict binary compatibility for long streches of time. Like Microsoft and Apple, though, he reserves the right to eventually change the driver interface. Notice that NT does not support Windows 3.1 drivers, for example. Sometimes, you've just got to fix things.<p>
+
+If Linus said he'd never break the driver interface, he'd have to mean <I>never</I>. If I were him, I wouldn't make that guarantee, either. Today's driver interface on low-end Intel hardware will not necessarily be a good idea on whatever we're running ten years from now.<p>
+
+So if you're writing a Linux driver, you've got two choices. Either you deliver it as binary and promise your users that you'll always be there to fix bugs. Or you can do what nearly everybody does: provide a compiled Intel binary to your users and mail your driver source code to Linus so he can roll it into the official kernel tree. This way, your driver lives for ever, and your code will be ported to every platform under the sun.<p>
+
+So it's OK to provide binary modules, and they'll continue to work for a long time. But if you want cross-platform support and a guarantee that your drivers will always work, they need to go to one of the kernel maintainers.<p>
+
+Cheers,
+Eric
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

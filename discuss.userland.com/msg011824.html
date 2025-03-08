@@ -1,0 +1,22 @@
+<html>	<head>		<title>I see where the problem is</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>I see where the problem is</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>10/7/1999; 9:59:11 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg011823.html">Testing your XML-RPC client</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11824 (In response to <a href="msg011823.html">11823</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011823.html">11823</a> / <a href="msg011825.html">11825</a></td></tr>				</table>			<br>OK, I see what's going on, as I'm sure you did too.<p>
+
+We're only converting left-angle-brackets into &amp;lt;s, not converting
+right-angle-brackets into &amp;gt;s.<p>
+
+Here's a Frontier snippet:<p>
+
+s = "oh the <font> buzzing of the bees";
+xml.coercions.frontierValueToTaggedText (@s, 0)<p>
+
+It returns:<p>
+
+"oh the &amp;lt;font> buzzing of the bees"<p>
+
+It's pretty clear that the XML parser you're using doesn't like this. I
+suspect when we look at the XML spec, they will be right to not like it.
+I'll go look myself in a few minutes.<p>
+
+Stay tuned.<p>
+
+Dave
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011825.html">Re: I see where the problem is</a>, Dave Winer, 10/7/1999; 10:07:26 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

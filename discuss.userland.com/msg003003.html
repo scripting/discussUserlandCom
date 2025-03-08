@@ -1,0 +1,62 @@
+<html>	<head>		<title>Naming of method parameters in the XML-RPC spec...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Naming of method parameters in the XML-RPC spec...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>George T. Talbot</td></tr>				<tr><td><b>Posted:</b></td><td>2/18/1999; 11:59:18 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003003.html">Naming of method parameters in the XML-RPC spec...</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3003</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003002.html">3002</a> / <a href="msg003004.html">3004</a></td></tr>				</table>			<br>I've read the spec for XML-RPC and have a question about method parameters:<p>
+
+I've been experimenting with using XML in a custom distributed-object system and am interested in conforming to existing standards, such as the Fronteir XML-RPC spec.  Currently, I name parameters in a method call like this:  (a contrived example in the style of XML-RPC...)<p>
+
+<methodCall>
+    <methodName>example.OpenFile</methodName>
+    <params>
+        <name type="string">readme.txt</name>
+        <mode type="string">w</mode>
+    </params>
+</methodCall><p>
+
+or, assuming that both sides agreed upon data types through other means...<p>
+
+<methodCall>
+    <methodName>example.OpenFile</methodName>
+    <params>
+        <name>readme.txt</name>
+        <mode>w</mode>
+    </params>
+</methodCall><p>
+
+Is there a reason not to do this, and to use the parameter types as tag names rather than using the parameter names as tag names?  One might also do this:<p>
+
+<methodCall>
+    <methodName>example.OpenFile</methodName>
+    <params>
+        <param>
+            <name>name</name>
+            <value>readme.txt</value>
+        </param>
+        <param>
+            <name>mode</name>
+            <value>m</value>
+        </param>
+    </params>
+</methodCall><p>
+
+The reasoning behind naming the parameters explicitly is removing the sensitivity upon order in a method call.  Should it make a difference what order the parameters are in?  Currently, as far as I can tell, it does, as parameters are not named.  Why is this done differently from the <struct> notation in the XML-RPC standard?  For example, why not:<p>
+
+<methodCall>
+    <methodName>example.OpenFile</methodName>
+    <params>
+        <member>
+            <name>name</name>
+            <value>readme.txt</value>
+        </member>
+        <member>
+            <name>mode</name>
+            <value>w</value>
+        </member>
+    </params>
+</methodCall><p>
+
+This might also allow extension of existing messages by adding parameters such that old clients that don't understand the new parameters would ignore them.<p>
+
+Sorry if these questions are a bit off-the-wall...I'm coming to this from probably a slightly different perspective and without the context that everyone else has.<p>
+
+--
+George T. Talbot
+<<a href="mailto:george@moberg.com">george@moberg.com</a>>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003004.html">Re: Naming of method parameters in the XML-RPC spec...</a>, George T. Talbot, 2/18/1999; 12:00:48 PM<p><li>&nbsp;<a href="msg004921.html">Re: Naming of method parameters in the XML-RPC spec...</a>, Jeff Gilbert, 4/9/1999; 12:02:44 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:58 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

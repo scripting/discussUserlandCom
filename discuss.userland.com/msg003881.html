@@ -1,0 +1,18 @@
+<html>	<head>		<title>Alternatives to MS Office and BackOffice (was Re: Linux and)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Alternatives to MS Office and BackOffice (was Re: Linux and)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Aiello</td></tr>				<tr><td><b>Posted:</b></td><td>3/10/1999; 7:33:32 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003607.html">scriptingNews outline for 3/5/99</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3881 (In response to <a href="msg003867.html">3867</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003880.html">3880</a> / <a href="msg003882.html">3882</a></td></tr>				</table>			<br>I am managing a gradual transition off of Windows NT Server at my company.  Our principle concern is the server OS, so that makes Linux a good choice for us.<p>
+
+I see that others have responded to your message and suggested StarOffice as a solution for your Microsoft Office document access problems.  I would also point out that <a href="http://www.applix.com/">Applix</a> is a useful package.  It is fairly MS Office-compatible, and provides neat features like scriptability and interfaces to SQL data sources.<p>
+
+With respect to your MS SQL Server 7 problems, I have told my clients and customers that we are not going to upgrade, simply because of the increased probability of lock in.  Everyone is terribly afraid of scalability of the underlying NT Server architecture, so it is not a tough sell.<p>
+
+Our migration is likely to be toward Sybase Adaptive Server Enterprise or Adaptive Server Anywhere, but that decision has not yet been made.  One of the unresolved issues is whether should we migrate to Sybase before we migrate off of NT Server.<p>
+
+If you are looking for information about SQL Server 7, some of the best sources I've found are <a href="http://www.winntmag.com/">Windows NT Magazine</a>, <a href="http://www.pinpub.com/sqlpro/home.htm">SQL Server Professional</a> (for its print resources more than its Web Site), and <a href="http://www.dejanews.com/">Deja News</a> to search SQL Server-related newsgroups.<p>
+
+There are other on-line sources of information, but they seem to be more oriented toward SQL Server / Visual Basic integration.<p>
+
+I don't know much about SQL Server 7's notification functions, but if SQL Server 7 has functions similar to Sybase thresholds, you should be able to execute an extended stored procedure which would invoke a Perl script and send mail to the user, using any SMTP server you like.<p>
+
+I have found MS SQL Server (6.5 at least) to be scriptable using Perl and the DBD/DBI/ODBC module sets.  I have not played much with the possibility of integrating Perl into the SQL Executive, but I have no doubt that where there's a will, there's a way.<p>
+
+Dave Aiello
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:48:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

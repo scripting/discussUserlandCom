@@ -1,0 +1,44 @@
+<html>	<head>		<title>Frontier's Future-DistributedNetworking?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Frontier's Future-DistributedNetworking?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Fred Grott</td></tr>				<tr><td><b>Posted:</b></td><td>6/13/2000; 6:54:34 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg017775.html">Frontier's Future-DistributedNetworking?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>17775</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg017774.html">17774</a> / <a href="msg017776.html">17776</a></td></tr>				</table>			<br>In my quest to solve the loading issues in design an auction website or e-commerce webiste..I stumbled upon the idea of having Frontier Servers in a distributed Network where one would route incoming requests to those servers that were free using a router.root simal to router tables and etc..Here is the full idea..<p>
+
+
+Frontier Distributed Servers<p>
+
+I was thinking about how would you get Frontier servers to act in a Intranet system in 
+order to handle big sites like auctions and e-commerce websites where there is a
+large amount of incoming requests.<p>
+
+It occured to me that with some additional special toots and app suites Frontier
+Servers could be configured into a network of servers that constantly take
+a set of requests to process on the direction of a main Frontier server serving 
+as a Router to that particular auction or e-commerce system.  Let me explain..<p>
+
+We code a new root called router.root that has the info about all the servers
+on the network including, amounts of threads open, amount of threads being 
+processed..basically all the required info to compute a routing
+priority value for the router to inspect..For example the value could
+be from 0 to 9 with zero as no threads being processed..Router
+would look for lowest valued server and send the request to that server.<p>
+
+To handle the mapping of these multiple roots into an object scheme
+that reflects which root should be open to handle a request a new
+subtable should be created in the router.root that could be called
+vMap.  It would basically map the roots and their location and the directory
+relationship each root has in the website and it would also be
+configurable by the user..so you could map accross any type of network
+for any amount fo Fronteir servers that work in a distributed network.<p>
+
+The nice thing about this solution is thjat it doesn't currently disturb
+the current Frontier framework.<p>
+
+The only problem now is that I want to code this into Frontier but with
+my creditors not giving breathing room..I do not know how next to proceed.<p>
+
+Dave Winer, I am unsure what the next step should be..any ideas?  I mean the
+code right now is floating in my head..at least the structure of 
+the router.root and other code..This would be a real nice addition to
+the tools in Frontier..but how do I keep from starving when writing the code?<p>
+
+You have to admit its a real nice vision to implement, no?<p>
+
+Its obvious that I might have to d a partial sapmle of router.root to get the 'ball' rolling here..Comments..hmm we should have a weblog site on this..okay I get that doen toaday..
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:55:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

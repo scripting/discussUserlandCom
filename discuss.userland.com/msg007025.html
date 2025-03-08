@@ -1,0 +1,35 @@
+<html>	<head>		<title>system.verbs.builtins.html.ftpText</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>system.verbs.builtins.html.ftpText</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Thomas A. Creedon</td></tr>				<tr><td><b>Posted:</b></td><td>6/4/1999; 5:04:49 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007025.html">system.verbs.builtins.html.ftpText</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7025</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007024.html">7024</a> / <a href="msg007026.html">7026</a></td></tr>				</table>			<br>Hello all,<p>
+
+My setup...
+Mac G3/Mac OS v8.6
+Frontier 6<p>
+
+I'm working on a static site (not using mR).  I loaded a PDF file into the ODB with a name like 'myPDFDocument.pdf'.  I selected the entry and selected Publish Page.  Everything went as expected.  Except when the document was opened in Acrobat Reader, the page was blank.<p>
+
+Time to start diggin'!<p>
+
+Well, I uploaded the PDF document from the Finder via Anarchie.  Went to the URL in Netscape and this time, the document opened just fine in AR.<p>
+
+I started to trace the code for Publish Page and discovered that system.verbs.builtins.html.ftpText sets up all files to be written with a type of 'TEXT'.  I assumed at this point that Anarchie was doing it's thing in the background and translating end of line characters for upload to the server, which in this case, messed up the PDF file.<p>
+
+Here is my modified version of system.verbs.builtins.html.ftpText that seems to take care of my problem.
+<pre>
+on ftpText (s, adrPageTable = html.getPageTableAddress ()) &#123;
+	&#171;Fri, Jun 4, 1999 at 3:51:11 PM by TAC - replaced @websites.["#data"] with html.getPageTableAddress.  could this cause problems?
+	if defined (adrPageTable^.fileWriter) &#123; <a href="http://new/">//new</a> method
+		&#171;Fri, Jun 4, 1999 at 3:49:19 PM by TAC - replaced 'TEXT' with getBinaryType so binaries will upload properly on Mac
+		html.writeFile (adrPageTable^.f, @s, getBinaryType (s), html.getPref ("textFileCreator", adrPageTable), clock.now (), adrPageTable)}
+	else &#123; <a href="http://if/">//if</a> fileWriters are not being used
+		true}}
+</pre><p>
+
+Any thoughts you have would be appreciated.<p>
+
+Userland, if you think these changes would be generally beneficial, please include them as time permits.<p>
+
+Thanks much,
+<pre>
+Toodle-loooooooo.......
+Thomas
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007032.html">Re: system.verbs.builtins.html.ftpText</a>, Brent Simmons, 6/5/1999; 1:17:54 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

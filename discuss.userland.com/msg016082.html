@@ -1,0 +1,60 @@
+<html>	<head>		<title>Why you don't want Gnutella (at least not yet)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Why you don't want Gnutella (at least not yet)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jacob Levy</td></tr>				<tr><td><b>Posted:</b></td><td>4/11/2000; 9:26:41 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016082.html">Why you don't want Gnutella (at least not yet)</a></td></tr>				<tr><td><b>Msg #:</b></td><td>16082</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg016081.html">16081</a> / <a href="msg016083.html">16083</a></td></tr>				</table>			<br><b>A Short Gnutella Review</b><p>
+
+So Dave piqued my interest by mentioning that he thinks he wants <a href="http://gnutella.wego.com/go/wego.group.group?groupId=116705">Gnutella</a>, the decentralized software for file sharing that originally started at NullSoft (now AOL).<p>
+
+I downloaded the 0.56 version from <a href="http://gnutella.wego.com/go/wego.folders.folder?groupId=116705&action=view&view=contents&folderId=116773&panelId=-1&pageId=119438">here</a>, installed without a hitch and went to town.<p>
+
+I'm not going to <a href="http://discuss.userland.com/msgReader$16097">comment</a> here about the political/ethical issues surrounding Gnutella. I do have an opinion but that's for a different posting or discussion. What follows is a description of how it works, and why you might not want it (yet).<p>
+
+<b>How it Connects</b><p>
+
+When you start your Gnutella client (which is also a <i>server</i>; more about that later), you're presented with a window where automagically a list of servers appears, and some connections are started, with apparently at-random selected servers in the list.<p>
+
+Next, your client initiates a spanning search for files across the Gnutella network. The client lists the number of reachable servers, the aggregate number of files they make available, and the total size, in megabytes, of all files available. I was amazed to see that, at 11pm on a weekday night, about 24 hours after the portal was announced, I could avail myself of more that two thousand reachable servers, with more than 500,000 (half a million!) files totalling a tera-byte and a half of data. <i>Yikes</i>.<p>
+
+<b>User Interface</b><p>
+
+The UI (of the Windows client I used) consists of a very bare-bones interface, with a semi-tabbed selection of panes (semi-tabbed means that instead of having tabs, it reuses the same main window -- hard to explain.. :). <p>
+
+The most important tabs are the <i>search</i> tab and the <i>downloads</i> tab. The search tab allows you to type in a search query and optionally watch what others are searching for through a search spy. That's something to behold! The searches fly by at an amazing rate, at least a hundred fifty searches a second. It scrolls so fast you can't even read what is being searched for. Search results for any search you initiated appear in a separate window, sorted by name, size or server-advertized download bandwidth. You'll get lots of duplicates. One point of note: I did not find any way to identify from the UI what the IP address is of a server offering any file. Its completely anonymous, at least at the UI level. I suppose a packet sniffer or such would tell me everything.. :)<p>
+
+When you select a file for downloading, you're taken to the <i>downloads</i> tab, where you can see the downloads already happening, and their progress. You can do the usual things like cancelling downloads, resuming failed ones etc.<p>
+
+There's a button that's supposed to stream a file to your computer instead of downloading it, but I couldn't get it to work. Maybe it's not yet working, the version I tested is very beta, after all. With this feature, you can make any of the servers become a broadcaster for the file you want to view in streaming mode.<p>
+
+<b>It's Alive!</b><p>
+
+The last tab of interest is the <i>conf</i> tab, where you configure the client. Here is where I discovered that I had a server on my hands, not just a piece of client software.<p>
+
+First off, you can specify a directory on your HD where you export files. I specified the same directory for downloads and advertized files, so all files I downloaded were immediately available for others to download from <i>my</i> computer.<p>
+
+Next, you can limit the number of concurrent downloads others can initiate from your computer, and you can limit the number of results returned for a search of your exported files, etc. You can control how many connections your Gnutella client will attempt to keep open, and you can advertize that you have such-and-such bandwidth available for downloads from your computer (<i>upstream</i> from your computer, from your perspective, so they're called <i>uploads</i> in Gnutella terminology).<p>
+
+Your client is continually bombarded with a never ending stream of requests for files. It searches the area of your HD that you chose to export for matches to the queries received, and sends back file name matches. At the time I tested, the stream of queries reached a rate of about a hundred queries per second, causing my computer to have indigestion, to say the least :). The more files you export, the more slowdown you'll experience, I predict.<p>
+
+<b>So What's Out There?</b><p>
+
+Lots of stuff. Lots of crap. Lots of pirated music. Several copies of the movie <i>The Matrix</i>, needless to say all pirated. Lots of music, video, the entire collection of Simpson episodes. Lots of porn, stuff your mama wouldnt want you to see, and so on.<p>
+
+The selection of stuff is simply amazing, and it made me waste an entire evening downloading stuff I didn't need. I haven't kept anything I downloaded, all of it ended up in the recycling bin. Don't know if that indicates I'm jaded, or that it's all crap, or that I was unlucky in finding stuff that interests me. Whatever.<p>
+
+The variety and choice of downloadable materials is likely to widen a lot in the near future, as more and more people join in the Gnutella network. Expect to see whole copies of Word for Windows, Linux, Stephen King's online novella (cracked, for your convenience of course) and on and on.<p>
+
+<b>So Why Don't You Want It?</b><p>
+
+Well, most importantly, it sucks bandwidth. I can easily see how network admins will want to outlaw this beast, if they can. For my evening of experimentation, I downloaded a total of 65 MBytes of files, while my total incoming consumed bandwidth was 365 MBytes, and my upstream bandwidth was <b>755 MBytes</b>. Yes, really -- all that, in a measly <i>five</i> hours.<p>
+
+There are clearly several things wrong with this picture. First of all, note that the upstream (from my perspective) bandwidth consumption was larger than the downstream bandwidth consumption, even though I have 128K upstream and 1.5Mb downstream. I have no idea what caused 755 MBytes worth of upstream traffic, because other people downloaded a grand total of five files from my computer while I was online for a total bytecount of 2.5 MBytes. Where did the other 750 or so MBytes of traffic come from?! I didn't even know that you can squeeze 750 MBytes of traffic through a 128K line.. Double Yikes!<p>
+
+Second, of the download bandwidth consumption, only 65 MBytes were for files I actually downloaded. The other <b>300</b> or so MBytes were consumed by Gnutella itself just doing its thing.<p>
+
+Maybe these are bugs in the protocol that are going to get fixed, but until they do, I don't want to risk getting a phone call from my friendly ISP telling me my account is cancelled because I consumed 75% of their available bandwidth. No thanks, especially for the junk that I get in return for my efforts.<p>
+
+I can't finish this review without noting the <i>potential</i> for this software. It's very likely to change the way people use the Net. First, it's <b>EASY</b> to use. It mostly just works. Second, if there actually was stuff out there that I wanted, I'd consider using it. And if they fix the bandwidth sucking problem, I'd feel safe (from my ISP's wrath :) in using it.<p>
+
+There's also the point about using the protocol in other apps. I can imagine a Gnutella-enabled name service for services offered on end user computers. Each user advertizes the services offered, and you connect to them through this network. Or a Gnutella-enabled editor, for sharing writings. Or Gnutella-meets-IM. The possibilities are endless.<p>
+
+<p>
+
+</b>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg016084.html">Re: Why you don't want Gnutella (at least not yet)</a>, Jonas Beckman, 4/11/2000; 10:42:05 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

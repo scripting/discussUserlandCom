@@ -1,0 +1,42 @@
+<html>	<head>		<title>Using MR with WebSTAR and Pre-Processors</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Using MR with WebSTAR and Pre-Processors</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Sam DeVore</td></tr>				<tr><td><b>Posted:</b></td><td>7/28/1999; 9:29:11 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008861.html">Using MR with WebSTAR and Pre-Processors</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8861</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008860.html">8860</a> / <a href="msg008862.html">8862</a></td></tr>				</table>			<br>Posted this to frontier-users and realized that it should be in a place where it will show up in a search...<p>
+
+
+Hello all,
+	So I was gleening through old info after having my head down for a while and came across Matt's  (can't wait to see your influence on the docs, congrats) way of using preprocessing, cool, and I wanted to use it on my site that I will run behind WebSTAR when I get back to the school.  So I was tesing it out on my machine here at home and it worked sometimes???? So in looking at the action that was coming in I discovered that sometimes it would call PREPROCESSOR (it would work here) and sometimes INDEX (no work here) and ERROR and NO-ACCESS.  The first thing that I did to get it to work was to put a copy of Matt's script with my own conditions in each action that I made,  not the smartest thing because then I had to remember to make any changes in all of them, Duh.  So what did I do...
+	
+on index became this...
+<pre>
+on INDEX (adrparams)
+	RETURN (user.webserver.actions.PREPROCESSOR(adrparams))
+</pre>
+you can imagine the others...<p>
+
+Thanks Matt for a great solution to letting MainResponder (MR) handle requests to dynamic content and letting Web* doing the grunt work of tossing out the images and other things that don't need to go through MR.  Cool.  Please make sure you add this to the docs as you work on them, it is very usefull and POWERFUL.  To use it set the PREPROCESSOR path in WebSTAR to :Frontier.acgi<p>
+
+Sam D.<p>
+
+PS. THE BOOK is still useful<p>
+
+pss. here is Matt's script with many conditions (is there a better way for all these conditions I'm out of control???)  I attached the scripts using the suites.editorial  (<a href="http://nirvana.userland.com/htmlinterfaces/nirvanaServerDiscuss/msgReader$22">http://nirvana.userland.com/htmlinterfaces/nirvanaServerDiscuss/msgReader$22</a>) I figure the index script you could write yourself....
+<pre>
+on PREPROCESSOR (adrparams) &#123;
+	 local (req = string.lower(adrparams^.fullrequest));
+	 if req contains ".html" or req contains ".gif" or req contains   
+	".jpg" or req contains ".cgi" or req contains ".acgi" or req 
+	contains ".admin" or req contains ".jar" or req contains ".java"  or 
+	req contains ".count" or req contains ".mail" &#123;
+		return ("")&#125;; <a href="//">//</a> let WebSTAR or qpq do it
+	 local (pageTable); <a href="//">//</a> the rest is out of the Nirvana action script
+	 new (tableType, @pageTable);
+	 pageTable.client = adrParams^.clientIP;
+	 pageTable.port = adrParams^.serverPort;
+	 pageTable.request = adrParams^.fullRequest;
+		pageTable.stream = 0;
+	 if defined (adrParams^.postArgs) &#123;
+		  if adrParams^.postArgs != "" &#123;
+			   pageTable.request = pageTable.request + adrParams^.postArgs + 
+			"\r\n"&#125;&#125;;
+	 return (webserver.server (@pageTable, pageTable.request))&#125;
+</pre><p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012059.html">Re: Using MR with WebSTAR and Pre-Processors</a>, Murray Pearson, 10/14/1999; 10:42:00 PM<p><li>&nbsp;<a href="msg012224.html">Re: Using MR with WebSTAR and Pre-Processors</a>, Matt Neuburg, 10/21/1999; 10:02:25 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

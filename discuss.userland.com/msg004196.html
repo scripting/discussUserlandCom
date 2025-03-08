@@ -1,0 +1,24 @@
+<html>	<head>		<title>Re: Question from an ex-NeXT user</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Question from an ex-NeXT user</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jonathan Hendry</td></tr>				<tr><td><b>Posted:</b></td><td>3/16/1999; 5:33:14 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004183.html">Mac OS X Server Press Conference</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4196 (In response to <a href="msg004194.html">4194</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004195.html">4195</a> / <a href="msg004197.html">4197</a></td></tr>				</table>			<br>I've never seen this problem with printing/faxing. I've seen
+plenty of NeXT print servers that are rarely -if ever- rebooted.<p>
+
+Which isn't to say it never happened. Significantly complex
+Postscript or lots of big bitmaps might well do it.<p>
+
+The only time this was a problem for me was when looking at
+lots of big images or webpages in certain applications.<p>
+
+Avie Tevanian posted to usenet to explain the whole issue a few years ago. Check altavista or dejanews. The system *will*
+reclaim swap. It will shrink the swapfile when it can, but
+if it cannot, it still reclaims the space - the swapfile is
+large but mostly 'empty'. The 'empty' space within it will
+be reused before the swapfile is enlarged again.<p>
+
+Logging out and restarting the Display Postscript WindowServer
+(by logging in as 'exit') will often allow the vm system to
+reclaim any clogged VM and shrink the swapfile.<p>
+
+Combined with the typical RAM & disks on machines today, I doubt
+this will be a problem. If it is, add a disk for VM spillover.<p>
+
+- Jon
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004208.html">Re: Question from an ex-NeXT user</a>, Zeke Koch, 3/17/1999; 8:42:11 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

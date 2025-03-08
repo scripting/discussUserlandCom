@@ -1,0 +1,29 @@
+<html>	<head>		<title>Re: A feature coming in MSIE</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: A feature coming in MSIE</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Rob Relyea</td></tr>				<tr><td><b>Posted:</b></td><td>1/10/2000; 8:50:23 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg014301.html">A feature coming in MSIE</a></td></tr>				<tr><td><b>Msg #:</b></td><td>14321 (In response to <a href="msg014308.html">14308</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg014320.html">14320</a> / <a href="msg014322.html">14322</a></td></tr>				</table>			<br>Please send feedback about the contenteditable feature to me at <a href="mailto:rrelyea@microsoft.com">rrelyea@microsoft.com</a>.  We're excited by the capability this new element property will give application and page authors.<p>
+
+A few things about the feature:
+1) once you set this property on an element (declaratively or through script), the contents of the element will be turned into edit mode.
+try this with IE 5.5:
+<body> this is <div style=background-Color:yellow contentEditable=true>editable text</div></body><p>
+
+2) this property has a side effect of making the element rectangular (a span will no longer be able to wrap across lines)<p>
+
+3) for several applications, people will use this property to allow a web page to have a better editor than a <textarea>.  in order to submit the text in a contentEditable element to the server, you could do something like this:
+<div id=d1 contentEditable=true>edit <b>this</b> text</div>
+<form id=f1 action="http://static.userland.com/userLandDiscussArchive/somepage.asp" onsubmit=submitHTMLSource()>
+<input type=hidden name=htmlSource>
+<input type=submit>
+</form>
+<script>
+function submitHTMLSource() &#123;
+    f1.htmlSource.value = d1.innerHTML;
+&#125;
+</script><p>
+
+As far as the audio feedback, yes it is annoying.  It is a bug that we shipped in the beta.  It will be fixed before the next beta.<p>
+
+Thanks,
+Rob<p>
+
+Rob Relyea
+Program Manager, Internet Explorer
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg014322.html">Re: A feature coming in MSIE</a>, Dave Winer, 1/10/2000; 9:18:01 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:02 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

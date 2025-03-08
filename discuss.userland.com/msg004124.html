@@ -1,0 +1,62 @@
+<html>	<head>		<title>Zope and Frontier compared</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Zope and Frontier compared</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Kidd</td></tr>				<tr><td><b>Posted:</b></td><td>3/15/1999; 11:08:59 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000827.html">Zope vs. Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4124 (In response to <a href="msg004114.html">4114</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004123.html">4123</a> / <a href="msg004125.html">4125</a></td></tr>				</table>			<br>I've used both Frontier and Zope. I like both products.<p>
+
+Fontier has a nice UI, a good database, and lots of connections to Macintosh publishing applications. Zope, on the other hand, has complete web-based management, a persistent object database, and deep connections to most third-party SQL databases.<p>
+
+In the sections that follow, I compare various aspects of Frontier and Zope. I spend more time describing Zope, because I assume that most people here already understand Frontier.<p>
+
+Overall, the two products are quite similar, but they have complementary strengths. Frontier and Zope aren't really replacements for each other--they appear to have different design constraints and target markets.<p>
+
+* User Interface<p>
+
+Frontier has a portable interface for the MacOS and Windows. This interface includes a text editor, an outliner and a good script debugger. Frontier's interface doesn't run on Unix systems, which isn't a big problem for most users. (It *is*, however, a deal-stopper for me, because I use a Linux desktop at work and at home.)<p>
+
+Zope can be managed entirely through the web. I can create web pages, database queries, discussion groups, and many other things from within my browser. If I want to use an external editor, Zope provides an HTML upload button. This is not ideal, but it works.<p>
+
+Zope is especially good at delegation. It provides fine-grained access control, and users can be "given" folders of their own. One Zope database could easily support hundreds of authors and designers.<p>
+
+* Built-in Database<p>
+
+Frontier has a hiearchial object database that can store scripts, data, text, outlines and HTML. This database is extremely easy to use, especially for scripters.<p>
+
+Zope has a persistent object database. From a user's perspective, it looks quite a bit like the Frontier database. Internally, it actually contains an arbitrary web of Python objects.<p>
+
+Zope's database supports *transactions*. In database theory, a transaction is a group of operations that must happen as a complete set: if one happens, all of them must happen. If a transaction is aborted halfway through, all of the operations so far are backed out of the database in a safe fashion.<p>
+
+Zope does several fun things with transactions. For example, all page displays are atomic--if one database operation in a page succeeds and a later one fails, the first operation is never commited to disk. Zope also supports a user-level "undo" command. If one of your users breaks your site, you can revert things to a previous state. Similarly, Zope can store an in-development version of your site on your production server--without disrupting the public's view of your site--and commit all your changes at once when you're ready.<p>
+
+On the downside, Zope's database seems slightly more complicated than Frontier's, although both products try to hide most of their complexity.<p>
+
+* Scripting Languages<p>
+
+Frontier supports UserTalk, a well-documented and easy-to-learn language. Everybody here should know some UserTalk, so I'll skip the details.<p>
+
+Zope has *two* scripting languages: DTML and Python. DTML (Document Template Markup Language) is meant for web designers. It's similar to server-side includes and allows simple conditionals, iteration over database queries, and inclusion of HTML fragments. One neat feature of DTML is that it's "safe"--you can give an untrusted user full DTML access without compromising the security of your server.<p>
+
+For the scripters, Zope provides Python. For those who haven't used it, Python is simple but powerful programming language with a moderately large user base. You can find Python libraries for XML, regular expressions, XML-RPC, HTTP and many other tasks. Ironically, Python looks a lot like UserTalk. You could even edit it with an outliner. Talk about convergent evolution. ;-)<p>
+
+Once you descend to the Python level, Zope is amazingly, mind-blowingly powerful. Unfortunately, it's hard to make the transition from DTML to Python and many folks will get stuck for a while. This is a major drawback of Zope, especially when compared to Frontier.<p>
+
+In particular, Zope's debugging facilities for Python code would probably terrify novice scripters.<p>
+
+* External Interfaces<p>
+
+Frontier talks to Macintosh internet and content apps better than any other program. Since a lot of publishing companies use the MacOS and AppleScript to automate their workflow, this is an enormous advantage for Frontier.<p>
+
+Zope, on the other hand, loves databases. It has deep support for SQL, report generation and external transaction management. It speaks to ODBC databases (including MS Access and MS SQL Server), Oracle, Sybase, MySQL and PostgreSQL. It's relatively easy to add support for a new database, too.<p>
+
+Digital Creations has even more database tools for use with Zope, but some of them cost money or require a consulting contract. Their Aqueduct product allows Zope to join results from different databases and fetch results from other Zope servers. Their Tabula product (a.k.a. "Z Tables") adds a built-in SQL (?) database to Zope, and allows users to upload database files from their workstations. A number of popular database formats are supported.<p>
+
+* User Management<p>
+
+Frontier has a built-in user database with arbitrary account information. Zope has trouble storing site-specific information about users (although DC is promising to fix this). It's also possible for Zope to fetch its user database from an external source.<p>
+
+* User Community<p>
+
+UserLand is migrating from a large base of hobbyist users (in the 3.0 to 5.0 days, IIRC) towards the professional market. Zope is migrating from the high-end consulting market to the world of open-source software. Of course, Digital Creations is still doing the high-end consulting; it's all explained in their business plan.<p>
+
+Overall, Zope and Fontier seem strangely similar. I chalk this up to convergent evolution--there's probably one optimal way to build this sort of software, and everybody's blundering in the same direction. On the other hand, the two products are quite complementary--they could easily flow content into each other and perhaps even co-exist in a client/server environment. I could imagine using Frontier to extract data from a MacOS-based publishing workflow, Zope to pull data out of an AIX database, and either product to render the final site.<p>
+
+Fortunately, thanks to things like XML-RPC and WebDAV, this isn't an either-or decision. I've been talking with a local Frontier guru about making Zope and Frontier play nicely.<p>
+
+If anybody would like a Zope folder to play around with over the web, just drop me a line. This includes the folks at UserLand if they want to do a competitive evaluation. ;-)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004125.html">Re: Zope and Frontier compared</a>, Dave Winer, 3/15/1999; 11:57:51 AM<p><li>&nbsp;<a href="msg006181.html">Re: Zope and Frontier compared</a>, Michel Pelletier, 5/13/1999; 2:08:45 PM<p><li>&nbsp;<a href="msg006193.html">Re: Zope and Frontier compared</a>, Mark Alexander, 5/13/1999; 6:41:40 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:46 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

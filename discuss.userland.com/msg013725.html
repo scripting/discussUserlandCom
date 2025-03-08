@@ -1,0 +1,23 @@
+<html>	<head>		<title>Re: Can't call it the web if it's not HTTP</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Can't call it the web if it's not HTTP</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Matt Webb</td></tr>				<tr><td><b>Posted:</b></td><td>12/19/1999; 9:12:59 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg013707.html">How to start WAPping</a></td></tr>				<tr><td><b>Msg #:</b></td><td>13725 (In response to <a href="msg013717.html">13717</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg013724.html">13724</a> / <a href="msg013726.html">13726</a></td></tr>				</table>			<br><i>My opinion only, but you can't call it the web if it's not HTTP.</i><p>
+
+Not getting into technicalities here (that would be no fun!) but to all intents-and-purposes it is HTTP. I quote from Nokia's 'Getting Started, Nokia WAP Toolkit version 1.1' manual available from <a href="http://www.forum.nokia.com">http://www.forum.nokia.com</a><p>
+
+[quote]
+The WAP is similar to a Web model and operates as follows:
+<ol type="1">
+<li>The user presses a phone key that has an URL request assigned to it.
+<li>The user agent sends an URL request to a WAP gateway using the WAP protocol
+<li>The WAP gateway generates a conventional HTTP request for the specified URL and sends it to the web server.
+<li>The web server parses the HTTP request [cut unnecessary explanation of how]
+<li>The web server returns the WML deck with the added HTTP header or the WML output from the CGI or other script application.
+<li>The WAP gateway verifies the HTTP header and the WML content and encodes them to binary form. The gateway then creates a WAP response containing the WML and sends it to the user agent.
+<li>The user agent receives the WAP response. It parses the WML response and displays the first card of the WML deck to the user.
+</ol>
+[end quote]<p>
+
+All the WAP protocol is is a way of efficiently getting the data from the telephone exchange through the air to the phone. Everything else is HTTP.<p>
+
+<i>The confusion can be abated. Optimize existing standards of the net, XML and HTTP and do it transparently to web developers. I should be able to put an HTTP server on port 80 and have the same content as easily browsed by MSIE 5 and a wireless cell-device.</i><p>
+
+I believe that WAP is doing just that. A couple of days ago, I used Nokia's WAP toolkit (to simulate the phone) and started serving WML pages. Repurposing my current data pulled from my database, it took me 10 minutes. Cool! I hadn't even looked at the WML spec before. Even cooler!
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg013726.html">Re: Can't call it the web if it's not HTTP</a>, Dave Winer, 12/19/1999; 9:18:43 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:47 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

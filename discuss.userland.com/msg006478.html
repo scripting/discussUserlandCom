@@ -1,0 +1,12 @@
+<html>	<head>		<title>Quicker image rendering</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Quicker image rendering</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Tommy Sundström</td></tr>				<tr><td><b>Posted:</b></td><td>5/19/1999; 2:55:08 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006478.html">Quicker image rendering</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6478</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006477.html">6477</a> / <a href="msg006479.html">6479</a></td></tr>				</table>			<br>When serving a page dynamicly (from a rather slow server) it seams that I get the html-part quite quickly, but that the images rendered from #images are much slower. <p>
+
+This makes me wounder if one factor could be that Frontier has to "open" every image to read the height and width of it? <p>
+
+This seams to be values that could be cached. <p>
+
+So I have a suggestion:<p>
+
+Reform the #images table the same way #glossary was reformed. Introduce a new format where an image is a table. One cell is the binary image data. Other cells are used to cache the height and width after the first time they are sampled. As in #glossary the old format with one binary cell/image is still suported, for backwards compability.<p>
+
+This could have other advantages also. For example, I would most of the time prefer to store the alt-text together with the image, instead of in the html-code. Same thing with lowsrc and probably some other attributes. (And the rule could be that if an attribute is set in imageRef it overrides an attribute in the #image table.)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006479.html">Re: Quicker image rendering</a>, Brent Simmons, 5/19/1999; 3:13:55 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

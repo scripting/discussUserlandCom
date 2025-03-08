@@ -1,0 +1,42 @@
+<html>	<head>		<title>Re: Public XML-RPC services?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Public XML-RPC services?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Fredrik Lundh</td></tr>				<tr><td><b>Posted:</b></td><td>1/19/1999; 2:41:43 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002078.html">WDDX Annotated DTD</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2226 (In response to <a href="msg002212.html">2212</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002225.html">2225</a> / <a href="msg002227.html">2227</a></td></tr>				</table>			<br>For everyone's amusement, here's the tiny server I mailed to Skip.  Didn't take hm long to hook it into his databases.  How fast can
+you do it? ;-)<p>
+
+<i>(last updated Jan 22)</i><p>
+
+<pre>
+import SocketServer, BaseHTTPServer
+import xmlrpclib<p>
+
+class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):<p>
+
+    def do_POST(self):
+        try:
+            data = self.rfile.read(int(self.headers["content-length"]))
+            params, method = xmlrpclib.loads(data)
+            response = (
+                "<?xml version='1.0'?>\n"
+                "<methodResponse>\n%s</methodResponse>\n" %
+                xmlrpclib.dumps((self.call(method, params),))
+                )
+        except:
+            self.send_response(500)
+            self.end_headers()
+        else:
+            self.send_response(200)
+            self.send_header("Content-type", "text/xml")
+            self.send_header("Content-length", str(len(response)))
+            self.end_headers()
+            self.wfile.write(response)<p>
+
+    def call(self, method, params):
+        return params # override<p>
+
+if __name__ == '__main__':
+    server = SocketServer.TCPServer(('', 8000), RequestHandler)
+    server.serve_forever()
+</pre><p>
+
+(if you do something cool with this one, why not follow Skip's
+example and post the link!)<p>
+
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

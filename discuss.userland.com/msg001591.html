@@ -1,0 +1,66 @@
+<html>	<head>		<title>Multiple Script Control Instances</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Multiple Script Control Instances</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>12/21/1998; 12:44:36 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001453.html">Getting the URL of the Front IE Window w/ VBScript</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1591 (In response to <a href="msg001583.html">1583</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001590.html">1590</a> / <a href="msg001592.html">1592</a></td></tr>				</table>			<br>Looking at the parameters for com.callScript, I am guessing each call to callScript gets it's own instance of the Script Control, since the language (VBScript) is passed in, and that's a property of the ScriptControl class.<p>
+
+I think a more flexible solution, still only using the ScriptControl, would be to allow a developer to create a Script Control object (call it a namespace for this example) that would persist in a separate thread until destroyed.  Other Frontier threads could add and execute procedures from this namespace.<p>
+
+<hr size=2 width=100%><p><p><p>
+
+The ScriptControl object of the ScriptControl component has the following methods:<p>
+
+<b>AddCode(Code As String)</b>
+ - Add code to the global module<p>
+
+<b>AddObject(Name As String, Object As Object, [AddMembers As Boolean = False])</b>
+ - Add an object to the global namespace of the scripting engine<p>
+
+<b>Function Eval(Expression As String)</b>
+ - Evaluate an expression within the context of the global module<p>
+
+<b>Sub ExecuteStatement(Statement As String)</b>
+ - Execute a statement within the context of the global module<p>
+
+<b>Sub Reset()</b>
+ - Reset the scripting engine to a newly created state<p>
+
+<b>Function Run(ProcedureName As String, ParamArray Parameters() As Variant)</b>
+ - Call a procedure defined in the global module<p>
+
+<hr size=2 width=100%><p><p><p>
+
+<b>Those methods could equate to the following verbs:</b><p>
+
+<b>com.startNamespace(language)</b>
+ - creates an instance of the ScriptContorl and returns some sort of reference to it (a longType?)<p>
+
+<b>com.addCode (namespace, scripttext)</b>
+ - adds a procedure to a namespace<p>
+
+<b>com.run (namespace, procName, paramList)</b>
+ - runs a procedure in the namespace and returns its return value<p>
+
+<b>com.endNamespace(namespace)</b>
+ - destroys the namespace instance<p>
+
+Perhaps there'd be eval and reset too, but that's extraneous for this example.<p>
+
+With this set of verbs, multiple Frontier threads could share the same VBScript code objects, and COM objects, which would make execution MUCH faster, take less RAM, and also make it possible to share COM objects between threads.  You also wouldn't have to create and tear-down ScriptControl objects every time you ran a procedure, which is a *very* costly process.<p>
+
+The current callScript verb implemention is probably doing the equivalent of:<p>
+
+local (rc) <a href="//">//</a> will hold the return value<p>
+
+namespace = com.startNameSpace(language);<p>
+
+com.addCode (namespace, scripttext);<p>
+
+rc = com.run (namespace, procedureNameOf(scripttext), {p,a,r,a,m,s})<p>
+
+com.endNamespace (namespace);<p>
+
+return (rc)<p>
+
+<hr size=2 width=100%><p><p><p>
+
+With a persistent namespace, you'd only need to call com.run if the procedure was already in the namespace.<p>
+
+Jim
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:52 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

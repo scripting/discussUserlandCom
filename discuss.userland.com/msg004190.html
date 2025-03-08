@@ -1,0 +1,38 @@
+<html>	<head>		<title>Re: Mac OS X Server Press Conference</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Mac OS X Server Press Conference</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jonathan Hendry</td></tr>				<tr><td><b>Posted:</b></td><td>3/16/1999; 3:41:18 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004183.html">Mac OS X Server Press Conference</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4190 (In response to <a href="msg004187.html">4187</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004189.html">4189</a> / <a href="msg004191.html">4191</a></td></tr>				</table>			<br>"All the components they are releasing as open source already were open sourced"<p>
+
+Actually, nope. HFS, AppleTalk, and Netinfo haven't been
+OpenSource. Nor have NeXT's OO driver technology or the ObjectiveC runtime. Or NeXT's SoundKit classes (which are
+pretty stale now, having been written for the black boxes.)<p>
+
+It'll be really nice if Netinfo is ported and integrated
+with other platforms like Linux and NT. It's always been
+a bit of a very attractive freak.<p>
+
+It shouldn't take too long to get the Darwin stuff running
+on Intel (or other platforms). What you'll have then is
+basically OSX/Server without a UI - a console-mode Apple
+Mach/Unix box. (There is a rumor that OSX/Server may ship with a
+lot of fat binaries and fat libraries which contain Intel code
+in addition to PPC. The theory is, these could be copied to
+a Darwin/Intel box, and you'd have an Intel box running
+MacOSX Server - GUI and all.) The Darwin code appears to
+include a lot of code NeXT put together for HPPA and Sparc,
+in addition to PPC and Intel.<p>
+
+Once a console is up, it shouldn't be too long before X-Windows
+and various Window managers start moving over from Linux. At
+this point, there will be little practical difference between
+Linux and Darwin-plus-XWindows.<p>
+
+Why didn't they use Linux from the start? My guess is that
+they like some features of Mach that Linux doesn't support,
+like Mach's messaging. Their ports to NT, HPUX, and Solaris
+have required software to take the place of these Mach
+features, which has occasionally been a bit klunky.<p>
+
+So instead of moving their upper-level stuff to Linux,
+they're trying to turn the lower-levels into a Linux-like
+system. The end result should be about the same as replacing
+the lower end with Linux, with the added benefit that Apple
+stays on technology they're intimately familiar with.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004194.html">Question from an ex-NeXT user</a>, Dave Winer, 3/16/1999; 5:05:25 PM<p><li>&nbsp;<a href="msg004195.html">Re: Mac OS X Server Press Conference</a>, Rafe Colburn, 3/16/1999; 5:32:00 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:49 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

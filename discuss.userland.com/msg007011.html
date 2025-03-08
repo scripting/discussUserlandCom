@@ -1,0 +1,13 @@
+<html>	<head>		<title>Re: Web based editing tools</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Web based editing tools</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Greg Pierce</td></tr>				<tr><td><b>Posted:</b></td><td>6/4/1999; 8:51:35 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007004.html">Web based editing tools</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7011 (In response to <a href="msg007010.html">7010</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007010.html">7010</a> / <a href="msg007012.html">7012</a></td></tr>				</table>			<br>I'm with you on the table renderers.  I've been trying to work with them to accomplish the encapsulation of related data.  The problem is, the way the work now, the Main Responder is not properly aware of them with leads to security issues.<p>
+
+With a table:<p>
+
+<pre>#renderTableWith "xxx"
+item01/
+	publicItemData01 [string]
+	privateItemData02 [string]
+</pre>
+Main Responder will serve <a href="http://">http://</a>[path]/item01 properly rendered through the table renderer...but it will also serve up <a href="http://">http://</a>[path]/item01/privateItemData02 by rendering the string as bodytext.  I think it should return a 404 not found.<p>
+
+I've mentioned this to Userland and on the lists, but haven't received any acknowledgement as to whether they agree this behavior should change or not.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007014.html">Re: Web based editing tools</a>, André Radke, 6/4/1999; 9:50:19 AM<p><li>&nbsp;<a href="msg007017.html">Re: Web based editing tools</a>, Tommy Sundström, 6/4/1999; 11:30:11 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

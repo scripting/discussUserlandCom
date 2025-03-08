@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: news.root with staticPage example</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: news.root with staticPage example</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Keola Donaghy</td></tr>				<tr><td><b>Posted:</b></td><td>4/14/1999; 5:19:35 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg004922.html">StaticPage rendering</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5027 (In response to <a href="msg004989.html">4989</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005026.html">5026</a> / <a href="msg005028.html">5028</a></td></tr>				</table>			<br><I>I am going to rewrite sampleNewsSite.staticpage.default</I><p>
+
+Andre, I found the problem, and its not in the sample. In trying to figure out another problem I had commented out the last time of code on the default page:<p>
+
+pta^.posttime = timelastupdate<p>
+
+and forgot to uncomment it. When I uncommented this things seem to function correctly. Will do more checking later, will post again if there is still any weirdness.<p>
+
+Aloha<p>
+
+Keola
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

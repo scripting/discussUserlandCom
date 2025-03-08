@@ -1,0 +1,20 @@
+<html>	<head>		<title>user.html.macros.rssChannel</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>user.html.macros.rssChannel</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>7/14/1999; 12:41:05 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008473.html">user.html.macros.rssChannel</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8473</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008472.html">8472</a> / <a href="msg008474.html">8474</a></td></tr>				</table>			<br>The problem: Jeff Cheney, webmaster at Mac Publishing wants to include MacWEEK headlines in the MacWorld home page. They're already producing a RSS version of MacWEEK news. The MacWorld site is generated with Frontier (as is the MacWEEK site).<p>
+
+What's needed: A macro that reads a channel and renders it as HTML text. The macro is called from the template for the MacWorld home page. It caches the resulting text so that the channel is not read more than once an hour.<p>
+
+<b>The script</b><p>
+
+Here's a source <a href="http://news.userland.com/discuss/enclosures/view$8473">listing</a> for the macro.<p>
+
+To include it in a page call it as follows:<p>
+
+&#123;rssChannel ("http://macweek.zdnet.com/macweek.xml")&#125;<p>
+
+<b>The rendering</b><p>
+
+It's very simple. You can tweak it to make it how you like it. (That's why it's sample code.)<p>
+
+<img src="http://206.204.24.3/snimages/macweekrendering.gif"><p>
+
+You can use this to render any valid RSS file that's accessible over the Internet.</img>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg008481.html">Re: user.html.macros.rssChannel</a>, Jeff Cheney, 7/14/1999; 3:33:56 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:51:24 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

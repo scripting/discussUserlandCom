@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: unix shell and xml-rpc</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: unix shell and xml-rpc</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>3/9/1999; 7:59:03 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003859.html">unix shell and xml-rpc</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3862 (In response to <a href="msg003859.html">3859</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003861.html">3861</a> / <a href="msg003863.html">3863</a></td></tr>				</table>			<br>In general, on a unix box, perl is your friend.  Come to think of it, perl is your friend.  Well, that and frontier.  Perl is a glue language, it bridges gaps and ties systems together. In general purpose, it's really a lot like frontier.<p>
+
+
+What I'd do is have a perl script as an executable file (chmod a+x file) that took a data file as an argument (or anything really) <p>
+
+Basically the workflow would be<p>
+
+spectrometer -> data file<p>
+
+spectrometer calls 'perlscript "datafile"' as it's shell command<p>
+
+Then your perl script would massage the data and use the xml-rpc module that I think exists to call frontier and have frontier deal with the data.<p>
+
+Use a minimal httpd implementation to pass any recieved call to a perl script for translation tell the spectrometer to do what needs to be done.<p>
+
+
+eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003905.html">Re: unix shell and xml-rpc</a>, David Detlefsen, 3/10/1999; 11:39:54 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

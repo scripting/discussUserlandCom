@@ -1,0 +1,22 @@
+<html>	<head>		<title>Re: Why you don't want Gnutella (at least not yet)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Why you don't want Gnutella (at least not yet)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Chuck Shotton</td></tr>				<tr><td><b>Posted:</b></td><td>4/12/2000; 5:03:48 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg016082.html">Why you don't want Gnutella (at least not yet)</a></td></tr>				<tr><td><b>Msg #:</b></td><td>16102 (In response to <a href="msg016084.html">16084</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg016101.html">16101</a> / <a href="msg016103.html">16103</a></td></tr>				</table>			<br><i>Have you found any specific problems with Gnutella?</i><p>
+
+Jacob's original post was pretty explicit in laying out the majority of the evils associated with the current Gnutella implementation. But here are some more.<p>
+
+First, you have no control over the topology of the network. You cannot restrict access to a selected community of users (other than specifying an obscure port number and having all your buddies sneak off to use it.) <p>
+
+You cannot obtain any descriptive information about files beyond name and size. There is no provenance for any of the data being served. You have no way of knowing (and therefore, trusting) the source of the data, so who knows if you are sucking down virii, trojans, or just some innocuous piece of pirated software.<p>
+
+You cannot throttle bandwidth usage. The demand curve for Gnutella's net usage is an exponential curve.<p>
+
+You cannot limit the misbehavior of others. Gnutella suffers massively from its lack of authentication. This allows script kiddies to spew thousands of search packets into the Gnutella net, just for their own amusement. You'll notice people using Gnutella's search monitoring function as a chat room most of the time. <p>
+
+There is no hard-coded time to live for Gnutella network traffic. Idiot users can set their TTL to be 20 or 30 and totally trash the entire net with their queries.<p>
+
+Bandwidth metrics are supplied by users, rather than being calculated by the software itself. Most people lie about their network connection speeds, either by leaving it set at the 28k default or putting in absurd numbers like 100,000,000,000.<p>
+
+Gnutella attempts to construct a fully-connected network by having every client ask every server out there for info. This is a cop-out implementation that trades scalability for simplicity. By doing it this way, you don't have to worry about stale host info, but you end up having to ping every host on the Gnutella net quite frequently to maintain your own host list. Over 90% of the Gnutella net traffic is ping traffic. There are better ways to do this.<p>
+
+As a disclaimer of sorts, I feel that it's important to point out that we (BIAP) have a software product that has implemented a superset of the Gnutella protocol functionality since '98. It has many, many months of refinement to get our implementation polished to the point that it can scale to the entire Internet without the problems you see with Gnutella. The solutions aren't always obvious and can't be solved with something as simplistic as Gnutella.<p>
+
+Gnutella's good from the perspective that it shows people what is possible. But it's very, very bad in that it provides an extremely immature implementation that has serious scalability problems that will likely get it thrown off most LANs. My not-so-bold prediction is that Gnutella will be gone in a few months, replaced by applications that do a much better job at solving this problem.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg016106.html">Re: Why you don't want Gnutella (at least not yet)</a>, Jacob Levy, 4/12/2000; 8:29:53 AM<p><li>&nbsp;<a href="msg016109.html">Re: Why you don't want Gnutella (at least not yet)</a>, Joshua D. Boyd, 4/12/2000; 8:58:02 AM<p><li>&nbsp;<a href="msg016128.html">Re: Why you don't want Gnutella (at least not yet)</a>, William Crim, 4/12/2000; 11:22:28 AM<p><li>&nbsp;<a href="msg016137.html">Re: Why you don't want Gnutella (at least not yet)</a>, Chris Connelly, 4/12/2000; 2:15:40 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:54:44 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Has anyone gotten nirvana running behind WebSTAR (I'm Close)</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Has anyone gotten nirvana running behind WebSTAR (I'm Close)</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>2/17/1999; 3:15:13 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002939.html">Has anyone gotten nirvana running behind WebSTAR (I'm Close)</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2947 (In response to <a href="msg002939.html">2939</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002946.html">2946</a> / <a href="msg002948.html">2948</a></td></tr>				</table>			<br>For W*API servers, including WebSTAR, you can run the Nirvana Filter plugin.<p>
+
+This plugin causes <i>all</i> requests to get sent to Frontier. This is the same way Nirvana runs behind IIS, by getting all requests.<p>
+
+The filter has been lightly tested, it's beta. You can download it here:<p>
+
+<a href="http://209.181.141.42/frontierMirror/NirvanaFilter1.0b2.sit.hqx">http://209.181.141.42/frontierMirror/NirvanaFilter1.0b2.sit.hqx</a><p>
+
+It includes a plugin and a new script, which will import into user.webserver.actions.Nirvana.<p>
+
+To install the plugin, drop it in the Plugins folder and quit and re-start your server.<p>
+
+In your server admin program, you'll need to create an action called Nirvana that points to the frontier.acgi alias.<p>
+
+Then you need a suffix mapping to map .nv requests to the Nirvana action. (The .nv suffix is invisible to the browser and Frontier: it's just between the filter and WebSTAR. It's not seen by the outside world or by your scripts and websites.)<p>
+
+Then go ahead and try out the server -- it should work as if Frontier itself were the server.<p>
+
+Note: make sure Frontier isn't running as a server on the same port as WebSTAR or whichever server you're running. (Frontier doesn't have to be running as a server at all.)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002949.html">Re: Has anyone gotten nirvana running behind WebSTAR (I'm Close)</a>, Ian Beatty, 2/17/1999; 5:57:38 AM<p><li>&nbsp;<a href="msg002952.html">Re: Has anyone gotten nirvana running behind WebSTAR (I'm Close)</a>, Brian V. Hughes, 2/17/1999; 6:27:15 AM<p><li>&nbsp;<a href="msg002997.html">Re: Has anyone gotten nirvana running behind WebSTAR (I'm Close)</a>, Clay Hughes, 2/18/1999; 11:25:15 AM<p><li>&nbsp;<a href="msg004118.html">Help with WebStar Plug-in for Nirvana</a>, Daniel Bushman, 3/15/1999; 7:28:51 AM<p><li>&nbsp;<a href="msg014492.html">Is QPQ a W*API Server?</a>, Mark Gillingham, 1/16/2000; 11:14:58 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:55 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

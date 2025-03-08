@@ -1,0 +1,27 @@
+<html>	<head>		<title>Memory management w/ Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Memory management w/ Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>1/12/1999; 1:49:49 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002011.html">Memory management w/ Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2011</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002010.html">2010</a> / <a href="msg002013.html">2013</a></td></tr>				</table>			<br>Last night I imported a database with 50.000 records into a GDB. The import script created a table per record and each field went into a sub-item.<p>
+
+<pre>
+<b>Specs:</b>
+- The raw text file is 14.473kB
+- Resulting GDB is 50.041kB
+- Frontier 5.1.5 w/ mainresponder (everything current)
+- Dual PII w/ 512MB Ram
+- NT 4.0, SP3, OP<p>
+
+<b>Observations so far:</b>
+- The script took 568 minutes to execute
+- There was no additional load on the machine
+- Normal memory usage is around 60MB
+- During import the usage built up to 419MB
+- This memory was not released after the script finished
+- Record lookups via mainresponder took between 100 and 300 ticks
+- Restarting Frontier released all the memory
+- Record lookups via mainresponder are now at 14 ticks average
+</pre><p>
+
+The script looped over the file with file.readline, processed the line and checked against file.endOfFile.<p>
+
+How does Frontier deal with the memory used during and after execution of scripts?<p>
+
+Kurt
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002013.html">Re: Memory management w/ Frontier</a>, Dave Winer, 1/12/1999; 5:33:17 AM<p><li>&nbsp;<a href="msg002014.html">Re: Memory management w/ Frontier</a>, Ole Saalmann, 1/12/1999; 5:35:08 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

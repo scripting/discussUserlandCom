@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: DG Rankings</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: DG Rankings</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>3/10/1999; 6:44:00 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003910.html">DG Rankings</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3925 (In response to <a href="msg003917.html">3917</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003924.html">3924</a> / <a href="msg003926.html">3926</a></td></tr>				</table>			<br>There is an xml-rpc interface for reading messages and getting a list of top-level topics.<p>
+
+<pre>// Return all the information we have for a message:
+local (paramList = &#123;"3925"});
+scratchpad.msgtable = betty.rpc.client ("nirvana.userland.com", 80, "nirvanaServer.discuss.getMessage", @paramList);<p>
+
+//Return a list of lists with brief descriptions for all the top level topics:
+scratchpad.topicslist = betty.rpc.client ("nirvana.userland.com", 80, "nirvanaServer.discuss.getTopics")
+</pre><p>
+
+There's also an xml-rpc interface for getting and setting your member information. Currently, you can't retrieve information about other members via xml-rpc.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003926.html">Re: DG Rankings</a>, Ian Beatty, 3/10/1999; 6:54:30 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

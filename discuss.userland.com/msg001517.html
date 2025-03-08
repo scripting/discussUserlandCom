@@ -1,0 +1,17 @@
+<html>	<head>		<title>Re: Getting the URL of the Front IE Window w/ VBScript</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Getting the URL of the Front IE Window w/ VBScript</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Sten Linnarsson</td></tr>				<tr><td><b>Posted:</b></td><td>12/20/1998; 1:48:34 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001453.html">Getting the URL of the Front IE Window w/ VBScript</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1517 (In response to <a href="msg001457.html">1457</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001516.html">1516</a> / <a href="msg001518.html">1518</a></td></tr>				</table>			<br>I've done quite a lot of research into this area. There is *no* way to get the URL of the active IE window from inside another web page (assuming that's where you're running your VBScript). That's intentional, otherwise a web page could snoop on your web behaviour.<p>
+
+From an ActiveX control or another application, yes it's possible - either through COM or through DDE. I've been using DDE. There's no documentation, but it works the same as Netscape, except the application name must be "Iexplore". That works with Opera too, by the way. See Netscape DevEdge Online for docs. In VisualBasic, you can simply create a label (call it e.g. urlInExplorer), then do<p>
+
+    urlInExplorer.LinkTopic = "Iexplore|www_GetWindowInfo"
+    urlInExplorer.LinkItem = "0xFFFFFFFF"
+    urlInExplorer.LinkMode = vbLinkManual
+    urlInExplorer.LinkRequest<p>
+
+You'll get urlInExplorer.Caption set to "URL","window title" (including quotes), so you'll have to extract the URL from the string yourself. The exact same code works in IE, Netscape and Opera (which responds to both "Iexplore" and "Netscape" DDE requests, not to "Opera").<p>
+
+Hope this helps. <p>
+
+I haven't used COM GetObject(...) from VB. If you get that to work, I'd be interested in hearing how you did it. Of course, if you get it to work from VBScript, I'd be *very* interested...<p>
+
+/Sten
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg001518.html">Re: Getting the URL of the Front IE Window w/ VBScript</a>, Sten Linnarsson, 12/20/1998; 1:54:15 PM<p><li>&nbsp;<a href="msg001526.html">Re: Getting the URL of the Front IE Window w/ VBScript</a>, Brent Simmons, 12/20/1998; 6:21:54 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:48 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

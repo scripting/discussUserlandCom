@@ -1,0 +1,94 @@
+<html>	<head>		<title>Re: Search Engine XML-RPC Interface</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Search Engine XML-RPC Interface</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Stephen Judd</td></tr>				<tr><td><b>Posted:</b></td><td>1/27/1999; 6:41:43 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002454.html">Search Engine XML-RPC Interface</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2541 (In response to <a href="msg002454.html">2454</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002540.html">2540</a> / <a href="msg002542.html">2542</a></td></tr>				</table>			<br>I've hacked up a very quick and dirty one that runs as a CGI under Apache. So quick and so dirty that it pattern matches instead of parsing the XML.<p>
+
+I've set up an alias for "/RPC2" so that all requests get routed to a cgi. I believe this should work.<p>
+
+(I want this happening inside Apache, for various reasons).<p>
+
+I only have the trial version of Frontier (we're ordering 5.1 though!) - would someone mind trying to talk to asterix.cc.waikato.ac.nz:80 and tell me what happens?<p>
+
+Stephen<p>
+
+PS: source.<p>
+
+<pre>
+#!/usr/bin/perl<p>
+
+use MIME::Base64;
+use DBI;<p>
+
+my $length = $ENV&#123;CONTENT_LENGTH};
+my $buf;
+my $raw = $buf;<p>
+
+read STDIN, $buf, $length;<p>
+
+my @values;<p>
+
+while ($buf =~/<value>(.*?)</value>/igs) &#123;
+	push @values, $1;
+}<p>
+
+error("Not enough parameters!") if (scalar @values < 5);
+error("Too many parameters!") if (scalar @values > 5);<p>
+
+
+my $dbh = DBI->connect("xxx", "xxx", "xxx");<p>
+
+$values[2] = $dbh->quote(escapequotes(decode_base64($values[2])));
+print STDERR $values[2] . "\n";
+my $sql = "insert into engine values(\"$values[0]", "$values[1]", "$values[2]", "$values[3]", "$values[4]")";
+my $sth = $dbh->prepare($sql);
+$sth->execute or error("Could not execute SQL: " .  $sth->errstr);<p>
+
+print "Content-type: text/xml\n\n";
+print <<END;
+<?xml version="1.0"?>
+   <methodResponse>
+      <params>
+	 <param>
+	    <value><boolean>true</boolean></value>
+	    </param>
+	    <param>
+	    <value><string>$sql</string></value>
+	 </params>
+      </methodResponse>
+END<p>
+
+sub error &#123;
+	my $error = shift;
+	print STDERR $sql;
+	print "Content-type: text/xml\n\n";
+	print <<END;
+<?xml version="1.0"?>
+<methodResponse>
+<fault>
+    <value>
+       <struct>
+	  <member>
+	     <name>faultCode</name>
+	     <value>
+		<int>4</int>
+		</value>
+	     </member>
+	  <member>
+	     <name>faultString</name>
+	     <value>
+		<string>$error.</string>
+		</value>
+	     </member>
+	  </struct>
+       </value>
+</fault>
+</methodResponse>
+END
+	exit;
+}<p>
+
+sub escapequotes &#123;
+	my $string=shift;
+	$string=~s/"/""/g;
+	$string=~s/r/\n/g;
+	return $string;
+}
+</pre>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002542.html">URL for testing engine</a>, Stephen Judd, 1/27/1999; 8:03:24 PM<p><li>&nbsp;<a href="msg002546.html">Re: Search Engine XML-RPC Interface</a>, Dave Winer, 1/28/1999; 8:09:07 AM<p><li>&nbsp;<a href="msg002547.html">Sample Frontier Code</a>, Dave Winer, 1/28/1999; 8:53:24 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:38 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

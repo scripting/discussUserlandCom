@@ -1,0 +1,21 @@
+<html>	<head>		<title>Re: domains vs doctree in mainresponder</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: domains vs doctree in mainresponder</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Clay Hughes</td></tr>				<tr><td><b>Posted:</b></td><td>3/17/1999; 10:09:02 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002974.html">domains vs doctree in mainresponder</a></td></tr>				<tr><td><b>Msg #:</b></td><td>4226 (In response to <a href="msg004225.html">4225</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg004225.html">4225</a> / <a href="msg004227.html">4227</a></td></tr>				</table>			<br>I am talking about only &quot;default&quot; in the domain table. The object named default in the domain table can either be a fileSpec or address pointing either to a directory on the hard drive or a table in a guest database or root. If &quot;default&quot; in the domain table points to a table in the ODB, then it is possible to have a control structure or docTree. In this case, my default domain is expanded into a much larger structure that could point to both static files on hard disk as well as dynamic elements in guest databases. <p>
+
+In the domain table:<p>
+
+default --> @workspace.mywebsite<p>
+
+In workspace.mywebsite  (my control structure)<p>
+
+<pre>
+discuss --> htmlInterfaces.root.discussionGroup  (addresstype)
+logon --> htmlInterfaces.root.logon  (addresstype)
+default --> Nirvana Server:www:   (fileSpec)
+error --> (wouldn't this be neat to be able to catch errors)
+</pre><p>
+
+But even with this setup, &quot;default&quot; in my control table does not work and only the string (value of default) appears in the web browser.<p>
+
+I mean, either &quot;default&quot; in the domain table points to the Nirvana Server:WWW: directory and then you can serve both static pages and dynamic elements from guest databases residing in the Nirvana Server:WWW: directory, or &quot;default&quot; in the domain table points to an address in the ODB, which rules out having static pages at the topmost level of the website unless those are stored in the ODB. And for an existing site with my current setup, I don't want to rework everything.<p>
+
+If I set up additional domains (in the domain table) then everything will work, but again that means making major changes to an existing site when all I want are a few static pages at the topmost level with shorter URLS for all dynamic elements buried in the guest databases. I just want docTree capability for each domain in the domain table because of the control and security it provides.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg004228.html">Re: domains vs doctree in mainresponder</a>, Dave Winer, 3/18/1999; 6:08:05 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:51 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

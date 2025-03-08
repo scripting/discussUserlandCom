@@ -1,0 +1,11 @@
+<html>	<head>		<title>Re: Serving pdf documents</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Serving pdf documents</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>5/16/1999; 1:52:22 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003228.html">A dream: Posting to a DG via email</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6326 (In response to <a href="msg006325.html">6325</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006325.html">6325</a> / <a href="msg006327.html">6327</a></td></tr>				</table>			<br>Even if you can't get it to import as binary, it's a simple script that changes it to a binary and sets its binarytype so othat Frontier will serve it as you want to. <p>
+
+Suppose your object is stored at scratchpad.pdfdoc..<p>
+
+<pre>
+scratchpad.pdfdoc = binary (scratchpad.pdfdoc)
+setBinaryType (@scratchpad.pdfdoc, 'PDF ')
+</pre><p>
+
+That should do it.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:13 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

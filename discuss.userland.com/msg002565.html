@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: Frontier as an email client?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Frontier as an email client?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>1/29/1999; 8:36:17 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002551.html">Frontier as an email client?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2565 (In response to <a href="msg002560.html">2560</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002564.html">2564</a> / <a href="msg002566.html">2566</a></td></tr>				</table>			<br>The mail server is completely built in usertalk.<p>
+
+You can see a demo with the scriptmeridian list at
+<a href="http://206.191.154.141:81/mail/andy/default">http://206.191.154.141:81/mail/andy/default</a>
+use a username andy and password andy.<p>
+
+
+As for scaling, that is a good question. My machine is only really used by 3 people + the mailing lists that I've got coming in.<p>
+
+Reading mail is just like any other dynamic website.  Recieving mail and indexing is a little different. The databases get saved after every mail message, so that messages are never stored in memory only. This is good for data safety, but not so good for performance, since saves can take a reasonable amount of time as compared to the rest of the transaction, and perhaps more importantly, saves are atomic instructions, so all other processing stops.<p>
+
+
+Indexing and holding the index takes a lot of memory when your indexes get large. For example, indexing scriptmeridian's daily digest can take 30 sec or so when it gets to the 100k level or so. (btw, this is going into an index of ~2000 mail messages on a 256 meg NT machine, frontier takes ~60-70 megs right now.)<p>
+
+I think if I were going to do this for a big site, I would start with storage in the odb (as I have now) then be prepared to migrate to some other storage/smtp daemon as the load grew. Possible alternatives are an ODBC connection or using a real mail server and communicating through pop to display through http. <p>
+
+For straight mail serving, you can get a much more efficient server. For example, there are reports of SIMS (Stalker internet mail server) serving ~thousands of users on a mac 6100/66, where I believe that frontier would not be able to scale to 1000 users on my current machine, even without using the web interface. But, with the frontier based one, all the source code is there, so if you don't like the way it works, you have the ability to change it.<p>
+
+eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002566.html">Re: Frontier as an email client?</a>, Benoit Cazenave, 1/29/1999; 8:45:27 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:39 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

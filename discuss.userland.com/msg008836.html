@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: a minor flaw in mainresponder.respond</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: a minor flaw in mainresponder.respond</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brian V. Hughes</td></tr>				<tr><td><b>Posted:</b></td><td>7/28/1999; 11:28:59 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg008808.html">a minor flaw in mainresponder.respond</a></td></tr>				<tr><td><b>Msg #:</b></td><td>8836 (In response to <a href="msg008808.html">8808</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg008835.html">8835</a> / <a href="msg008837.html">8837</a></td></tr>				</table>			<br><i>the whole point is that latinToMac chokes on tables, so one can add a little check that leaves tables in the postargs alone, don't know of any way that those will occur but file uploads...<p>
+
+if defined (adrparamtable^.postArgs) &#123; for i = 1 to sizeOf (adrparamtable^.postArgs) &#123; if typeof(adrparamtable^.postArgs [i]) != tabletype &#123; adrparamtable^.postArgs [i] = latinToMac.convert (adrparamtable^.postArgs [i])&#125;&#125;&#125;; </i><p>
+
+While this does address one problem with the latinToMac conversion that happens as part of mainResponder.respond, it still doesn't handle the problem that I brought up some months ago.<p>
+
+Namely that if the type of entry in the postArgs table is a list, such as you would get with multiple checkboxes or multi-selects, the latinToMac conversion coerces this entry to a string.<p>
+
+This just has to be a <i>bad thing</i>, since it forces you to have to check for the existence of "&#123;" in your postArg entries to see if you should coerce the entry back to a list before your post processing script can correctly handle the data...
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:51:34 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

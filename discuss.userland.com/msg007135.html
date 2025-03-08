@@ -1,0 +1,14 @@
+<html>	<head>		<title>Re: XML-RPC: How to make this work anyone?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC: How to make this work anyone?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Spahr</td></tr>				<tr><td><b>Posted:</b></td><td>6/8/1999; 10:07:44 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007100.html">XML-RPC: How to make this work anyone?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7135 (In response to <a href="msg007131.html">7131</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007134.html">7134</a> / <a href="msg007136.html">7136</a></td></tr>				</table>			<br><i>Your second point interests me tho'. Why wouldn't I put an XML-RPC call in a web page? If that call returns something to the browser that it can render am I not using XML-RPC as a kind of "high(er) level URI for a cgi script"? This then is a kind of distributed object system no?</i><p>
+
+XML-RPC is a way for your machine to to get the result of a script on another machine. So yes, you could have some kind of server side logic (XSSI perhaps), call an XML-RPC client (like the perl client) to fetch the result of an XML-RPC call.<p>
+
+The catch is - xml doesn't contain html tagged text bery nicely here. So you'd be better of having you XML-RPC call return a value (or list of values), and using your server side script to generate the html.<p>
+
+Its better for many reasons that way.<p>
+
+So the short answer is - no you don't want to just include the result from an XML-RPC call into your webpage. You want to use the data returned from this XML-RPC session to gernerate html for your webpage.<p>
+
+This is all assuming you want the browser to wait for you to establish another http connection, so you can build your page, before you send your page.<p>
+
+I hope I made sense.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007141.html">Re: XML-RPC: How to make this work anyone?</a>, David Carter-Tod, 6/9/1999; 7:20:04 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

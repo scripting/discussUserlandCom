@@ -1,0 +1,34 @@
+<html>	<head>		<title>Re: XML-RPC in ASP: Request for assistance</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC in ASP: Request for assistance</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>6/10/1999; 11:23:42 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007173.html">XML-RPC in ASP: Request for assistance</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7175 (In response to <a href="msg007173.html">7173</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007174.html">7174</a> / <a href="msg007177.html">7177</a></td></tr>				</table>			<br><i>What's the significance of the <base64> tag?</i><p>
+
+You can use it to send and receive (8-bit) binary objects. They will be base64-encoded and enclosed within a base64 tag.<p>
+
+Encoding Empty and Null as empty strings makes sense to me.<p>
+
+<i>	Long integer</i><p>
+
+Is a "Long integer" an 8-byte integer in VB?<p>
+
+<i>Single-precision floating-point number</i><p>
+
+You should use <double> here -- <int> can't represent floating-point numbers like e.g. 3.141<p>
+
+<i>	Currency</i><p>
+
+Use <double> for the same reasons as the previous item.<p>
+
+<i>	Automation object</i><p>
+
+Not sure what this is...?<p>
+
+<i>	Variant</i><p>
+
+This must be the VB-equivalent of what is known as a union in C. It's a variable that can contain objects of different types at different times. I am not sure how to encode these though.<p>
+
+<i>data-access object</i><p>
+
+Again, not sure what this is...?<p>
+
+<i>	Byte</i><p>
+
+I think I'd go with <int> here.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg007179.html">Re: XML-RPC in ASP: Request for assistance</a>, David Carter-Tod, 6/10/1999; 2:01:12 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:41 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

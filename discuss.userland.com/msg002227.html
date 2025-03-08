@@ -1,0 +1,64 @@
+<html>	<head>		<title>How to push Perl hash through XML RPC?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>How to push Perl hash through XML RPC?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Skip Montanaro</td></tr>				<tr><td><b>Posted:</b></td><td>1/19/1999; 6:24:12 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002215.html">Frontier on MacOS X Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2227 (In response to <a href="msg002215.html">2215</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002226.html">2226</a> / <a href="msg002228.html">2228</a></td></tr>				</table>			<br>I have the following simple Perl script:<p>
+
+<pre>
+use Frontier::Client;
+use strict;<p>
+
+my $host = 'dolphin.calendar.com';
+my $port  = 8000;<p>
+
+my $server = Frontier::Client->new(host => $host, port => $port);<p>
+
+my $method = 'test';
+my %hash = ('state1' => 18, 'state2' => 27, 'state3' => 4);
+my @args = (%hash);<p>
+
+my $result = $server->call($method, @args);
+print "$result\n";
+</pre><p>
+
+On the server end the parameter comes through as a series of strings:<p>
+
+<pre>
+<?xml version="1.0"?>
+<methodCall>
+<methodName>test</methodName>
+<params>
+<param><value><string>state1</string></value></param>
+<param><value><i4>18</i4></value></param>
+<param><value><string>state2</string></value></param>
+<param><value><i4>27</i4></value></param>
+<param><value><string>state3</string></value></param>
+<param><value><i4>4</i4></value></param>
+</params>
+</methodCall>
+</pre><p>
+
+If I change the definition of %hash to<p>
+
+my %hash = &#123;'state1' => 18, 'state2' => 27, 'state3' => 4};<p>
+
+I again see a couple strings, but something that looks like an id string of some sort:<p>
+
+<pre>
+<?xml version="1.0"?>
+<methodCall>
+<methodName>test</methodName>
+<params>
+<param><value><string>HASH(0x81692e0)</string></value></param>
+<param><value><string></string></value></param>
+</params>
+</methodCall>
+</pre><p>
+
+Also, I'm getting all sorts of XML::Parser errors on the client side like:<p>
+
+XML::Parser::die(XML::Parser=HASH(0x80e94bc) unknown RPC type `value')<p>
+
+What do I need to do to get a hash encoded properly and sent to the server as a <struct>?<p>
+
+Thanks,<p>
+
+Skip Montanaro
+<a href="mailto:skip@calendar.com">skip@calendar.com</a>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002228.html">Re: How to push Perl hash through XML RPC?</a>, Dave Winer, 1/19/1999; 6:40:16 AM<p><li>&nbsp;<a href="msg002230.html">Re: Perl XML RPC Dereferencing problem</a>, Dan Lyke, 1/19/1999; 6:53:20 AM<p><li>&nbsp;<a href="msg002248.html">Re: How to push Perl hash through XML RPC?</a>, Ken MacLeod, 1/19/1999; 10:18:22 AM<p><li>&nbsp;<a href="msg002261.html">Re: How to push Perl hash through XML RPC?</a>, Kragen Sitaker, 1/19/1999; 11:53:22 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

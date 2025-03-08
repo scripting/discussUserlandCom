@@ -1,0 +1,25 @@
+<html>	<head>		<title>Re: tail -f in a web page</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: tail -f in a web page</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jeffrey Baker</td></tr>				<tr><td><b>Posted:</b></td><td>11/5/1999; 7:33:54 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012705.html">A question for Apache gurus</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12768 (In response to <a href="msg012764.html">12764</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012767.html">12767</a> / <a href="msg012769.html">12769</a></td></tr>				</table>			<br>Brent,<p>
+
+If you want to see the last n lines of the log, I assume that what you really mean is that you want to see the last n requests.  I suggest that, instead of writing a custom program, you use the status module that comes with Apache.  It will show you the most recent requests, and also it will tell you what each of your Apache child processes are doing.  You can make it automatically refresh at whatever interval you want.<p>
+
+See the documentation at:<p>
+
+<a href="http://www.apache.org/docs/mod/mod_status.html">http://www.apache.org/docs/mod/mod_status.html</a><p>
+
+There is a sample mod_status configuration in the httpd.conf file that comes with Apache.  Here it is:<p>
+
+#
+# Allow server status reports, with the URL of <a href="http://servername/server-status">http://servername/server-status</a>
+# Change the ".your_domain.com" to match your domain to enable.
+#
+#<Location /server-status>
+#    SetHandler server-status
+#    Order deny,allow
+#    Deny from all
+#    Allow from .your_domain.com
+#</Location><p>
+
+
+Have fun,
+Jeffrey
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg012769.html">Re: tail -f in a web page</a>, Emmanuel M. Décarie, 11/5/1999; 9:21:32 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:53:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

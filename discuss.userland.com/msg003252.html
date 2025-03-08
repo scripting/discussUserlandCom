@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: XML-RPC and bus locations.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: XML-RPC and bus locations.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Eric Soroos</td></tr>				<tr><td><b>Posted:</b></td><td>2/25/1999; 2:43:54 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg003168.html">Highway Webcams and traffic maps</a></td></tr>				<tr><td><b>Msg #:</b></td><td>3252 (In response to <a href="msg003247.html">3247</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg003251.html">3251</a> / <a href="msg003255.html">3255</a></td></tr>				</table>			<br>My idea was building on the fractional horsepower http server idea. I can put a web server in a much smaller computer than I can put a current java implementation. (seems wierd, but I guess that's just the state of the vm's.)  The xml-rpc idea gets it to be platform agnostic, as opposed to java platform.<p>
+
+I think that what I want it to do could be done outside the java platform more easily than from within java.  What I'd like to see is to be able to tell the system: Bus 15(express), southbound, intersection: xth & yth.  Then the system sends a lightweight message: bus 15e(s) is at <a href="mailto:intersection@ ">intersection@ </a>xxam to my server whenever that pair of conditions are met.  My server intreprets that message and does something with it, either plays a sound, pops up a dialog, pages me, or whatever.<p>
+
+Basically, I don't want to do the monitoring of the bus position, I want a computer to do it for me. <p>
+
+Since I'm already running the server, presumably I've already figured out how to get a http post through it.<p>
+
+
+You know, it might be even easier than that.
+Just have the bus server:<p>
+
+GET <a href="http://myserver/buslocation.cgi?15e/southbound/15th/65th/8.00am">http://myserver/buslocation.cgi?15e/southbound/15th/65th/8.00am</a><p>
+
+when the bus passes 15th and 65th.<p>
+
+
+eric
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg003255.html">Re: XML-RPC and bus locations.</a>, Jim Roepcke, 2/25/1999; 3:29:41 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:48:08 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

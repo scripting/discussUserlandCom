@@ -1,0 +1,50 @@
+<html>	<head>		<title>Positional vs. keyword arguments in XML-RPC?</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Positional vs. keyword arguments in XML-RPC?</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Skip Montanaro</td></tr>				<tr><td><b>Posted:</b></td><td>1/22/1999; 8:56:12 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002385.html">Positional vs. keyword arguments in XML-RPC?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2385</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002384.html">2384</a> / <a href="msg002386.html">2386</a></td></tr>				</table>			<br>My apologies if this has come up on the discussion list before and been rejected. I'm still pretty new and haven't had the time to work through all the discussion topics on the server yet.<p>
+
+In Python, you can call functions using positional or keyword notation (or a mix of the two).  For example, I could define the following silly function:<p>
+
+<pre>
+    def breakfast(eggs=2, ham=0, spam=0, sausage=0, bacon=0):
+	meat = spam + ham + sausage + bacon
+	return (eggs, meat)
+</pre><p>
+
+Most people will only want one sort of breakfast meat, so to order breakfast it might be called as<p>
+
+<pre>
+    basic = breakfast(3)		# 3 eggs, rest default to 0
+    monty = breakfast(spam=2, eggs=3)
+    mcmuffin = breakfast(ham=1, eggs=1)	# the muffin is extra...
+    lumberjack = breakfast(6, sausage=3, bacon=3, ham=2)
+</pre><p>
+
+I believe Perl also supports positional and/or keyword notation.  I don't know a thing about Frontier, but it seems that it would be worthwhile to support it in XML-RPC.  In terms of the wire protocol, it seems like it would be easy to allow an optional name tag within a param tag:<p>
+
+<pre>
+   <?xml version="1.0"?>
+   <methodCall>
+      <methodName>examples.getStateName</methodName>
+         <params>
+            <param>
+               <name>code</name>
+               <value><i4>41</i4></value>
+            </param>
+         </params>
+   </methodCall>
+</pre><p>
+
+I haven't given any thought to how much this would complicate implementation of libraries or what ramifications it might have for cross-language calling, for example making an RPC call from a client written in Python to a server written in C. I'll leave that for people like Ken MacLeod and Fredrik Lundh to comment on.<p>
+
+Why would it be useful?  For me, it means being able to define an interface just once, in the server code.  I'm still working on it, but right now because Python is so dynamic, all I need to do on the client side is instantiate xmlrpclib.Server and begin making calls:<p>
+
+<pre>
+    server = xmlrpclib.Server("http://dolphin.calendar.com:8000")
+    yum = server.breakfast(3)
+</pre><p>
+
+To support keyword arguments I will have to reproduce the function definitions in the client that mimic those on the server side.  This means I increase the opportunity for error if the client and server interfaces get out of sync.<p>
+
+This is just a thought, and I can obviously live with things as they are.  It's something that could be added further downstream as well, since I don't think it would break any client or server code that's currently written (it would require changes to calling libraries).<p>
+
+Skip Montanaro
+(<a href="mailto:skip@calendar.com">skip@calendar.com</a>)
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002388.html">Re: Positional vs. keyword arguments in XML-RPC?</a>, Dave Winer, 1/22/1999; 9:11:55 AM<p><li>&nbsp;<a href="msg002415.html">Re: Positional vs. keyword arguments in XML-RPC?</a>, Fredrik Lundh, 1/23/1999; 5:19:19 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

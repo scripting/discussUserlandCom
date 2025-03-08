@@ -1,0 +1,16 @@
+<html>	<head>		<title>Re: Console.root &lt;-> sysop problem...</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Console.root &lt;-> sysop problem...</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>David Glenn</td></tr>				<tr><td><b>Posted:</b></td><td>5/10/1999; 6:17:05 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005967.html">Console.root <-> sysop problem...</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5968 (In response to <a href="msg005967.html">5967</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005967.html">5967</a> / <a href="msg005969.html">5969</a></td></tr>				</table>			<br>Ok, there is a problem in the mainresponder scripts with the sysop check. The line(s) in news.newStory news.editStory, and news.setTodaysNews (respectively):<p>
+
+if string.lower (username) != adrprefs^.sysopMail
+if string.lower (username) != adrprefs^.sysopMail
+if string.lower (username) != adrsiteinfo^.sysopMail<p>
+
+should be:<p>
+
+if string.lower (username) != string.lower (adrprefs^.sysopMail)
+if string.lower (username) != string.lower (adrprefs^.sysopMail)
+if string.lower (username) != string.lower (adrsiteinfo^.sysopMail)<p>
+
+groovy<p>
+
+dave
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

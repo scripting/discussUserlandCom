@@ -1,0 +1,35 @@
+<html>	<head>		<title>callbacks</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>callbacks</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jeff Kandt</td></tr>				<tr><td><b>Posted:</b></td><td>8/4/2000; 8:25:30 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg019421.html">Whither Pike?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>19463 (In response to <a href="msg019447.html">19447</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg019462.html">19462</a> / <a href="msg019464.html">19464</a></td></tr>				</table>			<br>I was intrigued by the <a href="http://radiodiscuss.userland.com/scripting/callbacks">callbacks</a> page which seems to indicate that Dave & crew intend to open up the scripting engine and object database to Radio Userland users.  Maybe that's not news; I never played with Pike enough to see whether that was the case previously.<p>
+
+In any case, the playlist sharing feature of Radio Userland hasn't really interested me, but with scripting and persistent data storage, this becomes a viable platform for some other ideas I've been thinking about.<p>
+
+Of course, since the product is beta, there are issues of price and licensing which will need to be resolved before I would be willing to invest much time.  I might have already started this project in Frontier except for the $800/yr price tag, which is out of the question for the kind of experimental noodling I'm looking to do. If Radio Userland exposes much of the underpinnings of Frontier, I hope Dave & crew will figure out a way to differentiate the products so that they can still charge for Frontier while making Radio Userland free or cheap.<p>
+
+(It should go without saying that in a free market, although I absolutely understand Userland's need to make money, that has to balance with my desire to keep mine. ;-)<p>
+
+Anyway, maybe I'd better describe what I want to do.  In simple terms, I'm looking to store metadata about MP3s and then use that metadata to build playlists.<p>
+
+Obviously, some metadata is already being stored within Radio Userland's object database:  file name and location and now some ID3 info about Song Title, Artist, Album, etc.<p>
+
+I would also like to be able to attach custom attributes to songs on an ad-hoc basis.  Some of the attributes would be objective, like beats per minute, others subjective like a quality rating (scale of 1 to 10?) based on my personal taste.  Attributes could also take the form of adjectives with a numerical rating, like "Funky: 7" (out of 10?), "Mellow: 3", "Upbeat: 9", "Party: 4" etc.  Some attributes might be dynamic calculations; the "Dinner Party" attribute might be a weighted combination of the "Party" and "Mellow" rankings, plus my personal quality rating, so that I will hear mostly mellow, party songs that I like.<p>
+
+It seems to me that once you put some time into building these attributes, you can then do pretty advanced playlist building.  I'd also like to explore the possiblility of putting a feedback loop into the process; if I'm listening to a system-generated playlist and manually skip the currently playing track, that should tell the system something about what kind of music I <i>don't</i> want to hear right now and that should influence future song choices.<p>
+
+I think you can see how this kind of system could start to wander into the area of artificial intelligence, requiring some pretty complex calculations, and that's where I'm not sure whether Frontier has the muscle to pull this off...<p>
+
+Never having used Frontier for any real programming project, I have some questions that some nice folks here might be able to answer:<p>
+
+1) To what degree does the Frontier Object Database support querying, indexes, arrays which represent subsets of records, etc?  For instance, how much code and execution time would it take to crank through several thousand songs looking for those that rank highest on a given attribute or set of attributes?  In my day job I work with SQL databases, where you describe for the backend engine what kinds of records you are looking for and it goes off and finds them, handing you back a set of matching data.  I expect it's a little more work than that with Frontier?<p>
+
+2) Does Frontier support AppleScript syntax (which I am somewhat familiar with) or will I have to learn Usertalk?<p>
+
+3) If Dave would like to make any public statements about the pricing model for Radio Userland at this early stage, that would help me make a decision. I understand this may not be possible yet.<p>
+
+
+BTW, to Dave's RU team: If you happens to be working on this sort of functionality already, you may feel free to steal any of my ideas; the only reason I'm threatening to write it myself is that I can't find it anywhere else already.  If this is a direction you'd like to take RU, I have plenty of other suggestions and ideas. ;-)<p>
+
+Incidentally, I said above that the playlist sharing feature hasn't captured my fancy.  However, if I could share some of these attributes I'm talking about with others, that could save a lot of time.  I would be willing to trust someone else's opinion of how "Funky" the songs in my database are, for instance, as long as I can edit the ratings myself if I disagree...<p>
+
+Thanks in advance.<p>
+
+-Jeff
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg019475.html">Re: callbacks</a>, Alan German, 8/4/2000; 11:53:04 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:55:59 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

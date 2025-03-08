@@ -1,0 +1,15 @@
+<html>	<head>		<title>Re: How to populate a DB from a RSS channel in Cold Fusion</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: How to populate a DB from a RSS channel in Cold Fusion</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>James Carlyle</td></tr>				<tr><td><b>Posted:</b></td><td>9/15/1999; 5:56:53 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg010986.html">How to populate a DB from a RSS channel in Cold Fusion</a></td></tr>				<tr><td><b>Msg #:</b></td><td>11023 (In response to <a href="msg011001.html">11001</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg011022.html">11022</a> / <a href="msg011024.html">11024</a></td></tr>				</table>			<br>Fabrice and Zac<p>
+
+I've just thought of a possible way of doing this.  Use XSL to transform the RSS to WDDX, and then go from WDDX to the database inside Cold Fusion by deserialising the WDDX to a CF query object.<p>
+
+i.e. <p>
+
+<CFWDDX action='wddx2cfml' input=#wddxText# output='qnew'><p>
+
+<CFOUTPUT query=qnew><br>
+insert into NEWS(title,link,summary)<br>
+values ('#title#','#link#','#summary#')<br>
+</CFOUTPUT><p>
+
+Let me know if you work on this stylesheet.  I'd like to persuade Allaire to offer more out-of-the-box support for popular formats like RSS and ScriptingNews.  BTW, ColdFusion cannot be used as a XML-RPC server at the moment, since it cannot access the POST payload except by name/value pairs.  Otherwise I would have added a XML-RPC interface for xmlTree.  Sim Simeonov tells me that this should be addressed in the next version.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg011034.html">Re: How to populate a DB from a RSS channel in Cold Fusion</a>, Mesplé Fabrice, 9/15/1999; 7:48:50 AM<p><li>&nbsp;<a href="msg011035.html">Re: How to populate a DB from a RSS channel in Cold Fusion</a>, Mesplé Fabrice, 9/15/1999; 7:58:22 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:36 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

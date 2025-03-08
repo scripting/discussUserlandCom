@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: expansionState</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: expansionState</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brad Pettit</td></tr>				<tr><td><b>Posted:</b></td><td>9/16/2000; 4:16:09 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg021361.html">Outline XML files need a name</a></td></tr>				<tr><td><b>Msg #:</b></td><td>21404 (In response to <a href="msg021398.html">21398</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg021403.html">21403</a> / <a href="msg021405.html">21405</a></td></tr>				</table>			<br>Jim, I agree with you that isExpanded (or a shortened version) would be more intuitive and more likely to be used than the expansionState array. The symmetry with isComment and isBreakpoint feels right as well.<p>
+
+Expansion could also work as an attribute that told how many levels were expanded.<p>
+
+By default, 0, no levels below the current level. If a level is expanded, then its children's expansion value is used to control whether they are expanded. Fully expanded would be one attribute with a value of 999 at the root. Fully collapsed would be no extra attributes. The typical behavior of expanding one node to reveal one level would result in one attribute being added to the node with a value of 1, followed by an optional traversal of the children to remove any expDepth attributes they contained.<p>
+
+It fits in with rules, as well.<p>
+
+--bp
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg021405.html">Re: expansionState</a>, Dave Winer, 9/16/2000; 4:21:52 PM<p><li>&nbsp;<a href="msg021425.html">Re: expansionState</a>, Jim Roepcke, 9/16/2000; 9:20:06 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:56:43 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

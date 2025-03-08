@@ -1,0 +1,18 @@
+<html>	<head>		<title>Re: Working on membership stuff</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Working on membership stuff</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Kurt J. Egger</td></tr>				<tr><td><b>Posted:</b></td><td>12/30/1998; 6:27:36 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg001774.html">Working on membership stuff</a></td></tr>				<tr><td><b>Msg #:</b></td><td>1784 (In response to <a href="msg001783.html">1783</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg001783.html">1783</a> / <a href="msg001785.html">1785</a></td></tr>				</table>			<br>Serving from ODBC databases means beefing up (and implementing general calls) of the ODBC client from Tallent.<p>
+
+I thought of accessing Frontier through ODBC like MS SQL Server, Oracle, Jet Datasources, MS Access. That would open a whole suite of (legacy) office and workflow apps.<p>
+
+Possible uses I can imagine:<br>
+- Having a huge selection of clients (Word, Excel, VB, PowerBuilder made clients, MapInfo, etc.)
+- Being able to represent the data as relational DB, Frontier ODB, XML
+- XQL as future development<p>
+
+Implementation would need:
+- ODBC Driver
+- Communication through TCP/IP
+- Building at least ODBC Core or Level 1 compatibility (ODBC daemon in Frontier, parsing SQL-Queries, see: <a href="http://discuss.userland.com/msgReader$1782">http://discuss.userland.com/msgReader$1782</a>)<p>
+
+This will be a major task. Maybe it would be better to go straight into XQL parsing.<p>
+
+Kurt
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:01 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

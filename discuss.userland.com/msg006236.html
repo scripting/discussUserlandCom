@@ -1,0 +1,43 @@
+<html>	<head>		<title>Re: DG security Check</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: DG security Check</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Stan Purington</td></tr>				<tr><td><b>Posted:</b></td><td>5/14/1999; 12:46:48 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg006186.html">DG security Check</a></td></tr>				<tr><td><b>Msg #:</b></td><td>6236 (In response to <a href="msg006190.html">6190</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg006235.html">6235</a> / <a href="msg006237.html">6237</a></td></tr>				</table>			<br>We decided that the simplist solution might be to insert just a small bit of code in the existing scripts.<p>
+
+In mainresponder.members.checkmembership where it calls sendmail we made the following modification.
+<pre>
+"signupform" &#123;
+	with adrmembers^ &#123;
+		local (mailaddress = string.urldecode (args.mailaddress));
+		
+		<a href="//">//</a> MY CODE HERE - checks for user email in external database
+		if workspace.checkSSAUser(<a href="mailto:mailaddress,@scratchPad.userdata">mailaddress,@scratchPad.userdata</a>) &#123;
+			mainresponder.members.sendMail (mailaddress, adrmembers);
+			adrparamtable^.userOK = true}
+		else &#123;
+			<a href="//">//</a> I want to redirect the user to a different page here
+			<a href="//">//</a> originally put mainresponder.redirect("someurl") here
+			<a href="//">//</a> but got errors
+			
+			adrparamtable^.userOK = false};
+		<a href="//">//</a> END MY CODE
+		
+		adrparamtable^.mailAddress = mailaddress; <a href="http://make/">//make</a> it available to the logon macro
+		
+		&#171;adrobject = @parentof (adrobject^)^.checkYourMail <a href="http://redirection/">//redirection</a>, fast!
+		scriptError ("!redirect " + adratts^.urls^.memberCheckMail + "$" + mailaddress)}}
+</pre>		<p>
+
+We originally put a mainresponder.redirect("some url") in the else, which just gave us an error "Can’t find a sub-table named pageTableAddresses."<p>
+
+Then decided to put a final filter script in the logon area. The script would check to see if the user is ok then set the redirect. <p>
+
+
+<pre>
+on finalFilter (adrPageTable) &#123;
+	if !adrPageTable^.userOK &#123;
+		mainresponder.redirect("http://someurl/")};
+	return (true)}		
+</pre><p>
+
+
+Got an error "Can’t evaluate the expression because the name “userOK” hasn’t been defined"<p>
+
+I must be missing something somewhere, right?
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg006246.html">Re: DG security Check</a>, André Radke, 5/14/1999; 2:12:27 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:50:09 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

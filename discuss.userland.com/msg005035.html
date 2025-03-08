@@ -1,0 +1,19 @@
+<html>	<head>		<title>Re: Easy road to Double Byte in Frontier Land</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Easy road to Double Byte in Frontier Land</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Philip Suh</td></tr>				<tr><td><b>Posted:</b></td><td>4/15/1999; 8:57:17 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005016.html">Easy road to Double Byte in Frontier Land</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5035 (In response to <a href="msg005016.html">5016</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005034.html">5034</a> / <a href="msg005036.html">5036</a></td></tr>				</table>			<br><ol>
+<i>The trick is to use UTF-8. UTF-8 provides backward compatibility to ASCII, so you don't have to worry about messing the non-ASCII characters with the standard 127 ASCII characters. What that means is, almost all of the special charaters that Frontier uses are safe under UTF-8 (with one exception, the chevron [&#171;]; but I think we are supposed to use "//" instead starting from Frontier 5).<p>
+
+To use UTF-8 in Frontier, you need a Mac. If anyone knows a way to translate double byte to and from Unicode, please let me know. You also need an OSAX called "TEC" (<a href="http://www.bekkoame.ne.jp/~iimori/sw/TECOSAX.html">http://www.bekkoame.ne.jp/~iimori/sw/TECOSAX.html</a>). Yes, it's from Hideaki Iimori, the same person who brought us MWU.<p>
+
+Anyway, here is how to use TEC to make a double byte web site. First of all, make sure you turn off the pref "isoFilter". Then in your firstFilter script, write a few lines of code to convert adrPageTable^.adrobject^ from the classic double byte coding to "UTF-8" (you can write it in any way you want, it's very simple, if anyone interest, I can publish mine). The in your finalFilter, add a line (preferably at the end of the finalFilter script) to convert adrPageTable^.renderedText from "UTF-8" to the classic encoding that you want. Also, you should convert the adrPageTable^.adrobject^ back to the original encoding so that you can edit it easily.</i><<p>
+
+
+Lixian,<p>
+
+Thank you for your work here.  I haven't had to do a Japanese site for awhile, so I haven't really researched double-byte languages in Frontier 6.<p>
+
+Your information is really interesting.  Would you please publish your script for converting between classic double-byte and Unicode?<p>
+
+A crossplatform DLL would be really sweet, and it sounds like it wouldn't be too hard.  Any c++ guru's out there who want to try this?<p>
+
+Thanks again...
+</ol>
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg005042.html">Re: Easy road to Double Byte in Frontier Land</a>, Lixian B. Chiu, 4/15/1999; 10:14:41 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:49:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

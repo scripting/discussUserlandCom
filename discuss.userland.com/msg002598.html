@@ -1,0 +1,32 @@
+<html>	<head>		<title>Re: #renderTableWith doesn't match doc</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: #renderTableWith doesn't match doc</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Michael Johnston</td></tr>				<tr><td><b>Posted:</b></td><td>1/30/1999; 7:44:32 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002454.html">Search Engine XML-RPC Interface</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2598 (In response to <a href="msg002576.html">2576</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002597.html">2597</a> / <a href="msg002599.html">2599</a></td></tr>				</table>			<br>Ahh, I just found Sam Reynolds #renderTableWith tutorial on SM, in which he describes a workaround for the problem.<p>
+
+Very cool workaround, thanks Sam.<p>
+
+I made a couple changes, cuz I don't like copying and pasting:
+<pre>
+on renderTableAs ( tableAdr ) 
+	&#171;Instructions:
+		&#171;Leave this script in user.html.renderers
+		&#171;Create a template (outline or wptext) and put it somewhere in the templates hierarchy.
+		&#171;In the template, refer to items in the table as &#123;tbl^.itemname}.
+                &#171;Use  the directive #useOutline within the table you're rendering to specify an outline template
+	on GetPageTbl() 
+		try 
+			return( html.getPageTableAddress() )
+		return( @websites.["#data"] )
+	local 
+		pageTbl = GetPageTbl()
+		templateAdr
+	if defined (pageTbl^.useOutline ) 
+		templateAdr = @pageTbl^.templates^.[pageTbl^.useOutline]
+	else
+		if defined ( tableAdr^.["#useOutline"] ) 
+ 			templateAdr = @pageTbl^.templates^.[tableAdr^.["#useOutline"]]
+		else
+			templateAdr = user.html.templates.basicTableOutline &#171;  make a template to catch unspecified tables
+	pageTbl^.tbl = tableAdr
+	html.processMacros( string( templateAdr^ ) )
+</pre><p>
+
+I still think it'd be nice if UserLand patched up tenderRender to conform to the doc for #renderTableWith, but this works great.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:41 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

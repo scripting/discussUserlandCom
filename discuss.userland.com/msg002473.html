@@ -1,0 +1,36 @@
+<html>	<head>		<title>XML-RPC GlossServer</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>XML-RPC GlossServer</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Steve Ivy</td></tr>				<tr><td><b>Posted:</b></td><td>1/26/1999; 6:40:38 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002473.html">XML-RPC GlossServer</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2473</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002472.html">2472</a> / <a href="msg002474.html">2474</a></td></tr>				</table>			<br>Wow. I love Frontier.<p>
+
+	As part of a continuing attempt to understand the xml-rpc machanism, I sat down this morning and (in about 30 minutes) wrote a *very* simple glossary server. At the moment it takes two parameters: "entry", which is the quoted text you'd normally put into an html page, and "site" which is the glossary you want to check in. The "site" functionality only works right now for websites.[site].["#glossary"] entries. I've got more digging to do to figure out how to offer access to glossaries in GDBs, in subsites, etc. Any Frontier glossary guru who wants can pitch in and fix this code up, and I thought I'd toss it out there. I wrote this as part of a desire to see something like it on the Discussion Group, so one can test for an entry in the DG. If this returns without an error when hitting the DG glossary, then there's a message with a title which matches the "entry" param.<p>
+
+	As I'm stuck behind a firewall, I don't have a server to run this on as a test, but it works OMM. <p>
+
+	It's also a little piece of the larger "let's hook up content tools to xml-rpc" picture. Have fun!<p>
+
+	--Steve<p>
+
+<pre>
+	on glossServer (entry,site="all") &#123;
+	&#171;Tue, Jan 26, 1999 at 9:31:33 AM by RSI
+	local &#123;
+		glossary;
+		returntext};
+	on add(s) &#123;
+		returntext = returntext + s};
+	if site != "all" &#123;
+		glossary = @websites.[site].["#glossary"]}
+	else &#123;
+		&#171;loop over "websites", adding each #glossary to glossaryList
+		&#171;this does nada yet.
+		return};
+	if defined (glossary^.[entry]) &#123;
+		if typeOf(glossary^.[entry]) == tableType &#123;
+			add("<a href="http://static.userland.com/userLandDiscussArchive/\\&quot;\&quot;);"
+			add(glossary^.[entry].path);
+			add("\\">" + glossary^.[entry].linetext);
+			add("</a>");
+			return (returntext)};
+		else &#123;
+			return glossary^.[entry]}}}
+</pre>
+	(x-posted to SM/DG)
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:47:35 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

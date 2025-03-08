@@ -1,0 +1,12 @@
+<html>	<head>		<title>Re: Trouble using discussion group.</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Trouble using discussion group.</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>André Radke</td></tr>				<tr><td><b>Posted:</b></td><td>4/25/1999; 1:58:15 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg005294.html">Trouble using discussion group.</a></td></tr>				<tr><td><b>Msg #:</b></td><td>5295 (In response to <a href="msg005294.html">5294</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg005294.html">5294</a> / <a href="msg005296.html">5296</a></td></tr>				</table>			<br><i>Can't get the first day in the calendar because adrcalendar doesn't point to a valid non-empty calendar structure.</i><p>
+
+Open discussionGroup.default in htmlInterfaces.root and look for the following line:<p>
+
+<pre>caltext = caltext + "<br>" + mainresponder.calendar.getLinks (adrcal, theDay, url)
+</pre><p>
+
+Change it to:<p>
+
+<pre>try &#123; caltext = caltext + "<br>" + mainresponder.calendar.getLinks (adrcal, theDay, url) }
+</pre>
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:49:31 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

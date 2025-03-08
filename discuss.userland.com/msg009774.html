@@ -1,0 +1,25 @@
+<html>	<head>		<title>Frontier 6.1d16 on Nirvana</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Frontier 6.1d16 on Nirvana</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>8/22/1999; 12:36:49 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg009774.html">Frontier 6.1d16 on Nirvana</a></td></tr>				<tr><td><b>Msg #:</b></td><td>9774</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg009773.html">9773</a> / <a href="msg009775.html">9775</a></td></tr>				</table>			<br>We just installed Frontier 6.1d16 on this server and as a result you should see another increase in performance when reading and posting DG messages here.<p>
+
+<b>Experiments</b><p>
+
+See this <a href="http://discuss.userland.com/msgReader$9591">message</a> from Tuesday for a list of the sites whose performance should improve.<p>
+
+<b>Crashing bug nabbed</b><p>
+
+We're on the track of a bug that's the source of many of the
+crashes we see on our servers. It's a cross-platform crasher, working
+it's magic equally well on Macs and Windows servers.<p>
+
+Andre found it last night after a week of searching. He will have more
+information if people are interested.<p>
+
+For now, I've checked in a single fix, described below, that makes it safe to render static pages in the background. We expect there will be other places we have to update to close this issue. Frontier 6 users, update mainResponder.root in the usual way to get the fix on your system.<p>
+
+<b>mainResponder.background.everyMinute</b><p>
+
+If config.mainresponder.prefs.flBuildPagesInBackground is true, we would leave around a dangling and dangerous pagetable address in
+system.temp.pageTableAddresses .<p>
+
+By calling html.deletePageTableAddress, this operation cleans up after
+itself, and thereby avoids a crash at some random time in the future.
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg009775.html">Re: Frontier 6.1d16 on Nirvana</a>, Sam DeVore, 8/22/1999; 12:49:44 PM<p><li>&nbsp;<a href="msg009789.html">Re: Frontier 6.1d16 on Nirvana</a>, Philippe Martin, 8/23/1999; 6:18:43 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:52:02 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

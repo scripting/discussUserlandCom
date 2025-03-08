@@ -1,0 +1,10 @@
+<html>	<head>		<title>Re: Status report on 6.0 and 5.1.5</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Status report on 6.0 and 5.1.5</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Brent Simmons</td></tr>				<tr><td><b>Posted:</b></td><td>12/4/1998; 10:42:05 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000548.html">Search engine comments?</a></td></tr>				<tr><td><b>Msg #:</b></td><td>793 (In response to <a href="msg000773.html">773</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000792.html">792</a> / <a href="msg000794.html">794</a></td></tr>				</table>			<br>The plan is to use VBScript, Jscript, PerlScript -- any Active Scripting Engine -- as our COM clients.<p>
+
+You'll be able to send parameters from Frontier to a script and get back a result. Frontier will execute the script by passing it to the Microsoft Script Control, a DLL they provide free from their Scripting site:<p>
+
+<a href="http://msdn.microsoft.com/scripting/">http://msdn.microsoft.com/scripting/</a><p>
+
+You'll be able to edit your VBScript scripts in a script editor window if you want -- but at least at first you'll need to call a glue script to execute these scripts, rather than call a script directly. The syntax will be somewhat like the callScript verb.<p>
+
+I think this will be very powerful -- rather than try to build a complete set of COM client verbs in Frontier's kernel, it's better to connect to the platform's already well-developed COM scripting languages.
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:14 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

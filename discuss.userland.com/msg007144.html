@@ -1,0 +1,14 @@
+<html>	<head>		<title>Easier Web Document Creation: open()</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Easier Web Document Creation: open()</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>fisherm@tce.com</td></tr>				<tr><td><b>Posted:</b></td><td>6/9/1999; 7:55:19 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg007144.html">Easier Web Document Creation: open()</a></td></tr>				<tr><td><b>Msg #:</b></td><td>7144</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg007143.html">7143</a> / <a href="msg007145.html">7145</a></td></tr>				</table>			<br>A thread is going on perl5-porters about this topic.  The basic
+proposal is to allow (example in Perl):
+    open(IFH, "http://davenet.userland.com");
+as well as the conventional:
+    open(IFH, "h:/metapage/userland/davenet/index.html");<p>
+
+This could be extended through the under-used HTTP PUT directive,
+which I think will become much more useful now that WebDAV is here.
+Specifically, to write a Web page one would do (in Perl):
+    open(OFH, ">http://davenet.userland.com");
+(the Perl syntax for creating/overwriting a file).  With this
+idea, File -> New and File -> Open could be extended to just accept
+a URL as the location.  If someone really has a file called:
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:50:40 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

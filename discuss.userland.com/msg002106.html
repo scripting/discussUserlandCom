@@ -1,0 +1,43 @@
+<html>	<head>		<title>RFC: New attribute for glossary entries</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>RFC: New attribute for glossary entries</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Jim Roepcke</td></tr>				<tr><td><b>Posted:</b></td><td>1/13/1999; 1:47:39 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg002101.html">Staging Server</a></td></tr>				<tr><td><b>Msg #:</b></td><td>2106 (In response to <a href="msg002102.html">2102</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg002104.html">2104</a> / <a href="msg002107.html">2107</a></td></tr>				</table>			<br>Add another attribute to #glossary table entries called dynamic.<p>
+
+Example:<p>
+
+<PRE> #glossary
+    Search Page
+       linetext      "Search This Site"
+       path          "search/search.html"
+       dynamic       false</PRE><p>
+
+If html.addPageToGlossary is called in the context of mainResponder or wsf, then dynamic is set to true when the entry is created.<p>
+
+If html.addPageToGlossary is called in the context of the HTML framework, dynamic is set to false.<p>
+
+This could solve the issue Matt Neuberg mentioned a long time ago where you couldn't point to a static site from a dynamic site via the glossary because html.refGlossary changes all file extensions to .wsf whether or not the target page should be browsed dynamically or not.<p>
+
+I wonder if it might also be part of a solution for Alan German's problem posted recently about Staging Servers.<p>
+
+With the 'dynamic' element, html.refGlossary should only change the file extension if dynamic doesn't exist (for backwards compatibility), or if it is true.<p>
+
+<b><i>It looks like a one line change in html.refGlossary!!</i></b><p>
+
+<b>Current code from html.refGlossary</b>
+<i> lightly edited to work around DG issues</i><p>
+
+<PRE>case typeOf (adr^) &#123;
+	scriptType &#123; &#171;new in 5.0, glossary items can be scripts
+		return (adr^ ())};
+	tableType &#123; &#171;new in 5.0, convert a table (prettier to look at) to a glossPatch
+		local (s = "[ [#glossPatch ", path = adr^.path);
+		if html.inResponder (adrPageTable) &#123;
+			path = string.popSuffix (path)   ".wsf"};
+		s = s   adr^.linetext   "|";
+		s = s   path   "|]]";
+		return (s)}}</PRE><p>
+
+<b>Replacement for "if html.inResponder" line above:</b><p>
+
+<PRE>if html.inResponder (adrPageTable) and ((notdefined(adr^.dynamic)) or (not adr^.dynamic))</PRE><p>
+
+Comments?<p>
+
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg002110.html">Re: RFC: New attribute for glossary entries</a>, Jim Roepcke, 1/13/1999; 2:37:27 PM<p><li>&nbsp;<a href="msg002123.html">Re: RFC: New attribute for glossary entries</a>, Dave Winer, 1/14/1999; 11:20:28 AM<p><li>&nbsp;<a href="msg002124.html">Re: RFC: New attribute for glossary entries</a>, Brent Simmons, 1/14/1999; 12:42:18 PM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:47:16 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

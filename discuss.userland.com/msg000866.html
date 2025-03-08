@@ -1,0 +1,40 @@
+<html>	<head>		<title>Re: Zope vs. Frontier</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: Zope vs. Frontier</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>mike@icebox.dlogue.net</td></tr>				<tr><td><b>Posted:</b></td><td>12/6/1998; 9:09:57 AM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000827.html">Zope vs. Frontier</a></td></tr>				<tr><td><b>Msg #:</b></td><td>866 (In response to <a href="msg000832.html">832</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000865.html">865</a> / <a href="msg000867.html">867</a></td></tr>				</table>			<br>Someone posted to the Zope list that this thread existed, so I'd like to chime in a bit.  Please note that I have never used Frontier, and will not make any kind of judgments about one thing vs. another.  I am very familiar with Zope and it's capabilities, so I'd like to present a quick run down of them.  I encourage you to check out the Zope site (<a href="http://www.zope.org/">http://www.zope.org/</a>) to make your own evaluations.<p>
+
+Zope is based on the ZPublisher module, which translates URL requests into Python object accesses.  when a URL for say <a href="http://localhost/x/y/z?a=1&b=2">http://localhost/x/y/z?a=1&b=2</a> comes in, ZPublisher acts like an HTTP ORB and translates the URL into x.y.z(1, 2) in Python (loosely).  ZPublisher does this by starting at the top and transversing down the objects attributes until the request is satisfied (at z, in the example).  The Query string is automagicly marshaled by Zope into method arguments, and data types can be specified (int, string, method, etc...).  Document Templates act as members of the object they're contained in (see below).<p>
+
+Zope is, to the site administrator, a content management tool.  Zope stores all of it's content in a master database called a Bobobase (a Python persistent object system) but  can also retrive data from SQL servers.  Administrators can add documents, files, Images, folders, user folders, and application objects into the object tree.  Documents can be edited through the web, and properties for other objects can be modified also.  Documents are written in DTML, a powerful template language that is like SSI (although there is an alternate syntax i'm not very familiar with).  Here is a little DTML example:<p>
+
+<!--#var standard_header-->
+<table>
+<!--#in queryvalues-->
+  <!--#if "type is not 'hidden'"-->
+    <tr>
+      <a href="http://static.userland.com/userLandDiscussArchive/&lt;!--#var sequence-item fmt=url-quote-->">
+      <!--#var sequence-item-->
+      </a>
+    </tr>
+  <!--#/if -->
+<!--#/in -->
+</table>
+<!--#var standard_footer--><p>
+
+Now, is this Document is contained in Folder x and called index_html, and x is in the root of the tree, then the URL <a href="http://.../x/index_html">http://.../x/index_html</a> would parse the document template, fill in the apropriate variables, iterate over any #in sequence statements, render the template in HTML and return it as the response.  index_html coincidentaly happens to be the default member returned if no method is specified (ie: <a href="http://.../x/">http://.../x/</a>)<p>
+
+
+This is, of course, a trivialized example.  The Document Template is parsed by Zope to yeild an HTML File for the browser.  It's important to remember that this document is not kept as a file on the filesystem, but rather as a Document object in the POS database.  #var and #in tags can refer to Pyhton attributes or members of the Document Object, or to other objects in the object tree.  This is done with a tricky and very cool mechanism called Acquisition, in which an object can aquire attributes from it's parents in a container heirarchy.  It's similar to object inheritance, in which object aquire attributes from their base classes; Acquisition aquires attributes from parent container classes.<p>
+
+To the application developer (like me) Zope is a complete application platform.  Python Packages can be added to the Zope Product database and complete applications can be defined in them.  These applications can be added to the object tree just like other Zope objects.  As an example, I'm currently writing two applications, one is NotMail, a free clone of the HotMail (R) web interface, and the other is ZTrove, a Zope implimentation of the Trove archiving program defined by Eric Raymond (gratuitous plug to stir interest).  There are several things I like about developing in this environment:<p>
+
+	It's written in Pyhon
+	No messy cgi anything
+	There are lots of cool objects to use and extend
+	DTML seperates the layout from the code, layout and 
+		functionality can be developed seperatly by 
+		layout specialists and programmers respectivly.<p>
+
+As a final note, Zope is not tied to any specific Web Server, and to date can be used with Apache through PCGI, Apache through the mod_pyhton module, Medusa (an asychronous server written in Pyhton), and ZopeHTTPServer, a simple python server dedicated toward publishing Zope and Zope only.  It runs quite well on RedHat linux 5.0, 5.1 and 5.2 (it's developed on 5.1) and when used with ZopeHTTPServer (which it comes with), requires only python 1.5 or higher (and C development ability).  It works for Win32, but I personally haven't tried it.  Win32 binaries are available in the contrib section of the site.  I believe it's been tried a various other flavors of UNIX.  I'm assuming that most all platforms that Python supports are supported.<p>
+
+Regards,<p>
+
+Michel Pelletier
+			<br><br><hr><b>There are responses to this message:</b><ul><li>&nbsp;<a href="msg000867.html">Re: Zope vs. Frontier</a>, Dave Winer, 12/6/1998; 9:30:47 AM<p></ul>			<br><br><hr>This page was archived on 6/13/2001; 4:46:18 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

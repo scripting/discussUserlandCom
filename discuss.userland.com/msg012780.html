@@ -1,0 +1,20 @@
+<html>	<head>		<title>Re: tail -f in a web page</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Re: tail -f in a web page</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Aaron Straup Cope</td></tr>				<tr><td><b>Posted:</b></td><td>11/6/1999; 3:02:04 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg012705.html">A question for Apache gurus</a></td></tr>				<tr><td><b>Msg #:</b></td><td>12780 (In response to <a href="msg012764.html">12764</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg012779.html">12779</a> / <a href="msg012781.html">12781</a></td></tr>				</table>			<br>The Perl Cookbook Chapter 8.4 , Reading a File Backwards by Line or Paragraph<p>
+
+#!/usr/local/bin/perl<p>
+
+use strict;<p>
+
+my $i = 0;
+my $j = 3;<p>
+
+my @lines = <FILE><p>
+
+while ($line = pop @lines) &#123;
+	($i == $j) ? last : $i++;
+	# do something with line;
+&#125;<p>
+
+Alternately, you just could just take a slice from the bottom of the array and loop over that...<p>
+
+btw : what's the deal with new lines. everybody has nicely formatted code but me :-(
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:53:22 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>

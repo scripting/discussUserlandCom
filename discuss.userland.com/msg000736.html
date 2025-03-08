@@ -1,0 +1,8 @@
+<html>	<head>		<title>Changes notes for the XML interface</title>		</head>	<body>		<blockquote><blockquote>			<b>Archive of UserLand's first discussion group, started October 5, 1998.</b><hr>			<h2>Changes notes for the XML interface</h2>			<table cellpadding="0" cellspacing="5">				<tr><td><b>Author:</b></td><td>Dave Winer</td></tr>				<tr><td><b>Posted:</b></td><td>12/3/1998; 12:22:04 PM</td></tr>				<tr><td><b>Topic:</b></td><td><a href="msg000598.html">The first XML-based discussion group</a></td></tr>				<tr><td><b>Msg #:</b></td><td>736 (In response to <a href="msg000598.html">598</a>)</td></tr>				<tr><td><b>Prev/Next:</b></td><td><a href="msg000735.html">735</a> / <a href="msg000737.html">737</a></td></tr>				</table>			<br>1. Error-proofed the server, if there's an error, such as a missing message, the result returned will be in XML, not HTML. The result, instead of containing a <ticket>, will contain an <error>, which is a string, the text of the error message produced by Frontier.<p>
+
+2. If any of the text contains any <'s we replace them with &amp;lt;s. Some early messages contained HTML markup, somewhere along the line we disallowed this.<p>
+
+I just ran a script that read all the messages thru the xml parser, and they worked fine. On to the next problem.<p>
+
+Dave
+			<br><br>			<br><br><hr>This page was archived on 6/13/2001; 4:46:12 PM.<br><br>&copy; Copyright 1998-2001 <a href="http://www.userland.com/">UserLand Software</a>, Inc.			</blockquote></blockquote>		</body>	</html>
