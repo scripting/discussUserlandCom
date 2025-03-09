@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 <opml version="2.0">
 	<head>
-		<title>index.md</title>
-		<dateModified>Sat, 08 Mar 2025 20:45:48 GMT</dateModified>
+		<title>index.opml</title>
+		<dateCreated>Sun, 09 Mar 2025 15:02:47 GMT</dateCreated>
+		<dateModified>Sun, 09 Mar 2025 15:02:54 GMT</dateModified>
+		<ownerId>dave.winer@gmail.com</ownerId>
+		<urlUpdateSocket>wss://drummer.land/</urlUpdateSocket>
 		<expansionState></expansionState>
-		<vertScrollState>1</vertScrollState>
-		<windowTop>300</windowTop>
-		<windowLeft>700</windowLeft>
-		<windowBottom>900</windowBottom>
-		<windowRight>1500</windowRight>
+		<lastCursor>0</lastCursor>
 		</head>
-	<body created="Sat, 08 Mar 2025 20:01:28 GMT" text="index.md">
-		<outline created="Sat, 08 Mar 2025 20:01:36 GMT" text="# discuss.userland.com">
-			<outline created="Sat, 08 Mar 2025 20:43:50 GMT" text="This is a restoration of discuss.userland.com, the first discussion group in the blogosphere. "></outline>
-			<outline text="It was live from &lt;a href=&quot;msg000001.html&quot;&gt;October 5, 1998 &lt;/a&gt;to &lt;a href=&quot;msg021856.html&quot;&gt;September 29, 2000&lt;/a&gt;. "></outline>
-			<outline text="The first message is &lt;a href=&quot;msg000001.html&quot;&gt;msg000001.html&lt;/a&gt;, and from there you can get to all the other messages by clicking on links."></outline>
-			<outline text="You'll see a lot of the early bloggers writing here, before their blogs started. "></outline>
-			<outline text="Lots of possibilities for little projects, like looking for historic posts, where ideas that became something were first discussed. Or all the posts from someone who became an influencer or super rich. Maybe that'll come later. For now I wanted to get this on the open web so it can be indexed by search engines and preserved by archive.org. "></outline>
-			<outline text="The content for this site is &lt;a href=&quot;https://github.com/scripting/discussUserlandCom/&quot;&gt;hosted on GitHub&lt;/a&gt;, so that's another backup. :-)"></outline>
-			<outline text="Dave Winer, March 8, 2025"></outline>
+	<body>
+		<outline text="What is this?" created="Sat, 08 Mar 2025 20:34:39 GMT">
+			<outline text="A restoration of &lt;a href=&quot;https://discuss.userland.com/&quot;&gt;discuss.userland.com&lt;/a&gt;, from 27 years in the future." created="Sat, 08 Mar 2025 20:35:31 GMT"/>
+			</outline>
+		<outline text="About discuss.userland.com" created="Sat, 08 Mar 2025 20:35:38 GMT">
+			<outline text="This discussion group was live from &lt;a href=&quot;msg000001.html&quot;&gt;October 5, 1998 &lt;/a&gt;to &lt;a href=&quot;msg021856.html&quot;&gt;September 29, 2000&lt;/a&gt;. "/>
+			<outline text="The first message is &lt;a href=&quot;msg000001.html&quot;&gt;msg000001.html&lt;/a&gt;, and from there you can get to all the other messages by clicking on links." created="Sat, 08 Mar 2025 20:36:05 GMT"/>
+			<outline text="You'll see a lot of the early bloggers writing here, before their blogs started. "/>
+			<outline text="Lots of possibilities for little projects, like looking for historic posts, where ideas that became something were first discussed. Or all the posts from someone who became an influencer or super rich. Maybe that'll come later. For now I wanted to get this on the open web so it can be indexed by search engines and preserved by archive.org. "/>
+			<outline text="The content for this site is &lt;a href=&quot;https://github.com/scripting/discussUserlandCom/&quot;&gt;hosted on GitHub&lt;/a&gt;, so that's another backup. :-)" created="Sat, 08 Mar 2025 20:36:44 GMT"/>
+			<outline text="Dave Winer, March 8, 2025"/>
 			</outline>
 		</body>
 	</opml>
