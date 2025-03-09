@@ -6,9 +6,9 @@
 		<description>Where the blogosphere booted up in 1998-2001.</description>
 		<ownerId>dave.winer@gmail.com</ownerId>
 		<urlUpdateSocket>wss://drummer.land/</urlUpdateSocket>
-		<dateModified>Sun, 09 Mar 2025 15:14:13 GMT</dateModified>
+		<dateModified>Sun, 09 Mar 2025 15:14:58 GMT</dateModified>
 		<expansionState>1,3,10,12</expansionState>
-		<lastCursor>10</lastCursor>
+		<lastCursor>14</lastCursor>
 		</head>
 	<body>
 		<outline text="What is this?" created="Sat, 08 Mar 2025 20:34:39 GMT">
@@ -28,7 +28,7 @@
 		<outline text="Details" created="Sat, 08 Mar 2025 20:35:38 GMT">
 			<outline text="The first message is &lt;a href=&quot;msg000001.html&quot;&gt;msg000001.html&lt;/a&gt;, and from there you can get to all the other messages by clicking on links." created="Sat, 08 Mar 2025 20:36:05 GMT"/>
 			<outline text="This discussion group was live from &lt;a href=&quot;msg000001.html&quot;&gt;October 5, 1998 &lt;/a&gt;to &lt;a href=&quot;msg021856.html&quot;&gt;September 29, 2000&lt;/a&gt;. "/>
-			<outline text="The content for this site is &lt;a href=&quot;https://github.com/scripting/discussUserlandCom/&quot;&gt;hosted on GitHub&lt;/a&gt;, so that's another backup. :-)" created="Sat, 08 Mar 2025 20:36:44 GMT"/>
+			<outline text="The content for this site is &lt;a href=&quot;https://github.com/scripting/discussUserlandCom/&quot;&gt;hosted on GitHub&lt;/a&gt;, so that's another backup. And you can download the whole site there.  :-)" created="Sat, 08 Mar 2025 20:36:44 GMT"/>
 			<outline text="Dave Winer, March 2025" created="Sun, 09 Mar 2025 15:09:21 GMT"/>
 			</outline>
 		</body>
