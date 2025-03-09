@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <opml version="2.0">
 	<head>
-		<title>index.opml</title>
+		<title>discuss.userland.com</title>
 		<dateCreated>Sun, 09 Mar 2025 15:02:47 GMT</dateCreated>
-		<dateModified>Sun, 09 Mar 2025 15:02:54 GMT</dateModified>
+		<description>Where the blogosphere booted up in 1998-2001.</description>
 		<ownerId>dave.winer@gmail.com</ownerId>
 		<urlUpdateSocket>wss://drummer.land/</urlUpdateSocket>
+		<dateModified>Sun, 09 Mar 2025 15:05:46 GMT</dateModified>
 		<expansionState></expansionState>
 		<lastCursor>0</lastCursor>
 		</head>
